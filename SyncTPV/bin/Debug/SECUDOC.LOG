@@ -1,0 +1,121 @@
+Log: 02:25:49 p. m. martes, 28 de abril de 2020
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: DireccionWS
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExecuteReader(String CadenaSQL) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\clsManejoDatosSqlite.cs:línea 32
+   en SyncTPV.frmConfiguracionWS.btnDescargarUsuario_Click(Object sender, EventArgs e) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\frmConfiguracionWS.cs:línea 47
+-------------------------------
+Log: 02:35:31 p. m. martes, 28 de abril de 2020
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: DireccionWS
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExecuteReader(String CadenaSQL) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\clsManejoDatosSqlite.cs:línea 32
+   en SyncTPV.frmConfiguracionWS.btnDescargarUsuario_Click(Object sender, EventArgs e) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\frmConfiguracionWS.cs:línea 47
+-------------------------------
+Log: 02:14:27 p. m. lunes, 4 de mayo de 2020
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such column: S
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExcecuteNonQuery(String CadenaSQL) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\clsManejoDatosSqlite.cs:línea 41
+   en SyncTPV.frmConfiguracionWS.GuardaAgentes(List`1 lAgentes) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\frmConfiguracionWS.cs:línea 165
+-------------------------------
+Log: 02:14:27 p. m. lunes, 4 de mayo de 2020
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such column: S
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExcecuteNonQuery(String CadenaSQL) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\clsManejoDatosSqlite.cs:línea 41
+   en SyncTPV.frmConfiguracionWS.GuardaAgentes(List`1 lAgentes) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\frmConfiguracionWS.cs:línea 165
+-------------------------------
+Log: 02:14:27 p. m. lunes, 4 de mayo de 2020
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such column: S
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExcecuteNonQuery(String CadenaSQL) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\clsManejoDatosSqlite.cs:línea 41
+   en SyncTPV.frmConfiguracionWS.GuardaAgentes(List`1 lAgentes) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\frmConfiguracionWS.cs:línea 165
+-------------------------------
+Log: 02:14:27 p. m. lunes, 4 de mayo de 2020
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such column: S
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExcecuteNonQuery(String CadenaSQL) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\clsManejoDatosSqlite.cs:línea 41
+   en SyncTPV.frmConfiguracionWS.GuardaAgentes(List`1 lAgentes) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\frmConfiguracionWS.cs:línea 165
+-------------------------------
+Log: 02:27:32 p. m. lunes, 4 de mayo de 2020
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such column: S
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExcecuteNonQuery(String CadenaSQL) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\clsManejoDatosSqlite.cs:línea 41
+   en SyncTPV.frmConfiguracionWS.GuardaAgentes(List`1 lAgentes) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\frmConfiguracionWS.cs:línea 166
+-------------------------------
+Log: 05:40:05 p. m. lunes, 4 de mayo de 2020
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+no such table: Agentes
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExcecuteNonQuery(String CadenaSQL)
+   en SyncTPV.frmConfiguracionWS.EliminarAgentes(String& MensajeError)
+-------------------------------
+Log: 01:14:32 p. m. martes, 5 de mayo de 2020
+code = Busy (5), message = System.Data.SQLite.SQLiteException (0x800007AF): database is locked
+database is locked
+   en System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en SyncTPV.clsManejoDatosSqlite.ExcecuteNonQuery(String CadenaSQL) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\clsManejoDatosSqlite.cs:línea 41
+   en SyncTPV.frmConfiguracionWS.btnDescargarUsuario_Click(Object sender, EventArgs e) en C:\Users\Administrator\Documents\Visual Studio 2019\Projects\SyncTPV\SyncTPV\frmConfiguracionWS.cs:línea 53
+-------------------------------
+Log: 12:31:40 p. m. viernes, 28 de mayo de 2021
+Exception updateDb:SQL logic error
+duplicate column name: alternate_code
+-------------------------------
+Log: 07:58:25 a. m. miércoles, 3 de agosto de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Proyects\SyncTPV\SyncTPV\Program.cs:línea 20
+-------------------------------

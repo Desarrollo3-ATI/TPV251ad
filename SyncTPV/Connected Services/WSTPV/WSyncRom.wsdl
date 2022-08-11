@@ -1,0 +1,4423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="VersionWS">
+        <s:complexType />
+      </s:element>
+      <s:element name="VersionWSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VersionWSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ping">
+        <s:complexType />
+      </s:element>
+      <s:element name="PingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CLAVE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBRE" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidaUsuarioResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="validarDocumentosNoEnviadoDeUnAgente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="claveAgente" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="validarDocumentosNoEnviadoDeUnAgenteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getData">
+        <s:complexType />
+      </s:element>
+      <s:element name="getDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllDataAboutdistributor">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllDataAboutdistributorResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExisteRuta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="USUARIO_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExisteRutaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExisteRutaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTArticulos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTArticulosResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTBANCOS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTBANCOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTBENEFICIARIO">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTBENEFICIARIOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCATVISITAS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCATVISITASResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCATRECHAZOS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCATRECHAZOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCIUDADES">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTCIUDADESResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTESTADOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTESTADOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTHISTORIALVENTA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTHISTORIALVENTAResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCLIENTES">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTCLIENTESResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTFORMASCOBRO">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTFORMASCOBROResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTFORMASPAGOVENTAS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTFORMASPAGOVENTASResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTGRUPOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTGRUPOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTLINEAS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTLINEASResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTPRECIOSARTICULOS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTPRECIOSARTICULOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTPRECIOSEMPRESA">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTPRECIOSEMPRESAResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTUSUARIOS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTUSUARIOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTZONASCLIENTES">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTZONASCLIENTESResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCREDITOS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTCREDITOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DatosTicket">
+        <s:complexType />
+      </s:element>
+      <s:element name="DatosTicketResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTPAGOSCREDITO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTPAGOSCREDITOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="insertar_cliente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBREU" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="zonacliente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ciudad_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="estado_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="calle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numero" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="colonia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="poblacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referencia" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="telefono" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="rfc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notas" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertar_clienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertar_clienteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APLICA_DOCTO_VENTA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DOCTO_ID_PEDIDO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APLICA_DOCTO_VENTAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="APLICA_DOCTO_VENTAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LIBERA_DOCTOINV">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DOCTO_ID_PEDIDO" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LIBERA_DOCTOINVResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LIBERA_DOCTOINVResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FRECHAZAPEDIDO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PEDIDO_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="USUARIO_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RAZON_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHAHORA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LATITUD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LONGITUD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FRECHAZAPEDIDOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FRECHAZAPEDIDOResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FACTUALIZAGPS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="USUARIO_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHAHORA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LATITUD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LONGITUD" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FACTUALIZAGPSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FACTUALIZAGPSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insertar_PedidosEncabezado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clave_cliente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cliente_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="descuento" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="total" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBREU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ALMACEN_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ANTICIPO" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="TIPO_DOCUMENTO" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FORMA_COBRO_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FACTURA" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="observacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DEV" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FVENTA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHAHORAMOV" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="USUARIO_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FORMA_COBRO_ID_ABONO" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CIDDOCTOPEDIDOCC" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insertar_PedidosEncabezadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Insertar_PedidosEncabezadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insertar_encabezado_documento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="encabezado" type="tns:clsEncabezado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsEncabezado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CIDCLIENTEPROVEEDOR" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCODIGOCLIENTE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CIDAGENTE" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CNOMBREAGENTE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CDESCUENTODOC1" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CTOTAL" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="idAlmacen" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ANTICIPO" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CIDDOCUMENTODE" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CMETODOPAG" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FACTURA" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="COBSERVACIONES" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DEV" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CFECHA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRUTA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CREFERENCIA" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDPEDIDOCALLC" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insertar_encabezado_documentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Insertar_encabezado_documentoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insertar_PedidosDetalle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DOCTO_ID_PEDIDO" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CLAVE_ART" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ARTICULO_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="unidades" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="precio" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TOTAL" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="POSICION" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TIPO_DOCUMENTO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBREU" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FACTURA" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DESCUENTO" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="OBSERVACIONES" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IDDEV" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="COMENTARIO" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="USUARIO_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insertar_PedidosDetalleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Insertar_PedidosDetalleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertar_cuentasxcobrar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NATURALEZA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FOLIO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CLAVE_CLI" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CLIENTE_ID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="IMPORTE" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="DOCTO_APLICAR" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBREU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FORMA_COBRO_CC_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="REFER_MOVTO_BANCARIO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHA" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHAHORAMOV" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FOLIODOCTO" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ESTATUS" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="USUARIO_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertar_cuentasxcobrarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertar_cuentasxcobrarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertar_gps">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LAT" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LON" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CLIENTE_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHA" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TIPO_MOV" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="VENDEDOR_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDocto" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertar_gpsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insertar_gpsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTCLIENTEPEDIDO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ruta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTCLIENTEPEDIDOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="FCARGAPEDIDOENCABEZADO">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="USUARIO_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FCARGAPEDIDOENCABEZADOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="FCARGAPEDIDODETALLE">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DOCTO_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FCARGAPEDIDODETALLEResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="obtenerfcm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="USUARIO_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fcm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerfcmResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTPLAN_VISITAS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RUTA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DTPLAN_VISITASResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDESCUENTOS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDESCUENTOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCAJAPAQUETES">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCAJAPAQUETESResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCATALOGO_PROMOCIONES_VIGENTES">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTCATALOGO_PROMOCIONES_VIGENTESResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_PROMOCIONES_ARTICULOS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_PROMOCIONES_ARTICULOSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_DESC_VOLUMENLINEAS">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_DESC_VOLUMENLINEASResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_PROMOCIONES_GRUPO">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_PROMOCIONES_GRUPOResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_PROMOCIONES_LINEA">
+        <s:complexType />
+      </s:element>
+      <s:element name="DTDETALLE_PROMOCIONES_LINEAResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ABRIRCAJA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MONTO" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBREU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="VENDEDOR_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ABRIRCAJAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ABRIRCAJAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CERRARCAJA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MONTO" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBREU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="VENDEDOR_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CERRARCAJAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CERRARCAJAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="INSERT_BITACORA_LECTURA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CLIENTE_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHA" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="INSERT_BITACORA_LECTURAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INSERT_BITACORA_LECTURAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="INSERT_HISTORIALCXC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FOLIO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="USUARIO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MONTO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FECHAHORAMOV" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FORMAPAGO" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FOLIONUEVO" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="INSERT_HISTORIALCXCResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="INSERT_HISTORIALCXCResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VALIDACAJA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NOMBREU" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="VENDEDOR_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VALIDACAJAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VALIDACAJAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VALIDA_MAC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MAC" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VALIDA_MACResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VALIDA_MACResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualiza_plan_visitas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="visita_id" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RAZON_VIS_INEF_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="observaciones" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="actualiza_plan_visitasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="actualiza_plan_visitasResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insertar_PedidosEncabezado2">
+        <s:complexType />
+      </s:element>
+      <s:element name="Insertar_PedidosEncabezado2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Insertar_PedidosEncabezado2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VersionWSSoapIn">
+    <wsdl:part name="parameters" element="tns:VersionWS" />
+  </wsdl:message>
+  <wsdl:message name="VersionWSSoapOut">
+    <wsdl:part name="parameters" element="tns:VersionWSResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidaUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidaUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ValidaUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidaUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="validarDocumentosNoEnviadoDeUnAgenteSoapIn">
+    <wsdl:part name="parameters" element="tns:validarDocumentosNoEnviadoDeUnAgente" />
+  </wsdl:message>
+  <wsdl:message name="validarDocumentosNoEnviadoDeUnAgenteSoapOut">
+    <wsdl:part name="parameters" element="tns:validarDocumentosNoEnviadoDeUnAgenteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDataSoapIn">
+    <wsdl:part name="parameters" element="tns:getData" />
+  </wsdl:message>
+  <wsdl:message name="getDataSoapOut">
+    <wsdl:part name="parameters" element="tns:getDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllDataAboutdistributorSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllDataAboutdistributor" />
+  </wsdl:message>
+  <wsdl:message name="getAllDataAboutdistributorSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllDataAboutdistributorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExisteRutaSoapIn">
+    <wsdl:part name="parameters" element="tns:ExisteRuta" />
+  </wsdl:message>
+  <wsdl:message name="ExisteRutaSoapOut">
+    <wsdl:part name="parameters" element="tns:ExisteRutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTArticulosSoapIn">
+    <wsdl:part name="parameters" element="tns:DTArticulos" />
+  </wsdl:message>
+  <wsdl:message name="DTArticulosSoapOut">
+    <wsdl:part name="parameters" element="tns:DTArticulosResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTBANCOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTBANCOS" />
+  </wsdl:message>
+  <wsdl:message name="DTBANCOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTBANCOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTBENEFICIARIOSoapIn">
+    <wsdl:part name="parameters" element="tns:DTBENEFICIARIO" />
+  </wsdl:message>
+  <wsdl:message name="DTBENEFICIARIOSoapOut">
+    <wsdl:part name="parameters" element="tns:DTBENEFICIARIOResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTCATVISITASSoapIn">
+    <wsdl:part name="parameters" element="tns:DTCATVISITAS" />
+  </wsdl:message>
+  <wsdl:message name="DTCATVISITASSoapOut">
+    <wsdl:part name="parameters" element="tns:DTCATVISITASResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTCATRECHAZOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTCATRECHAZOS" />
+  </wsdl:message>
+  <wsdl:message name="DTCATRECHAZOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTCATRECHAZOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTCIUDADESSoapIn">
+    <wsdl:part name="parameters" element="tns:DTCIUDADES" />
+  </wsdl:message>
+  <wsdl:message name="DTCIUDADESSoapOut">
+    <wsdl:part name="parameters" element="tns:DTCIUDADESResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTESTADOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTESTADOS" />
+  </wsdl:message>
+  <wsdl:message name="DTESTADOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTESTADOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTHISTORIALVENTASoapIn">
+    <wsdl:part name="parameters" element="tns:DTHISTORIALVENTA" />
+  </wsdl:message>
+  <wsdl:message name="DTHISTORIALVENTASoapOut">
+    <wsdl:part name="parameters" element="tns:DTHISTORIALVENTAResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTESSoapIn">
+    <wsdl:part name="parameters" element="tns:DTCLIENTES" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTESSoapOut">
+    <wsdl:part name="parameters" element="tns:DTCLIENTESResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTFORMASCOBROSoapIn">
+    <wsdl:part name="parameters" element="tns:DTFORMASCOBRO" />
+  </wsdl:message>
+  <wsdl:message name="DTFORMASCOBROSoapOut">
+    <wsdl:part name="parameters" element="tns:DTFORMASCOBROResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTFORMASPAGOVENTASSoapIn">
+    <wsdl:part name="parameters" element="tns:DTFORMASPAGOVENTAS" />
+  </wsdl:message>
+  <wsdl:message name="DTFORMASPAGOVENTASSoapOut">
+    <wsdl:part name="parameters" element="tns:DTFORMASPAGOVENTASResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTGRUPOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTGRUPOS" />
+  </wsdl:message>
+  <wsdl:message name="DTGRUPOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTGRUPOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTLINEASSoapIn">
+    <wsdl:part name="parameters" element="tns:DTLINEAS" />
+  </wsdl:message>
+  <wsdl:message name="DTLINEASSoapOut">
+    <wsdl:part name="parameters" element="tns:DTLINEASResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTPRECIOSARTICULOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTPRECIOSARTICULOS" />
+  </wsdl:message>
+  <wsdl:message name="DTPRECIOSARTICULOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTPRECIOSARTICULOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTPRECIOSEMPRESASoapIn">
+    <wsdl:part name="parameters" element="tns:DTPRECIOSEMPRESA" />
+  </wsdl:message>
+  <wsdl:message name="DTPRECIOSEMPRESASoapOut">
+    <wsdl:part name="parameters" element="tns:DTPRECIOSEMPRESAResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTUSUARIOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTUSUARIOS" />
+  </wsdl:message>
+  <wsdl:message name="DTUSUARIOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTUSUARIOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTZONASCLIENTESSoapIn">
+    <wsdl:part name="parameters" element="tns:DTZONASCLIENTES" />
+  </wsdl:message>
+  <wsdl:message name="DTZONASCLIENTESSoapOut">
+    <wsdl:part name="parameters" element="tns:DTZONASCLIENTESResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTCREDITOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTCREDITOS" />
+  </wsdl:message>
+  <wsdl:message name="DTCREDITOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTCREDITOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DatosTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:DatosTicket" />
+  </wsdl:message>
+  <wsdl:message name="DatosTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:DatosTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTPAGOSCREDITOSoapIn">
+    <wsdl:part name="parameters" element="tns:DTPAGOSCREDITO" />
+  </wsdl:message>
+  <wsdl:message name="DTPAGOSCREDITOSoapOut">
+    <wsdl:part name="parameters" element="tns:DTPAGOSCREDITOResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertar_clienteSoapIn">
+    <wsdl:part name="parameters" element="tns:insertar_cliente" />
+  </wsdl:message>
+  <wsdl:message name="insertar_clienteSoapOut">
+    <wsdl:part name="parameters" element="tns:insertar_clienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="APLICA_DOCTO_VENTASoapIn">
+    <wsdl:part name="parameters" element="tns:APLICA_DOCTO_VENTA" />
+  </wsdl:message>
+  <wsdl:message name="APLICA_DOCTO_VENTASoapOut">
+    <wsdl:part name="parameters" element="tns:APLICA_DOCTO_VENTAResponse" />
+  </wsdl:message>
+  <wsdl:message name="LIBERA_DOCTOINVSoapIn">
+    <wsdl:part name="parameters" element="tns:LIBERA_DOCTOINV" />
+  </wsdl:message>
+  <wsdl:message name="LIBERA_DOCTOINVSoapOut">
+    <wsdl:part name="parameters" element="tns:LIBERA_DOCTOINVResponse" />
+  </wsdl:message>
+  <wsdl:message name="FRECHAZAPEDIDOSoapIn">
+    <wsdl:part name="parameters" element="tns:FRECHAZAPEDIDO" />
+  </wsdl:message>
+  <wsdl:message name="FRECHAZAPEDIDOSoapOut">
+    <wsdl:part name="parameters" element="tns:FRECHAZAPEDIDOResponse" />
+  </wsdl:message>
+  <wsdl:message name="FACTUALIZAGPSSoapIn">
+    <wsdl:part name="parameters" element="tns:FACTUALIZAGPS" />
+  </wsdl:message>
+  <wsdl:message name="FACTUALIZAGPSSoapOut">
+    <wsdl:part name="parameters" element="tns:FACTUALIZAGPSResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Insertar_PedidosEncabezado" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezadoSoapOut">
+    <wsdl:part name="parameters" element="tns:Insertar_PedidosEncabezadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_encabezado_documentoSoapIn">
+    <wsdl:part name="parameters" element="tns:Insertar_encabezado_documento" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_encabezado_documentoSoapOut">
+    <wsdl:part name="parameters" element="tns:Insertar_encabezado_documentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosDetalleSoapIn">
+    <wsdl:part name="parameters" element="tns:Insertar_PedidosDetalle" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosDetalleSoapOut">
+    <wsdl:part name="parameters" element="tns:Insertar_PedidosDetalleResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertar_cuentasxcobrarSoapIn">
+    <wsdl:part name="parameters" element="tns:insertar_cuentasxcobrar" />
+  </wsdl:message>
+  <wsdl:message name="insertar_cuentasxcobrarSoapOut">
+    <wsdl:part name="parameters" element="tns:insertar_cuentasxcobrarResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertar_gpsSoapIn">
+    <wsdl:part name="parameters" element="tns:insertar_gps" />
+  </wsdl:message>
+  <wsdl:message name="insertar_gpsSoapOut">
+    <wsdl:part name="parameters" element="tns:insertar_gpsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTEPEDIDOSoapIn">
+    <wsdl:part name="parameters" element="tns:DTCLIENTEPEDIDO" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTEPEDIDOSoapOut">
+    <wsdl:part name="parameters" element="tns:DTCLIENTEPEDIDOResponse" />
+  </wsdl:message>
+  <wsdl:message name="FCARGAPEDIDOENCABEZADOSoapIn">
+    <wsdl:part name="parameters" element="tns:FCARGAPEDIDOENCABEZADO" />
+  </wsdl:message>
+  <wsdl:message name="FCARGAPEDIDOENCABEZADOSoapOut">
+    <wsdl:part name="parameters" element="tns:FCARGAPEDIDOENCABEZADOResponse" />
+  </wsdl:message>
+  <wsdl:message name="FCARGAPEDIDODETALLESoapIn">
+    <wsdl:part name="parameters" element="tns:FCARGAPEDIDODETALLE" />
+  </wsdl:message>
+  <wsdl:message name="FCARGAPEDIDODETALLESoapOut">
+    <wsdl:part name="parameters" element="tns:FCARGAPEDIDODETALLEResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerfcmSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerfcm" />
+  </wsdl:message>
+  <wsdl:message name="obtenerfcmSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerfcmResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTPLAN_VISITASSoapIn">
+    <wsdl:part name="parameters" element="tns:DTPLAN_VISITAS" />
+  </wsdl:message>
+  <wsdl:message name="DTPLAN_VISITASSoapOut">
+    <wsdl:part name="parameters" element="tns:DTPLAN_VISITASResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTDESCUENTOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTDESCUENTOS" />
+  </wsdl:message>
+  <wsdl:message name="DTDESCUENTOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTDESCUENTOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTCAJAPAQUETESSoapIn">
+    <wsdl:part name="parameters" element="tns:DTCAJAPAQUETES" />
+  </wsdl:message>
+  <wsdl:message name="DTCAJAPAQUETESSoapOut">
+    <wsdl:part name="parameters" element="tns:DTCAJAPAQUETESResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTCATALOGO_PROMOCIONES_VIGENTESSoapIn">
+    <wsdl:part name="parameters" element="tns:DTCATALOGO_PROMOCIONES_VIGENTES" />
+  </wsdl:message>
+  <wsdl:message name="DTCATALOGO_PROMOCIONES_VIGENTESSoapOut">
+    <wsdl:part name="parameters" element="tns:DTCATALOGO_PROMOCIONES_VIGENTESResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOSSoapIn">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_PROMOCIONES_ARTICULOS" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOSSoapOut">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_PROMOCIONES_ARTICULOSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_DESC_VOLUMENLINEASSoapIn">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_DESC_VOLUMENLINEAS" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_DESC_VOLUMENLINEASSoapOut">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_DESC_VOLUMENLINEASResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESSoapIn">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESSoapOut">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_PROMOCIONES_GRUPOSoapIn">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_PROMOCIONES_GRUPO" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_PROMOCIONES_GRUPOSoapOut">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_PROMOCIONES_GRUPOResponse" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_PROMOCIONES_LINEASoapIn">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_PROMOCIONES_LINEA" />
+  </wsdl:message>
+  <wsdl:message name="DTDETALLE_PROMOCIONES_LINEASoapOut">
+    <wsdl:part name="parameters" element="tns:DTDETALLE_PROMOCIONES_LINEAResponse" />
+  </wsdl:message>
+  <wsdl:message name="ABRIRCAJASoapIn">
+    <wsdl:part name="parameters" element="tns:ABRIRCAJA" />
+  </wsdl:message>
+  <wsdl:message name="ABRIRCAJASoapOut">
+    <wsdl:part name="parameters" element="tns:ABRIRCAJAResponse" />
+  </wsdl:message>
+  <wsdl:message name="CERRARCAJASoapIn">
+    <wsdl:part name="parameters" element="tns:CERRARCAJA" />
+  </wsdl:message>
+  <wsdl:message name="CERRARCAJASoapOut">
+    <wsdl:part name="parameters" element="tns:CERRARCAJAResponse" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_BITACORA_LECTURASoapIn">
+    <wsdl:part name="parameters" element="tns:INSERT_BITACORA_LECTURA" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_BITACORA_LECTURASoapOut">
+    <wsdl:part name="parameters" element="tns:INSERT_BITACORA_LECTURAResponse" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_HISTORIALCXCSoapIn">
+    <wsdl:part name="parameters" element="tns:INSERT_HISTORIALCXC" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_HISTORIALCXCSoapOut">
+    <wsdl:part name="parameters" element="tns:INSERT_HISTORIALCXCResponse" />
+  </wsdl:message>
+  <wsdl:message name="VALIDACAJASoapIn">
+    <wsdl:part name="parameters" element="tns:VALIDACAJA" />
+  </wsdl:message>
+  <wsdl:message name="VALIDACAJASoapOut">
+    <wsdl:part name="parameters" element="tns:VALIDACAJAResponse" />
+  </wsdl:message>
+  <wsdl:message name="VALIDA_MACSoapIn">
+    <wsdl:part name="parameters" element="tns:VALIDA_MAC" />
+  </wsdl:message>
+  <wsdl:message name="VALIDA_MACSoapOut">
+    <wsdl:part name="parameters" element="tns:VALIDA_MACResponse" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_plan_visitasSoapIn">
+    <wsdl:part name="parameters" element="tns:actualiza_plan_visitas" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_plan_visitasSoapOut">
+    <wsdl:part name="parameters" element="tns:actualiza_plan_visitasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezado2SoapIn">
+    <wsdl:part name="parameters" element="tns:Insertar_PedidosEncabezado2" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezado2SoapOut">
+    <wsdl:part name="parameters" element="tns:Insertar_PedidosEncabezado2Response" />
+  </wsdl:message>
+  <wsdl:message name="VersionWSHttpGetIn" />
+  <wsdl:message name="VersionWSHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PingHttpGetIn" />
+  <wsdl:message name="PingHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidaUsuarioHttpGetIn">
+    <wsdl:part name="CLAVE" type="s:string" />
+    <wsdl:part name="NOMBRE" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidaUsuarioHttpGetOut" />
+  <wsdl:message name="validarDocumentosNoEnviadoDeUnAgenteHttpGetIn">
+    <wsdl:part name="claveAgente" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validarDocumentosNoEnviadoDeUnAgenteHttpGetOut" />
+  <wsdl:message name="getDataHttpGetIn" />
+  <wsdl:message name="getDataHttpGetOut" />
+  <wsdl:message name="getAllDataAboutdistributorHttpGetIn" />
+  <wsdl:message name="getAllDataAboutdistributorHttpGetOut" />
+  <wsdl:message name="ExisteRutaHttpGetIn">
+    <wsdl:part name="RUTA" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExisteRutaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DTArticulosHttpGetIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTArticulosHttpGetOut" />
+  <wsdl:message name="DTBANCOSHttpGetIn" />
+  <wsdl:message name="DTBANCOSHttpGetOut" />
+  <wsdl:message name="DTBENEFICIARIOHttpGetIn" />
+  <wsdl:message name="DTBENEFICIARIOHttpGetOut" />
+  <wsdl:message name="DTCATVISITASHttpGetIn" />
+  <wsdl:message name="DTCATVISITASHttpGetOut" />
+  <wsdl:message name="DTCATRECHAZOSHttpGetIn" />
+  <wsdl:message name="DTCATRECHAZOSHttpGetOut" />
+  <wsdl:message name="DTCIUDADESHttpGetIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCIUDADESHttpGetOut" />
+  <wsdl:message name="DTESTADOSHttpGetIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTESTADOSHttpGetOut" />
+  <wsdl:message name="DTHISTORIALVENTAHttpGetIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTHISTORIALVENTAHttpGetOut" />
+  <wsdl:message name="DTCLIENTESHttpGetIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTESHttpGetOut" />
+  <wsdl:message name="DTFORMASCOBROHttpGetIn" />
+  <wsdl:message name="DTFORMASCOBROHttpGetOut" />
+  <wsdl:message name="DTFORMASPAGOVENTASHttpGetIn" />
+  <wsdl:message name="DTFORMASPAGOVENTASHttpGetOut" />
+  <wsdl:message name="DTGRUPOSHttpGetIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTGRUPOSHttpGetOut" />
+  <wsdl:message name="DTLINEASHttpGetIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTLINEASHttpGetOut" />
+  <wsdl:message name="DTPRECIOSARTICULOSHttpGetIn" />
+  <wsdl:message name="DTPRECIOSARTICULOSHttpGetOut" />
+  <wsdl:message name="DTPRECIOSEMPRESAHttpGetIn" />
+  <wsdl:message name="DTPRECIOSEMPRESAHttpGetOut" />
+  <wsdl:message name="DTUSUARIOSHttpGetIn" />
+  <wsdl:message name="DTUSUARIOSHttpGetOut" />
+  <wsdl:message name="DTZONASCLIENTESHttpGetIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTZONASCLIENTESHttpGetOut" />
+  <wsdl:message name="DTCREDITOSHttpGetIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCREDITOSHttpGetOut" />
+  <wsdl:message name="DatosTicketHttpGetIn" />
+  <wsdl:message name="DatosTicketHttpGetOut" />
+  <wsdl:message name="DTPAGOSCREDITOHttpGetIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTPAGOSCREDITOHttpGetOut" />
+  <wsdl:message name="insertar_clienteHttpGetIn">
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="nombre" type="s:string" />
+    <wsdl:part name="zonacliente" type="s:string" />
+    <wsdl:part name="ciudad_id" type="s:string" />
+    <wsdl:part name="estado_id" type="s:string" />
+    <wsdl:part name="calle" type="s:string" />
+    <wsdl:part name="numero" type="s:string" />
+    <wsdl:part name="colonia" type="s:string" />
+    <wsdl:part name="poblacion" type="s:string" />
+    <wsdl:part name="referencia" type="s:string" />
+    <wsdl:part name="telefono" type="s:string" />
+    <wsdl:part name="cp" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="rfc" type="s:string" />
+    <wsdl:part name="notas" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_clienteHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="APLICA_DOCTO_VENTAHttpGetIn">
+    <wsdl:part name="DOCTO_ID_PEDIDO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="APLICA_DOCTO_VENTAHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LIBERA_DOCTOINVHttpGetIn">
+    <wsdl:part name="DOCTO_ID_PEDIDO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LIBERA_DOCTOINVHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FRECHAZAPEDIDOHttpGetIn">
+    <wsdl:part name="PEDIDO_ID" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+    <wsdl:part name="RAZON_ID" type="s:string" />
+    <wsdl:part name="FECHAHORA" type="s:string" />
+    <wsdl:part name="LATITUD" type="s:string" />
+    <wsdl:part name="LONGITUD" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FRECHAZAPEDIDOHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FACTUALIZAGPSHttpGetIn">
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+    <wsdl:part name="FECHAHORA" type="s:string" />
+    <wsdl:part name="LATITUD" type="s:string" />
+    <wsdl:part name="LONGITUD" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FACTUALIZAGPSHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezadoHttpGetIn">
+    <wsdl:part name="clave_cliente" type="s:string" />
+    <wsdl:part name="cliente_id" type="s:string" />
+    <wsdl:part name="descuento" type="s:string" />
+    <wsdl:part name="total" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="ALMACEN_ID" type="s:string" />
+    <wsdl:part name="ANTICIPO" type="s:string" />
+    <wsdl:part name="TIPO_DOCUMENTO" type="s:string" />
+    <wsdl:part name="FORMA_COBRO_ID" type="s:string" />
+    <wsdl:part name="FACTURA" type="s:string" />
+    <wsdl:part name="observacion" type="s:string" />
+    <wsdl:part name="DEV" type="s:string" />
+    <wsdl:part name="FVENTA" type="s:string" />
+    <wsdl:part name="FECHAHORAMOV" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+    <wsdl:part name="FORMA_COBRO_ID_ABONO" type="s:string" />
+    <wsdl:part name="CIDDOCTOPEDIDOCC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosDetalleHttpGetIn">
+    <wsdl:part name="DOCTO_ID_PEDIDO" type="s:string" />
+    <wsdl:part name="CLAVE_ART" type="s:string" />
+    <wsdl:part name="ARTICULO_ID" type="s:string" />
+    <wsdl:part name="unidades" type="s:string" />
+    <wsdl:part name="precio" type="s:string" />
+    <wsdl:part name="TOTAL" type="s:string" />
+    <wsdl:part name="POSICION" type="s:string" />
+    <wsdl:part name="TIPO_DOCUMENTO" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="FACTURA" type="s:string" />
+    <wsdl:part name="DESCUENTO" type="s:string" />
+    <wsdl:part name="OBSERVACIONES" type="s:string" />
+    <wsdl:part name="IDDEV" type="s:string" />
+    <wsdl:part name="COMENTARIO" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosDetalleHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_cuentasxcobrarHttpGetIn">
+    <wsdl:part name="NATURALEZA" type="s:string" />
+    <wsdl:part name="FOLIO" type="s:string" />
+    <wsdl:part name="CLAVE_CLI" type="s:string" />
+    <wsdl:part name="CLIENTE_ID" type="s:string" />
+    <wsdl:part name="IMPORTE" type="s:string" />
+    <wsdl:part name="DOCTO_APLICAR" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="FORMA_COBRO_CC_ID" type="s:string" />
+    <wsdl:part name="REFER_MOVTO_BANCARIO" type="s:string" />
+    <wsdl:part name="FECHA" type="s:string" />
+    <wsdl:part name="FECHAHORAMOV" type="s:string" />
+    <wsdl:part name="FOLIODOCTO" type="s:string" />
+    <wsdl:part name="ESTATUS" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_cuentasxcobrarHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_gpsHttpGetIn">
+    <wsdl:part name="LAT" type="s:string" />
+    <wsdl:part name="LON" type="s:string" />
+    <wsdl:part name="CLIENTE_ID" type="s:string" />
+    <wsdl:part name="FECHA" type="s:string" />
+    <wsdl:part name="TIPO_MOV" type="s:string" />
+    <wsdl:part name="VENDEDOR_ID" type="s:string" />
+    <wsdl:part name="RUTA" type="s:string" />
+    <wsdl:part name="idDocto" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_gpsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTEPEDIDOHttpGetIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTEPEDIDOHttpGetOut" />
+  <wsdl:message name="FCARGAPEDIDOENCABEZADOHttpGetIn">
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FCARGAPEDIDOENCABEZADOHttpGetOut" />
+  <wsdl:message name="FCARGAPEDIDODETALLEHttpGetIn">
+    <wsdl:part name="DOCTO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FCARGAPEDIDODETALLEHttpGetOut" />
+  <wsdl:message name="obtenerfcmHttpGetIn">
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+    <wsdl:part name="fcm" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerfcmHttpGetOut" />
+  <wsdl:message name="DTPLAN_VISITASHttpGetIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTPLAN_VISITASHttpGetOut" />
+  <wsdl:message name="DTDESCUENTOSHttpGetIn" />
+  <wsdl:message name="DTDESCUENTOSHttpGetOut" />
+  <wsdl:message name="DTCAJAPAQUETESHttpGetIn" />
+  <wsdl:message name="DTCAJAPAQUETESHttpGetOut" />
+  <wsdl:message name="DTCATALOGO_PROMOCIONES_VIGENTESHttpGetIn" />
+  <wsdl:message name="DTCATALOGO_PROMOCIONES_VIGENTESHttpGetOut" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOSHttpGetIn" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOSHttpGetOut" />
+  <wsdl:message name="DTDETALLE_DESC_VOLUMENLINEASHttpGetIn" />
+  <wsdl:message name="DTDETALLE_DESC_VOLUMENLINEASHttpGetOut" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESHttpGetIn" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESHttpGetOut" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_GRUPOHttpGetIn" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_GRUPOHttpGetOut" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_LINEAHttpGetIn" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_LINEAHttpGetOut" />
+  <wsdl:message name="ABRIRCAJAHttpGetIn">
+    <wsdl:part name="MONTO" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="VENDEDOR_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ABRIRCAJAHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CERRARCAJAHttpGetIn">
+    <wsdl:part name="MONTO" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="VENDEDOR_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CERRARCAJAHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_BITACORA_LECTURAHttpGetIn">
+    <wsdl:part name="CLIENTE_ID" type="s:string" />
+    <wsdl:part name="FECHA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_BITACORA_LECTURAHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_HISTORIALCXCHttpGetIn">
+    <wsdl:part name="FOLIO" type="s:string" />
+    <wsdl:part name="USUARIO" type="s:string" />
+    <wsdl:part name="MONTO" type="s:string" />
+    <wsdl:part name="FECHAHORAMOV" type="s:string" />
+    <wsdl:part name="FORMAPAGO" type="s:string" />
+    <wsdl:part name="FOLIONUEVO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_HISTORIALCXCHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VALIDACAJAHttpGetIn">
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="VENDEDOR_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VALIDACAJAHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VALIDA_MACHttpGetIn">
+    <wsdl:part name="MAC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VALIDA_MACHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_plan_visitasHttpGetIn">
+    <wsdl:part name="visita_id" type="s:string" />
+    <wsdl:part name="RAZON_VIS_INEF_ID" type="s:string" />
+    <wsdl:part name="observaciones" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_plan_visitasHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezado2HttpGetIn" />
+  <wsdl:message name="Insertar_PedidosEncabezado2HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VersionWSHttpPostIn" />
+  <wsdl:message name="VersionWSHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PingHttpPostIn" />
+  <wsdl:message name="PingHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidaUsuarioHttpPostIn">
+    <wsdl:part name="CLAVE" type="s:string" />
+    <wsdl:part name="NOMBRE" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidaUsuarioHttpPostOut" />
+  <wsdl:message name="validarDocumentosNoEnviadoDeUnAgenteHttpPostIn">
+    <wsdl:part name="claveAgente" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="validarDocumentosNoEnviadoDeUnAgenteHttpPostOut" />
+  <wsdl:message name="getDataHttpPostIn" />
+  <wsdl:message name="getDataHttpPostOut" />
+  <wsdl:message name="getAllDataAboutdistributorHttpPostIn" />
+  <wsdl:message name="getAllDataAboutdistributorHttpPostOut" />
+  <wsdl:message name="ExisteRutaHttpPostIn">
+    <wsdl:part name="RUTA" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExisteRutaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DTArticulosHttpPostIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTArticulosHttpPostOut" />
+  <wsdl:message name="DTBANCOSHttpPostIn" />
+  <wsdl:message name="DTBANCOSHttpPostOut" />
+  <wsdl:message name="DTBENEFICIARIOHttpPostIn" />
+  <wsdl:message name="DTBENEFICIARIOHttpPostOut" />
+  <wsdl:message name="DTCATVISITASHttpPostIn" />
+  <wsdl:message name="DTCATVISITASHttpPostOut" />
+  <wsdl:message name="DTCATRECHAZOSHttpPostIn" />
+  <wsdl:message name="DTCATRECHAZOSHttpPostOut" />
+  <wsdl:message name="DTCIUDADESHttpPostIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCIUDADESHttpPostOut" />
+  <wsdl:message name="DTESTADOSHttpPostIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTESTADOSHttpPostOut" />
+  <wsdl:message name="DTHISTORIALVENTAHttpPostIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTHISTORIALVENTAHttpPostOut" />
+  <wsdl:message name="DTCLIENTESHttpPostIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTESHttpPostOut" />
+  <wsdl:message name="DTFORMASCOBROHttpPostIn" />
+  <wsdl:message name="DTFORMASCOBROHttpPostOut" />
+  <wsdl:message name="DTFORMASPAGOVENTASHttpPostIn" />
+  <wsdl:message name="DTFORMASPAGOVENTASHttpPostOut" />
+  <wsdl:message name="DTGRUPOSHttpPostIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTGRUPOSHttpPostOut" />
+  <wsdl:message name="DTLINEASHttpPostIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTLINEASHttpPostOut" />
+  <wsdl:message name="DTPRECIOSARTICULOSHttpPostIn" />
+  <wsdl:message name="DTPRECIOSARTICULOSHttpPostOut" />
+  <wsdl:message name="DTPRECIOSEMPRESAHttpPostIn" />
+  <wsdl:message name="DTPRECIOSEMPRESAHttpPostOut" />
+  <wsdl:message name="DTUSUARIOSHttpPostIn" />
+  <wsdl:message name="DTUSUARIOSHttpPostOut" />
+  <wsdl:message name="DTZONASCLIENTESHttpPostIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTZONASCLIENTESHttpPostOut" />
+  <wsdl:message name="DTCREDITOSHttpPostIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCREDITOSHttpPostOut" />
+  <wsdl:message name="DatosTicketHttpPostIn" />
+  <wsdl:message name="DatosTicketHttpPostOut" />
+  <wsdl:message name="DTPAGOSCREDITOHttpPostIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTPAGOSCREDITOHttpPostOut" />
+  <wsdl:message name="insertar_clienteHttpPostIn">
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="nombre" type="s:string" />
+    <wsdl:part name="zonacliente" type="s:string" />
+    <wsdl:part name="ciudad_id" type="s:string" />
+    <wsdl:part name="estado_id" type="s:string" />
+    <wsdl:part name="calle" type="s:string" />
+    <wsdl:part name="numero" type="s:string" />
+    <wsdl:part name="colonia" type="s:string" />
+    <wsdl:part name="poblacion" type="s:string" />
+    <wsdl:part name="referencia" type="s:string" />
+    <wsdl:part name="telefono" type="s:string" />
+    <wsdl:part name="cp" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="rfc" type="s:string" />
+    <wsdl:part name="notas" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_clienteHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="APLICA_DOCTO_VENTAHttpPostIn">
+    <wsdl:part name="DOCTO_ID_PEDIDO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="APLICA_DOCTO_VENTAHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LIBERA_DOCTOINVHttpPostIn">
+    <wsdl:part name="DOCTO_ID_PEDIDO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LIBERA_DOCTOINVHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FRECHAZAPEDIDOHttpPostIn">
+    <wsdl:part name="PEDIDO_ID" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+    <wsdl:part name="RAZON_ID" type="s:string" />
+    <wsdl:part name="FECHAHORA" type="s:string" />
+    <wsdl:part name="LATITUD" type="s:string" />
+    <wsdl:part name="LONGITUD" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FRECHAZAPEDIDOHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FACTUALIZAGPSHttpPostIn">
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+    <wsdl:part name="FECHAHORA" type="s:string" />
+    <wsdl:part name="LATITUD" type="s:string" />
+    <wsdl:part name="LONGITUD" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FACTUALIZAGPSHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezadoHttpPostIn">
+    <wsdl:part name="clave_cliente" type="s:string" />
+    <wsdl:part name="cliente_id" type="s:string" />
+    <wsdl:part name="descuento" type="s:string" />
+    <wsdl:part name="total" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="ALMACEN_ID" type="s:string" />
+    <wsdl:part name="ANTICIPO" type="s:string" />
+    <wsdl:part name="TIPO_DOCUMENTO" type="s:string" />
+    <wsdl:part name="FORMA_COBRO_ID" type="s:string" />
+    <wsdl:part name="FACTURA" type="s:string" />
+    <wsdl:part name="observacion" type="s:string" />
+    <wsdl:part name="DEV" type="s:string" />
+    <wsdl:part name="FVENTA" type="s:string" />
+    <wsdl:part name="FECHAHORAMOV" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+    <wsdl:part name="FORMA_COBRO_ID_ABONO" type="s:string" />
+    <wsdl:part name="CIDDOCTOPEDIDOCC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosDetalleHttpPostIn">
+    <wsdl:part name="DOCTO_ID_PEDIDO" type="s:string" />
+    <wsdl:part name="CLAVE_ART" type="s:string" />
+    <wsdl:part name="ARTICULO_ID" type="s:string" />
+    <wsdl:part name="unidades" type="s:string" />
+    <wsdl:part name="precio" type="s:string" />
+    <wsdl:part name="TOTAL" type="s:string" />
+    <wsdl:part name="POSICION" type="s:string" />
+    <wsdl:part name="TIPO_DOCUMENTO" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="FACTURA" type="s:string" />
+    <wsdl:part name="DESCUENTO" type="s:string" />
+    <wsdl:part name="OBSERVACIONES" type="s:string" />
+    <wsdl:part name="IDDEV" type="s:string" />
+    <wsdl:part name="COMENTARIO" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosDetalleHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_cuentasxcobrarHttpPostIn">
+    <wsdl:part name="NATURALEZA" type="s:string" />
+    <wsdl:part name="FOLIO" type="s:string" />
+    <wsdl:part name="CLAVE_CLI" type="s:string" />
+    <wsdl:part name="CLIENTE_ID" type="s:string" />
+    <wsdl:part name="IMPORTE" type="s:string" />
+    <wsdl:part name="DOCTO_APLICAR" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="FORMA_COBRO_CC_ID" type="s:string" />
+    <wsdl:part name="REFER_MOVTO_BANCARIO" type="s:string" />
+    <wsdl:part name="FECHA" type="s:string" />
+    <wsdl:part name="FECHAHORAMOV" type="s:string" />
+    <wsdl:part name="FOLIODOCTO" type="s:string" />
+    <wsdl:part name="ESTATUS" type="s:string" />
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_cuentasxcobrarHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_gpsHttpPostIn">
+    <wsdl:part name="LAT" type="s:string" />
+    <wsdl:part name="LON" type="s:string" />
+    <wsdl:part name="CLIENTE_ID" type="s:string" />
+    <wsdl:part name="FECHA" type="s:string" />
+    <wsdl:part name="TIPO_MOV" type="s:string" />
+    <wsdl:part name="VENDEDOR_ID" type="s:string" />
+    <wsdl:part name="RUTA" type="s:string" />
+    <wsdl:part name="idDocto" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="insertar_gpsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTEPEDIDOHttpPostIn">
+    <wsdl:part name="ruta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTCLIENTEPEDIDOHttpPostOut" />
+  <wsdl:message name="FCARGAPEDIDOENCABEZADOHttpPostIn">
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FCARGAPEDIDOENCABEZADOHttpPostOut" />
+  <wsdl:message name="FCARGAPEDIDODETALLEHttpPostIn">
+    <wsdl:part name="DOCTO_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FCARGAPEDIDODETALLEHttpPostOut" />
+  <wsdl:message name="obtenerfcmHttpPostIn">
+    <wsdl:part name="USUARIO_ID" type="s:string" />
+    <wsdl:part name="fcm" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerfcmHttpPostOut" />
+  <wsdl:message name="DTPLAN_VISITASHttpPostIn">
+    <wsdl:part name="RUTA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DTPLAN_VISITASHttpPostOut" />
+  <wsdl:message name="DTDESCUENTOSHttpPostIn" />
+  <wsdl:message name="DTDESCUENTOSHttpPostOut" />
+  <wsdl:message name="DTCAJAPAQUETESHttpPostIn" />
+  <wsdl:message name="DTCAJAPAQUETESHttpPostOut" />
+  <wsdl:message name="DTCATALOGO_PROMOCIONES_VIGENTESHttpPostIn" />
+  <wsdl:message name="DTCATALOGO_PROMOCIONES_VIGENTESHttpPostOut" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOSHttpPostIn" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOSHttpPostOut" />
+  <wsdl:message name="DTDETALLE_DESC_VOLUMENLINEASHttpPostIn" />
+  <wsdl:message name="DTDETALLE_DESC_VOLUMENLINEASHttpPostOut" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESHttpPostIn" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESHttpPostOut" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_GRUPOHttpPostIn" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_GRUPOHttpPostOut" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_LINEAHttpPostIn" />
+  <wsdl:message name="DTDETALLE_PROMOCIONES_LINEAHttpPostOut" />
+  <wsdl:message name="ABRIRCAJAHttpPostIn">
+    <wsdl:part name="MONTO" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="VENDEDOR_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ABRIRCAJAHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CERRARCAJAHttpPostIn">
+    <wsdl:part name="MONTO" type="s:string" />
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="VENDEDOR_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CERRARCAJAHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_BITACORA_LECTURAHttpPostIn">
+    <wsdl:part name="CLIENTE_ID" type="s:string" />
+    <wsdl:part name="FECHA" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_BITACORA_LECTURAHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_HISTORIALCXCHttpPostIn">
+    <wsdl:part name="FOLIO" type="s:string" />
+    <wsdl:part name="USUARIO" type="s:string" />
+    <wsdl:part name="MONTO" type="s:string" />
+    <wsdl:part name="FECHAHORAMOV" type="s:string" />
+    <wsdl:part name="FORMAPAGO" type="s:string" />
+    <wsdl:part name="FOLIONUEVO" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="INSERT_HISTORIALCXCHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VALIDACAJAHttpPostIn">
+    <wsdl:part name="NOMBREU" type="s:string" />
+    <wsdl:part name="VENDEDOR_ID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VALIDACAJAHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VALIDA_MACHttpPostIn">
+    <wsdl:part name="MAC" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VALIDA_MACHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_plan_visitasHttpPostIn">
+    <wsdl:part name="visita_id" type="s:string" />
+    <wsdl:part name="RAZON_VIS_INEF_ID" type="s:string" />
+    <wsdl:part name="observaciones" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="actualiza_plan_visitasHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Insertar_PedidosEncabezado2HttpPostIn" />
+  <wsdl:message name="Insertar_PedidosEncabezado2HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="WSyncRomSoap">
+    <wsdl:operation name="VersionWS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la versión del Servicio Web (XML)</wsdl:documentation>
+      <wsdl:input message="tns:VersionWSSoapIn" />
+      <wsdl:output message="tns:VersionWSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Si se logra comunicar con el servidor devuelve 1, de lo contrario 0 (XML)</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que el usuario logueado desde la app móvil exista en PanelRUT (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:ValidaUsuarioSoapIn" />
+      <wsdl:output message="tns:ValidaUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarDocumentosNoEnviadoDeUnAgente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida si hay documentos no enviados a Comercial Premium (Devuelve el número de documentos no enviados)</wsdl:documentation>
+      <wsdl:input message="tns:validarDocumentosNoEnviadoDeUnAgenteSoapIn" />
+      <wsdl:output message="tns:validarDocumentosNoEnviadoDeUnAgenteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get data</wsdl:documentation>
+      <wsdl:input message="tns:getDataSoapIn" />
+      <wsdl:output message="tns:getDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllDataAboutdistributor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los datos del distribuidor (Si es que existen) de lo contrario es información de ATI</wsdl:documentation>
+      <wsdl:input message="tns:getAllDataAboutdistributorSoapIn" />
+      <wsdl:output message="tns:getAllDataAboutdistributorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteRuta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que la ruta ingresada haya sido la asignada al usuario que se logueo, para la descarga o actualización de datos (XML)</wsdl:documentation>
+      <wsdl:input message="tns:ExisteRutaSoapIn" />
+      <wsdl:output message="tns:ExisteRutaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTArticulos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los articulos. Si la ruta no tiene asignados productos, devuelve todos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTArticulosSoapIn" />
+      <wsdl:output message="tns:DTArticulosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTBANCOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los bancos del catálogo del SAT (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTBANCOSSoapIn" />
+      <wsdl:output message="tns:DTBANCOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTBENEFICIARIO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los datos del beneficiario (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTBENEFICIARIOSoapIn" />
+      <wsdl:output message="tns:DTBENEFICIARIOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATVISITAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las razones de no visita (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCATVISITASSoapIn" />
+      <wsdl:output message="tns:DTCATVISITASSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATRECHAZOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las razones de rechazo para pedidos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCATRECHAZOSSoapIn" />
+      <wsdl:output message="tns:DTCATRECHAZOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCIUDADES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las ciudades de la república mexicana. Si se definió un Estado, mostrará solo las de él. (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCIUDADESSoapIn" />
+      <wsdl:output message="tns:DTCIUDADESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTESTADOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los estados de la república mexicana. Si se definió un Estado sólo se mostrará él. (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTESTADOSSoapIn" />
+      <wsdl:output message="tns:DTESTADOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTHISTORIALVENTA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el historial de los productos adquiridos por el cliente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTHISTORIALVENTASoapIn" />
+      <wsdl:output message="tns:DTHISTORIALVENTASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los clientes asignados a ese agente, así mismo, valida si debe ser visitado en ese día (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCLIENTESSoapIn" />
+      <wsdl:output message="tns:DTCLIENTESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASCOBRO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las formas de pago habilitadas desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTFORMASCOBROSoapIn" />
+      <wsdl:output message="tns:DTFORMASCOBROSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASPAGOVENTAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las formas de pago habilitadas desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTFORMASPAGOVENTASSoapIn" />
+      <wsdl:output message="tns:DTFORMASPAGOVENTASSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTGRUPOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 1 de los productos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTGRUPOSSoapIn" />
+      <wsdl:output message="tns:DTGRUPOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTLINEAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 2 de los productos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTLINEASSoapIn" />
+      <wsdl:output message="tns:DTLINEASSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSARTICULOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los precios de los productos de acuerdo a las listas de precios definidos desde el Panel Administrativo (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPRECIOSARTICULOSSoapIn" />
+      <wsdl:output message="tns:DTPRECIOSARTICULOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSEMPRESA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las listas de precios que se definieron usar desde el Panel Administrativo (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPRECIOSEMPRESASoapIn" />
+      <wsdl:output message="tns:DTPRECIOSEMPRESASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTUSUARIOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los usuarios dados de alta desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTUSUARIOSSoapIn" />
+      <wsdl:output message="tns:DTUSUARIOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTZONASCLIENTES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 1 de los clientes (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTZONASCLIENTESSoapIn" />
+      <wsdl:output message="tns:DTZONASCLIENTESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCREDITOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los documentos a crédito de cada cliente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCREDITOSSoapIn" />
+      <wsdl:output message="tns:DTCREDITOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DatosTicket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la configuración guardad desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DatosTicketSoapIn" />
+      <wsdl:output message="tns:DatosTicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPAGOSCREDITO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el historial de pagos de todos los documentos a crédito con pendiente de pago (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPAGOSCREDITOSoapIn" />
+      <wsdl:output message="tns:DTPAGOSCREDITOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta los datos que llevará la creación de un cliente (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_clienteSoapIn" />
+      <wsdl:output message="tns:insertar_clienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APLICA_DOCTO_VENTA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se ejecuta después de insertar el último movimiento del documento actual. (Sólo para Cotizaciones y Pedidos). Se modifica el estado del documento para que sea procesado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:APLICA_DOCTO_VENTASoapIn" />
+      <wsdl:output message="tns:APLICA_DOCTO_VENTASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LIBERA_DOCTOINV">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se ejecuta después de insertar el último movimiento del documento actual. (Sólo para Ventas). Se modifica el estado del documento para que sea procesado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:LIBERA_DOCTOINVSoapIn" />
+      <wsdl:output message="tns:LIBERA_DOCTOINVSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FRECHAZAPEDIDO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza el estado del pedido a rechazado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:FRECHAZAPEDIDOSoapIn" />
+      <wsdl:output message="tns:FRECHAZAPEDIDOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FACTUALIZAGPS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza la ubicación actual del agente en ruta (XML)</wsdl:documentation>
+      <wsdl:input message="tns:FACTUALIZAGPSSoapIn" />
+      <wsdl:output message="tns:FACTUALIZAGPSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos de encabezado que llevará el documento a crear (XML: Devuelve el ID del Documento insertado y/o IDDEV del Documento de devolución.)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosEncabezadoSoapIn" />
+      <wsdl:output message="tns:Insertar_PedidosEncabezadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_encabezado_documento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos de encabezado que llevará el documento a crear (XML: Devuelve el ID del Documento insertado y/o IDDEV del Documento de devolución.)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_encabezado_documentoSoapIn" />
+      <wsdl:output message="tns:Insertar_encabezado_documentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los movimientos que llevará el documento a crear (XML)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosDetalleSoapIn" />
+      <wsdl:output message="tns:Insertar_PedidosDetalleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cuentasxcobrar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos que llevará el documento de REP a crear (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_cuentasxcobrarSoapIn" />
+      <wsdl:output message="tns:insertar_cuentasxcobrarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_gps">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta la ubicación de la venta del agente (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_gpsSoapIn" />
+      <wsdl:output message="tns:insertar_gpsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTEPEDIDO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los clientes asignados a ese agente con pedidos pendientes (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCLIENTEPEDIDOSoapIn" />
+      <wsdl:output message="tns:DTCLIENTEPEDIDOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDOENCABEZADO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los pedidos pendientes asignados a ese agente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:FCARGAPEDIDOENCABEZADOSoapIn" />
+      <wsdl:output message="tns:FCARGAPEDIDOENCABEZADOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDODETALLE">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los detalles del pedido (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:FCARGAPEDIDODETALLESoapIn" />
+      <wsdl:output message="tns:FCARGAPEDIDODETALLESoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerfcm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda el FCM del dispositivo del agente que inicio sesión.</wsdl:documentation>
+      <wsdl:input message="tns:obtenerfcmSoapIn" />
+      <wsdl:output message="tns:obtenerfcmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPLAN_VISITAS">
+      <wsdl:input message="tns:DTPLAN_VISITASSoapIn" />
+      <wsdl:output message="tns:DTPLAN_VISITASSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDESCUENTOS">
+      <wsdl:input message="tns:DTDESCUENTOSSoapIn" />
+      <wsdl:output message="tns:DTDESCUENTOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCAJAPAQUETES">
+      <wsdl:input message="tns:DTCAJAPAQUETESSoapIn" />
+      <wsdl:output message="tns:DTCAJAPAQUETESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATALOGO_PROMOCIONES_VIGENTES">
+      <wsdl:input message="tns:DTCATALOGO_PROMOCIONES_VIGENTESSoapIn" />
+      <wsdl:output message="tns:DTCATALOGO_PROMOCIONES_VIGENTESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_ARTICULOSSoapIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_ARTICULOSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_DESC_VOLUMENLINEAS">
+      <wsdl:input message="tns:DTDETALLE_DESC_VOLUMENLINEASSoapIn" />
+      <wsdl:output message="tns:DTDETALLE_DESC_VOLUMENLINEASSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESSoapIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_GRUPO">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_GRUPOSoapIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_GRUPOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_LINEA">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_LINEASoapIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_LINEASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ABRIRCAJA">
+      <wsdl:input message="tns:ABRIRCAJASoapIn" />
+      <wsdl:output message="tns:ABRIRCAJASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CERRARCAJA">
+      <wsdl:input message="tns:CERRARCAJASoapIn" />
+      <wsdl:output message="tns:CERRARCAJASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_BITACORA_LECTURA">
+      <wsdl:input message="tns:INSERT_BITACORA_LECTURASoapIn" />
+      <wsdl:output message="tns:INSERT_BITACORA_LECTURASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_HISTORIALCXC">
+      <wsdl:input message="tns:INSERT_HISTORIALCXCSoapIn" />
+      <wsdl:output message="tns:INSERT_HISTORIALCXCSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VALIDACAJA">
+      <wsdl:input message="tns:VALIDACAJASoapIn" />
+      <wsdl:output message="tns:VALIDACAJASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VALIDA_MAC">
+      <wsdl:input message="tns:VALIDA_MACSoapIn" />
+      <wsdl:output message="tns:VALIDA_MACSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_plan_visitas">
+      <wsdl:input message="tns:actualiza_plan_visitasSoapIn" />
+      <wsdl:output message="tns:actualiza_plan_visitasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos de encabezado que llevará el documento a crear (XML: Devuelve el ID del Documento insertado y/o IDDEV del Documento de devolución.)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosEncabezado2SoapIn" />
+      <wsdl:output message="tns:Insertar_PedidosEncabezado2SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSyncRomHttpGet">
+    <wsdl:operation name="VersionWS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la versión del Servicio Web (XML)</wsdl:documentation>
+      <wsdl:input message="tns:VersionWSHttpGetIn" />
+      <wsdl:output message="tns:VersionWSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Si se logra comunicar con el servidor devuelve 1, de lo contrario 0 (XML)</wsdl:documentation>
+      <wsdl:input message="tns:PingHttpGetIn" />
+      <wsdl:output message="tns:PingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que el usuario logueado desde la app móvil exista en PanelRUT (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:ValidaUsuarioHttpGetIn" />
+      <wsdl:output message="tns:ValidaUsuarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarDocumentosNoEnviadoDeUnAgente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida si hay documentos no enviados a Comercial Premium (Devuelve el número de documentos no enviados)</wsdl:documentation>
+      <wsdl:input message="tns:validarDocumentosNoEnviadoDeUnAgenteHttpGetIn" />
+      <wsdl:output message="tns:validarDocumentosNoEnviadoDeUnAgenteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get data</wsdl:documentation>
+      <wsdl:input message="tns:getDataHttpGetIn" />
+      <wsdl:output message="tns:getDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllDataAboutdistributor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los datos del distribuidor (Si es que existen) de lo contrario es información de ATI</wsdl:documentation>
+      <wsdl:input message="tns:getAllDataAboutdistributorHttpGetIn" />
+      <wsdl:output message="tns:getAllDataAboutdistributorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteRuta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que la ruta ingresada haya sido la asignada al usuario que se logueo, para la descarga o actualización de datos (XML)</wsdl:documentation>
+      <wsdl:input message="tns:ExisteRutaHttpGetIn" />
+      <wsdl:output message="tns:ExisteRutaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTArticulos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los articulos. Si la ruta no tiene asignados productos, devuelve todos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTArticulosHttpGetIn" />
+      <wsdl:output message="tns:DTArticulosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTBANCOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los bancos del catálogo del SAT (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTBANCOSHttpGetIn" />
+      <wsdl:output message="tns:DTBANCOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTBENEFICIARIO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los datos del beneficiario (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTBENEFICIARIOHttpGetIn" />
+      <wsdl:output message="tns:DTBENEFICIARIOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATVISITAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las razones de no visita (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCATVISITASHttpGetIn" />
+      <wsdl:output message="tns:DTCATVISITASHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATRECHAZOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las razones de rechazo para pedidos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCATRECHAZOSHttpGetIn" />
+      <wsdl:output message="tns:DTCATRECHAZOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCIUDADES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las ciudades de la república mexicana. Si se definió un Estado, mostrará solo las de él. (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCIUDADESHttpGetIn" />
+      <wsdl:output message="tns:DTCIUDADESHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTESTADOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los estados de la república mexicana. Si se definió un Estado sólo se mostrará él. (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTESTADOSHttpGetIn" />
+      <wsdl:output message="tns:DTESTADOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTHISTORIALVENTA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el historial de los productos adquiridos por el cliente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTHISTORIALVENTAHttpGetIn" />
+      <wsdl:output message="tns:DTHISTORIALVENTAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los clientes asignados a ese agente, así mismo, valida si debe ser visitado en ese día (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCLIENTESHttpGetIn" />
+      <wsdl:output message="tns:DTCLIENTESHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASCOBRO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las formas de pago habilitadas desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTFORMASCOBROHttpGetIn" />
+      <wsdl:output message="tns:DTFORMASCOBROHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASPAGOVENTAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las formas de pago habilitadas desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTFORMASPAGOVENTASHttpGetIn" />
+      <wsdl:output message="tns:DTFORMASPAGOVENTASHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTGRUPOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 1 de los productos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTGRUPOSHttpGetIn" />
+      <wsdl:output message="tns:DTGRUPOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTLINEAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 2 de los productos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTLINEASHttpGetIn" />
+      <wsdl:output message="tns:DTLINEASHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSARTICULOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los precios de los productos de acuerdo a las listas de precios definidos desde el Panel Administrativo (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPRECIOSARTICULOSHttpGetIn" />
+      <wsdl:output message="tns:DTPRECIOSARTICULOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSEMPRESA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las listas de precios que se definieron usar desde el Panel Administrativo (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPRECIOSEMPRESAHttpGetIn" />
+      <wsdl:output message="tns:DTPRECIOSEMPRESAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTUSUARIOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los usuarios dados de alta desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTUSUARIOSHttpGetIn" />
+      <wsdl:output message="tns:DTUSUARIOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTZONASCLIENTES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 1 de los clientes (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTZONASCLIENTESHttpGetIn" />
+      <wsdl:output message="tns:DTZONASCLIENTESHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCREDITOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los documentos a crédito de cada cliente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCREDITOSHttpGetIn" />
+      <wsdl:output message="tns:DTCREDITOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DatosTicket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la configuración guardad desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DatosTicketHttpGetIn" />
+      <wsdl:output message="tns:DatosTicketHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPAGOSCREDITO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el historial de pagos de todos los documentos a crédito con pendiente de pago (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPAGOSCREDITOHttpGetIn" />
+      <wsdl:output message="tns:DTPAGOSCREDITOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta los datos que llevará la creación de un cliente (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_clienteHttpGetIn" />
+      <wsdl:output message="tns:insertar_clienteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APLICA_DOCTO_VENTA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se ejecuta después de insertar el último movimiento del documento actual. (Sólo para Cotizaciones y Pedidos). Se modifica el estado del documento para que sea procesado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:APLICA_DOCTO_VENTAHttpGetIn" />
+      <wsdl:output message="tns:APLICA_DOCTO_VENTAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LIBERA_DOCTOINV">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se ejecuta después de insertar el último movimiento del documento actual. (Sólo para Ventas). Se modifica el estado del documento para que sea procesado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:LIBERA_DOCTOINVHttpGetIn" />
+      <wsdl:output message="tns:LIBERA_DOCTOINVHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FRECHAZAPEDIDO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza el estado del pedido a rechazado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:FRECHAZAPEDIDOHttpGetIn" />
+      <wsdl:output message="tns:FRECHAZAPEDIDOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FACTUALIZAGPS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza la ubicación actual del agente en ruta (XML)</wsdl:documentation>
+      <wsdl:input message="tns:FACTUALIZAGPSHttpGetIn" />
+      <wsdl:output message="tns:FACTUALIZAGPSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos de encabezado que llevará el documento a crear (XML: Devuelve el ID del Documento insertado y/o IDDEV del Documento de devolución.)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosEncabezadoHttpGetIn" />
+      <wsdl:output message="tns:Insertar_PedidosEncabezadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los movimientos que llevará el documento a crear (XML)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosDetalleHttpGetIn" />
+      <wsdl:output message="tns:Insertar_PedidosDetalleHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cuentasxcobrar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos que llevará el documento de REP a crear (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_cuentasxcobrarHttpGetIn" />
+      <wsdl:output message="tns:insertar_cuentasxcobrarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_gps">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta la ubicación de la venta del agente (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_gpsHttpGetIn" />
+      <wsdl:output message="tns:insertar_gpsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTEPEDIDO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los clientes asignados a ese agente con pedidos pendientes (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCLIENTEPEDIDOHttpGetIn" />
+      <wsdl:output message="tns:DTCLIENTEPEDIDOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDOENCABEZADO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los pedidos pendientes asignados a ese agente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:FCARGAPEDIDOENCABEZADOHttpGetIn" />
+      <wsdl:output message="tns:FCARGAPEDIDOENCABEZADOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDODETALLE">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los detalles del pedido (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:FCARGAPEDIDODETALLEHttpGetIn" />
+      <wsdl:output message="tns:FCARGAPEDIDODETALLEHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerfcm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda el FCM del dispositivo del agente que inicio sesión.</wsdl:documentation>
+      <wsdl:input message="tns:obtenerfcmHttpGetIn" />
+      <wsdl:output message="tns:obtenerfcmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPLAN_VISITAS">
+      <wsdl:input message="tns:DTPLAN_VISITASHttpGetIn" />
+      <wsdl:output message="tns:DTPLAN_VISITASHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDESCUENTOS">
+      <wsdl:input message="tns:DTDESCUENTOSHttpGetIn" />
+      <wsdl:output message="tns:DTDESCUENTOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCAJAPAQUETES">
+      <wsdl:input message="tns:DTCAJAPAQUETESHttpGetIn" />
+      <wsdl:output message="tns:DTCAJAPAQUETESHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATALOGO_PROMOCIONES_VIGENTES">
+      <wsdl:input message="tns:DTCATALOGO_PROMOCIONES_VIGENTESHttpGetIn" />
+      <wsdl:output message="tns:DTCATALOGO_PROMOCIONES_VIGENTESHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_ARTICULOSHttpGetIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_ARTICULOSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_DESC_VOLUMENLINEAS">
+      <wsdl:input message="tns:DTDETALLE_DESC_VOLUMENLINEASHttpGetIn" />
+      <wsdl:output message="tns:DTDETALLE_DESC_VOLUMENLINEASHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESHttpGetIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_GRUPO">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_GRUPOHttpGetIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_GRUPOHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_LINEA">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_LINEAHttpGetIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_LINEAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ABRIRCAJA">
+      <wsdl:input message="tns:ABRIRCAJAHttpGetIn" />
+      <wsdl:output message="tns:ABRIRCAJAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CERRARCAJA">
+      <wsdl:input message="tns:CERRARCAJAHttpGetIn" />
+      <wsdl:output message="tns:CERRARCAJAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_BITACORA_LECTURA">
+      <wsdl:input message="tns:INSERT_BITACORA_LECTURAHttpGetIn" />
+      <wsdl:output message="tns:INSERT_BITACORA_LECTURAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_HISTORIALCXC">
+      <wsdl:input message="tns:INSERT_HISTORIALCXCHttpGetIn" />
+      <wsdl:output message="tns:INSERT_HISTORIALCXCHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VALIDACAJA">
+      <wsdl:input message="tns:VALIDACAJAHttpGetIn" />
+      <wsdl:output message="tns:VALIDACAJAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VALIDA_MAC">
+      <wsdl:input message="tns:VALIDA_MACHttpGetIn" />
+      <wsdl:output message="tns:VALIDA_MACHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_plan_visitas">
+      <wsdl:input message="tns:actualiza_plan_visitasHttpGetIn" />
+      <wsdl:output message="tns:actualiza_plan_visitasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos de encabezado que llevará el documento a crear (XML: Devuelve el ID del Documento insertado y/o IDDEV del Documento de devolución.)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosEncabezado2HttpGetIn" />
+      <wsdl:output message="tns:Insertar_PedidosEncabezado2HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="WSyncRomHttpPost">
+    <wsdl:operation name="VersionWS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la versión del Servicio Web (XML)</wsdl:documentation>
+      <wsdl:input message="tns:VersionWSHttpPostIn" />
+      <wsdl:output message="tns:VersionWSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Si se logra comunicar con el servidor devuelve 1, de lo contrario 0 (XML)</wsdl:documentation>
+      <wsdl:input message="tns:PingHttpPostIn" />
+      <wsdl:output message="tns:PingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que el usuario logueado desde la app móvil exista en PanelRUT (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:ValidaUsuarioHttpPostIn" />
+      <wsdl:output message="tns:ValidaUsuarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="validarDocumentosNoEnviadoDeUnAgente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida si hay documentos no enviados a Comercial Premium (Devuelve el número de documentos no enviados)</wsdl:documentation>
+      <wsdl:input message="tns:validarDocumentosNoEnviadoDeUnAgenteHttpPostIn" />
+      <wsdl:output message="tns:validarDocumentosNoEnviadoDeUnAgenteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get data</wsdl:documentation>
+      <wsdl:input message="tns:getDataHttpPostIn" />
+      <wsdl:output message="tns:getDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllDataAboutdistributor">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los datos del distribuidor (Si es que existen) de lo contrario es información de ATI</wsdl:documentation>
+      <wsdl:input message="tns:getAllDataAboutdistributorHttpPostIn" />
+      <wsdl:output message="tns:getAllDataAboutdistributorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteRuta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida que la ruta ingresada haya sido la asignada al usuario que se logueo, para la descarga o actualización de datos (XML)</wsdl:documentation>
+      <wsdl:input message="tns:ExisteRutaHttpPostIn" />
+      <wsdl:output message="tns:ExisteRutaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTArticulos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los articulos. Si la ruta no tiene asignados productos, devuelve todos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTArticulosHttpPostIn" />
+      <wsdl:output message="tns:DTArticulosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTBANCOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los bancos del catálogo del SAT (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTBANCOSHttpPostIn" />
+      <wsdl:output message="tns:DTBANCOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTBENEFICIARIO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve los datos del beneficiario (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTBENEFICIARIOHttpPostIn" />
+      <wsdl:output message="tns:DTBENEFICIARIOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATVISITAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las razones de no visita (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCATVISITASHttpPostIn" />
+      <wsdl:output message="tns:DTCATVISITASHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATRECHAZOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las razones de rechazo para pedidos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCATRECHAZOSHttpPostIn" />
+      <wsdl:output message="tns:DTCATRECHAZOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCIUDADES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las ciudades de la república mexicana. Si se definió un Estado, mostrará solo las de él. (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCIUDADESHttpPostIn" />
+      <wsdl:output message="tns:DTCIUDADESHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTESTADOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los estados de la república mexicana. Si se definió un Estado sólo se mostrará él. (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTESTADOSHttpPostIn" />
+      <wsdl:output message="tns:DTESTADOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTHISTORIALVENTA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el historial de los productos adquiridos por el cliente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTHISTORIALVENTAHttpPostIn" />
+      <wsdl:output message="tns:DTHISTORIALVENTAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los clientes asignados a ese agente, así mismo, valida si debe ser visitado en ese día (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCLIENTESHttpPostIn" />
+      <wsdl:output message="tns:DTCLIENTESHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASCOBRO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las formas de pago habilitadas desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTFORMASCOBROHttpPostIn" />
+      <wsdl:output message="tns:DTFORMASCOBROHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASPAGOVENTAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las formas de pago habilitadas desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTFORMASPAGOVENTASHttpPostIn" />
+      <wsdl:output message="tns:DTFORMASPAGOVENTASHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTGRUPOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 1 de los productos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTGRUPOSHttpPostIn" />
+      <wsdl:output message="tns:DTGRUPOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTLINEAS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 2 de los productos (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTLINEASHttpPostIn" />
+      <wsdl:output message="tns:DTLINEASHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSARTICULOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los precios de los productos de acuerdo a las listas de precios definidos desde el Panel Administrativo (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPRECIOSARTICULOSHttpPostIn" />
+      <wsdl:output message="tns:DTPRECIOSARTICULOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSEMPRESA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve las listas de precios que se definieron usar desde el Panel Administrativo (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPRECIOSEMPRESAHttpPostIn" />
+      <wsdl:output message="tns:DTPRECIOSEMPRESAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTUSUARIOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los usuarios dados de alta desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTUSUARIOSHttpPostIn" />
+      <wsdl:output message="tns:DTUSUARIOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTZONASCLIENTES">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todas las clasificaciones 1 de los clientes (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTZONASCLIENTESHttpPostIn" />
+      <wsdl:output message="tns:DTZONASCLIENTESHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCREDITOS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los documentos a crédito de cada cliente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCREDITOSHttpPostIn" />
+      <wsdl:output message="tns:DTCREDITOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DatosTicket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve la configuración guardad desde el panel (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DatosTicketHttpPostIn" />
+      <wsdl:output message="tns:DatosTicketHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPAGOSCREDITO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve el historial de pagos de todos los documentos a crédito con pendiente de pago (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTPAGOSCREDITOHttpPostIn" />
+      <wsdl:output message="tns:DTPAGOSCREDITOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cliente">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta los datos que llevará la creación de un cliente (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_clienteHttpPostIn" />
+      <wsdl:output message="tns:insertar_clienteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APLICA_DOCTO_VENTA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se ejecuta después de insertar el último movimiento del documento actual. (Sólo para Cotizaciones y Pedidos). Se modifica el estado del documento para que sea procesado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:APLICA_DOCTO_VENTAHttpPostIn" />
+      <wsdl:output message="tns:APLICA_DOCTO_VENTAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LIBERA_DOCTOINV">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se ejecuta después de insertar el último movimiento del documento actual. (Sólo para Ventas). Se modifica el estado del documento para que sea procesado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:LIBERA_DOCTOINVHttpPostIn" />
+      <wsdl:output message="tns:LIBERA_DOCTOINVHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FRECHAZAPEDIDO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza el estado del pedido a rechazado (XML)</wsdl:documentation>
+      <wsdl:input message="tns:FRECHAZAPEDIDOHttpPostIn" />
+      <wsdl:output message="tns:FRECHAZAPEDIDOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FACTUALIZAGPS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza la ubicación actual del agente en ruta (XML)</wsdl:documentation>
+      <wsdl:input message="tns:FACTUALIZAGPSHttpPostIn" />
+      <wsdl:output message="tns:FACTUALIZAGPSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos de encabezado que llevará el documento a crear (XML: Devuelve el ID del Documento insertado y/o IDDEV del Documento de devolución.)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosEncabezadoHttpPostIn" />
+      <wsdl:output message="tns:Insertar_PedidosEncabezadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosDetalle">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los movimientos que llevará el documento a crear (XML)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosDetalleHttpPostIn" />
+      <wsdl:output message="tns:Insertar_PedidosDetalleHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cuentasxcobrar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos que llevará el documento de REP a crear (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_cuentasxcobrarHttpPostIn" />
+      <wsdl:output message="tns:insertar_cuentasxcobrarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_gps">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta la ubicación de la venta del agente (XML)</wsdl:documentation>
+      <wsdl:input message="tns:insertar_gpsHttpPostIn" />
+      <wsdl:output message="tns:insertar_gpsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTEPEDIDO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los clientes asignados a ese agente con pedidos pendientes (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:DTCLIENTEPEDIDOHttpPostIn" />
+      <wsdl:output message="tns:DTCLIENTEPEDIDOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDOENCABEZADO">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los pedidos pendientes asignados a ese agente (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:FCARGAPEDIDOENCABEZADOHttpPostIn" />
+      <wsdl:output message="tns:FCARGAPEDIDOENCABEZADOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDODETALLE">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Devuelve todos los detalles del pedido (JSON)</wsdl:documentation>
+      <wsdl:input message="tns:FCARGAPEDIDODETALLEHttpPostIn" />
+      <wsdl:output message="tns:FCARGAPEDIDODETALLEHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerfcm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda el FCM del dispositivo del agente que inicio sesión.</wsdl:documentation>
+      <wsdl:input message="tns:obtenerfcmHttpPostIn" />
+      <wsdl:output message="tns:obtenerfcmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTPLAN_VISITAS">
+      <wsdl:input message="tns:DTPLAN_VISITASHttpPostIn" />
+      <wsdl:output message="tns:DTPLAN_VISITASHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDESCUENTOS">
+      <wsdl:input message="tns:DTDESCUENTOSHttpPostIn" />
+      <wsdl:output message="tns:DTDESCUENTOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCAJAPAQUETES">
+      <wsdl:input message="tns:DTCAJAPAQUETESHttpPostIn" />
+      <wsdl:output message="tns:DTCAJAPAQUETESHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATALOGO_PROMOCIONES_VIGENTES">
+      <wsdl:input message="tns:DTCATALOGO_PROMOCIONES_VIGENTESHttpPostIn" />
+      <wsdl:output message="tns:DTCATALOGO_PROMOCIONES_VIGENTESHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_ARTICULOSHttpPostIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_ARTICULOSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_DESC_VOLUMENLINEAS">
+      <wsdl:input message="tns:DTDETALLE_DESC_VOLUMENLINEASHttpPostIn" />
+      <wsdl:output message="tns:DTDETALLE_DESC_VOLUMENLINEASHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESHttpPostIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTESHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_GRUPO">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_GRUPOHttpPostIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_GRUPOHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_LINEA">
+      <wsdl:input message="tns:DTDETALLE_PROMOCIONES_LINEAHttpPostIn" />
+      <wsdl:output message="tns:DTDETALLE_PROMOCIONES_LINEAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ABRIRCAJA">
+      <wsdl:input message="tns:ABRIRCAJAHttpPostIn" />
+      <wsdl:output message="tns:ABRIRCAJAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CERRARCAJA">
+      <wsdl:input message="tns:CERRARCAJAHttpPostIn" />
+      <wsdl:output message="tns:CERRARCAJAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_BITACORA_LECTURA">
+      <wsdl:input message="tns:INSERT_BITACORA_LECTURAHttpPostIn" />
+      <wsdl:output message="tns:INSERT_BITACORA_LECTURAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_HISTORIALCXC">
+      <wsdl:input message="tns:INSERT_HISTORIALCXCHttpPostIn" />
+      <wsdl:output message="tns:INSERT_HISTORIALCXCHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VALIDACAJA">
+      <wsdl:input message="tns:VALIDACAJAHttpPostIn" />
+      <wsdl:output message="tns:VALIDACAJAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VALIDA_MAC">
+      <wsdl:input message="tns:VALIDA_MACHttpPostIn" />
+      <wsdl:output message="tns:VALIDA_MACHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_plan_visitas">
+      <wsdl:input message="tns:actualiza_plan_visitasHttpPostIn" />
+      <wsdl:output message="tns:actualiza_plan_visitasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado2">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserta todos los datos de encabezado que llevará el documento a crear (XML: Devuelve el ID del Documento insertado y/o IDDEV del Documento de devolución.)</wsdl:documentation>
+      <wsdl:input message="tns:Insertar_PedidosEncabezado2HttpPostIn" />
+      <wsdl:output message="tns:Insertar_PedidosEncabezado2HttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSyncRomSoap" type="tns:WSyncRomSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VersionWS">
+      <soap:operation soapAction="http://tempuri.org/VersionWS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://tempuri.org/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <soap:operation soapAction="http://tempuri.org/ValidaUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarDocumentosNoEnviadoDeUnAgente">
+      <soap:operation soapAction="http://tempuri.org/validarDocumentosNoEnviadoDeUnAgente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <soap:operation soapAction="http://tempuri.org/getData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDataAboutdistributor">
+      <soap:operation soapAction="http://tempuri.org/getAllDataAboutdistributor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteRuta">
+      <soap:operation soapAction="http://tempuri.org/ExisteRuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTArticulos">
+      <soap:operation soapAction="http://tempuri.org/DTArticulos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTBANCOS">
+      <soap:operation soapAction="http://tempuri.org/DTBANCOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTBENEFICIARIO">
+      <soap:operation soapAction="http://tempuri.org/DTBENEFICIARIO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCATVISITAS">
+      <soap:operation soapAction="http://tempuri.org/DTCATVISITAS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCATRECHAZOS">
+      <soap:operation soapAction="http://tempuri.org/DTCATRECHAZOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCIUDADES">
+      <soap:operation soapAction="http://tempuri.org/DTCIUDADES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTESTADOS">
+      <soap:operation soapAction="http://tempuri.org/DTESTADOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTHISTORIALVENTA">
+      <soap:operation soapAction="http://tempuri.org/DTHISTORIALVENTA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTES">
+      <soap:operation soapAction="http://tempuri.org/DTCLIENTES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASCOBRO">
+      <soap:operation soapAction="http://tempuri.org/DTFORMASCOBRO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASPAGOVENTAS">
+      <soap:operation soapAction="http://tempuri.org/DTFORMASPAGOVENTAS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTGRUPOS">
+      <soap:operation soapAction="http://tempuri.org/DTGRUPOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTLINEAS">
+      <soap:operation soapAction="http://tempuri.org/DTLINEAS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSARTICULOS">
+      <soap:operation soapAction="http://tempuri.org/DTPRECIOSARTICULOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSEMPRESA">
+      <soap:operation soapAction="http://tempuri.org/DTPRECIOSEMPRESA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTUSUARIOS">
+      <soap:operation soapAction="http://tempuri.org/DTUSUARIOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTZONASCLIENTES">
+      <soap:operation soapAction="http://tempuri.org/DTZONASCLIENTES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCREDITOS">
+      <soap:operation soapAction="http://tempuri.org/DTCREDITOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DatosTicket">
+      <soap:operation soapAction="http://tempuri.org/DatosTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTPAGOSCREDITO">
+      <soap:operation soapAction="http://tempuri.org/DTPAGOSCREDITO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cliente">
+      <soap:operation soapAction="http://tempuri.org/insertar_cliente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLICA_DOCTO_VENTA">
+      <soap:operation soapAction="http://tempuri.org/APLICA_DOCTO_VENTA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LIBERA_DOCTOINV">
+      <soap:operation soapAction="http://tempuri.org/LIBERA_DOCTOINV" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FRECHAZAPEDIDO">
+      <soap:operation soapAction="http://tempuri.org/FRECHAZAPEDIDO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FACTUALIZAGPS">
+      <soap:operation soapAction="http://tempuri.org/FACTUALIZAGPS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado">
+      <soap:operation soapAction="http://tempuri.org/Insertar_PedidosEncabezado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_encabezado_documento">
+      <soap:operation soapAction="http://tempuri.org/Insertar_encabezado_documento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosDetalle">
+      <soap:operation soapAction="http://tempuri.org/Insertar_PedidosDetalle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cuentasxcobrar">
+      <soap:operation soapAction="http://tempuri.org/insertar_cuentasxcobrar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_gps">
+      <soap:operation soapAction="http://tempuri.org/insertar_gps" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTEPEDIDO">
+      <soap:operation soapAction="http://tempuri.org/DTCLIENTEPEDIDO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDOENCABEZADO">
+      <soap:operation soapAction="http://tempuri.org/FCARGAPEDIDOENCABEZADO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDODETALLE">
+      <soap:operation soapAction="http://tempuri.org/FCARGAPEDIDODETALLE" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerfcm">
+      <soap:operation soapAction="http://tempuri.org/obtenerfcm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTPLAN_VISITAS">
+      <soap:operation soapAction="http://tempuri.org/DTPLAN_VISITAS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDESCUENTOS">
+      <soap:operation soapAction="http://tempuri.org/DTDESCUENTOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCAJAPAQUETES">
+      <soap:operation soapAction="http://tempuri.org/DTCAJAPAQUETES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCATALOGO_PROMOCIONES_VIGENTES">
+      <soap:operation soapAction="http://tempuri.org/DTCATALOGO_PROMOCIONES_VIGENTES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS">
+      <soap:operation soapAction="http://tempuri.org/DTDETALLE_PROMOCIONES_ARTICULOS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_DESC_VOLUMENLINEAS">
+      <soap:operation soapAction="http://tempuri.org/DTDETALLE_DESC_VOLUMENLINEAS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES">
+      <soap:operation soapAction="http://tempuri.org/DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_GRUPO">
+      <soap:operation soapAction="http://tempuri.org/DTDETALLE_PROMOCIONES_GRUPO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_LINEA">
+      <soap:operation soapAction="http://tempuri.org/DTDETALLE_PROMOCIONES_LINEA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ABRIRCAJA">
+      <soap:operation soapAction="http://tempuri.org/ABRIRCAJA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CERRARCAJA">
+      <soap:operation soapAction="http://tempuri.org/CERRARCAJA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_BITACORA_LECTURA">
+      <soap:operation soapAction="http://tempuri.org/INSERT_BITACORA_LECTURA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_HISTORIALCXC">
+      <soap:operation soapAction="http://tempuri.org/INSERT_HISTORIALCXC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VALIDACAJA">
+      <soap:operation soapAction="http://tempuri.org/VALIDACAJA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VALIDA_MAC">
+      <soap:operation soapAction="http://tempuri.org/VALIDA_MAC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_plan_visitas">
+      <soap:operation soapAction="http://tempuri.org/actualiza_plan_visitas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado2">
+      <soap:operation soapAction="http://tempuri.org/Insertar_PedidosEncabezado2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSyncRomSoap12" type="tns:WSyncRomSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VersionWS">
+      <soap12:operation soapAction="http://tempuri.org/VersionWS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://tempuri.org/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <soap12:operation soapAction="http://tempuri.org/ValidaUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarDocumentosNoEnviadoDeUnAgente">
+      <soap12:operation soapAction="http://tempuri.org/validarDocumentosNoEnviadoDeUnAgente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <soap12:operation soapAction="http://tempuri.org/getData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDataAboutdistributor">
+      <soap12:operation soapAction="http://tempuri.org/getAllDataAboutdistributor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExisteRuta">
+      <soap12:operation soapAction="http://tempuri.org/ExisteRuta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTArticulos">
+      <soap12:operation soapAction="http://tempuri.org/DTArticulos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTBANCOS">
+      <soap12:operation soapAction="http://tempuri.org/DTBANCOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTBENEFICIARIO">
+      <soap12:operation soapAction="http://tempuri.org/DTBENEFICIARIO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCATVISITAS">
+      <soap12:operation soapAction="http://tempuri.org/DTCATVISITAS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCATRECHAZOS">
+      <soap12:operation soapAction="http://tempuri.org/DTCATRECHAZOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCIUDADES">
+      <soap12:operation soapAction="http://tempuri.org/DTCIUDADES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTESTADOS">
+      <soap12:operation soapAction="http://tempuri.org/DTESTADOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTHISTORIALVENTA">
+      <soap12:operation soapAction="http://tempuri.org/DTHISTORIALVENTA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTES">
+      <soap12:operation soapAction="http://tempuri.org/DTCLIENTES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASCOBRO">
+      <soap12:operation soapAction="http://tempuri.org/DTFORMASCOBRO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASPAGOVENTAS">
+      <soap12:operation soapAction="http://tempuri.org/DTFORMASPAGOVENTAS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTGRUPOS">
+      <soap12:operation soapAction="http://tempuri.org/DTGRUPOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTLINEAS">
+      <soap12:operation soapAction="http://tempuri.org/DTLINEAS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSARTICULOS">
+      <soap12:operation soapAction="http://tempuri.org/DTPRECIOSARTICULOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSEMPRESA">
+      <soap12:operation soapAction="http://tempuri.org/DTPRECIOSEMPRESA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTUSUARIOS">
+      <soap12:operation soapAction="http://tempuri.org/DTUSUARIOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTZONASCLIENTES">
+      <soap12:operation soapAction="http://tempuri.org/DTZONASCLIENTES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCREDITOS">
+      <soap12:operation soapAction="http://tempuri.org/DTCREDITOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DatosTicket">
+      <soap12:operation soapAction="http://tempuri.org/DatosTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTPAGOSCREDITO">
+      <soap12:operation soapAction="http://tempuri.org/DTPAGOSCREDITO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cliente">
+      <soap12:operation soapAction="http://tempuri.org/insertar_cliente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLICA_DOCTO_VENTA">
+      <soap12:operation soapAction="http://tempuri.org/APLICA_DOCTO_VENTA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LIBERA_DOCTOINV">
+      <soap12:operation soapAction="http://tempuri.org/LIBERA_DOCTOINV" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FRECHAZAPEDIDO">
+      <soap12:operation soapAction="http://tempuri.org/FRECHAZAPEDIDO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FACTUALIZAGPS">
+      <soap12:operation soapAction="http://tempuri.org/FACTUALIZAGPS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado">
+      <soap12:operation soapAction="http://tempuri.org/Insertar_PedidosEncabezado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_encabezado_documento">
+      <soap12:operation soapAction="http://tempuri.org/Insertar_encabezado_documento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosDetalle">
+      <soap12:operation soapAction="http://tempuri.org/Insertar_PedidosDetalle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cuentasxcobrar">
+      <soap12:operation soapAction="http://tempuri.org/insertar_cuentasxcobrar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_gps">
+      <soap12:operation soapAction="http://tempuri.org/insertar_gps" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTEPEDIDO">
+      <soap12:operation soapAction="http://tempuri.org/DTCLIENTEPEDIDO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDOENCABEZADO">
+      <soap12:operation soapAction="http://tempuri.org/FCARGAPEDIDOENCABEZADO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDODETALLE">
+      <soap12:operation soapAction="http://tempuri.org/FCARGAPEDIDODETALLE" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerfcm">
+      <soap12:operation soapAction="http://tempuri.org/obtenerfcm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTPLAN_VISITAS">
+      <soap12:operation soapAction="http://tempuri.org/DTPLAN_VISITAS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDESCUENTOS">
+      <soap12:operation soapAction="http://tempuri.org/DTDESCUENTOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCAJAPAQUETES">
+      <soap12:operation soapAction="http://tempuri.org/DTCAJAPAQUETES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCATALOGO_PROMOCIONES_VIGENTES">
+      <soap12:operation soapAction="http://tempuri.org/DTCATALOGO_PROMOCIONES_VIGENTES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS">
+      <soap12:operation soapAction="http://tempuri.org/DTDETALLE_PROMOCIONES_ARTICULOS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_DESC_VOLUMENLINEAS">
+      <soap12:operation soapAction="http://tempuri.org/DTDETALLE_DESC_VOLUMENLINEAS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES">
+      <soap12:operation soapAction="http://tempuri.org/DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_GRUPO">
+      <soap12:operation soapAction="http://tempuri.org/DTDETALLE_PROMOCIONES_GRUPO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_LINEA">
+      <soap12:operation soapAction="http://tempuri.org/DTDETALLE_PROMOCIONES_LINEA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ABRIRCAJA">
+      <soap12:operation soapAction="http://tempuri.org/ABRIRCAJA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CERRARCAJA">
+      <soap12:operation soapAction="http://tempuri.org/CERRARCAJA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_BITACORA_LECTURA">
+      <soap12:operation soapAction="http://tempuri.org/INSERT_BITACORA_LECTURA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_HISTORIALCXC">
+      <soap12:operation soapAction="http://tempuri.org/INSERT_HISTORIALCXC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VALIDACAJA">
+      <soap12:operation soapAction="http://tempuri.org/VALIDACAJA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VALIDA_MAC">
+      <soap12:operation soapAction="http://tempuri.org/VALIDA_MAC" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_plan_visitas">
+      <soap12:operation soapAction="http://tempuri.org/actualiza_plan_visitas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado2">
+      <soap12:operation soapAction="http://tempuri.org/Insertar_PedidosEncabezado2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSyncRomHttpGet" type="tns:WSyncRomHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="VersionWS">
+      <http:operation location="/VersionWS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <http:operation location="/Ping" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <http:operation location="/ValidaUsuario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="validarDocumentosNoEnviadoDeUnAgente">
+      <http:operation location="/validarDocumentosNoEnviadoDeUnAgente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <http:operation location="/getData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="getAllDataAboutdistributor">
+      <http:operation location="/getAllDataAboutdistributor" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteRuta">
+      <http:operation location="/ExisteRuta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTArticulos">
+      <http:operation location="/DTArticulos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTBANCOS">
+      <http:operation location="/DTBANCOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTBENEFICIARIO">
+      <http:operation location="/DTBENEFICIARIO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATVISITAS">
+      <http:operation location="/DTCATVISITAS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATRECHAZOS">
+      <http:operation location="/DTCATRECHAZOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCIUDADES">
+      <http:operation location="/DTCIUDADES" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTESTADOS">
+      <http:operation location="/DTESTADOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTHISTORIALVENTA">
+      <http:operation location="/DTHISTORIALVENTA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTES">
+      <http:operation location="/DTCLIENTES" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASCOBRO">
+      <http:operation location="/DTFORMASCOBRO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASPAGOVENTAS">
+      <http:operation location="/DTFORMASPAGOVENTAS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTGRUPOS">
+      <http:operation location="/DTGRUPOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTLINEAS">
+      <http:operation location="/DTLINEAS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSARTICULOS">
+      <http:operation location="/DTPRECIOSARTICULOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSEMPRESA">
+      <http:operation location="/DTPRECIOSEMPRESA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTUSUARIOS">
+      <http:operation location="/DTUSUARIOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTZONASCLIENTES">
+      <http:operation location="/DTZONASCLIENTES" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCREDITOS">
+      <http:operation location="/DTCREDITOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DatosTicket">
+      <http:operation location="/DatosTicket" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTPAGOSCREDITO">
+      <http:operation location="/DTPAGOSCREDITO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cliente">
+      <http:operation location="/insertar_cliente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLICA_DOCTO_VENTA">
+      <http:operation location="/APLICA_DOCTO_VENTA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LIBERA_DOCTOINV">
+      <http:operation location="/LIBERA_DOCTOINV" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FRECHAZAPEDIDO">
+      <http:operation location="/FRECHAZAPEDIDO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FACTUALIZAGPS">
+      <http:operation location="/FACTUALIZAGPS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado">
+      <http:operation location="/Insertar_PedidosEncabezado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosDetalle">
+      <http:operation location="/Insertar_PedidosDetalle" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cuentasxcobrar">
+      <http:operation location="/insertar_cuentasxcobrar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_gps">
+      <http:operation location="/insertar_gps" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTEPEDIDO">
+      <http:operation location="/DTCLIENTEPEDIDO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDOENCABEZADO">
+      <http:operation location="/FCARGAPEDIDOENCABEZADO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDODETALLE">
+      <http:operation location="/FCARGAPEDIDODETALLE" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerfcm">
+      <http:operation location="/obtenerfcm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTPLAN_VISITAS">
+      <http:operation location="/DTPLAN_VISITAS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDESCUENTOS">
+      <http:operation location="/DTDESCUENTOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCAJAPAQUETES">
+      <http:operation location="/DTCAJAPAQUETES" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATALOGO_PROMOCIONES_VIGENTES">
+      <http:operation location="/DTCATALOGO_PROMOCIONES_VIGENTES" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS">
+      <http:operation location="/DTDETALLE_PROMOCIONES_ARTICULOS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_DESC_VOLUMENLINEAS">
+      <http:operation location="/DTDETALLE_DESC_VOLUMENLINEAS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES">
+      <http:operation location="/DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_GRUPO">
+      <http:operation location="/DTDETALLE_PROMOCIONES_GRUPO" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_LINEA">
+      <http:operation location="/DTDETALLE_PROMOCIONES_LINEA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ABRIRCAJA">
+      <http:operation location="/ABRIRCAJA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CERRARCAJA">
+      <http:operation location="/CERRARCAJA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_BITACORA_LECTURA">
+      <http:operation location="/INSERT_BITACORA_LECTURA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_HISTORIALCXC">
+      <http:operation location="/INSERT_HISTORIALCXC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VALIDACAJA">
+      <http:operation location="/VALIDACAJA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VALIDA_MAC">
+      <http:operation location="/VALIDA_MAC" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_plan_visitas">
+      <http:operation location="/actualiza_plan_visitas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado2">
+      <http:operation location="/Insertar_PedidosEncabezado2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WSyncRomHttpPost" type="tns:WSyncRomHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="VersionWS">
+      <http:operation location="/VersionWS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <http:operation location="/Ping" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaUsuario">
+      <http:operation location="/ValidaUsuario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="validarDocumentosNoEnviadoDeUnAgente">
+      <http:operation location="/validarDocumentosNoEnviadoDeUnAgente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="getData">
+      <http:operation location="/getData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="getAllDataAboutdistributor">
+      <http:operation location="/getAllDataAboutdistributor" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ExisteRuta">
+      <http:operation location="/ExisteRuta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTArticulos">
+      <http:operation location="/DTArticulos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTBANCOS">
+      <http:operation location="/DTBANCOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTBENEFICIARIO">
+      <http:operation location="/DTBENEFICIARIO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATVISITAS">
+      <http:operation location="/DTCATVISITAS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATRECHAZOS">
+      <http:operation location="/DTCATRECHAZOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCIUDADES">
+      <http:operation location="/DTCIUDADES" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTESTADOS">
+      <http:operation location="/DTESTADOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTHISTORIALVENTA">
+      <http:operation location="/DTHISTORIALVENTA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTES">
+      <http:operation location="/DTCLIENTES" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASCOBRO">
+      <http:operation location="/DTFORMASCOBRO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTFORMASPAGOVENTAS">
+      <http:operation location="/DTFORMASPAGOVENTAS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTGRUPOS">
+      <http:operation location="/DTGRUPOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTLINEAS">
+      <http:operation location="/DTLINEAS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSARTICULOS">
+      <http:operation location="/DTPRECIOSARTICULOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTPRECIOSEMPRESA">
+      <http:operation location="/DTPRECIOSEMPRESA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTUSUARIOS">
+      <http:operation location="/DTUSUARIOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTZONASCLIENTES">
+      <http:operation location="/DTZONASCLIENTES" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCREDITOS">
+      <http:operation location="/DTCREDITOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DatosTicket">
+      <http:operation location="/DatosTicket" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTPAGOSCREDITO">
+      <http:operation location="/DTPAGOSCREDITO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cliente">
+      <http:operation location="/insertar_cliente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APLICA_DOCTO_VENTA">
+      <http:operation location="/APLICA_DOCTO_VENTA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LIBERA_DOCTOINV">
+      <http:operation location="/LIBERA_DOCTOINV" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FRECHAZAPEDIDO">
+      <http:operation location="/FRECHAZAPEDIDO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FACTUALIZAGPS">
+      <http:operation location="/FACTUALIZAGPS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado">
+      <http:operation location="/Insertar_PedidosEncabezado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosDetalle">
+      <http:operation location="/Insertar_PedidosDetalle" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_cuentasxcobrar">
+      <http:operation location="/insertar_cuentasxcobrar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertar_gps">
+      <http:operation location="/insertar_gps" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DTCLIENTEPEDIDO">
+      <http:operation location="/DTCLIENTEPEDIDO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDOENCABEZADO">
+      <http:operation location="/FCARGAPEDIDOENCABEZADO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="FCARGAPEDIDODETALLE">
+      <http:operation location="/FCARGAPEDIDODETALLE" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerfcm">
+      <http:operation location="/obtenerfcm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTPLAN_VISITAS">
+      <http:operation location="/DTPLAN_VISITAS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDESCUENTOS">
+      <http:operation location="/DTDESCUENTOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCAJAPAQUETES">
+      <http:operation location="/DTCAJAPAQUETES" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTCATALOGO_PROMOCIONES_VIGENTES">
+      <http:operation location="/DTCATALOGO_PROMOCIONES_VIGENTES" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS">
+      <http:operation location="/DTDETALLE_PROMOCIONES_ARTICULOS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_DESC_VOLUMENLINEAS">
+      <http:operation location="/DTDETALLE_DESC_VOLUMENLINEAS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES">
+      <http:operation location="/DTDETALLE_PROMOCIONES_ARTICULOS_CLIENTES" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_GRUPO">
+      <http:operation location="/DTDETALLE_PROMOCIONES_GRUPO" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DTDETALLE_PROMOCIONES_LINEA">
+      <http:operation location="/DTDETALLE_PROMOCIONES_LINEA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="ABRIRCAJA">
+      <http:operation location="/ABRIRCAJA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CERRARCAJA">
+      <http:operation location="/CERRARCAJA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_BITACORA_LECTURA">
+      <http:operation location="/INSERT_BITACORA_LECTURA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="INSERT_HISTORIALCXC">
+      <http:operation location="/INSERT_HISTORIALCXC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VALIDACAJA">
+      <http:operation location="/VALIDACAJA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VALIDA_MAC">
+      <http:operation location="/VALIDA_MAC" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualiza_plan_visitas">
+      <http:operation location="/actualiza_plan_visitas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insertar_PedidosEncabezado2">
+      <http:operation location="/Insertar_PedidosEncabezado2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSyncRom">
+    <wsdl:port name="WSyncRomSoap" binding="tns:WSyncRomSoap">
+      <soap:address location="http://18.205.136.9:3000/wsrom/WSyncRom.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSyncRomSoap12" binding="tns:WSyncRomSoap12">
+      <soap12:address location="http://18.205.136.9:3000/wsrom/WSyncRom.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSyncRomHttpGet" binding="tns:WSyncRomHttpGet">
+      <http:address location="http://18.205.136.9:3000/wsrom/WSyncRom.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WSyncRomHttpPost" binding="tns:WSyncRomHttpPost">
+      <http:address location="http://18.205.136.9:3000/wsrom/WSyncRom.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

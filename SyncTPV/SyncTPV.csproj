@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1DA2707E-1856-4CC3-A02C-428E5B166945}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SyncTPV</RootNamespace>
+    <AssemblyName>SyncTPV</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.3.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MixedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <Optimize>false</Optimize>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>2020_ICONOS_64p_SyncTPV2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SyncTPV.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdminDll">
+      <HintPath>bin\x86\Debug\AdminDll.dll</HintPath>
+    </Reference>
+    <Reference Include="Cripto, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AdminDll\bin\Debug\Cripto.dll</HintPath>
+    </Reference>
+    <Reference Include="DbStructure">
+      <HintPath>..\..\..\..\..\Desktop\SyncTPV-Dependencias\DbStructuresRom\DbStructure\bin\Debug\DbStructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQLDriverCS, Version=3.0.1735.36021, Culture=neutral, PublicKeyToken=172f94dfb0faf263, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\x86\Debug\MySQLDriverCS.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="wsROMClases">
+      <HintPath>..\..\..\..\..\Desktop\SyncTPV-Dependencias\wsROMClases\wsROMClases\bin\Debug\wsROMClases.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsResumenArticulo.cs" />
+    <Compile Include="Controllers\AddMovementController.cs" />
+    <Compile Include="Controllers\AddNewWaysToCollectController.cs" />
+    <Compile Include="Controllers\AddOrSubtractUnitsController.cs" />
+    <Compile Include="Controllers\AperturaTurnoController.cs" />
+    <Compile Include="Controllers\CajaController.cs" />
+    <Compile Include="Controllers\CarritoRomTaskController.cs" />
+    <Compile Include="Controllers\ChangeSaleTypeController.cs" />
+    <Compile Include="Controllers\ClsBeneficiarioController.cs" />
+    <Compile Include="Controllers\ClsChangeDocumentTypeController.cs" />
+    <Compile Include="Controllers\CiudadesController.cs" />
+    <Compile Include="Controllers\ClsClasificationsController.cs" />
+    <Compile Include="Controllers\ClsClasificationsValueController.cs" />
+    <Compile Include="Controllers\PanelConfigurationController.cs" />
+    <Compile Include="Controllers\RegimenFiscalController.cs" />
+    <Compile Include="Controllers\ConfigurationWsController.cs" />
+    <Compile Include="Controllers\ConversionsUnitsController.cs" />
+    <Compile Include="Controllers\ClsCuentasPorCobrarController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\ClsCustomersZonesController.cs" />
+    <Compile Include="Controllers\ClsDatosDistribuidorController.cs" />
+    <Compile Include="Controllers\DatosTicketController.cs" />
+    <Compile Include="Controllers\EstadosController.cs" />
+    <Compile Include="Controllers\FormasDeCobroController.cs" />
+    <Compile Include="Controllers\FormasDePagoController.cs" />
+    <Compile Include="Controllers\ClsGetWithdrawalsController.cs" />
+    <Compile Include="Controllers\IngresosController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
+    <Compile Include="Controllers\ClsPdfMethods.cs" />
+    <Compile Include="Controllers\PreciosEmpresaController.cs" />
+    <Compile Include="Controllers\ClsPromotionsController.cs" />
+    <Compile Include="Controllers\ClsRegeditController.cs" />
+    <Compile Include="Controllers\RetirosController.cs" />
+    <Compile Include="Controllers\UnitsOfMeasureAndWeightController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\ConfigurationsTpvController.cs" />
+    <Compile Include="Controllers\CotizacionesMostradorController.cs" />
+    <Compile Include="Controllers\DeleteDataService.cs" />
+    <Compile Include="Controllers\DeleteDocumentController.cs" />
+    <Compile Include="Controllers\DeleteMovementController.cs" />
+    <Compile Include="Controllers\DeleteMultiplesDocsController.cs" />
+    <Compile Include="Controllers\DeleteWaysToCollectFromADocumentController.cs" />
+    <Compile Include="Controllers\DirectoriosController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\DownloadImagesService.cs" />
+    <Compile Include="Controllers\Downloads\ClsInitialChargeController.cs" />
+    <Compile Include="Controllers\EnviarDocumentosService.cs" />
+    <Compile Include="Controllers\FolioDigitalController.cs" />
+    <Compile Include="Controllers\GetDataService.cs" />
+    <Compile Include="Controllers\GetFTPCredentialsService.cs" />
+    <Compile Include="Controllers\PrePedidosController.cs" />
+    <Compile Include="Controllers\RutaController.cs" />
+    <Compile Include="Controllers\SendAdditionalCustomerController.cs" />
+    <Compile Include="Controllers\SendDataService.cs" />
+    <Compile Include="Controllers\SendIngresoController.cs" />
+    <Compile Include="Controllers\SendSomeDocsJSONService.cs" />
+    <Compile Include="Controllers\SendWithdrawalsService.cs" />
+    <Compile Include="Controllers\SubirImagenesController.cs" />
+    <Compile Include="Controllers\TerminateDocumentController.cs" />
+    <Compile Include="Controllers\UploadAndDownloadFilesController.cs" />
+    <Compile Include="Controllers\UsoCFDIController.cs" />
+    <Compile Include="FrmRecuperarDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRecuperarDocumento.Designer.cs">
+      <DependentUpon>FrmRecuperarDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAcercaDe.designer.cs">
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemDetails.designer.cs">
+      <DependentUpon>FormItemDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Extras\FormSeleccionarCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Extras\FormSeleccionarCaja.Designer.cs">
+      <DependentUpon>FormSeleccionarCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormBuscaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormBuscaCliente.designer.cs">
+      <DependentUpon>FormBuscaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGuardar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGuardar.Designer.cs">
+      <DependentUpon>frmGuardar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSoporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSoporte.designer.cs">
+      <DependentUpon>FrmSoporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormPasswordConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormPasswordConfirmation.Designer.cs">
+      <DependentUpon>FormPasswordConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormVenta.Designer.cs">
+      <DependentUpon>FormVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Design\CancelRoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\Design\RoundedButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\PHTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\SqliteDatabaseHelper\LocalDatabase.cs" />
+    <Compile Include="Helpers\SqliteDatabaseHelper\ClsSQLiteDbHelper.cs" />
+    <Compile Include="Models\AperturaTurnoModel.cs" />
+    <Compile Include="Models\BusquedasModel.cs" />
+    <Compile Include="Models\CajaModel.cs" />
+    <Compile Include="Models\RegimenFiscalModel.cs" />
+    <Compile Include="Models\UsoCFDIModel.cs" />
+    <Compile Include="Models\CustomerADCModel.cs" />
+    <Compile Include="Models\ClsBanderasCargaInicialModel.cs" />
+    <Compile Include="Models\ClsClasificationsModel.cs" />
+    <Compile Include="Models\ClsClasificationsValueModel.cs" />
+    <Compile Include="Models\ConfiguracionModel.cs" />
+    <Compile Include="Models\ConversionsUnitsModel.cs" />
+    <Compile Include="Models\CuentasXCobrarModel.cs" />
+    <Compile Include="Models\DatosDistribuidorModel.cs" />
+    <Compile Include="Models\FormasDeCobroDocumentoModel.cs" />
+    <Compile Include="Models\ClsInitialRecords.cs" />
+    <Compile Include="Models\LicenseModel.cs" />
+    <Compile Include="Models\MontoRetiroModel.cs" />
+    <Compile Include="Models\MovementsCxcModel.cs" />
+    <Compile Include="Models\ClsPositionsModel.cs" />
+    <Compile Include="Models\PrinterModel.cs" />
+    <Compile Include="Models\PromotionsModel.cs" />
+    <Compile Include="Models\ClsScaleModel.cs" />
+    <Compile Include="Models\SingleWeightModel.cs" />
+    <Compile Include="Models\UnitsOfMeasureAndWeightModel.cs" />
+    <Compile Include="Models\ConceptoModel.cs" />
+    <Compile Include="Models\ConceptoSinRutaModel.cs" />
+    <Compile Include="Models\DirectoriosModel.cs" />
+    <Compile Include="Models\FoliosDigitalesModel.cs" />
+    <Compile Include="Models\IngresoModel.cs" />
+    <Compile Include="Models\InstanceSQLSEModel.cs" />
+    <Compile Include="Models\MontoIngresoModel.cs" />
+    <Compile Include="Models\PedidoDetalleModel.cs" />
+    <Compile Include="Models\PedidosEncabezadoModel.cs" />
+    <Compile Include="Models\RutaModel.cs" />
+    <Compile Include="Models\Server\Commercial\ParametrosModel.cs" />
+    <Compile Include="Models\Server\Panel\RutaServerModel.cs" />
+    <Compile Include="Models\TaraModel.cs" />
+    <Compile Include="Models\WeightModel.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Validaciones.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="clsBancos.cs" />
+    <Compile Include="Models\ClsBeneficiarioModel.cs" />
+    <Compile Include="clsBorderRound.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="clsCargaPedidoDetalle.cs" />
+    <Compile Include="clsCargaPedidoEncabezado.cs" />
+    <Compile Include="clsCatVisitas.cs" />
+    <Compile Include="Models\CiudadesModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="clsCreditos.cs" />
+    <Compile Include="clsDatosMySQL.cs" />
+    <Compile Include="Models\DatosTicketModel.cs" />
+    <Compile Include="Models\DocumentModel.cs" />
+    <Compile Include="Models\EstadosModel.cs" />
+    <Compile Include="Models\FormasDePagoModel.cs" />
+    <Compile Include="Models\FormasDeCobroModel.cs" />
+    <Compile Include="clsFTP.cs" />
+    <Compile Include="Helpers\MetodosGenerales.cs" />
+    <Compile Include="clsGrupos.cs" />
+    <Compile Include="clsHistorialVentas.cs" />
+    <Compile Include="ClsLicenciamientoController.cs" />
+    <Compile Include="clsLineas.cs" />
+    <Compile Include="clsManejoDatosSqlite.cs" />
+    <Compile Include="Models\MovimientosModel.cs" />
+    <Compile Include="clsPagosCredito.cs" />
+    <Compile Include="clsPreciosArticulos.cs" />
+    <Compile Include="Models\PreciosempresaModel.cs" />
+    <Compile Include="clsRegistro.cs" />
+    <Compile Include="clsRespuesta.cs" />
+    <Compile Include="Models\RetiroModel.cs" />
+    <Compile Include="clsSoaps.cs" />
+    <Compile Include="clsTicket.cs" />
+    <Compile Include="Models\ClsCutomersZoneModel.cs" />
+    <Compile Include="Views\FormIniciarSesion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormIniciarSesion.Designer.cs">
+      <DependentUpon>FormIniciarSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Extras\FormMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Extras\FormMessage.Designer.cs">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmActivacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActivacion.Designer.cs">
+      <DependentUpon>FrmActivacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormArticulos.designer.cs">
+      <DependentUpon>FormArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCatalogoDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCatalogoDoc.designer.cs">
+      <DependentUpon>frmCatalogoDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormClientes.designer.cs">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormConfiguracionGral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormConfiguracionGral.designer.cs">
+      <DependentUpon>FormConfiguracionGral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormConfiguracionWS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormConfiguracionWS.Designer.cs">
+      <DependentUpon>FormConfiguracionWS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCorteCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCorteCaja.Designer.cs">
+      <DependentUpon>FormCorteCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCorteReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCorteReporte.designer.cs">
+      <DependentUpon>frmCorteReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AperturaTurno\FrmAperturaTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AperturaTurno\FrmAperturaTurno.Designer.cs">
+      <DependentUpon>FrmAperturaTurno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customers\FormAddCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Customers\FormAddCustomer.Designer.cs">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Cxc\FormPagosCxc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Cxc\FormPagosCxc.Designer.cs">
+      <DependentUpon>FormPagosCxc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Entries\FormIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Entries\FormIngresos.Designer.cs">
+      <DependentUpon>FormIngresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Extras\FormAddField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Extras\FormAddField.Designer.cs">
+      <DependentUpon>FormAddField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Extras\FormConfigTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Extras\FormConfigTickets.Designer.cs">
+      <DependentUpon>FormConfigTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Extras\FormImagen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Extras\FormImagen.Designer.cs">
+      <DependentUpon>FormImagen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmDownloads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmDownloads.Designer.cs">
+      <DependentUpon>FrmDownloads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormMovimientos.designer.cs">
+      <DependentUpon>FormMovimientos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImageCarga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImageCarga.designer.cs">
+      <DependentUpon>FrmImageCarga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOpcionesDocumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOpcionesDocumento.designer.cs">
+      <DependentUpon>FrmOpcionesDocumento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPedidos.designer.cs">
+      <DependentUpon>frmPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPedidosInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPedidosInfo.designer.cs">
+      <DependentUpon>frmPedidosInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuitarArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuitarArticulos.Designer.cs">
+      <DependentUpon>frmQuitarArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmResumenDocuments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmResumenDocuments.designer.cs">
+      <DependentUpon>FrmResumenDocuments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRuta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRuta.Designer.cs">
+      <DependentUpon>FrmRuta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmValidacionCargaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmValidacionCargaInicial.designer.cs">
+      <DependentUpon>frmValidacionCargaInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralTxt.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SECUDOC.cs" />
+    <Compile Include="Views\FrmAddAbono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAddAbono.Designer.cs">
+      <DependentUpon>FrmAddAbono.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmAddObservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmAddObservation.Designer.cs">
+      <DependentUpon>FrmAddObservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmCobranzaCxc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmCobranzaCxc.Designer.cs">
+      <DependentUpon>FrmCobranzaCxc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmConfirmation.Designer.cs">
+      <DependentUpon>FrmConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmConfirmSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmConfirmSale.Designer.cs">
+      <DependentUpon>FrmConfirmSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormPayCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormPayCart.Designer.cs">
+      <DependentUpon>FormPayCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmPedidosCotizacionesSurtir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmPedidosCotizacionesSurtir.Designer.cs">
+      <DependentUpon>FrmPedidosCotizacionesSurtir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmPromotions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmPromotions.Designer.cs">
+      <DependentUpon>FrmPromotions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmSendData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSendData.Designer.cs">
+      <DependentUpon>FrmSendData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSplash.Designer.cs">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FormWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FormWaiting.Designer.cs">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Mostrador\FormCodigoAgente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Mostrador\FormCodigoAgente.Designer.cs">
+      <DependentUpon>FormCodigoAgente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\FormFacturar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reports\FormFacturar.Designer.cs">
+      <DependentUpon>FormFacturar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\FormGeneralsReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reports\FormGeneralsReports.Designer.cs">
+      <DependentUpon>FormGeneralsReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\FormParametersReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Reports\FormParametersReports.Designer.cs">
+      <DependentUpon>FormParametersReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Rutas\FrmSearchRoutesOrCheckouts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Rutas\FrmSearchRoutesOrCheckouts.Designer.cs">
+      <DependentUpon>FrmSearchRoutesOrCheckouts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Scale\FormCalculateWeight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Scale\FormCalculateWeight.Designer.cs">
+      <DependentUpon>FormCalculateWeight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Taras\FormAddNewTara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Taras\FormAddNewTara.Designer.cs">
+      <DependentUpon>FormAddNewTara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Taras\FrmTaras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Taras\FrmTaras.Designer.cs">
+      <DependentUpon>FrmTaras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Withdrawals\FrmTerminateWithdrawal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Withdrawals\FrmTerminateWithdrawal.Designer.cs">
+      <DependentUpon>FrmTerminateWithdrawal.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\Extras\FormSeleccionarCaja.resx">
+      <DependentUpon>FormSeleccionarCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormIniciarSesion.resx">
+      <DependentUpon>FormIniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Extras\FormMessage.resx">
+      <DependentUpon>FormMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRecuperarDocumento.resx">
+      <DependentUpon>FrmRecuperarDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAcercaDe.resx">
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmActivacion.resx">
+      <DependentUpon>FrmActivacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemDetails.resx">
+      <DependentUpon>FormItemDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormArticulos.resx">
+      <DependentUpon>FormArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormBuscaCliente.resx">
+      <DependentUpon>FormBuscaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCatalogoDoc.resx">
+      <DependentUpon>frmCatalogoDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormClientes.resx">
+      <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormConfiguracionGral.resx">
+      <DependentUpon>FormConfiguracionGral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormConfiguracionWS.resx">
+      <DependentUpon>FormConfiguracionWS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCorteCaja.resx">
+      <DependentUpon>FormCorteCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCorteReporte.resx">
+      <DependentUpon>frmCorteReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AperturaTurno\FrmAperturaTurno.resx">
+      <DependentUpon>FrmAperturaTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Customers\FormAddCustomer.resx">
+      <DependentUpon>FormAddCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Cxc\FormPagosCxc.resx">
+      <DependentUpon>FormPagosCxc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Entries\FormIngresos.resx">
+      <DependentUpon>FormIngresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Extras\FormAddField.resx">
+      <DependentUpon>FormAddField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Extras\FormConfigTickets.resx">
+      <DependentUpon>FormConfigTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Extras\FormImagen.resx">
+      <DependentUpon>FormImagen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmDownloads.resx">
+      <DependentUpon>FrmDownloads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormMovimientos.resx">
+      <DependentUpon>FormMovimientos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGuardar.resx">
+      <DependentUpon>frmGuardar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImageCarga.resx">
+      <DependentUpon>FrmImageCarga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOpcionesDocumento.resx">
+      <DependentUpon>FrmOpcionesDocumento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidos.resx">
+      <DependentUpon>frmPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPedidosInfo.resx">
+      <DependentUpon>frmPedidosInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuitarArticulos.resx">
+      <DependentUpon>frmQuitarArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmResumenDocuments.resx">
+      <DependentUpon>FrmResumenDocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRuta.resx">
+      <DependentUpon>FrmRuta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSoporte.resx">
+      <DependentUpon>FrmSoporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmValidacionCargaInicial.resx">
+      <DependentUpon>frmValidacionCargaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormPasswordConfirmation.resx">
+      <DependentUpon>FormPasswordConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormVenta.resx">
+      <DependentUpon>FormVenta.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmAddAbono.resx">
+      <DependentUpon>FrmAddAbono.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmAddObservation.resx">
+      <DependentUpon>FrmAddObservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmCobranzaCxc.resx">
+      <DependentUpon>FrmCobranzaCxc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmConfirmation.resx">
+      <DependentUpon>FrmConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmConfirmSale.resx">
+      <DependentUpon>FrmConfirmSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormPayCart.resx">
+      <DependentUpon>FormPayCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmPedidosCotizacionesSurtir.resx">
+      <DependentUpon>FrmPedidosCotizacionesSurtir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmPromotions.resx">
+      <DependentUpon>FrmPromotions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmSendData.resx">
+      <DependentUpon>FrmSendData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmSplash.resx">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FormWaiting.resx">
+      <DependentUpon>FormWaiting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Mostrador\FormCodigoAgente.resx">
+      <DependentUpon>FormCodigoAgente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\FormFacturar.resx">
+      <DependentUpon>FormFacturar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\FormGeneralsReports.resx">
+      <DependentUpon>FormGeneralsReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\FormParametersReports.resx">
+      <DependentUpon>FormParametersReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Rutas\FrmSearchRoutesOrCheckouts.resx">
+      <DependentUpon>FrmSearchRoutesOrCheckouts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Scale\FormCalculateWeight.resx">
+      <DependentUpon>FormCalculateWeight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Taras\FormAddNewTara.resx">
+      <DependentUpon>FormAddNewTara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Taras\FrmTaras.resx">
+      <DependentUpon>FrmTaras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Withdrawals\FrmTerminateWithdrawal.resx">
+      <DependentUpon>FrmTerminateWithdrawal.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente_img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cliente_img1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes_img.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes_img1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes_img2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\articulos_img.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_aceptar_presionado_2.png" />
+    <None Include="Resources\btn_cancelar_normal_2.png" />
+    <None Include="Resources\btn_aceptar_normal_2.png" />
+    <None Include="Resources\splashsynctpv2.png" />
+    <None Include="Resources\cliente_black.png" />
+    <None Include="Resources\discount_black.png" />
+    <None Include="Resources\tpv_marcaagua.png" />
+    <None Include="Resources\synctpvsplash2.jpg" />
+    <None Include="Resources\download_local_white.png" />
+    <None Include="Resources\delete_white.png" />
+    <None Include="Resources\pdf_white.png" />
+    <None Include="Resources\back_white.png" />
+    <None Include="Resources\back_black.png" />
+    <None Include="Resources\eliminar_black.png" />
+    <None Include="Resources\warning_red.png" />
+    <None Include="Resources\warning_yellow.png" />
+    <None Include="Resources\advertencia_yellow.png" />
+    <None Include="Resources\ingreso_white.png" />
+    <None Include="Resources\add_white.png" />
+    <None Include="Resources\add_customer_white.png" />
+    <None Include="Resources\eye_off_black.png" />
+    <None Include="Resources\eye_black.png" />
+    <None Include="Resources\wifi_black.png" />
+    <None Include="Resources\sin_wifi_black.png" />
+    <None Include="Resources\setting_black.png" />
+    <None Include="Resources\synctpvoriginallogo.png" />
+    <None Include="Resources\pedientes_white.png" />
+    <None Include="Resources\recuperardocumento_white.png" />
+    <None Include="Resources\search_black.png" />
+    <None Include="Resources\printer_black.png" />
+    <None Include="Resources\lista_cuadrada_black.png" />
+    <None Include="Resources\edit_black.png" />
+    <None Include="Resources\pausa_black.png" />
+    <None Include="Resources\tara_white.png" />
+    <None Include="Resources\cancel_black.png" />
+    <None Include="Resources\cloud_offline_black.png" />
+    <None Include="Resources\cloud_online_black.png" />
+    <None Include="Resources\update_data_black.png" />
+    <None Include="Resources\update_photos_black.png" />
+    <None Include="Resources\download_cloud_black.png" />
+    <None Include="Resources\upload.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\comercial.png" />
+    <None Include="Resources\clean_white.png" />
+    <None Include="Resources\store_black.png" />
+    <None Include="Resources\store_white.png" />
+    <None Include="Resources\reportes_blanco.png" />
+    <None Include="Resources\corte_caja_blanco.png" />
+    <None Include="Resources\historial_documentos.png" />
+    <None Include="Resources\articulos.png" />
+    <None Include="Resources\cliente_blanco.png" />
+    <None Include="Resources\entregar_blanco.png" />
+    <None Include="Resources\carrito.png" />
+    <None Include="Resources\checkout.png" />
+    <None Include="Resources\send.png" />
+    <None Include="Resources\entregar.png" />
+    <None Include="Resources\restar.png" />
+    <None Include="Resources\sumar.png" />
+    <None Include="Resources\scale.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\update.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\pedidos.png" />
+    <None Include="Resources\pedido.png" />
+    <None Include="Resources\clean1.png" />
+    <None Include="Resources\pc_local.png" />
+    <None Include="Resources\pausado.png" />
+    <None Include="Resources\cancelado1.png" />
+    <None Include="Resources\sended_cloud1.png" />
+    <None Include="Resources\sended_cloud.png" />
+    <None Include="Resources\sindatos.png" />
+    <None Include="Resources\logosynctpvmoving.gif" />
+    <None Include="Resources\splashsynctpvdesktop.jpg" />
+    <None Include="Resources\cxc.png" />
+    <None Include="Resources\cxc.bmp" />
+    <None Include="Resources\success_green.png" />
+    <None Include="Resources\caution.png" />
+    <None Include="bin\x86\Debug\Imagenes\Estaticas\iconfinder_correct_3855625.png" />
+    <None Include="bin\x86\Debug\Imagenes\Estaticas\right_correct.png" />
+    <Content Include="2020_ICONOS_64p_SyncTPV2.ico" />
+    <Content Include="cssPrincipal.css" />
+    <None Include="Resources\iconfinder_menu2_309052.png" />
+    <None Include="Resources\iconfinder_alert_1282954.png" />
+    <None Include="Resources\3017933-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Answers">
+      <Version>1.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="BouncyCastle">
+      <Version>1.8.9</Version>
+    </PackageReference>
+    <PackageReference Include="Fabric">
+      <Version>1.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="iTextSharp">
+      <Version>5.5.13.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces">
+      <Version>6.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
+      <Version>1.0.2</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48">
+      <Version>1.0.2</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>7.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts">
+      <Version>10.0.22621.1</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>108.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="SQLite.Interop.dll">
+      <Version>1.0.103</Version>
+    </PackageReference>
+    <PackageReference Include="System.Buffers">
+      <Version>4.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Data.SQLite.Core">
+      <Version>1.0.116</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Memory">
+      <Version>4.5.5</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http">
+      <Version>4.3.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+      <Version>6.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.WindowsRuntime">
+      <Version>4.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml">
+      <Version>4.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Algorithms">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Encoding">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.X509Certificates">
+      <Version>4.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.5.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Tulpep.NotificationWindow">
+      <Version>1.1.38</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

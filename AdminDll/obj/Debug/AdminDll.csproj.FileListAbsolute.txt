@@ -1,0 +1,131 @@
+c:\users\lenovo\documents\visual studio 2015\Projects\AdminDll\AdminDll\bin\Debug\AdminDll.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\AdminDll\AdminDll\bin\Debug\AdminDll.pdb
+c:\users\lenovo\documents\visual studio 2015\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.dll
+c:\users\lenovo\documents\visual studio 2015\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\ATI11\Documents\Desarrollo2017-Thaliees\Proyectos\AdminDll\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\ATI11\Documents\Desarrollo2017-Thaliees\Proyectos\AdminDll\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\ATI11\Documents\Desarrollo2017-Thaliees\Proyectos\AdminDll\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\ATI11\Documents\Desarrollo2017-Thaliees\Proyectos\AdminDll\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Desarrollo2\Documents\Proyectos\AdminDll\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Desarrollo2\Documents\Proyectos\AdminDll\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Desarrollo2\Documents\Proyectos\AdminDll\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Desarrollo2\Documents\Proyectos\AdminDll\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Desarrollo2\Documents\Proyectos\AdminDll\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll_1.1\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll_1.1\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Proyectos VS\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll_1.1\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll_1.1\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\LENOVO\Documents\Visual Studio 2010\Projects\AdminDll_1.1\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2 - proceso\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2 - proceso\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\LENOVO\Desktop\SyncCOM2.4\AdminDll_1.2 - proceso\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\LENOVO\Desktop\SyncCOM2.4\AdminDll_1.2 - proceso\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\LENOVO\Desktop\SyncCOM2.4\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\LENOVO\Desktop\SyncCOM2.4\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\SyncCOM2.4\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\SyncCOM2.4\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\LENOVO\Desktop\SyncCOM2.4\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\LENOVO\Desktop\Nueva carpeta_POL\SyncPOL_Update\AdminDll_1.2 - proceso\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\LENOVO\Desktop\Nueva carpeta_POL\SyncPOL_Update\AdminDll_1.2 - proceso\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\LENOVO\Desktop\Nueva carpeta_POL\SyncPOL_Update\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\LENOVO\Desktop\Nueva carpeta_POL\SyncPOL_Update\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\Nueva carpeta_POL\SyncPOL_Update\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\Nueva carpeta_POL\SyncPOL_Update\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\LENOVO\Desktop\Nueva carpeta_POL\SyncPOL_Update\AdminDll_1.2 - proceso\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Administrador\Desktop\SyncCOMDE\SyncCOM\AdminDll_1.2\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Administrador\Desktop\SyncCOMDE\SyncCOM\AdminDll_1.2\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Administrador\Desktop\SyncCOMDE\SyncCOM\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\Administrador\Desktop\SyncCOMDE\SyncCOM\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Desktop\SyncCOMDE\SyncCOM\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Administrador\Desktop\SyncCOMDE\SyncCOM\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Administrador\Desktop\SyncCOMDE\SyncCOM\AdminDll_1.2\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.3\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.3\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.3\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.3\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.3\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.3\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.3\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\LENOVO\Desktop\AdminDll_1.3 -Notificar\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\LENOVO\Desktop\AdminDll_1.3 -Notificar\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\LENOVO\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\LENOVO\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\LENOVO\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\LENOVO\Desktop\SyncCOMREP\AdminDll_1.3 -Notificar\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\LENOVO\Desktop\SyncCOMREP\AdminDll_1.3 -Notificar\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\LENOVO\Desktop\SyncCOMREP\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\SyncCOMREP\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\LENOVO\Desktop\SyncCOMREP\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\LENOVO\Desktop\SyncCOMREP\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Administrador\Desktop\AdminDll_1.3 -Notificar\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Administrador\Desktop\AdminDll_1.3 -Notificar\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Administrador\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\Administrador\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Administrador\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Administrador\Desktop\AdminDll_1.3 -Notificar\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\obj\Debug\AdminDll.csprojAssemblyReference.cache
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Desarrollo\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.4\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.5\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.5\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.5\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.5\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\AdminDll_1.5\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\AdminDll\AdminDll\obj\Debug\AdminDll.pdb
+C:\Users\User\Documents\Visual Studio 2010\Projects\SyncTPV\AdminDll\bin\Debug\AdminDll.dll
+C:\Users\User\Documents\Visual Studio 2010\Projects\SyncTPV\AdminDll\bin\Debug\AdminDll.pdb
+C:\Users\User\Documents\Visual Studio 2010\Projects\SyncTPV\AdminDll\obj\Debug\AdminDll.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2010\Projects\SyncTPV\AdminDll\obj\Debug\AdminDll.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Visual Studio 2010\Projects\SyncTPV\AdminDll\obj\Debug\AdminDll.csproj.CopyComplete
+C:\Users\User\Documents\Visual Studio 2010\Projects\SyncTPV\AdminDll\obj\Debug\AdminDll.dll
+C:\Users\User\Documents\Visual Studio 2010\Projects\SyncTPV\AdminDll\obj\Debug\AdminDll.pdb
