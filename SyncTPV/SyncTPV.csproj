@@ -93,15 +93,17 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AdminDll">
-      <HintPath>bin\x86\Debug\AdminDll.dll</HintPath>
+    <Reference Include="AdminDll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AdminDll\AdminDll\bin\Debug\AdminDll.dll</HintPath>
     </Reference>
     <Reference Include="Cripto, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\AdminDll\bin\Debug\Cripto.dll</HintPath>
     </Reference>
-    <Reference Include="DbStructure">
-      <HintPath>..\..\..\..\..\Desktop\SyncTPV-Dependencias\DbStructuresRom\DbStructure\bin\Debug\DbStructure.dll</HintPath>
+    <Reference Include="DbStructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\DbStructuresRom\DbStructure\bin\Debug\DbStructure.dll</HintPath>
     </Reference>
     <Reference Include="MySQLDriverCS, Version=3.0.1735.36021, Culture=neutral, PublicKeyToken=172f94dfb0faf263, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -126,8 +128,9 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="wsROMClases">
-      <HintPath>..\..\..\..\..\Desktop\SyncTPV-Dependencias\wsROMClases\wsROMClases\bin\Debug\wsROMClases.dll</HintPath>
+    <Reference Include="wsROMClases, Version=5.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\wsROMClases\wsROMClases\bin\Debug\wsROMClases.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
