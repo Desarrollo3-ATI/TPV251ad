@@ -10,3 +10,158 @@
 Log: 11:29:09 a. m. viernes, 26 de agosto de 2022
 Validado: 
 -------------------------------
+Log: 01:49:56 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:49:55
+-------------------------------
+Log: 01:50:08 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:50:08
+-------------------------------
+Log: 01:50:09 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:50:09
+-------------------------------
+Log: 01:50:13 p. m. viernes, 26 de agosto de 2022
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en System.Data.SQLite.SQLiteDataReader.Read()
+   en SyncTPV.FormPrincipal.Eselmismoagente() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 766
+-------------------------------
+Log: 01:57:08 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:57:08
+-------------------------------
+Log: 01:57:13 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:57:12
+-------------------------------
+Log: 01:57:14 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:57:14
+-------------------------------
+Log: 01:57:14 p. m. viernes, 26 de agosto de 2022
+Validado: 
+-------------------------------
+Log: 01:57:14 p. m. viernes, 26 de agosto de 2022
+Registrado: 2
+-------------------------------
+Log: 01:58:14 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:58:13
+-------------------------------
+Log: 01:58:18 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:58:18
+-------------------------------
+Log: 01:58:20 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 18:58:19
+-------------------------------
+Log: 02:00:59 p. m. viernes, 26 de agosto de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 20
+-------------------------------
+Log: 02:01:20 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:01:20
+-------------------------------
+Log: 02:01:25 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:01:25
+-------------------------------
+Log: 02:01:27 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:01:26
+-------------------------------
+Log: 02:01:37 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:01:37
+-------------------------------
+Log: 02:01:44 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:01:43
+-------------------------------
+Log: 02:01:45 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:01:45
+-------------------------------
+Log: 02:02:30 p. m. viernes, 26 de agosto de 2022
+Validado: 
+-------------------------------
+Log: 02:02:30 p. m. viernes, 26 de agosto de 2022
+Registrado: 2
+-------------------------------
+Log: 02:02:56 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:02:56
+-------------------------------
+Log: 02:03:02 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:03:01
+-------------------------------
+Log: 02:03:03 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:03:03
+-------------------------------
+Log: 02:17:10 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:17:09
+-------------------------------
+Log: 02:19:25 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:19:25
+-------------------------------
+Log: 02:19:26 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:19:26
+-------------------------------
+Log: 02:19:37 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:19:36
+-------------------------------
+Log: 02:19:48 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:19:48
+-------------------------------
+Log: 02:19:50 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:19:49
+-------------------------------
+Log: 02:20:01 p. m. viernes, 26 de agosto de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 20
+-------------------------------
+Log: 02:21:17 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:21:16
+-------------------------------
+Log: 02:21:25 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:21:25
+-------------------------------
+Log: 02:21:27 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:21:27
+-------------------------------
+Log: 02:21:28 p. m. viernes, 26 de agosto de 2022
+Validado: 
+-------------------------------
+Log: 02:21:28 p. m. viernes, 26 de agosto de 2022
+Registrado: 2
+-------------------------------
+Log: 02:21:32 p. m. viernes, 26 de agosto de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 20
+-------------------------------
+Log: 02:23:21 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:23:21
+-------------------------------
+Log: 02:23:38 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:23:38
+-------------------------------
+Log: 02:23:41 p. m. viernes, 26 de agosto de 2022
+2023-05-16 11:41:50 - 2022-08-26 19:23:40
+-------------------------------

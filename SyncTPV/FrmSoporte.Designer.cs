@@ -115,7 +115,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(166, 15);
             this.label4.TabIndex = 22;
-            this.label4.Text = "dsapp@atichiapas.com.mx";
+            this.label4.Text = "desarrollo3@atichiapas.com.mx";
             // 
             // label5
             // 

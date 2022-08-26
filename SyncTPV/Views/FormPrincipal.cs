@@ -1,5 +1,6 @@
 ﻿using AdminDll;
 using DbStructure;
+using Newtonsoft.Json.Linq;
 using SyncTPV.Controllers;
 using SyncTPV.Controllers.Downloads;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
@@ -10,8 +11,10 @@ using SyncTPV.Views.Entries;
 using SyncTPV.Views.Reports;
 using SyncTPV.Views.Taras;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -737,8 +740,54 @@ namespace SyncTPV
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            formWaiting = new FormWaiting(this, 3, "Validando información...");
-            formWaiting.ShowDialog();
+            if (Eselmismoagente())
+            {
+                formWaiting = new FormWaiting(this, 3, "Validando información...");
+                formWaiting.ShowDialog();
+            }
+            else
+            {
+                FormMessage fm = new FormMessage("Advertencia", "El agente de venta cambio, realice la apertura de caja para poder vender.\n\rlas ventas seran eliminadas al realizar la apertrua de caja.", 3);
+                fm.ShowDialog();
+            }
+        }
+
+        public bool Eselmismoagente()
+        {
+            bool value=false;
+            var db = new SQLiteConnection();
+            try
+            {
+                String query = "SELECT * from Documentos where Documentos.USUARIO_ID != '" + ClsRegeditController.getIdUserInTurn() + "'";
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            value = false;
+                        }
+                        else
+                        {
+                            value = true;
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                SECUDOC.writeLog(Ex.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return value;
         }
 
         public async Task validateCotmosActivatedToVentaProcess()
