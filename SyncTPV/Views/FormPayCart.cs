@@ -1434,7 +1434,7 @@ namespace SyncTPV.Views
         private async Task validateInvoiceInDocuments()
         {
             if (checkBoxInvoiceFrmPayCart.Checked) {
-                if (tipoDeDocumento == DocumentModel.TIPO_VENTA || tipoDeDocumento == DocumentModel.TIPO_REMISION) {
+                if (tipoDeDocumento == DocumentModel.TIPO_VENTA || tipoDeDocumento == DocumentModel.TIPO_REMISION || tipoDeDocumento == DocumentModel.TIPO_DEVOLUCION) {
                     if (checkBoxCreditoFrmPayCart.Checked) {
                         int fiscalMovement = await validateIfDocumentHaveFiscalMovements();
                         if (fiscalMovement == 0) {
@@ -1510,7 +1510,10 @@ namespace SyncTPV.Views
                                 textFacturaFrmPayCart.Visible = true;
                             }
                             DocumentModel.updateGenerarFactura(idDocument, fiscalDocument);
-                            DocumentModel.updateQuoteDocumentType(idDocument, DocumentModel.TIPO_VENTA);
+                            if (tipoDeDocumento != DocumentModel.TIPO_DEVOLUCION)
+                            {
+                                DocumentModel.updateQuoteDocumentType(idDocument, DocumentModel.TIPO_VENTA);
+                            }
                         }
                     }
                 } else {

@@ -1,4 +1,5 @@
 ﻿using AdminDll;
+using DbStructure;
 using SyncTPV.Controllers;
 using SyncTPV.Controllers.Downloads;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
@@ -15,6 +16,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -774,7 +776,24 @@ namespace SyncTPV
                         }
                     } else
                     {
-                        string dateNow = DateTime.Now.ToString("yyyyMMdd");
+                        String rutaConec = "";
+                        String query = "";
+                        if (serverModeLAN)
+                        {
+                            rutaConec=ClsSQLiteDbHelper.instanceSQLite;
+                            query = "SELECT * FROM " + RomDb.TABLA_APERTURATURNO + " WHERE " + RomDb.CAMPO_USERID_APERTURATURNO + " = @idUser";
+                        }
+                        else
+                        {
+                            rutaConec = panelInstance;
+                            query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
+                            " WHERE " + LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " + ClsRegeditController.getIdUserInTurn();
+                        }
+                        value = 1;
+                        
+                        //bool ocupado = AperturaTurnoModel.getALastRecord(rutaConec, query);<- comparar el ulti
+                        /*
+                         string dateNow = DateTime.Now.ToString("yyyyMMdd");
                         if (serverModeLAN)
                         {
                             ClsAperturaCajaModel atm = ClsAperturaCajaModel.getARecordWithParameters(panelInstance, dateNow,
@@ -785,23 +804,23 @@ namespace SyncTPV
                                 if (pm != null)
                                 {
                                     value = 1;
-                                    /*this.Visible = false;
-                                    FormVenta Venta = new FormVenta(0);
-                                    Venta.ShowDialog();
-                                    this.Visible = true;*/
+                                    //this.Visible = false;
+                                    //FormVenta Venta = new FormVenta(0);
+                                    //Venta.ShowDialog();
+                                    //this.Visible = true;
                                 }
-                                else
+                                            else
                                 {
                                     description = "Asegurate de actualizar la información de la impresora en la " +
                                 "Configuración";
                                 }
                             }
-                            else
+                                        else
                             {
                                 description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
                             }
                         }
-                        else
+                                    else
                         {
                             String query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
                             " WHERE " + LocalDatabase.CAMPO_CREATEDAT_APERTURATURNO + " = '" + dateNow + "' AND " +
@@ -813,10 +832,10 @@ namespace SyncTPV
                                 if (pm != null)
                                 {
                                     value = 1;
-                                    /*this.Visible = false;
-                                    FormVenta Venta = new FormVenta(0);
-                                    Venta.ShowDialog();
-                                    this.Visible = true;*/
+                                    //this.Visible = false;
+                                    //FormVenta Venta = new FormVenta(0);
+                                    //Venta.ShowDialog();
+                                    //this.Visible = true;
                                 }
                                 else
                                 {
@@ -829,6 +848,7 @@ namespace SyncTPV
                                 description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
                             }
                         }
+            */
                     }
                 }
             });
@@ -1185,7 +1205,21 @@ namespace SyncTPV
                     value = 1;
                 } else
                 {
-                    string dateNow = DateTime.Now.ToString("yyyyMMdd");
+                    String rutaConec = "";
+                    String query = "";
+                    if (serverModeLAN)
+                    {
+                        rutaConec = ClsSQLiteDbHelper.instanceSQLite;
+                        query = "SELECT * FROM " + RomDb.TABLA_APERTURATURNO + " WHERE " + RomDb.CAMPO_USERID_APERTURATURNO + " = @idUser";
+                    }
+                    else
+                    {
+                        rutaConec = panelInstance;
+                        query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
+                        " WHERE " + LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " + ClsRegeditController.getIdUserInTurn();
+                    }
+                    value = 1;
+                    /*string dateNow = DateTime.Now.ToString("yyyyMMdd");
                     if (serverModeLAN)
                     {
                         ClsAperturaCajaModel atm = ClsAperturaCajaModel.getARecordWithParameters(panelInstance, dateNow,
@@ -1213,7 +1247,7 @@ namespace SyncTPV
                         {
                             description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
                         }
-                    }
+                    }*/
                 }
             });
             if (formWaiting != null)
@@ -1290,6 +1324,16 @@ namespace SyncTPV
         private void aperturaDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //aperturaDeCaja();
+            try
+            {
+                SECUDOC.writeLog("Validado: "+ GeneralTxt.Ruta);
+                //string[] Archivos = Directory.GetFiles(GeneralTxt.Ruta, ".db").OrderBy(d => new FileInfo(d).CreationTime).ToArray();
+                SECUDOC.writeLog("Registrado: "+"11".Length);
+            }
+            catch(Exception error)
+            {
+                SECUDOC.writeLog("------------------------\n\r"+error.ToString());
+            }
             if (!serverModeLAN && !webActive)
             {
                 FormMessage formMessage = new FormMessage("Web Desactivado", "Para realizar la apertura de caja tienes que " +
@@ -1601,7 +1645,21 @@ namespace SyncTPV
                     value = 1;
                 } else
                 {
-                    string dateNow = DateTime.Now.ToString("yyyyMMdd");
+                    String rutaConec = "";
+                    String query = "";
+                    if (serverModeLAN)
+                    {
+                        rutaConec = ClsSQLiteDbHelper.instanceSQLite;
+                        query = "SELECT * FROM " + RomDb.TABLA_APERTURATURNO + " WHERE " + RomDb.CAMPO_USERID_APERTURATURNO + " = @idUser";
+                    }
+                    else
+                    {
+                        rutaConec = panelInstance;
+                        query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
+                        " WHERE " + LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " + ClsRegeditController.getIdUserInTurn();
+                    }
+                    value = 1;
+                    /*string dateNow = DateTime.Now.ToString("yyyyMMdd");
                     if (serverModeLAN)
                     {
                         ClsAperturaCajaModel atm = ClsAperturaCajaModel.getARecordWithParameters(panelInstance, dateNow,
@@ -1629,7 +1687,7 @@ namespace SyncTPV
                         {
                             description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
                         }
-                    }
+                    }*/
                 }
             });
             if (formWaiting != null)

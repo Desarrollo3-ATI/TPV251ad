@@ -156,6 +156,39 @@ namespace SyncTPV.Models
             return atm;
         }
 
+
+        public static bool getALastRecord(String coneccion,String query)
+        {
+            bool ocupado = true;
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog("Exception getARecord: " + e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return ocupado;
+        }
         public static AperturaTurnoModel getARecordWithParameters(String dateTime, int idUser)
         {
             AperturaTurnoModel atm = null;
