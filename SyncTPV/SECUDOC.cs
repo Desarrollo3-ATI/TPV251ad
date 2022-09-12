@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows.Media.Media3D;
 
 namespace SyncTPV
 {
@@ -15,6 +16,25 @@ namespace SyncTPV
                     Log(mensaje, w);
                 }
             } catch (Exception e) { }
+        }
+
+        public static void corteLog(string mensaje)
+        {
+            try
+            {
+                if (!File.Exists(MetodosGenerales.rootDirectory + "\\CORTE.LOG"))
+                {
+                    File.Create(MetodosGenerales.rootDirectory + "\\CORTE.LOG");
+                }
+                using (StreamWriter w = File.AppendText(MetodosGenerales.rootDirectory + "\\CORTE.LOG"))
+                {
+                    Log(mensaje, w);
+                }
+            }
+            catch (Exception e)
+            {
+                writeLog(e.ToString());
+            }
         }
 
         public static void writeWeight(String weight)

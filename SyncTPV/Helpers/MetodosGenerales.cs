@@ -20,7 +20,7 @@ namespace SyncTPV
     public class MetodosGenerales
     {
         public static string rootDirectory = Application.StartupPath;
-        public static string versionNumber = "2.5.2";
+        public static string versionNumber = "2.5.3";
         public static string supportedResourceVersion = "5.5.0+";
 
         public static Bitmap redimencionarImagenes(Image originalImage, int width, int height)
@@ -146,7 +146,7 @@ namespace SyncTPV
     public static class clsGeneral
     {
         public static string rutaRegistro { get; } = "Software\\Syncs\\SyncTPV\\SCS";
-        public static string nombreSync { get; } = "SYNCTPV";
+        public static string nombreSync { get; } = "SyncTPV";
 
         public static string MessageError = "";
 
@@ -242,7 +242,7 @@ namespace SyncTPV
                 Reg.TS = "SyncTPV";
                 try
                 {
-                    Reg.IDE = BajoNivel.getCodigoSitio();
+                    Reg.IDE = idDesarrolloEspecial.ToString();
                     Reg.EID = BajoNivel.getCodigoSitio();
                     if (Reg.IDE == "") Reg.IDE = "0";
                 }
@@ -260,6 +260,7 @@ namespace SyncTPV
                 int diasRestantes = cont.Days;
                 Reg.DR = diasRestantes.ToString();
                 Reg.FA = "1";
+                Reg.FV = endDateText;
                 RegistryKey subKey = Registry.LocalMachine.OpenSubKey(rutaRegistro, true);
                 if (subKey != null)
                 {

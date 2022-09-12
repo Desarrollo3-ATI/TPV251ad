@@ -565,6 +565,7 @@ namespace SyncTPV
                     {
                         idespecial = clsGeneral.idDesarrolloEspecial;
                         tipoSync = tipoSync;
+                        response = true;
                     } else
                     {
                         FormMessage formMessage = new FormMessage("Licencia", responseLocalLic.description, 2);
@@ -740,7 +741,8 @@ namespace SyncTPV
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            if (Eselmismoagente())
+            //if (Eselmismoagente())
+            if(true)
             {
                 formWaiting = new FormWaiting(this, 3, "Validando información...");
                 formWaiting.ShowDialog();
@@ -1373,16 +1375,6 @@ namespace SyncTPV
         private void aperturaDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //aperturaDeCaja();
-            try
-            {
-                SECUDOC.writeLog("Validado: "+ GeneralTxt.Ruta);
-                //string[] Archivos = Directory.GetFiles(GeneralTxt.Ruta, ".db").OrderBy(d => new FileInfo(d).CreationTime).ToArray();
-                SECUDOC.writeLog("Registrado: "+"11".Length);
-            }
-            catch(Exception error)
-            {
-                SECUDOC.writeLog("------------------------\n\r"+error.ToString());
-            }
             if (!serverModeLAN && !webActive)
             {
                 FormMessage formMessage = new FormMessage("Web Desactivado", "Para realizar la apertura de caja tienes que " +

@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,6 +81,33 @@ namespace SyncTPV.Views.AperturaTurno
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                String Ruta = (AdminDll.General.RutaInicial + "\\Data\\").Replace("\\", "/");
+                String newfile = "SyncTPV-" + DateTime.Now.ToString().Replace("/", "").Replace(" ", "").Replace(":", "").Replace("a.m.", "").Replace("A.M.", "").Replace("p.m.", "").Replace("P.M.", "") + ".db";
+                string[] Archivos = Directory.GetFiles(Ruta, "*.db").OrderBy(d => new FileInfo(d).CreationTime).ToArray();
+                SECUDOC.writeLog("Apertura de caja Realizada: " + DateTime.Now.ToString() +" Respaldos detectados:"+Archivos.Length);
+                if (Archivos.Length > 0)
+                {
+                    File.Copy(Ruta + "SyncTPV.db", (Ruta + newfile), true);
+                    if(Archivos.Length > 99)
+                    {
+                        int elementosAEliminar = Archivos.Length-99;
+                        for (int i=0;i< elementosAEliminar; i++)
+                        {
+                            if (!Archivos[i].Equals(Ruta + "SyncTPV.db"))
+                            {
+                                File.Delete(Archivos[i]);
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception error)
+            {
+                SECUDOC.writeLog("*Error al respaldar la base de datos*\n" + error.ToString());
+            }
             doCheckoutOpening();
         }
 

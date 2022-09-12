@@ -131,6 +131,7 @@ namespace SyncTPV.Views.Reports
 
         private void btnGeneratePdf_Click(object sender, EventArgs e)
         {
+            SECUDOC.corteLog("**Imprimiendo Reporte - "+ DateTime.Now+ " - IdUsuario: "+ClsRegeditController.getIdUserInTurn());
             if (formGeneralsReports != null)
             {
                 processtoPrintTicketReport();
