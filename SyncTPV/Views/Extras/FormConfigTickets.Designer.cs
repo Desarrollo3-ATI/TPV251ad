@@ -178,7 +178,7 @@
             this.MaximumSize = new System.Drawing.Size(816, 489);
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "FormConfigTickets";
-            this.Text = "FormConfigTickets";
+            this.Text = "Configuración de ticketstiros";
             this.Load += new System.EventHandler(this.FormConfigTickets_Load);
             this.panelTollbar.ResumeLayout(false);
             this.panelContent.ResumeLayout(false);

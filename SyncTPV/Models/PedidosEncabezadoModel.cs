@@ -140,6 +140,7 @@ namespace SyncTPV.Models
                                 command.Parameters.AddWithValue("@listo", 0);
                                 command.Parameters.AddWithValue("@type", TYPE_COTIZACIONMOSTRADOR);
                                 command.Parameters.AddWithValue("@observation", cotizacionMostrador.observation);
+                                lastId = cotizacionMostrador.idDocumento;
                                 int recordInserted = command.ExecuteNonQuery();
                                 if (recordInserted > 0)
                                     PedidoDetalleModel.saveAllMovimientosCotizacionesMostrador(db, cotizacionMostrador.idDocumento, cotizacionMostrador.movements);

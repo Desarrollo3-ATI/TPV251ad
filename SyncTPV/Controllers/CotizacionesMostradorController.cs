@@ -23,46 +23,49 @@ namespace SyncTPV.Controllers
                 {
                     int lastId = 0;
                     int itemsToEvaluate = 0;
-                    String url = ConfiguracionModel.getLinkWs();
-                    url = url.Replace(" ", "%20");
-                    var client = new RestClient(url);
-                    var request = new RestRequest("/getAllCostizacionesMostrador", Method.Post);
-                    request.AddJsonBody(new
-                    {
-                        lastId = lastId,
-                        limit = 50
-                    });
-                    var responseHeader = client.ExecuteAsync(request);
-                    if (responseHeader.Result.ResponseStatus == ResponseStatus.Completed)
-                    {
-                        var jsonResp = JsonConvert.DeserializeObject<ResponseCotizacionesMostrador>(responseHeader.Result.Content);
-                        ResponseCotizacionesMostrador cotizacionesObject = (ResponseCotizacionesMostrador)jsonResp;
-                        if (cotizacionesObject.cotizaciones != null && cotizacionesObject.cotizaciones.Count > 0)
+                    do {
+                        String url = ConfiguracionModel.getLinkWs();
+                        url = url.Replace(" ", "%20");
+                        var client = new RestClient(url);
+                        var request = new RestRequest("/getAllCostizacionesMostrador", Method.Post);
+                        request.AddJsonBody(new
                         {
-                            if (lastId == 0)
-                                PedidosEncabezadoModel.deleteAllCotizacionesMostrador();
-                            lastId = await PedidosEncabezadoModel.saveAllCotizacionesMostrador(cotizacionesObject.cotizaciones);
-                            itemsToEvaluate = cotizacionesObject.cotizaciones.Count;
-                            value = 1;
-                            description = "Datos descargados correctamente";
+                            lastId = lastId,
+                            limit = 50
+                        });
+                        var responseHeader = client.ExecuteAsync(request);
+                        if (responseHeader.Result.ResponseStatus == ResponseStatus.Completed)
+                        {
+                            var jsonResp = JsonConvert.DeserializeObject<ResponseCotizacionesMostrador>(responseHeader.Result.Content);
+                            ResponseCotizacionesMostrador cotizacionesObject = (ResponseCotizacionesMostrador)jsonResp;
+                            if (cotizacionesObject.cotizaciones != null && cotizacionesObject.cotizaciones.Count > 0)
+                            {
+                                if (lastId == 0)
+                                    PedidosEncabezadoModel.deleteAllCotizacionesMostrador();
+                                lastId = await PedidosEncabezadoModel.saveAllCotizacionesMostrador(cotizacionesObject.cotizaciones);
+                                itemsToEvaluate = cotizacionesObject.cotizaciones.Count;
+                                value = 1;
+                                description = "Datos descargados correctamente";
+                            } else
+                            {
+                                description = "No se encontró ningún documento";
+                                lastId = 0;
+                            }
+                        }
+                        else if (responseHeader.Result.ResponseStatus == ResponseStatus.Error)
+                        {
+                            value = -400;
+                            description = MetodosGenerales.getErrorMessageFromNetworkCode(value, responseHeader.Result.ErrorException.Message);
+                        } else if (responseHeader.Result.ResponseStatus == ResponseStatus.TimedOut)
+                        {
+                            value = -404;
+                            description = MetodosGenerales.getErrorMessageFromNetworkCode(value, responseHeader.Result.ErrorException.Message);
                         } else
                         {
-                            description = "No se encontró ningún documento";
+                            value = -500;
+                            description = MetodosGenerales.getErrorMessageFromNetworkCode(value, responseHeader.Result.ErrorException.Message);
                         }
-                    }
-                    else if (responseHeader.Result.ResponseStatus == ResponseStatus.Error)
-                    {
-                        value = -400;
-                        description = MetodosGenerales.getErrorMessageFromNetworkCode(value, responseHeader.Result.ErrorException.Message);
-                    } else if (responseHeader.Result.ResponseStatus == ResponseStatus.TimedOut)
-                    {
-                        value = -404;
-                        description = MetodosGenerales.getErrorMessageFromNetworkCode(value, responseHeader.Result.ErrorException.Message);
-                    } else
-                    {
-                        value = -500;
-                        description = MetodosGenerales.getErrorMessageFromNetworkCode(value, responseHeader.Result.ErrorException.Message);
-                    }
+                    }while (lastId>0) ;
                 }
                 catch (Exception e)
                 {

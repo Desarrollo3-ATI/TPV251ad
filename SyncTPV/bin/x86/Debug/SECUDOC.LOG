@@ -240,3 +240,103 @@ Nombre del objeto: 'FormIniciarSesion'.
    en System.Windows.Forms.Application.Run(Form mainForm)
    en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 20
 -------------------------------
+Log: 01:17:02 p. m. jueves, 15 de septiembre de 2022
+2023-05-16 11:41:50 - 2022-09-15 18:17:01
+-------------------------------
+Log: 01:23:42 p. m. jueves, 15 de septiembre de 2022
+2023-05-16 11:41:50 - 2022-09-15 18:23:41
+-------------------------------
+Log: 01:23:44 p. m. jueves, 15 de septiembre de 2022
+2023-05-16 11:41:50 - 2022-09-15 18:23:43
+-------------------------------
+Log: 01:24:33 p. m. jueves, 15 de septiembre de 2022
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+near "WHERE": syntax error
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader()
+   en SyncTPV.Models.PedidosEncabezadoModel.getIntValueWithParameters(String query, String parameterName1, String parameterValue1, String parameterName2, String parameterValue2) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\PedidosEncabezadoModel.cs:línea 746
+-------------------------------
+Log: 01:24:50 p. m. jueves, 15 de septiembre de 2022
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+near "WHERE": syntax error
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader()
+   en SyncTPV.Models.PedidosEncabezadoModel.getIntValueWithParameters(String query, String parameterName1, String parameterValue1, String parameterName2, String parameterValue2) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\PedidosEncabezadoModel.cs:línea 746
+-------------------------------
+Log: 01:24:52 p. m. jueves, 15 de septiembre de 2022
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+near "WHERE": syntax error
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader()
+   en SyncTPV.Models.PedidosEncabezadoModel.getIntValueWithParameters(String query, String parameterName1, String parameterValue1, String parameterName2, String parameterValue2) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\PedidosEncabezadoModel.cs:línea 746
+-------------------------------
+Log: 01:29:15 p. m. jueves, 15 de septiembre de 2022
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+near "WHERE": syntax error
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader()
+   en SyncTPV.Models.PedidosEncabezadoModel.getIntValueWithParameters(String query, String parameterName1, String parameterValue1, String parameterName2, String parameterValue2) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\PedidosEncabezadoModel.cs:línea 746
+-------------------------------
+Log: 02:18:00 p. m. jueves, 15 de septiembre de 2022
+2023-05-16 11:41:50 - 2022-09-15 19:18:00
+-------------------------------
+Log: 02:26:07 p. m. jueves, 15 de septiembre de 2022
+2023-05-16 11:41:50 - 2022-09-15 19:26:06
+-------------------------------
+Log: 02:28:20 p. m. jueves, 15 de septiembre de 2022
+2023-05-16 11:41:50 - 2022-09-15 19:28:19
+-------------------------------
+Log: 02:28:22 p. m. jueves, 15 de septiembre de 2022
+2023-05-16 11:41:50 - 2022-09-15 19:28:21
+-------------------------------
+Log: 02:28:46 p. m. jueves, 15 de septiembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 20
+-------------------------------
+Log: 04:48:53 p. m. jueves, 15 de septiembre de 2022
+2023-05-16 11:41:50 - 2022-09-15 21:48:52
+-------------------------------
+Log: 04:52:15 p. m. jueves, 15 de septiembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 20
+-------------------------------
