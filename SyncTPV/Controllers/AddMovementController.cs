@@ -356,18 +356,6 @@ namespace SyncTPV.Controllers
                             else salesUnits = capturedUnits;
                         }
                     }
-                    if (serverModeLAN)
-                        await DatosTicketController.downloadAllDatosTicketLAN();
-                    else
-                    {
-                        if (webActive)
-                        {
-                            await DatosTicketController.downloadAllDatosTicketAPI();
-                        } else
-                        {
-
-                        }
-                    }
                     if (DatosTicketModel.sellOnlyWithStock())
                     {
                         if (!insufficientStock)
@@ -847,7 +835,7 @@ namespace SyncTPV.Controllers
                 dvm.almacen_id = usuarios.almacen_id;
                 dvm.tipo_documento = documentType;
                 dvm.factura = 0;
-                dvm.fventa = FormVenta.idCustomer + MetodosGenerales.getCurrentDateAndHourForFolioVenta();
+                dvm.fventa = "A"+ClsRegeditController.getIdUserInTurn()+"C"+FormVenta.idCustomer + MetodosGenerales.getCurrentDateAndHourForFolioVenta();
                 dvm.usuario_id = usuarios.id;
                 dvm.ciddoctopedidocc = 0;
                 dvm.pausado = 1;

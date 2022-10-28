@@ -1,9 +1,12 @@
-﻿using SyncTPV.Models;
+﻿using SyncTPV.Controllers;
+using SyncTPV.Helpers.SqliteDatabaseHelper;
+using SyncTPV.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +16,47 @@ namespace SyncTPV.Views.Extras
 {
     public partial class FormConfigTickets : Form
     {
+        bool serverModeLAN = ConfiguracionModel.isLANPermissionActivated();
         public FormConfigTickets()
         {
             InitializeComponent();
             btnClose.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.back_white, 35, 35);
+            btnGuardar.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.btn_aceptar_normal, 200, 75);
+            btnLimpiar.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.update_data_black, 50, 50);
         }
 
         private void FormConfigTickets_Load(object sender, EventArgs e)
         {
             validateParametersActivateds();
+            validateDatosDeEmpresa();
         }
-
+        
+        private async Task validateDatosDeEmpresa()
+        {
+            dynamic tk = null; 
+            await Task.Run(async () =>
+            {
+                tk = DatosTicketController.getallDataTicketLAN();
+            });
+            if(tk != null)
+            {
+                editEmpresa.Text   = tk.nombre;
+                editDireccion.Text = tk.direccion;
+                editExpedido.Text = tk.expedido;
+                editrfc.Text = tk.rfc;
+                editVentaEfectivo.Text = tk.ventaEfectivo;
+                editVentaCredito.Text = tk.ventaCredito;
+                editPedido.Text = tk.pedidos ;
+                editCotizacion.Text = tk.cotizacion;
+                editCobranza.Text = tk.cobranza;
+                editDevolucion.Text = tk.devolucion;
+            }
+            else
+            {
+                Console.WriteLine("nada");
+            }
+        }
+        
         private async Task validateParametersActivateds()
         {
             PrinterModel pm = null;
@@ -48,6 +81,9 @@ namespace SyncTPV.Views.Extras
                 if (pm.showFechaHora == 1)
                     checkBoxFechaHora.Checked = true;
                 else checkBoxFechaHora.Checked = false;
+                if (pm.showPorcentajeDescuentoMovimiento == 1)
+                    checkBoxDescuentoventa.Checked = true;
+                else checkBoxDescuentoventa.Checked = false;
             }
         }
 
@@ -181,6 +217,98 @@ namespace SyncTPV.Views.Extras
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
+            }
+        }
+
+        private async void btnGuardar_Click(object sender, EventArgs e)
+        {
+            btnGuardar.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.btn_aceptar_presionado, 200, 75);
+            FormPasswordConfirmation formPasswordConfirmation = new FormPasswordConfirmation("Acceso Supervisor", "Ingresa la contraseña del supervisor");
+            formPasswordConfirmation.StartPosition = FormStartPosition.CenterScreen;
+            formPasswordConfirmation.ShowDialog();
+            if (FormPasswordConfirmation.permissionGranted)
+            {
+            
+                try
+                {
+                   
+                    bool bandera = false;
+                    dynamic respuesta = null;
+                    String empresa = editEmpresa.Text;
+                    String direccion = editDireccion.Text;
+                    String rfc = editrfc.Text;
+                    String expend = editExpedido.Text;
+
+                    String efectivo = editVentaEfectivo.Text;
+                    String credito = editVentaCredito.Text;
+                    String cotizacion = editCotizacion.Text;
+                    String cobranza = editCobranza.Text;
+                    String pedido = editPedido.Text;
+                    String devolucion = editDevolucion.Text;
+
+                    await Task.Run(async () =>
+                    {
+                        respuesta = DatosTicketController.updateallDataTicketTPVLAN(
+                            empresa,direccion,rfc,expend,
+                            efectivo,credito,cotizacion,cobranza,pedido,devolucion);
+                    });
+                    if (respuesta != null)
+                    {
+                        bandera = (bool)respuesta.value;
+                        if (bandera)
+                        {
+                            MetodosGenerales.showToastSuccess("Guardado", respuesta.descripcion);
+                        }
+                        else
+                        {
+                            MetodosGenerales.showToastSuccess("Error al guardar", respuesta.descripcion);
+                        }
+                    }
+                }
+                catch(Exception error)
+                {
+                    SECUDOC.writeLog(error.ToString());
+                }
+            }
+            btnGuardar.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.btn_aceptar_normal, 200, 75);
+        }
+
+        private async void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            btnLimpiar.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.update_data_black, 60, 60);
+
+            FormPasswordConfirmation formPasswordConfirmation = new FormPasswordConfirmation("Acceso Supervisor", "Ingresa la contraseña del supervisor");
+            formPasswordConfirmation.StartPosition = FormStartPosition.CenterScreen;
+            formPasswordConfirmation.ShowDialog();
+            if (FormPasswordConfirmation.permissionGranted)
+            {
+               
+                if (serverModeLAN)
+                    await DatosTicketController.downloadAllDatosTicketLAN();
+                else
+                {
+                    await DatosTicketController.downloadAllDatosTicketAPI();
+                }
+     
+                validateDatosDeEmpresa();
+            }
+            btnLimpiar.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.update_data_black, 50, 50);
+        }
+
+        private void checkBoxDescuentoventa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxDescuentoventa.Focused)
+            {
+                if (checkBoxDescuentoventa.Checked)
+                {
+                    PrinterModel.updateShowEncabezadoField(1, 5, 1);
+                    MetodosGenerales.showToastSuccess("Desactivado", "El porcentaje de los descuentos se mostrará en el encabezado del ticket");
+                }
+                else
+                {
+                    PrinterModel.updateShowEncabezadoField(1, 5, 0);
+                    MetodosGenerales.showToastSuccess("Desactivado", "El porcentaje de los descuentos no se mostrará en el encabezado del ticket");
+                }
             }
         }
     }

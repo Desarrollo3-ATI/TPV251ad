@@ -103,6 +103,10 @@ namespace SyncTPV.Views.AperturaTurno
                     }
 
                 }
+                else
+                {
+                    SECUDOC.writeLog("No se encontraron respaldos " + DateTime.Now.ToString());
+                }
             }
             catch (Exception error)
             {

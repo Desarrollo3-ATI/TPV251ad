@@ -52,6 +52,7 @@ namespace SyncTPV
             this.textDenomComercialDetalleCliente = new System.Windows.Forms.Label();
             this.editPendienteDetalleCliente = new System.Windows.Forms.TextBox();
             this.textInfoPendienteDetalleCliente = new System.Windows.Forms.Label();
+            this.btnCobranzaDetalleCliente = new SyncTPV.RoundedButton();
             this.btnUploadImg = new System.Windows.Forms.Button();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -69,9 +70,6 @@ namespace SyncTPV
             this.textTotalCustomers = new System.Windows.Forms.Label();
             this.imgSinDatos = new System.Windows.Forms.PictureBox();
             this.dataGridClientes = new System.Windows.Forms.DataGridView();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.timerBusquedaClientes = new System.Windows.Forms.Timer(this.components);
-            this.btnCobranzaDetalleCliente = new SyncTPV.RoundedButton();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rfc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +77,8 @@ namespace SyncTPV
             this.denominacion_comercial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usocfdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regimefiscal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.timerBusquedaClientes = new System.Windows.Forms.Timer(this.components);
             this.panelEncabezadoCleintes.SuspendLayout();
             this.panelBusquedaCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgSearchCostomers)).BeginInit();
@@ -327,6 +327,27 @@ namespace SyncTPV
             this.textInfoPendienteDetalleCliente.TabIndex = 54;
             this.textInfoPendienteDetalleCliente.Text = "Pendiente por Pagar";
             // 
+            // btnCobranzaDetalleCliente
+            // 
+            this.btnCobranzaDetalleCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCobranzaDetalleCliente.BackColor = System.Drawing.Color.Transparent;
+            this.btnCobranzaDetalleCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCobranzaDetalleCliente.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
+            this.btnCobranzaDetalleCliente.FlatAppearance.BorderSize = 2;
+            this.btnCobranzaDetalleCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.btnCobranzaDetalleCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCobranzaDetalleCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCobranzaDetalleCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCobranzaDetalleCliente.Location = new System.Drawing.Point(239, 316);
+            this.btnCobranzaDetalleCliente.Name = "btnCobranzaDetalleCliente";
+            this.btnCobranzaDetalleCliente.Size = new System.Drawing.Size(161, 40);
+            this.btnCobranzaDetalleCliente.TabIndex = 53;
+            this.btnCobranzaDetalleCliente.Text = "Cuentas por Cobrar";
+            this.btnCobranzaDetalleCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCobranzaDetalleCliente.UseVisualStyleBackColor = false;
+            this.btnCobranzaDetalleCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnCobranzaDetalleCliente_KeyUp);
+            // 
             // btnUploadImg
             // 
             this.btnUploadImg.BackColor = System.Drawing.Color.White;
@@ -574,36 +595,6 @@ namespace SyncTPV
             this.dataGridClientes.TabIndex = 7;
             this.dataGridClientes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridClientes_KeyUp);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // timerBusquedaClientes
-            // 
-            this.timerBusquedaClientes.Interval = 300;
-            this.timerBusquedaClientes.Tick += new System.EventHandler(this.timerBusquedaClientes_Tick);
-            // 
-            // btnCobranzaDetalleCliente
-            // 
-            this.btnCobranzaDetalleCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCobranzaDetalleCliente.BackColor = System.Drawing.Color.Transparent;
-            this.btnCobranzaDetalleCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCobranzaDetalleCliente.FlatAppearance.BorderColor = System.Drawing.Color.ForestGreen;
-            this.btnCobranzaDetalleCliente.FlatAppearance.BorderSize = 2;
-            this.btnCobranzaDetalleCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
-            this.btnCobranzaDetalleCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCobranzaDetalleCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCobranzaDetalleCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCobranzaDetalleCliente.Location = new System.Drawing.Point(239, 316);
-            this.btnCobranzaDetalleCliente.Name = "btnCobranzaDetalleCliente";
-            this.btnCobranzaDetalleCliente.Size = new System.Drawing.Size(161, 40);
-            this.btnCobranzaDetalleCliente.TabIndex = 53;
-            this.btnCobranzaDetalleCliente.Text = "Cuentas por Cobrar";
-            this.btnCobranzaDetalleCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCobranzaDetalleCliente.UseVisualStyleBackColor = false;
-            this.btnCobranzaDetalleCliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnCobranzaDetalleCliente_KeyUp);
-            // 
             // id
             // 
             this.id.HeaderText = "Id";
@@ -650,6 +641,15 @@ namespace SyncTPV
             this.regimefiscal.HeaderText = "RegimenFiscal";
             this.regimefiscal.Name = "regimefiscal";
             this.regimefiscal.ReadOnly = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // timerBusquedaClientes
+            // 
+            this.timerBusquedaClientes.Interval = 300;
+            this.timerBusquedaClientes.Tick += new System.EventHandler(this.timerBusquedaClientes_Tick);
             // 
             // FormClientes
             // 

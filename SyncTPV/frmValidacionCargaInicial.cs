@@ -1,8 +1,10 @@
 ﻿using Cripto;
+using Newtonsoft.Json.Linq;
 using SyncTPV.Controllers;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SyncTPV
@@ -17,45 +19,89 @@ namespace SyncTPV
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            string contraseña = txtContraseña.Text;
-            if (contraseña == "" || contraseña == null)
+            int value = 0;
+            String description = "";
+            bool permissionGranted = false;
+            string password = txtContraseña.Text;
+            String panelInstance = "";
+            bool serverModeLAN = ConfiguracionModel.isLANPermissionActivated();
+            if (serverModeLAN)
+            {
+                panelInstance = InstanceSQLSEModel.getStringPanelInstance();
+            }
+            if (password == "" || password == null)
             {
                 FormMessage msj = new FormMessage("Datos Requeridos!", "Debes ingresar una contraseña válida", 2);
                 msj.ShowDialog();
             }
             else
             {
-                if (contraseña == UserModel.getAStringValueForAnyUser("SELECT " + LocalDatabase.CAMPO_PASSWORD_USUARIO + " FROM " + LocalDatabase.TABLA_USUARIO + " WHERE " +
-                    LocalDatabase.CAMPO_ID_USUARIO + " = " + ClsRegeditController.getIdUserInTurn()))
+                if (serverModeLAN)
                 {
-                    bool licenseActive = await clsGeneral.isTheLicenseValid(AES.Desencriptar(LicenseModel.getEndDateEncryptFromTheLocalDb()), "");
-                    if (!licenseActive)
+                    dynamic responsePass = ClsAgentesModel.isItSupervisorPassword(panelInstance, password);
+                    if (responsePass.value == 1)
                     {
-                        FormMessage msj = new FormMessage("Licencia Expirada", "Su licencia ha expirado.", 2);
-                        msj.ShowDialog();
-                    }
-                    else
-                    {
-                        String pendingData = armarStringParaMostrarInformacionAEnviar();
-                        //int pendingDocuments = ClsDocumentModel.getAllDocumentsCanceledOrNotSended();
-                        if (pendingData.Equals(""))
+                        bool existe = responsePass.existe;
+                        if (existe)
                         {
-                            this.Close();
-                            FormPrincipal.doInitialCharge = true;
+                            FormMessage formMessage = new FormMessage("Modo LAN Activado", "Cuando usas el modo LAN todas las conexiones se realizan directamente al servidor," +
+                            " por lo que ya no es necesario realizar carga inicial", 1);
+                            formMessage.ShowDialog();
                         }
                         else
                         {
-                            FormPrincipal.doInitialCharge = false;
-                            FormMessage msj = new FormMessage("Validar Documentos Pendientes", "Hay documentos pendientes por Enviar o Pausados", 2);
+                            FormMessage msj = new FormMessage("Sin supervisor", "No existe un agente supervisor.", 2);
                             msj.ShowDialog();
                         }
+                    }
+                    else
+                    {
+                        FormMessage msj = new FormMessage("Acción denegada", "Contraseña erronea.", 2);
+                        msj.ShowDialog();
                     }
                 }
                 else
                 {
-                    FormPrincipal.doInitialCharge = false;
-                    FormMessage msj = new FormMessage("Contraseña Incorrecta!", "La contraseña es incorrecta!", 2);
-                    msj.ShowDialog();
+                    dynamic responsePass = UserModel.isItSupervisorPassword(password);
+                    if (responsePass.value == 1)
+                    {
+                        bool existe = responsePass.existe;
+                        if (existe)
+                        {
+                            bool licenseActive = await clsGeneral.isTheLicenseValid(AES.Desencriptar(LicenseModel.getEndDateEncryptFromTheLocalDb()), "");
+                            if (!licenseActive)
+                            {
+                                FormMessage msj = new FormMessage("Licencia Expirada", "Su licencia ha expirado.", 2);
+                                msj.ShowDialog();
+                            }
+                            else
+                            {
+                                String pendingData = armarStringParaMostrarInformacionAEnviar();
+                                //int pendingDocuments = ClsDocumentModel.getAllDocumentsCanceledOrNotSended();
+                                if (pendingData.Equals(""))
+                                {
+                                    this.Close();
+                                    FormPrincipal.doInitialCharge = true;
+                                }
+                                else
+                                {
+                                    FormPrincipal.doInitialCharge = false;
+                                    FormMessage msj = new FormMessage("Validar Documentos Pendientes", "Hay documentos pendientes por Enviar o Pausados", 2);
+                                    msj.ShowDialog();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            FormMessage msj = new FormMessage("Sin supervisor", "No existe un agente supervisor.", 2);
+                            msj.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        FormMessage msj = new FormMessage("Acción denegada", "Contraseña erronea.", 2);
+                        msj.ShowDialog();
+                    }
                 }
 
             }

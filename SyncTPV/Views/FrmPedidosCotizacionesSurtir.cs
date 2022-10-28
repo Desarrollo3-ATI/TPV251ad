@@ -1534,13 +1534,6 @@ namespace SyncTPV.Views
                     }
                     if (!insufficientStock)
                     {
-                        if (serverModeLAN)
-                            await DatosTicketController.downloadAllDatosTicketLAN();
-                        else
-                        {
-                            if (webActive)
-                                await DatosTicketController.downloadAllDatosTicketAPI();
-                        }
                         double monto = (capturedUnits * precio);
                         double newAmountDiscount = (monto * descuento) / 100;
                         dynamic myMap = applyDiscountPromotions(documentType, itemModel, capturedUnits, monto);
@@ -1555,13 +1548,6 @@ namespace SyncTPV.Views
                     }
                     else
                     {
-                        if (serverModeLAN)
-                            await DatosTicketController.downloadAllDatosTicketLAN();
-                        else
-                        {
-                            if (webActive)
-                                await DatosTicketController.downloadAllDatosTicketAPI();
-                        }
                         if (DatosTicketModel.sellOnlyWithStock())
                         {
                             responseExistencia = -2;
@@ -1993,7 +1979,7 @@ namespace SyncTPV.Views
                 dvm.tipo_documento = documentType;
                 dvm.factura = fiscalDocument;
                 dvm.observacion = observation;
-                dvm.fventa = FormVenta.idCustomer + MetodosGenerales.getCurrentDateAndHourForFolioVenta();
+                dvm.fventa = "A"+ClsRegeditController.getIdUserInTurn() + "C"+FormVenta.idCustomer + MetodosGenerales.getCurrentDateAndHourForFolioVenta();
                 dvm.usuario_id = um.id;
                 dvm.ciddoctopedidocc = idPedido;
                 dvm.pausado = 1;

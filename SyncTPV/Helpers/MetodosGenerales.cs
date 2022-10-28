@@ -20,8 +20,8 @@ namespace SyncTPV
     public class MetodosGenerales
     {
         public static string rootDirectory = Application.StartupPath;
-        public static string versionNumber = "2.5.3";
-        public static string supportedResourceVersion = "5.5.0+";
+        public static string versionNumber = "2.5.5";
+        public static string supportedResourceVersion = "5.5.6+";
 
         public static Bitmap redimencionarImagenes(Image originalImage, int width, int height)
         {
@@ -107,7 +107,7 @@ namespace SyncTPV
         {
             String currentDate = "";
             DateTime fh = DateTime.Now;
-            currentDate = fh.ToString("MMddHHmmss");
+            currentDate = fh.ToString("yyMMddHHmmss");
             return currentDate;
         }
 

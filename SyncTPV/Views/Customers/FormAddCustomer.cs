@@ -16,6 +16,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using Windows.Networking;
 using wsROMClases.Models;
 using wsROMClases.Models.Panel;
 using static SyncTPV.Models.RegimenFiscalModel;
@@ -539,7 +540,8 @@ namespace SyncTPV.Views.Customers
             {
                 String idClienteNegativo = "-" + idCreated;
                 CustomerModel.createNewCustomer(Convert.ToInt32(idClienteNegativo), nombre, "", 0, "", "1", "",
-                    telefono, 1, 0, "", referencia, "", 0, "Bueno", "", 0, 0, 0, "", rfc, "", "",0,"","");
+                    telefono, 1, 0, "", referencia, "", 0, "Bueno", "", 0, 0, 0, "", rfc, "", "", tipoContribuyente,
+                                            codigoRegimenFiscal, codigoUsoCFDI);
                 if (CustomerModel.updateClaveClienteAdditionalAgregado(Convert.ToInt32(idClienteNegativo)) > 0)
                 {
                     response = Convert.ToInt32(idClienteNegativo);
@@ -793,7 +795,7 @@ namespace SyncTPV.Views.Customers
             {
                 this.comboBoxRegimenFiscal.DataSource = regimenFiscalList;
                 this.comboBoxRegimenFiscal.ValueMember = "valor";
-                this.comboBoxRegimenFiscal.DisplayMember = "Nombre";
+                this.comboBoxRegimenFiscal.DisplayMember = "valor";
                 // make it readonly
                 this.comboBoxRegimenFiscal.DropDownStyle = ComboBoxStyle.DropDownList;
             }
@@ -803,7 +805,8 @@ namespace SyncTPV.Views.Customers
             {
                 this.comboBoxUsoCFDI.DataSource = usosCFDIList;
                 this.comboBoxUsoCFDI.ValueMember = "valor";
-                this.comboBoxUsoCFDI.DisplayMember = "Nombre";
+                this.comboBoxUsoCFDI.DisplayMember = "valor";
+
                 // make it readonly
                 this.comboBoxUsoCFDI.DropDownStyle = ComboBoxStyle.DropDownList;
             }

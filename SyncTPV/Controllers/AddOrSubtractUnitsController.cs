@@ -239,9 +239,7 @@ namespace SyncTPV.Controllers
                         {
                             discountRate = 0;
                         }
-                        if (serverModeLAN)
-                            await DatosTicketController.downloadAllDatosTicketLAN();
-                        else await DatosTicketController.downloadAllDatosTicketAPI();
+                        
                         if (permissionPrepedido)
                         {
                             if (add || !add)

@@ -85,6 +85,7 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
                 LocalDatabase.validateAndCreateNewFieldsInTickets(db);
                 LocalDatabase.validateAndCreateNewFieldsInDatosTicket(db);
                 LocalDatabase.validateAndCreateNewFieldsInDatosClienteADC(db);
+                LocalDatabase.validateAndCreateNewFieldsInDatosLicencia(db);
                 //LocalDatabase.validateIFDatosUsosCFDI(db);
                 //LocalDatabase.validateIFDatosRegimenFiscal(db);
             }

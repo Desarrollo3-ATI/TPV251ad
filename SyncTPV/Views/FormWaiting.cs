@@ -224,7 +224,7 @@ namespace SyncTPV.Views
             this.formAddCustomer = formAddCustomer;
             this.call = call;
             textMessage.Text = "Espera un momento, por favor\r\n" + title;
-            this.updateRegimeFiscal = updateCustomer;
+            this.updateCustomer = updateCustomer;
         }
 
         public FormWaiting(FormConfiguracionGral formConfiguracionGral, int call, String message)

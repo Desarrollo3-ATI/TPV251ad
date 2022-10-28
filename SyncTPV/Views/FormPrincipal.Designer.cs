@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.backgroundCargaInicial = new System.ComponentModel.BackgroundWorker();
             this.pbCargaInicialFrmPrincipal = new System.Windows.Forms.ProgressBar();
@@ -49,6 +49,13 @@
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.panelNombres = new System.Windows.Forms.Panel();
+            this.panelNombresDos = new System.Windows.Forms.Panel();
+            this.editNombreCaja = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panelNombresUno = new System.Windows.Forms.Panel();
+            this.editNombreCajero = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.textDownloadInfo = new System.Windows.Forms.Label();
             this.textVersionFrmPrincipal = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -73,26 +80,22 @@
             this.btnCliente = new System.Windows.Forms.Button();
             this.btnCorteDeCaja = new System.Windows.Forms.Button();
             this.panelToolbar = new System.Windows.Forms.Panel();
+            this.editBoxUltimaApertura = new System.Windows.Forms.TextBox();
             this.pictureBoxLogoSuperior = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.panelNombres = new System.Windows.Forms.Panel();
-            this.panelNombresUno = new System.Windows.Forms.Panel();
-            this.editNombreCajero = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelNombresDos = new System.Windows.Forms.Panel();
-            this.editNombreCaja = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelApertura = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStripFrmPrincipal.SuspendLayout();
             this.panelContent.SuspendLayout();
+            this.panelNombres.SuspendLayout();
+            this.panelNombresDos.SuspendLayout();
+            this.panelNombresUno.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgSinDatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPromotionsFrmPincipal)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelToolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoSuperior)).BeginInit();
-            this.panelNombres.SuspendLayout();
-            this.panelNombresUno.SuspendLayout();
-            this.panelNombresDos.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -139,12 +142,12 @@
             this.actualizarDatosToolStripMenuItem,
             this.sendDataToolStripMenuItem,
             this.descargasToolStripMenuItem});
-            this.datosToolStripMenuItem.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.datosToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.datosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.datosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("datosToolStripMenuItem.Image")));
             this.datosToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.datosToolStripMenuItem.Name = "datosToolStripMenuItem";
-            this.datosToolStripMenuItem.Size = new System.Drawing.Size(79, 60);
+            this.datosToolStripMenuItem.Size = new System.Drawing.Size(85, 60);
             this.datosToolStripMenuItem.Text = "&Datos";
             this.datosToolStripMenuItem.DropDownClosed += new System.EventHandler(this.datosToolStripMenuItem_DropDownClosed);
             this.datosToolStripMenuItem.DropDownOpened += new System.EventHandler(this.datosToolStripMenuItem_DropDownOpened);
@@ -153,7 +156,7 @@
             // 
             this.aperturaDeCajaToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
             this.aperturaDeCajaToolStripMenuItem.Name = "aperturaDeCajaToolStripMenuItem";
-            this.aperturaDeCajaToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+            this.aperturaDeCajaToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
             this.aperturaDeCajaToolStripMenuItem.Text = "Apertura de Caja";
             this.aperturaDeCajaToolStripMenuItem.Click += new System.EventHandler(this.aperturaDeCajaToolStripMenuItem_Click);
             // 
@@ -162,7 +165,7 @@
             this.cargaInicialToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cargaInicialToolStripMenuItem.Image")));
             this.cargaInicialToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
             this.cargaInicialToolStripMenuItem.Name = "cargaInicialToolStripMenuItem";
-            this.cargaInicialToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+            this.cargaInicialToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
             this.cargaInicialToolStripMenuItem.Text = "Carga Inicial";
             this.cargaInicialToolStripMenuItem.Click += new System.EventHandler(this.btnCargaInicial_Click);
             // 
@@ -172,7 +175,7 @@
             this.actualizarDatosToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
             this.actualizarDatosToolStripMenuItem.Name = "actualizarDatosToolStripMenuItem";
             this.actualizarDatosToolStripMenuItem.RightToLeftAutoMirrorImage = true;
-            this.actualizarDatosToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+            this.actualizarDatosToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
             this.actualizarDatosToolStripMenuItem.Text = "Actualizar Datos";
             this.actualizarDatosToolStripMenuItem.Click += new System.EventHandler(this.actualizarDatosToolStripMenuItem_Click);
             // 
@@ -181,7 +184,7 @@
             this.sendDataToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sendDataToolStripMenuItem.Image")));
             this.sendDataToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
             this.sendDataToolStripMenuItem.Name = "sendDataToolStripMenuItem";
-            this.sendDataToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+            this.sendDataToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
             this.sendDataToolStripMenuItem.Text = "Enviar Documentos";
             this.sendDataToolStripMenuItem.Click += new System.EventHandler(this.btnSendData_Click);
             // 
@@ -190,7 +193,7 @@
             this.descargasToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.descargasToolStripMenuItem.Margin = new System.Windows.Forms.Padding(1);
             this.descargasToolStripMenuItem.Name = "descargasToolStripMenuItem";
-            this.descargasToolStripMenuItem.Size = new System.Drawing.Size(218, 24);
+            this.descargasToolStripMenuItem.Size = new System.Drawing.Size(234, 24);
             this.descargasToolStripMenuItem.Text = "Descargas";
             this.descargasToolStripMenuItem.Click += new System.EventHandler(this.descargasToolStripMenuItem_Click);
             // 
@@ -203,12 +206,12 @@
             this.acercaDeToolStripMenuItem,
             this.cerrarSesiónToolStripMenuItem,
             this.salirToolStripMenuItem});
-            this.opcionesToolStripMenuItem.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.opcionesToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.opcionesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.opcionesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("opcionesToolStripMenuItem.Image")));
             this.opcionesToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(104, 60);
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(112, 60);
             this.opcionesToolStripMenuItem.Text = "Opciones";
             this.opcionesToolStripMenuItem.DropDownClosed += new System.EventHandler(this.opcionesToolStripMenuItem_DropDownClosed);
             this.opcionesToolStripMenuItem.DropDownOpened += new System.EventHandler(this.opcionesToolStripMenuItem_DropDownOpened);
@@ -217,7 +220,7 @@
             // 
             this.configuraciónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("configuraciónToolStripMenuItem.Image")));
             this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
-            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.configuraciónToolStripMenuItem.Text = "Configuración";
             this.configuraciónToolStripMenuItem.Click += new System.EventHandler(this.BtnConfiguracion_Click);
             // 
@@ -225,7 +228,7 @@
             // 
             this.soporteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("soporteToolStripMenuItem.Image")));
             this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
-            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.soporteToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.soporteToolStripMenuItem.Text = "Soporte";
             this.soporteToolStripMenuItem.Click += new System.EventHandler(this.btnSoporte_Click);
             // 
@@ -233,7 +236,7 @@
             // 
             this.acercaDeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("acercaDeToolStripMenuItem.Image")));
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.acercaDeToolStripMenuItem.Text = "Acerca De";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.btnAcercade_Click);
             // 
@@ -241,7 +244,7 @@
             // 
             this.cerrarSesiónToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cerrarSesiónToolStripMenuItem.Image")));
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar Sesión";
             this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.BtnCerrarSesion_Click);
             // 
@@ -249,7 +252,7 @@
             // 
             this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(189, 24);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -269,11 +272,92 @@
             this.panelContent.Size = new System.Drawing.Size(903, 663);
             this.panelContent.TabIndex = 17;
             // 
+            // panelNombres
+            // 
+            this.panelNombres.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelNombres.Controls.Add(this.panelNombresDos);
+            this.panelNombres.Controls.Add(this.panelNombresUno);
+            this.panelNombres.Location = new System.Drawing.Point(12, 3);
+            this.panelNombres.Name = "panelNombres";
+            this.panelNombres.Size = new System.Drawing.Size(879, 70);
+            this.panelNombres.TabIndex = 11;
+            // 
+            // panelNombresDos
+            // 
+            this.panelNombresDos.Controls.Add(this.editNombreCaja);
+            this.panelNombresDos.Controls.Add(this.label2);
+            this.panelNombresDos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelNombresDos.Location = new System.Drawing.Point(462, 0);
+            this.panelNombresDos.Name = "panelNombresDos";
+            this.panelNombresDos.Size = new System.Drawing.Size(417, 70);
+            this.panelNombresDos.TabIndex = 62;
+            // 
+            // editNombreCaja
+            // 
+            this.editNombreCaja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editNombreCaja.BackColor = System.Drawing.Color.FloralWhite;
+            this.editNombreCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editNombreCaja.Location = new System.Drawing.Point(72, 13);
+            this.editNombreCaja.Multiline = true;
+            this.editNombreCaja.Name = "editNombreCaja";
+            this.editNombreCaja.ReadOnly = true;
+            this.editNombreCaja.Size = new System.Drawing.Size(343, 45);
+            this.editNombreCaja.TabIndex = 64;
+            this.editNombreCaja.Text = "Nombre Caja";
+            this.editNombreCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(4, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 28);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "Caja:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panelNombresUno
+            // 
+            this.panelNombresUno.Controls.Add(this.editNombreCajero);
+            this.panelNombresUno.Controls.Add(this.label1);
+            this.panelNombresUno.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelNombresUno.Location = new System.Drawing.Point(0, 0);
+            this.panelNombresUno.Name = "panelNombresUno";
+            this.panelNombresUno.Size = new System.Drawing.Size(430, 70);
+            this.panelNombresUno.TabIndex = 0;
+            // 
+            // editNombreCajero
+            // 
+            this.editNombreCajero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editNombreCajero.BackColor = System.Drawing.Color.FloralWhite;
+            this.editNombreCajero.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editNombreCajero.Location = new System.Drawing.Point(93, 12);
+            this.editNombreCajero.Multiline = true;
+            this.editNombreCajero.Name = "editNombreCajero";
+            this.editNombreCajero.ReadOnly = true;
+            this.editNombreCajero.Size = new System.Drawing.Size(334, 46);
+            this.editNombreCajero.TabIndex = 61;
+            this.editNombreCajero.Text = "Nombre Cajero";
+            this.editNombreCajero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 28);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Cajero:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // textDownloadInfo
             // 
             this.textDownloadInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textDownloadInfo.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDownloadInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDownloadInfo.Location = new System.Drawing.Point(16, 603);
             this.textDownloadInfo.Name = "textDownloadInfo";
             this.textDownloadInfo.Size = new System.Drawing.Size(875, 19);
@@ -284,7 +368,7 @@
             // textVersionFrmPrincipal
             // 
             this.textVersionFrmPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textVersionFrmPrincipal.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textVersionFrmPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textVersionFrmPrincipal.Location = new System.Drawing.Point(696, 644);
             this.textVersionFrmPrincipal.Name = "textVersionFrmPrincipal";
             this.textVersionFrmPrincipal.Size = new System.Drawing.Size(207, 19);
@@ -333,7 +417,7 @@
             // 
             this.textPromotionsFrmPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textPromotionsFrmPrincipal.Font = new System.Drawing.Font("Roboto Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPromotionsFrmPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPromotionsFrmPrincipal.Location = new System.Drawing.Point(18, 12);
             this.textPromotionsFrmPrincipal.Name = "textPromotionsFrmPrincipal";
             this.textPromotionsFrmPrincipal.Size = new System.Drawing.Size(845, 25);
@@ -352,14 +436,14 @@
             this.dataGridViewPromotionsFrmPincipal.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewPromotionsFrmPincipal.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.dataGridViewPromotionsFrmPincipal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Moccasin;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPromotionsFrmPincipal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Moccasin;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPromotionsFrmPincipal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewPromotionsFrmPincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPromotionsFrmPincipal.ColumnHeadersVisible = false;
             this.dataGridViewPromotionsFrmPincipal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -375,15 +459,15 @@
             this.dataGridViewPromotionsFrmPincipal.Name = "dataGridViewPromotionsFrmPincipal";
             this.dataGridViewPromotionsFrmPincipal.ReadOnly = true;
             this.dataGridViewPromotionsFrmPincipal.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FloralWhite;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.MediumBlue;
-            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPromotionsFrmPincipal.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.MediumBlue;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPromotionsFrmPincipal.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewPromotionsFrmPincipal.RowHeadersVisible = false;
             this.dataGridViewPromotionsFrmPincipal.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewPromotionsFrmPincipal.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FloralWhite;
@@ -467,7 +551,7 @@
             this.btnIngresos.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnIngresos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnIngresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIngresos.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresos.ForeColor = System.Drawing.Color.White;
             this.btnIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIngresos.Location = new System.Drawing.Point(3, 465);
@@ -487,7 +571,7 @@
             this.btnTaras.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnTaras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnTaras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTaras.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaras.ForeColor = System.Drawing.Color.White;
             this.btnTaras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTaras.Location = new System.Drawing.Point(3, 399);
@@ -507,7 +591,7 @@
             this.btnReportsFrmPrincipal.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnReportsFrmPrincipal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnReportsFrmPrincipal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportsFrmPrincipal.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportsFrmPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportsFrmPrincipal.ForeColor = System.Drawing.Color.White;
             this.btnReportsFrmPrincipal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReportsFrmPrincipal.Location = new System.Drawing.Point(3, 333);
@@ -526,7 +610,7 @@
             this.btnVenta.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVenta.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVenta.ForeColor = System.Drawing.Color.White;
             this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVenta.Location = new System.Drawing.Point(3, 3);
@@ -543,7 +627,7 @@
             this.btnArticulos.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnArticulos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArticulos.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArticulos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArticulos.ForeColor = System.Drawing.Color.White;
             this.btnArticulos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnArticulos.Location = new System.Drawing.Point(3, 135);
@@ -560,7 +644,7 @@
             this.btnHistorialDocumentosFrmPrincipal.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnHistorialDocumentosFrmPrincipal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnHistorialDocumentosFrmPrincipal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorialDocumentosFrmPrincipal.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorialDocumentosFrmPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistorialDocumentosFrmPrincipal.ForeColor = System.Drawing.Color.White;
             this.btnHistorialDocumentosFrmPrincipal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHistorialDocumentosFrmPrincipal.Location = new System.Drawing.Point(3, 201);
@@ -577,7 +661,7 @@
             this.btnCliente.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCliente.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.ForeColor = System.Drawing.Color.White;
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCliente.Location = new System.Drawing.Point(3, 69);
@@ -596,7 +680,7 @@
             this.btnCorteDeCaja.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.btnCorteDeCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCorteDeCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCorteDeCaja.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCorteDeCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCorteDeCaja.ForeColor = System.Drawing.Color.White;
             this.btnCorteDeCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCorteDeCaja.Location = new System.Drawing.Point(3, 267);
@@ -611,13 +695,33 @@
             this.panelToolbar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelToolbar.BackColor = System.Drawing.Color.Coral;
+            this.panelToolbar.Controls.Add(this.editBoxUltimaApertura);
             this.panelToolbar.Controls.Add(this.pictureBoxLogoSuperior);
             this.panelToolbar.Controls.Add(this.menuStripFrmPrincipal);
             this.panelToolbar.Controls.Add(this.btnCerrar);
+            this.panelToolbar.Controls.Add(this.labelApertura);
             this.panelToolbar.Location = new System.Drawing.Point(0, -2);
             this.panelToolbar.Name = "panelToolbar";
             this.panelToolbar.Size = new System.Drawing.Size(1113, 70);
             this.panelToolbar.TabIndex = 19;
+            // 
+            // editBoxUltimaApertura
+            // 
+            this.editBoxUltimaApertura.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editBoxUltimaApertura.BackColor = System.Drawing.Color.FloralWhite;
+            this.editBoxUltimaApertura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBoxUltimaApertura.Location = new System.Drawing.Point(548, 17);
+            this.editBoxUltimaApertura.Multiline = true;
+            this.editBoxUltimaApertura.Name = "editBoxUltimaApertura";
+            this.editBoxUltimaApertura.ReadOnly = true;
+            this.editBoxUltimaApertura.Size = new System.Drawing.Size(260, 45);
+            this.editBoxUltimaApertura.TabIndex = 65;
+            this.editBoxUltimaApertura.Tag = "";
+            this.editBoxUltimaApertura.Text = "Sin Aperturas";
+            this.editBoxUltimaApertura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.editBoxUltimaApertura, "NA");
+            this.editBoxUltimaApertura.MouseHover += new System.EventHandler(this.textBox1_MouseHover);
             // 
             // pictureBoxLogoSuperior
             // 
@@ -637,7 +741,7 @@
             this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCerrar.Location = new System.Drawing.Point(3, 4);
@@ -650,88 +754,15 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panelNombres
+            // labelApertura
             // 
-            this.panelNombres.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelNombres.Controls.Add(this.panelNombresDos);
-            this.panelNombres.Controls.Add(this.panelNombresUno);
-            this.panelNombres.Location = new System.Drawing.Point(12, 3);
-            this.panelNombres.Name = "panelNombres";
-            this.panelNombres.Size = new System.Drawing.Size(879, 70);
-            this.panelNombres.TabIndex = 11;
-            // 
-            // panelNombresUno
-            // 
-            this.panelNombresUno.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelNombresUno.Controls.Add(this.editNombreCajero);
-            this.panelNombresUno.Controls.Add(this.label1);
-            this.panelNombresUno.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelNombresUno.Location = new System.Drawing.Point(0, 0);
-            this.panelNombresUno.Name = "panelNombresUno";
-            this.panelNombresUno.Size = new System.Drawing.Size(430, 70);
-            this.panelNombresUno.TabIndex = 0;
-            // 
-            // editNombreCajero
-            // 
-            this.editNombreCajero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.editNombreCajero.BackColor = System.Drawing.Color.FloralWhite;
-            this.editNombreCajero.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editNombreCajero.Location = new System.Drawing.Point(93, 12);
-            this.editNombreCajero.Multiline = true;
-            this.editNombreCajero.Name = "editNombreCajero";
-            this.editNombreCajero.ReadOnly = true;
-            this.editNombreCajero.Size = new System.Drawing.Size(332, 46);
-            this.editNombreCajero.TabIndex = 61;
-            this.editNombreCajero.Text = "Nombre Cajero";
-            this.editNombreCajero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Roboto Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 43);
-            this.label1.TabIndex = 59;
-            this.label1.Text = "Cajero:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panelNombresDos
-            // 
-            this.panelNombresDos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelNombresDos.Controls.Add(this.editNombreCaja);
-            this.panelNombresDos.Controls.Add(this.label2);
-            this.panelNombresDos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelNombresDos.Location = new System.Drawing.Point(462, 0);
-            this.panelNombresDos.Name = "panelNombresDos";
-            this.panelNombresDos.Size = new System.Drawing.Size(417, 70);
-            this.panelNombresDos.TabIndex = 62;
-            // 
-            // editNombreCaja
-            // 
-            this.editNombreCaja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.editNombreCaja.BackColor = System.Drawing.Color.FloralWhite;
-            this.editNombreCaja.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editNombreCaja.Location = new System.Drawing.Point(72, 13);
-            this.editNombreCaja.Multiline = true;
-            this.editNombreCaja.Name = "editNombreCaja";
-            this.editNombreCaja.ReadOnly = true;
-            this.editNombreCaja.Size = new System.Drawing.Size(341, 45);
-            this.editNombreCaja.TabIndex = 64;
-            this.editNombreCaja.Text = "Nombre Caja";
-            this.editNombreCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Roboto Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 43);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "Caja:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelApertura.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApertura.Location = new System.Drawing.Point(372, 24);
+            this.labelApertura.Name = "labelApertura";
+            this.labelApertura.Size = new System.Drawing.Size(181, 28);
+            this.labelApertura.TabIndex = 66;
+            this.labelApertura.Text = "Ultima apertura:";
+            this.labelApertura.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormPrincipal
             // 
@@ -742,7 +773,7 @@
             this.Controls.Add(this.panelToolbar);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelContent);
-            this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(700, 480);
@@ -760,17 +791,18 @@
             this.menuStripFrmPrincipal.ResumeLayout(false);
             this.menuStripFrmPrincipal.PerformLayout();
             this.panelContent.ResumeLayout(false);
+            this.panelNombres.ResumeLayout(false);
+            this.panelNombresDos.ResumeLayout(false);
+            this.panelNombresDos.PerformLayout();
+            this.panelNombresUno.ResumeLayout(false);
+            this.panelNombresUno.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgSinDatos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPromotionsFrmPincipal)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelToolbar.ResumeLayout(false);
+            this.panelToolbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogoSuperior)).EndInit();
-            this.panelNombres.ResumeLayout(false);
-            this.panelNombresUno.ResumeLayout(false);
-            this.panelNombresUno.PerformLayout();
-            this.panelNombresDos.ResumeLayout(false);
-            this.panelNombresDos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -826,5 +858,8 @@
         private System.Windows.Forms.TextBox editNombreCajero;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelNombresUno;
+        private System.Windows.Forms.TextBox editBoxUltimaApertura;
+        private System.Windows.Forms.Label labelApertura;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

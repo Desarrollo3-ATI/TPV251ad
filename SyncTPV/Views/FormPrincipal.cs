@@ -66,14 +66,14 @@ namespace SyncTPV
         private bool serverModeLAN = false, webActive = false;
         private bool cotmosActive = false;
         private String codigoCaja = "";
-
+        private AperturaTurnoModel atm = null;
         public FormPrincipal(bool cotmosActive)
         {
             promosList = new List<ClsPromocionesModel>();
             if (getPrevInstance())
             {
                 this.Close();
-                Application.Exit();
+                Environment.Exit(0);
             }
             InitializeComponent();
             banderaDescargandoDatos = false;
@@ -121,6 +121,7 @@ namespace SyncTPV
 
         private async void frmPrincipalPrueba_Load(object sender, EventArgs e)
         {
+            await validarUltimaApertura();
             await validarPermisoPrepedido();
             await validateOptionsToServerModeLANOrWeb();
             pp = this;
@@ -137,7 +138,19 @@ namespace SyncTPV
             this.dataGridViewPromotionsFrmPincipal.CellBorderStyle = DataGridViewCellBorderStyle.None;
             fillDataGridPromotions();
         }
-
+        private async Task validarUltimaApertura()
+        {
+            String queryApertura = "select * from AperturaTurno ORDER by id desc LIMIT 1";
+            atm = AperturaTurnoModel.getARecord(queryApertura);
+            if (atm != null)
+            {
+                editBoxUltimaApertura.Text = atm.fechaHora.ToString();
+            }
+            else
+            {
+                editBoxUltimaApertura.Text = "No se encontraron aperturas de turno";
+            }
+        }
         private async Task validarPermisoPrepedido()
         {
             int value = 0;
@@ -570,7 +583,7 @@ namespace SyncTPV
                     {
                         FormMessage formMessage = new FormMessage("Licencia", responseLocalLic.description, 2);
                         formMessage.ShowDialog();
-                        Application.Exit();
+                        Environment.Exit(0);
                     }
                 }
             });
@@ -792,7 +805,7 @@ namespace SyncTPV
             return value;
         }
 
-        public async Task validateCotmosActivatedToVentaProcess()
+        public async Task validateCotmosActivatedToVentaProcesssin()
         {
             int value = 0;
             String description = "";
@@ -841,6 +854,7 @@ namespace SyncTPV
                             " WHERE " + LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " + ClsRegeditController.getIdUserInTurn();
                         }
                         value = 1;
+                        
                         
                         //bool ocupado = AperturaTurnoModel.getALastRecord(rutaConec, query);<- comparar el ulti
                         /*
@@ -915,6 +929,140 @@ namespace SyncTPV
                 Venta.ShowDialog();
                 this.Visible = true;
             } else
+            {
+                FormMessage formMessage = new FormMessage("Ventas", description, 3);
+                formMessage.ShowDialog();
+            }
+        }
+
+        public async Task validateCotmosActivatedToVentaProcess()
+        {
+            int value = 0;
+            String description = "";
+            await Task.Run(async () =>
+            {
+                if (UserModel.doYouHavePermissionPrepedido())
+                {
+                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                    if (pm != null)
+                    {
+                        value = 1;
+                    }
+                    else
+                    {
+                        description = "Asegurate de actualizar la información de la impresora en la " +
+                            "Configuración";
+                    }
+                }
+                else
+                {
+                    if (cotmosActive)
+                    {
+                        PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                        if (pm != null)
+                        {
+                            value = 1;
+                        }
+                        else
+                        {
+                            description = "Asegurate de actualizar la información de la impresora en la " +
+                        "Configuración";
+                        }
+                    }
+                    else
+                    {
+                        int idEspecial = LicenseModel.getIdEspeciualLocalDb();
+                        if (1 == idEspecial)
+                        {
+                            if (Eselmismoagente())
+                            {
+                                value = 1;
+                            }
+                            else
+                            {
+                                description = "El agente de venta cambio, realice la apertura de caja para poder vender.\n\rlas ventas seran eliminadas al realizar la apertrua de caja.";
+
+                            }
+                        }
+                        else if (2 == idEspecial)
+                        {
+                            value = 1;
+                            msj = new FormMessage("Recordatorio", "Recuerde que es primordial el uso de la apertura de caja cada inicio de turno de venta para su optimo funcionamiento.", 1);
+                            msj.ShowDialog();
+                        }
+                        else { 
+                            string dateNow = DateTime.Now.ToString("yyyyMMdd");
+                            if (serverModeLAN)
+                            {
+                                ClsAperturaCajaModel atm = ClsAperturaCajaModel.getARecordWithParameters(panelInstance, dateNow,
+                                    ClsRegeditController.getIdUserInTurn());
+                                if (atm != null)
+                                {
+                                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                                    if (pm != null)
+                                    {
+                                        value = 1;
+                                        /*this.Visible = false;
+                                        FormVenta Venta = new FormVenta(0);
+                                        Venta.ShowDialog();
+                                        this.Visible = true;*/
+                                    }
+                                    else
+                                    {
+                                        description = "Asegurate de actualizar la información de la impresora en la " +
+                                    "Configuración";
+                                    }
+                                }
+                                else
+                                {
+                                    description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
+                                }
+                            }
+                            else
+                            {
+                                String query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
+                                " WHERE " + LocalDatabase.CAMPO_CREATEDAT_APERTURATURNO + " = '" + dateNow + "' AND " +
+                                LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " + ClsRegeditController.getIdUserInTurn();
+                                AperturaTurnoModel atm = AperturaTurnoModel.getARecord(query);
+                                if (atm != null)
+                                {
+                                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                                    if (pm != null)
+                                    {
+                                        value = 1;
+                                        /*this.Visible = false;
+                                        FormVenta Venta = new FormVenta(0);
+                                        Venta.ShowDialog();
+                                        this.Visible = true;*/
+                                    }
+                                    else
+                                    {
+                                        description = "Asegurate de actualizar la información de la impresora en la " +
+                                    "Configuración";
+                                    }
+                                }
+                                else
+                                {
+                                    description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            if (formWaiting != null)
+            {
+                formWaiting.Dispose();
+                formWaiting.Close();
+            }
+            if (value == 1)
+            {
+                this.Visible = false;
+                FormVenta Venta = new FormVenta(0, cotmosActive);
+                Venta.ShowDialog();
+                this.Visible = true;
+            }
+            else
             {
                 FormMessage formMessage = new FormMessage("Ventas", description, 3);
                 formMessage.ShowDialog();
@@ -1201,7 +1349,7 @@ namespace SyncTPV
         private void btnSalir_Click(object sender, EventArgs e)
         {
             applicationExist = true;
-            this.Close();
+            Environment.Exit(0);
         }
 
         private async void BtnConfiguracion_Click(object sender, EventArgs e)
@@ -1619,6 +1767,18 @@ namespace SyncTPV
 
         }
 
+        private void textBox1_MouseHover(object sender, EventArgs e)
+        {
+            if (atm != null)
+            {
+                toolTip1.SetToolTip(editBoxUltimaApertura, "Agente:"+atm.userId.ToString() + " $" + atm.importe.ToString());
+            }
+            else
+            {
+                toolTip1.SetToolTip(editBoxUltimaApertura, "No aplica");
+            }
+        }
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             applicationExist = true;
@@ -1638,7 +1798,7 @@ namespace SyncTPV
         private void frmPrincipalPrueba_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (applicationExist)
-                Application.Exit();
+                Environment.Exit(0);
             else
             {
                 if (loggingOut)
@@ -1650,7 +1810,7 @@ namespace SyncTPV
                 }
                 else
                 {
-                    Application.Exit();
+                    Environment.Exit(0);
                 }
             }
         }

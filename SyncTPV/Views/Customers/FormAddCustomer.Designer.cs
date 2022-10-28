@@ -213,9 +213,9 @@
             this.comboBoxUsoCFDI.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxUsoCFDI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxUsoCFDI.FormattingEnabled = true;
-            this.comboBoxUsoCFDI.Location = new System.Drawing.Point(286, 61);
+            this.comboBoxUsoCFDI.Location = new System.Drawing.Point(237, 61);
             this.comboBoxUsoCFDI.Name = "comboBoxUsoCFDI";
-            this.comboBoxUsoCFDI.Size = new System.Drawing.Size(203, 21);
+            this.comboBoxUsoCFDI.Size = new System.Drawing.Size(266, 21);
             this.comboBoxUsoCFDI.TabIndex = 19;
             this.comboBoxUsoCFDI.SelectedIndexChanged += new System.EventHandler(this.comboBoxUsoCFDI_SelectedIndexChanged);
             // 
@@ -223,7 +223,7 @@
             // 
             this.comboBoxTipoContribuyente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxTipoContribuyente.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.comboBoxTipoContribuyente.BackColor = System.Drawing.Color.LightBlue;
             this.comboBoxTipoContribuyente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxTipoContribuyente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipoContribuyente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -249,7 +249,7 @@
             this.comboBoxRegimenFiscal.FormattingEnabled = true;
             this.comboBoxRegimenFiscal.Location = new System.Drawing.Point(3, 61);
             this.comboBoxRegimenFiscal.Name = "comboBoxRegimenFiscal";
-            this.comboBoxRegimenFiscal.Size = new System.Drawing.Size(203, 23);
+            this.comboBoxRegimenFiscal.Size = new System.Drawing.Size(228, 23);
             this.comboBoxRegimenFiscal.TabIndex = 18;
             this.comboBoxRegimenFiscal.SelectedIndexChanged += new System.EventHandler(this.comboBoxRegimenFiscal_SelectedIndexChanged);
             // 

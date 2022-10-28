@@ -127,6 +127,14 @@
     <value>766, 5</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="datosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAABiSURBVDhPY/j//z9VMFZBcjBW
+        QXIwjFEPxCCwH4jvQ5hEA5BeDIOQ2cQCrAZR7CKKMYzhAMQgk8nBIL0YXgMJzocwiQYgvdQ3iGpeoxjD
+        GCCTQWA0QWJirILkYKyCpOP/DACvB0gZva3R9gAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="cargaInicialToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAQtJREFUOE/l
@@ -146,12 +154,14 @@
         aKC3GY1nZoi3WfVHLF6AQbNs9SVL9J39DElyA8hAMaWSjojZAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="datosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="opcionesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAABiSURBVDhPY/j//z9VMFZBcjBW
-        QXIwjFEPxCCwH4jvQ5hEA5BeDIOQ2cQCrAZR7CKKMYzhAMQgk8nBIL0YXgMJzocwiQYgvdQ3iGpeoxjD
-        GCCTQWA0QWJirILkYKyCpOP/DACvB0gZva3R9gAAAABJRU5ErkJggg==
+        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAADnSURBVDhPndQhDsIwGMXxCQSC
+        IyAQCCQSgSDhAAgEEoFEcAQkh+EAHIBDcAQEAoFAIMb/QUq+futW4CW/ZevaF5Y2FGVZei103FiWHxjg
+        CuWOPXrw8ypSg3M8EKLiIVJzP8JN1w7Cl51g31fo0scZ+iz7cgubKez7iC4TKLZsjBtslogWW7qMEKKy
+        FXyJki3Sdl+QywyVgiDcLJCLfqU+OSoI7MMGdqdSqS3zAzoGa+ygYr9zSrIseqihQp9KmV3QJFvmFzRp
+        LEstaJIq09n7uUh82QF/FUkoO+L135Wa9C0dlfb7viyegGMprQNyeBMAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="configuraciónToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -201,16 +211,6 @@
         d5N5wYDn9C9V1Qtap6mHg4U42AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="opcionesToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
-        MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAADnSURBVDhPndQhDsIwGMXxCQSC
-        IyAQCCQSgSDhAAgEEoFEcAQkh+EAHIBDcAQEAoFAIMb/QUq+futW4CW/ZevaF5Y2FGVZei103FiWHxjg
-        CuWOPXrw8ypSg3M8EKLiIVJzP8JN1w7Cl51g31fo0scZ+iz7cgubKez7iC4TKLZsjBtslogWW7qMEKKy
-        FXyJki3Sdl+QywyVgiDcLJCLfqU+OSoI7MMGdqdSqS3zAzoGa+ygYr9zSrIseqihQp9KmV3QJFvmFzRp
-        LEstaJIq09n7uUh82QF/FUkoO+L135Wa9C0dlfb7viyegGMprQNyeBMAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="idDgv.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -231,6 +231,9 @@
   </metadata>
   <metadata name="descuentoDgv.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>198, 44</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>42</value>

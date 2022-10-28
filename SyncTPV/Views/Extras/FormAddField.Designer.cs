@@ -35,6 +35,7 @@ namespace SyncTPV.Views.Extras
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.groupBoxPanelInstance = new System.Windows.Forms.GroupBox();
+            this.btnSeePassPanel = new System.Windows.Forms.Button();
             this.editDbNamePanel = new System.Windows.Forms.TextBox();
             this.textInfoDbNamePanel = new System.Windows.Forms.Label();
             this.editPassInstanciaPanel = new System.Windows.Forms.TextBox();
@@ -46,6 +47,7 @@ namespace SyncTPV.Views.Extras
             this.textInfoIpServer = new System.Windows.Forms.Label();
             this.editIpServerPanel = new System.Windows.Forms.TextBox();
             this.groupBoxComInstance = new System.Windows.Forms.GroupBox();
+            this.btnSeePassCom = new System.Windows.Forms.Button();
             this.editDbNameComercial = new System.Windows.Forms.TextBox();
             this.editPassInstanciaComercial = new System.Windows.Forms.TextBox();
             this.textInfoDbNameComercial = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@ namespace SyncTPV.Views.Extras
             this.textInfoInstanciaComercial = new System.Windows.Forms.Label();
             this.textInfoIpComercial = new System.Windows.Forms.Label();
             this.editIpServidorComercial = new System.Windows.Forms.TextBox();
-            this.btnSeePassPanel = new System.Windows.Forms.Button();
-            this.btnSeePassCom = new System.Windows.Forms.Button();
             this.panelToolbar.SuspendLayout();
             this.groupBoxPanelInstance.SuspendLayout();
             this.groupBoxComInstance.SuspendLayout();
@@ -79,11 +79,11 @@ namespace SyncTPV.Views.Extras
             // 
             this.checkBoxMismaInstancia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxMismaInstancia.AutoSize = true;
-            this.checkBoxMismaInstancia.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxMismaInstancia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxMismaInstancia.ForeColor = System.Drawing.Color.White;
-            this.checkBoxMismaInstancia.Location = new System.Drawing.Point(454, 15);
+            this.checkBoxMismaInstancia.Location = new System.Drawing.Point(440, 15);
             this.checkBoxMismaInstancia.Name = "checkBoxMismaInstancia";
-            this.checkBoxMismaInstancia.Size = new System.Drawing.Size(123, 19);
+            this.checkBoxMismaInstancia.Size = new System.Drawing.Size(137, 20);
             this.checkBoxMismaInstancia.TabIndex = 1;
             this.checkBoxMismaInstancia.Text = "Misma Instancia";
             this.checkBoxMismaInstancia.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@ namespace SyncTPV.Views.Extras
             this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCerrar.Location = new System.Drawing.Point(3, 3);
@@ -114,7 +114,7 @@ namespace SyncTPV.Views.Extras
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(443, 357);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(146, 54);
@@ -146,14 +146,28 @@ namespace SyncTPV.Views.Extras
             this.groupBoxPanelInstance.TabStop = false;
             this.groupBoxPanelInstance.Text = "Instancia SQLServer de PanelROM";
             // 
+            // btnSeePassPanel
+            // 
+            this.btnSeePassPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSeePassPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSeePassPanel.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnSeePassPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSeePassPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeePassPanel.Location = new System.Drawing.Point(233, 227);
+            this.btnSeePassPanel.Name = "btnSeePassPanel";
+            this.btnSeePassPanel.Size = new System.Drawing.Size(24, 24);
+            this.btnSeePassPanel.TabIndex = 28;
+            this.btnSeePassPanel.UseVisualStyleBackColor = true;
+            this.btnSeePassPanel.Click += new System.EventHandler(this.btnSeePassPanel_Click);
+            // 
             // editDbNamePanel
             // 
             this.editDbNamePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editDbNamePanel.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editDbNamePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editDbNamePanel.Location = new System.Drawing.Point(24, 138);
             this.editDbNamePanel.Name = "editDbNamePanel";
-            this.editDbNamePanel.Size = new System.Drawing.Size(234, 23);
+            this.editDbNamePanel.Size = new System.Drawing.Size(234, 22);
             this.editDbNamePanel.TabIndex = 27;
             this.editDbNamePanel.Text = "adPanelROM";
             // 
@@ -162,10 +176,10 @@ namespace SyncTPV.Views.Extras
             this.textInfoDbNamePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textInfoDbNamePanel.AutoSize = true;
-            this.textInfoDbNamePanel.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoDbNamePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoDbNamePanel.Location = new System.Drawing.Point(21, 121);
             this.textInfoDbNamePanel.Name = "textInfoDbNamePanel";
-            this.textInfoDbNamePanel.Size = new System.Drawing.Size(132, 14);
+            this.textInfoDbNamePanel.Size = new System.Drawing.Size(155, 15);
             this.textInfoDbNamePanel.TabIndex = 26;
             this.textInfoDbNamePanel.Text = "Nombre Base de Datos";
             // 
@@ -173,11 +187,11 @@ namespace SyncTPV.Views.Extras
             // 
             this.editPassInstanciaPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editPassInstanciaPanel.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPassInstanciaPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPassInstanciaPanel.Location = new System.Drawing.Point(23, 228);
             this.editPassInstanciaPanel.Name = "editPassInstanciaPanel";
             this.editPassInstanciaPanel.PasswordChar = '*';
-            this.editPassInstanciaPanel.Size = new System.Drawing.Size(204, 23);
+            this.editPassInstanciaPanel.Size = new System.Drawing.Size(204, 22);
             this.editPassInstanciaPanel.TabIndex = 25;
             // 
             // textInfoPassSql
@@ -185,10 +199,10 @@ namespace SyncTPV.Views.Extras
             this.textInfoPassSql.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textInfoPassSql.AutoSize = true;
-            this.textInfoPassSql.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoPassSql.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoPassSql.Location = new System.Drawing.Point(20, 211);
             this.textInfoPassSql.Name = "textInfoPassSql";
-            this.textInfoPassSql.Size = new System.Drawing.Size(172, 14);
+            this.textInfoPassSql.Size = new System.Drawing.Size(203, 15);
             this.textInfoPassSql.TabIndex = 24;
             this.textInfoPassSql.Text = "Contraseña de la Instancia Sql";
             // 
@@ -196,10 +210,10 @@ namespace SyncTPV.Views.Extras
             // 
             this.editUserInstanciaPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editUserInstanciaPanel.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUserInstanciaPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editUserInstanciaPanel.Location = new System.Drawing.Point(23, 185);
             this.editUserInstanciaPanel.Name = "editUserInstanciaPanel";
-            this.editUserInstanciaPanel.Size = new System.Drawing.Size(234, 23);
+            this.editUserInstanciaPanel.Size = new System.Drawing.Size(234, 22);
             this.editUserInstanciaPanel.TabIndex = 23;
             this.editUserInstanciaPanel.Text = "sa";
             // 
@@ -208,10 +222,10 @@ namespace SyncTPV.Views.Extras
             this.textInfoUsuarioSql.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textInfoUsuarioSql.AutoSize = true;
-            this.textInfoUsuarioSql.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoUsuarioSql.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoUsuarioSql.Location = new System.Drawing.Point(20, 168);
             this.textInfoUsuarioSql.Name = "textInfoUsuarioSql";
-            this.textInfoUsuarioSql.Size = new System.Drawing.Size(151, 14);
+            this.textInfoUsuarioSql.Size = new System.Drawing.Size(180, 15);
             this.textInfoUsuarioSql.TabIndex = 22;
             this.textInfoUsuarioSql.Text = "Usuario de la Instancia Sql";
             // 
@@ -219,10 +233,10 @@ namespace SyncTPV.Views.Extras
             // 
             this.editNombreInstanciaPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editNombreInstanciaPanel.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editNombreInstanciaPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editNombreInstanciaPanel.Location = new System.Drawing.Point(23, 95);
             this.editNombreInstanciaPanel.Name = "editNombreInstanciaPanel";
-            this.editNombreInstanciaPanel.Size = new System.Drawing.Size(234, 23);
+            this.editNombreInstanciaPanel.Size = new System.Drawing.Size(234, 22);
             this.editNombreInstanciaPanel.TabIndex = 21;
             // 
             // textInfoInstancia
@@ -230,10 +244,10 @@ namespace SyncTPV.Views.Extras
             this.textInfoInstancia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textInfoInstancia.AutoSize = true;
-            this.textInfoInstancia.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoInstancia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoInstancia.Location = new System.Drawing.Point(20, 78);
             this.textInfoInstancia.Name = "textInfoInstancia";
-            this.textInfoInstancia.Size = new System.Drawing.Size(190, 14);
+            this.textInfoInstancia.Size = new System.Drawing.Size(224, 15);
             this.textInfoInstancia.TabIndex = 20;
             this.textInfoInstancia.Text = "Ingresa el Nombre de la Instancia";
             // 
@@ -242,10 +256,10 @@ namespace SyncTPV.Views.Extras
             this.textInfoIpServer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textInfoIpServer.AutoSize = true;
-            this.textInfoIpServer.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoIpServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoIpServer.Location = new System.Drawing.Point(20, 30);
             this.textInfoIpServer.Name = "textInfoIpServer";
-            this.textInfoIpServer.Size = new System.Drawing.Size(152, 14);
+            this.textInfoIpServer.Size = new System.Drawing.Size(174, 15);
             this.textInfoIpServer.TabIndex = 19;
             this.textInfoIpServer.Text = "Ingresar la IP del Servidor";
             // 
@@ -253,10 +267,10 @@ namespace SyncTPV.Views.Extras
             // 
             this.editIpServerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editIpServerPanel.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editIpServerPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editIpServerPanel.Location = new System.Drawing.Point(23, 48);
             this.editIpServerPanel.Name = "editIpServerPanel";
-            this.editIpServerPanel.Size = new System.Drawing.Size(234, 23);
+            this.editIpServerPanel.Size = new System.Drawing.Size(234, 22);
             this.editIpServerPanel.TabIndex = 18;
             this.editIpServerPanel.Text = "127.0.0.1";
             // 
@@ -283,137 +297,6 @@ namespace SyncTPV.Views.Extras
             this.groupBoxComInstance.TabStop = false;
             this.groupBoxComInstance.Text = "Instancia SQLServer de Comercial";
             // 
-            // editDbNameComercial
-            // 
-            this.editDbNameComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.editDbNameComercial.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editDbNameComercial.ForeColor = System.Drawing.Color.Silver;
-            this.editDbNameComercial.Location = new System.Drawing.Point(23, 138);
-            this.editDbNameComercial.Name = "editDbNameComercial";
-            this.editDbNameComercial.Size = new System.Drawing.Size(234, 23);
-            this.editDbNameComercial.TabIndex = 29;
-            this.editDbNameComercial.Text = "Nombre_BDatos_Comercial_01";
-            this.editDbNameComercial.Enter += new System.EventHandler(this.editDbNameComercial_Enter);
-            this.editDbNameComercial.Leave += new System.EventHandler(this.editDbNameComercial_Leave);
-            // 
-            // editPassInstanciaComercial
-            // 
-            this.editPassInstanciaComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.editPassInstanciaComercial.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editPassInstanciaComercial.Location = new System.Drawing.Point(23, 228);
-            this.editPassInstanciaComercial.Name = "editPassInstanciaComercial";
-            this.editPassInstanciaComercial.PasswordChar = '*';
-            this.editPassInstanciaComercial.Size = new System.Drawing.Size(204, 23);
-            this.editPassInstanciaComercial.TabIndex = 25;
-            // 
-            // textInfoDbNameComercial
-            // 
-            this.textInfoDbNameComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textInfoDbNameComercial.AutoSize = true;
-            this.textInfoDbNameComercial.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textInfoDbNameComercial.Location = new System.Drawing.Point(20, 121);
-            this.textInfoDbNameComercial.Name = "textInfoDbNameComercial";
-            this.textInfoDbNameComercial.Size = new System.Drawing.Size(132, 14);
-            this.textInfoDbNameComercial.TabIndex = 28;
-            this.textInfoDbNameComercial.Text = "Nombre Base de Datos";
-            // 
-            // textInfoPassComercial
-            // 
-            this.textInfoPassComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textInfoPassComercial.AutoSize = true;
-            this.textInfoPassComercial.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textInfoPassComercial.Location = new System.Drawing.Point(20, 211);
-            this.textInfoPassComercial.Name = "textInfoPassComercial";
-            this.textInfoPassComercial.Size = new System.Drawing.Size(172, 14);
-            this.textInfoPassComercial.TabIndex = 24;
-            this.textInfoPassComercial.Text = "Contraseña de la Instancia Sql";
-            // 
-            // editUserInstanciaComercial
-            // 
-            this.editUserInstanciaComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.editUserInstanciaComercial.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editUserInstanciaComercial.Location = new System.Drawing.Point(23, 185);
-            this.editUserInstanciaComercial.Name = "editUserInstanciaComercial";
-            this.editUserInstanciaComercial.Size = new System.Drawing.Size(234, 23);
-            this.editUserInstanciaComercial.TabIndex = 23;
-            this.editUserInstanciaComercial.Text = "sa";
-            // 
-            // textInfoUserComercial
-            // 
-            this.textInfoUserComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textInfoUserComercial.AutoSize = true;
-            this.textInfoUserComercial.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textInfoUserComercial.Location = new System.Drawing.Point(20, 168);
-            this.textInfoUserComercial.Name = "textInfoUserComercial";
-            this.textInfoUserComercial.Size = new System.Drawing.Size(151, 14);
-            this.textInfoUserComercial.TabIndex = 22;
-            this.textInfoUserComercial.Text = "Usuario de la Instancia Sql";
-            // 
-            // editNombreInstanciaComercial
-            // 
-            this.editNombreInstanciaComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.editNombreInstanciaComercial.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editNombreInstanciaComercial.Location = new System.Drawing.Point(23, 95);
-            this.editNombreInstanciaComercial.Name = "editNombreInstanciaComercial";
-            this.editNombreInstanciaComercial.Size = new System.Drawing.Size(234, 23);
-            this.editNombreInstanciaComercial.TabIndex = 21;
-            // 
-            // textInfoInstanciaComercial
-            // 
-            this.textInfoInstanciaComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textInfoInstanciaComercial.AutoSize = true;
-            this.textInfoInstanciaComercial.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textInfoInstanciaComercial.Location = new System.Drawing.Point(20, 78);
-            this.textInfoInstanciaComercial.Name = "textInfoInstanciaComercial";
-            this.textInfoInstanciaComercial.Size = new System.Drawing.Size(190, 14);
-            this.textInfoInstanciaComercial.TabIndex = 20;
-            this.textInfoInstanciaComercial.Text = "Ingresa el Nombre de la Instancia";
-            // 
-            // textInfoIpComercial
-            // 
-            this.textInfoIpComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textInfoIpComercial.AutoSize = true;
-            this.textInfoIpComercial.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textInfoIpComercial.Location = new System.Drawing.Point(20, 30);
-            this.textInfoIpComercial.Name = "textInfoIpComercial";
-            this.textInfoIpComercial.Size = new System.Drawing.Size(152, 14);
-            this.textInfoIpComercial.TabIndex = 19;
-            this.textInfoIpComercial.Text = "Ingresar la IP del Servidor";
-            // 
-            // editIpServidorComercial
-            // 
-            this.editIpServidorComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.editIpServidorComercial.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editIpServidorComercial.Location = new System.Drawing.Point(23, 48);
-            this.editIpServidorComercial.Name = "editIpServidorComercial";
-            this.editIpServidorComercial.Size = new System.Drawing.Size(234, 23);
-            this.editIpServidorComercial.TabIndex = 18;
-            this.editIpServidorComercial.Text = "127.0.0.1";
-            // 
-            // btnSeePassPanel
-            // 
-            this.btnSeePassPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSeePassPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeePassPanel.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnSeePassPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSeePassPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeePassPanel.Location = new System.Drawing.Point(233, 227);
-            this.btnSeePassPanel.Name = "btnSeePassPanel";
-            this.btnSeePassPanel.Size = new System.Drawing.Size(24, 24);
-            this.btnSeePassPanel.TabIndex = 28;
-            this.btnSeePassPanel.UseVisualStyleBackColor = true;
-            this.btnSeePassPanel.Click += new System.EventHandler(this.btnSeePassPanel_Click);
-            // 
             // btnSeePassCom
             // 
             this.btnSeePassCom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -427,6 +310,123 @@ namespace SyncTPV.Views.Extras
             this.btnSeePassCom.TabIndex = 29;
             this.btnSeePassCom.UseVisualStyleBackColor = true;
             this.btnSeePassCom.Click += new System.EventHandler(this.btnSeePassCom_Click);
+            // 
+            // editDbNameComercial
+            // 
+            this.editDbNameComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editDbNameComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editDbNameComercial.ForeColor = System.Drawing.Color.Silver;
+            this.editDbNameComercial.Location = new System.Drawing.Point(23, 138);
+            this.editDbNameComercial.Name = "editDbNameComercial";
+            this.editDbNameComercial.Size = new System.Drawing.Size(234, 22);
+            this.editDbNameComercial.TabIndex = 29;
+            this.editDbNameComercial.Text = "Nombre_BDatos_Comercial_01";
+            this.editDbNameComercial.Enter += new System.EventHandler(this.editDbNameComercial_Enter);
+            this.editDbNameComercial.Leave += new System.EventHandler(this.editDbNameComercial_Leave);
+            // 
+            // editPassInstanciaComercial
+            // 
+            this.editPassInstanciaComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editPassInstanciaComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPassInstanciaComercial.Location = new System.Drawing.Point(23, 228);
+            this.editPassInstanciaComercial.Name = "editPassInstanciaComercial";
+            this.editPassInstanciaComercial.PasswordChar = '*';
+            this.editPassInstanciaComercial.Size = new System.Drawing.Size(204, 22);
+            this.editPassInstanciaComercial.TabIndex = 25;
+            // 
+            // textInfoDbNameComercial
+            // 
+            this.textInfoDbNameComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textInfoDbNameComercial.AutoSize = true;
+            this.textInfoDbNameComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoDbNameComercial.Location = new System.Drawing.Point(20, 121);
+            this.textInfoDbNameComercial.Name = "textInfoDbNameComercial";
+            this.textInfoDbNameComercial.Size = new System.Drawing.Size(155, 15);
+            this.textInfoDbNameComercial.TabIndex = 28;
+            this.textInfoDbNameComercial.Text = "Nombre Base de Datos";
+            // 
+            // textInfoPassComercial
+            // 
+            this.textInfoPassComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textInfoPassComercial.AutoSize = true;
+            this.textInfoPassComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoPassComercial.Location = new System.Drawing.Point(20, 211);
+            this.textInfoPassComercial.Name = "textInfoPassComercial";
+            this.textInfoPassComercial.Size = new System.Drawing.Size(203, 15);
+            this.textInfoPassComercial.TabIndex = 24;
+            this.textInfoPassComercial.Text = "Contraseña de la Instancia Sql";
+            // 
+            // editUserInstanciaComercial
+            // 
+            this.editUserInstanciaComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editUserInstanciaComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUserInstanciaComercial.Location = new System.Drawing.Point(23, 185);
+            this.editUserInstanciaComercial.Name = "editUserInstanciaComercial";
+            this.editUserInstanciaComercial.Size = new System.Drawing.Size(234, 22);
+            this.editUserInstanciaComercial.TabIndex = 23;
+            this.editUserInstanciaComercial.Text = "sa";
+            // 
+            // textInfoUserComercial
+            // 
+            this.textInfoUserComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textInfoUserComercial.AutoSize = true;
+            this.textInfoUserComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoUserComercial.Location = new System.Drawing.Point(20, 168);
+            this.textInfoUserComercial.Name = "textInfoUserComercial";
+            this.textInfoUserComercial.Size = new System.Drawing.Size(180, 15);
+            this.textInfoUserComercial.TabIndex = 22;
+            this.textInfoUserComercial.Text = "Usuario de la Instancia Sql";
+            // 
+            // editNombreInstanciaComercial
+            // 
+            this.editNombreInstanciaComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editNombreInstanciaComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editNombreInstanciaComercial.Location = new System.Drawing.Point(23, 95);
+            this.editNombreInstanciaComercial.Name = "editNombreInstanciaComercial";
+            this.editNombreInstanciaComercial.Size = new System.Drawing.Size(234, 22);
+            this.editNombreInstanciaComercial.TabIndex = 21;
+            // 
+            // textInfoInstanciaComercial
+            // 
+            this.textInfoInstanciaComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textInfoInstanciaComercial.AutoSize = true;
+            this.textInfoInstanciaComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoInstanciaComercial.Location = new System.Drawing.Point(20, 78);
+            this.textInfoInstanciaComercial.Name = "textInfoInstanciaComercial";
+            this.textInfoInstanciaComercial.Size = new System.Drawing.Size(224, 15);
+            this.textInfoInstanciaComercial.TabIndex = 20;
+            this.textInfoInstanciaComercial.Text = "Ingresa el Nombre de la Instancia";
+            // 
+            // textInfoIpComercial
+            // 
+            this.textInfoIpComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textInfoIpComercial.AutoSize = true;
+            this.textInfoIpComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoIpComercial.Location = new System.Drawing.Point(20, 30);
+            this.textInfoIpComercial.Name = "textInfoIpComercial";
+            this.textInfoIpComercial.Size = new System.Drawing.Size(174, 15);
+            this.textInfoIpComercial.TabIndex = 19;
+            this.textInfoIpComercial.Text = "Ingresar la IP del Servidor";
+            // 
+            // editIpServidorComercial
+            // 
+            this.editIpServidorComercial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editIpServidorComercial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editIpServidorComercial.Location = new System.Drawing.Point(23, 48);
+            this.editIpServidorComercial.Name = "editIpServidorComercial";
+            this.editIpServidorComercial.Size = new System.Drawing.Size(234, 22);
+            this.editIpServidorComercial.TabIndex = 18;
+            this.editIpServidorComercial.Text = "127.0.0.1";
             // 
             // FormAddField
             // 

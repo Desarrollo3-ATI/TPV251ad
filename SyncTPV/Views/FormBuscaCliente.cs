@@ -38,6 +38,7 @@ namespace SyncTPV
 
         private async void frmBuscaCliente_Load(object sender, EventArgs e)
         {
+            CustomerModel.validarCLientesADCyCustomers();
             if (serverModeLAN)
             {
                 await Task.Run(async () =>
@@ -100,6 +101,7 @@ namespace SyncTPV
 
         private async Task fillCustomersDataGrid()
         {
+            CustomerModel.validarCLientesADCyCustomers();
             hideScrollBars();
             lastLoading = DateTime.Now;
             customersListTemp = await getAllCustomers();
@@ -119,6 +121,7 @@ namespace SyncTPV
                         dtGridBuscaClientes.Rows[n].Cells[2].Value = customersListTemp[i].NOMBRE + " (Nuevo)";
                     else dtGridBuscaClientes.Rows[n].Cells[2].Value = customersListTemp[i].NOMBRE;
                 }
+                
                 dtGridBuscaClientes.PerformLayout();
                 customersListTemp.Clear();
                 if (customersList.Count > 0)
@@ -157,22 +160,27 @@ namespace SyncTPV
                     {
                         if (queryType == 0)
                         {
-                            query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId + " ORDER BY " +
-                            LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
-                            queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES;
+                           
+                                
+                            query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId + " ORDER BY " +
+                           LocalDatabase.CAMPO_ID_CLIENTE;
+                            queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId + " ORDER BY " +
+                           LocalDatabase.CAMPO_ID_CLIENTE;
                             totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "", "", 0);
                             customersList = CustomerModel.getAllCustomersWithParameters(query, "", "", 0);
+                            
                         }
                         else if (queryType == 1)
                         {
-                            query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                            query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                         LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " + 
-                        LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI" +
-                        " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId + " ORDER BY " +
+                        LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)" +
+                        " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId + " ORDER BY " +
                             LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
-                            queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                            queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                         LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " + 
-                        LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI";
+                        LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)"+
+                        " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId + " ORDER BY ";
                             totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "parameterName", customerCodeOrName, 1);
                             customersList = CustomerModel.getAllCustomersWithParameters(query, "parameterName", customerCodeOrName, 1);
                         }
@@ -183,20 +191,27 @@ namespace SyncTPV
                             totalCustomers = ClsCustomersModel.getTotalOfCustomersTPV(comInstance, panelInstance, codigoCaja);
                             dynamic responseCustomer = ClsCustomersModel.getAllCustomersFromAnUser(comInstance, panelInstance, 
                                 codigoCaja, true, lastId, LIMIT);
-                            if (responseCustomer.value == 1)
-                            {
-                                customersList = responseCustomer.customersList;
-                            } else
-                            {
-
-                            }
+                            
+                            queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES;
+                            totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "", "", 0);
+                            customersList = responseCustomer.customersList;
+                            
+                            
                         }
                         else if (queryType == 1)
                         {
-                            totalCustomers = ClsCustomersModel.getTotalOfCustomersTPVWithPrameters(comInstance, panelInstance, codigoCaja,
-                                "parameterName", customerCodeOrName);
-                            customersList = ClsCustomersModel.getAllCustomersTPVWithParameters(comInstance,
-                                lastId, LIMIT, "parameterName", customerCodeOrName);
+                            query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
+                            LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
+                            LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)" +
+                            " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId + " ORDER BY " +
+                            LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
+                            queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
+                            LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
+                            LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)" +
+                            " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId ;
+                            totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "parameterName", customerCodeOrName, 1);
+                            customersList = CustomerModel.getAllCustomersWithParameters(query, "parameterName", customerCodeOrName, 1);
+
                         }
                     }
                 } else
@@ -254,42 +269,43 @@ namespace SyncTPV
                                         customersList = responseCustomer.customersList;
                                     else
                                     {
-                                        query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                                        query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                            LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                           LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI " +
+                           LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI) " +
                            " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId + " ORDER BY " +
                                LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
-                                        queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                                        queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                                     LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                                    LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI";
+                                    LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)";
                                         totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "parameterName", customerCodeOrName, 1);
                                         customersList = CustomerModel.getAllCustomersWithParameters(query, "parameterName", customerCodeOrName, 1);
                                     }
                                 }
                                 else
                                 {
-                                    query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                                    query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                            LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                           LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI" +
-                           " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId + " ORDER BY " +
+                           LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)" +
+                           " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId + " ORDER BY " +
                                LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
-                                    queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                                    queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                                 LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                                LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI";
+                                LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI) "+
+                                " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId + " ORDER BY ";
                                     totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "parameterName", customerCodeOrName, 1);
                                     customersList = CustomerModel.getAllCustomersWithParameters(query, "parameterName", customerCodeOrName, 1);
                                 }
                             }
                             else
                             {
-                                query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                                query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                            LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                           LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI" +
+                           LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)" +
                            " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId + " ORDER BY " +
                                LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
-                                queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                                queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                             LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                            LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI";
+                            LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)";
                                 totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "parameterName", customerCodeOrName, 1);
                                 customersList = CustomerModel.getAllCustomersWithParameters(query, "parameterName", customerCodeOrName, 1);
                             }
@@ -317,32 +333,17 @@ namespace SyncTPV
                         }
                         else
                         {
-                            if (lastId >= 0)
-                            {
-                                query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
-                           LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                           LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI" +
-                           " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId + " ORDER BY " +
-                               LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
-                                queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                            query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                             LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                            LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI";
-                                totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "parameterName", customerCodeOrName, 1);
-                                customersList = CustomerModel.getAllCustomersWithParameters(query, "parameterName", customerCodeOrName, 1);
-                            }
-                            else
-                            {
-                                query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
-                           LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                           LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI" +
-                           " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " > " + lastId + " ORDER BY " +
-                               LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
-                                queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                            LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)" +
+                            " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId + " ORDER BY " +
+                            LocalDatabase.CAMPO_ID_CLIENTE + " LIMIT " + LIMIT;
+                            queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE (" +
                             LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI OR " +
-                            LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI";
-                                totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "parameterName", customerCodeOrName, 1);
-                                customersList = CustomerModel.getAllCustomersWithParameters(query, "parameterName", customerCodeOrName, 1);
-                            }
+                            LocalDatabase.CAMPO_CLAVECLIENTE + " LIKE @parameterName COLLATE Latin1_General_CI_AI)" +
+                            " AND " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId ;
+                            totalCustomers = CustomerModel.getTotalRecordsWithParameters(queryTotals, "parameterName", customerCodeOrName, 1);
+                            customersList = CustomerModel.getAllCustomersWithParameters(query, "parameterName", customerCodeOrName, 1);
                         }
                     }
                 }

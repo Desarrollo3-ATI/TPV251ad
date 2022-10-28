@@ -76,7 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlItemDetail.Controls.Add(this.tabPage2);
-            this.tabControlItemDetail.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlItemDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlItemDetail.Location = new System.Drawing.Point(12, 12);
             this.tabControlItemDetail.Name = "tabControlItemDetail";
             this.tabControlItemDetail.SelectedIndex = 0;
@@ -105,21 +105,21 @@
             this.tabPage2.Controls.Add(this.editCodigoItem);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(840, 533);
+            this.tabPage2.Size = new System.Drawing.Size(840, 532);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Datos";
             // 
             // textProductFiscalNoFiscal
             // 
-            this.textProductFiscalNoFiscal.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textProductFiscalNoFiscal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textProductFiscalNoFiscal.Location = new System.Drawing.Point(657, 140);
             this.textProductFiscalNoFiscal.Name = "textProductFiscalNoFiscal";
-            this.textProductFiscalNoFiscal.Size = new System.Drawing.Size(136, 35);
+            this.textProductFiscalNoFiscal.Size = new System.Drawing.Size(177, 35);
             this.textProductFiscalNoFiscal.TabIndex = 26;
-            this.textProductFiscalNoFiscal.Text = "Fiscal";
+            this.textProductFiscalNoFiscal.Text = "Comercial";
             // 
             // progressBarLoadItemDetail
             // 
@@ -134,40 +134,40 @@
             // textSalesUnit
             // 
             this.textSalesUnit.AutoSize = true;
-            this.textSalesUnit.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSalesUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSalesUnit.Location = new System.Drawing.Point(18, 374);
             this.textSalesUnit.Name = "textSalesUnit";
-            this.textSalesUnit.Size = new System.Drawing.Size(103, 15);
+            this.textSalesUnit.Size = new System.Drawing.Size(125, 16);
             this.textSalesUnit.TabIndex = 23;
             this.textSalesUnit.Text = "Unidad De Venta";
             // 
             // textPurchaseUnit
             // 
             this.textPurchaseUnit.AutoSize = true;
-            this.textPurchaseUnit.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPurchaseUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPurchaseUnit.Location = new System.Drawing.Point(18, 325);
             this.textPurchaseUnit.Name = "textPurchaseUnit";
-            this.textPurchaseUnit.Size = new System.Drawing.Size(115, 15);
+            this.textPurchaseUnit.Size = new System.Drawing.Size(139, 16);
             this.textPurchaseUnit.TabIndex = 22;
             this.textPurchaseUnit.Text = "Unidad De Compra";
             // 
             // textNonConvertibleUnit
             // 
             this.textNonConvertibleUnit.AutoSize = true;
-            this.textNonConvertibleUnit.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNonConvertibleUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNonConvertibleUnit.Location = new System.Drawing.Point(18, 280);
             this.textNonConvertibleUnit.Name = "textNonConvertibleUnit";
-            this.textNonConvertibleUnit.Size = new System.Drawing.Size(138, 15);
+            this.textNonConvertibleUnit.Size = new System.Drawing.Size(164, 16);
             this.textNonConvertibleUnit.TabIndex = 21;
             this.textNonConvertibleUnit.Text = "Unidad No Convertible";
             // 
             // textBaseUnit
             // 
             this.textBaseUnit.AutoSize = true;
-            this.textBaseUnit.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBaseUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBaseUnit.Location = new System.Drawing.Point(18, 239);
             this.textBaseUnit.Name = "textBaseUnit";
-            this.textBaseUnit.Size = new System.Drawing.Size(80, 15);
+            this.textBaseUnit.Size = new System.Drawing.Size(97, 16);
             this.textBaseUnit.TabIndex = 20;
             this.textBaseUnit.Text = "Unidad Base";
             // 
@@ -175,10 +175,10 @@
             // 
             this.textPreciosItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textPreciosItem.AutoSize = true;
-            this.textPreciosItem.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPreciosItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textPreciosItem.Location = new System.Drawing.Point(519, 239);
             this.textPreciosItem.Name = "textPreciosItem";
-            this.textPreciosItem.Size = new System.Drawing.Size(52, 15);
+            this.textPreciosItem.Size = new System.Drawing.Size(60, 16);
             this.textPreciosItem.TabIndex = 18;
             this.textPreciosItem.Text = "Precios";
             this.textPreciosItem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,7 +189,7 @@
             this.btnUploadImg.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnUploadImg.FlatAppearance.BorderSize = 2;
             this.btnUploadImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUploadImg.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadImg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUploadImg.Image = ((System.Drawing.Image)(resources.GetObject("btnUploadImg.Image")));
             this.btnUploadImg.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUploadImg.Location = new System.Drawing.Point(43, 170);
@@ -205,7 +205,7 @@
             // 
             this.editDescuentoItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.editDescuentoItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editDescuentoItem.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editDescuentoItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editDescuentoItem.Location = new System.Drawing.Point(657, 109);
             this.editDescuentoItem.Multiline = true;
             this.editDescuentoItem.Name = "editDescuentoItem";
@@ -216,10 +216,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(654, 89);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(118, 15);
+            this.label14.Size = new System.Drawing.Size(138, 16);
             this.label14.TabIndex = 11;
             this.label14.Text = "Descuento Maximo";
             // 
@@ -227,7 +227,7 @@
             // 
             this.editExistenciaItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.editExistenciaItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editExistenciaItem.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editExistenciaItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editExistenciaItem.Location = new System.Drawing.Point(216, 109);
             this.editExistenciaItem.Multiline = true;
             this.editExistenciaItem.Name = "editExistenciaItem";
@@ -238,10 +238,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(339, 89);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 15);
+            this.label12.Size = new System.Drawing.Size(86, 16);
             this.label12.TabIndex = 7;
             this.label12.Text = "Existencias";
             // 
@@ -251,7 +251,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editNombreItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.editNombreItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editNombreItem.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editNombreItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editNombreItem.Location = new System.Drawing.Point(367, 38);
             this.editNombreItem.Multiline = true;
             this.editNombreItem.Name = "editNombreItem";
@@ -264,10 +264,10 @@
             this.textNombreItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textNombreItem.AutoSize = true;
-            this.textNombreItem.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreItem.Location = new System.Drawing.Point(519, 18);
             this.textNombreItem.Name = "textNombreItem";
-            this.textNombreItem.Size = new System.Drawing.Size(143, 18);
+            this.textNombreItem.Size = new System.Drawing.Size(157, 18);
             this.textNombreItem.TabIndex = 3;
             this.textNombreItem.Text = "Nombre del Articulo";
             // 
@@ -275,7 +275,7 @@
             // 
             this.editCodigoItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.editCodigoItem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editCodigoItem.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editCodigoItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCodigoItem.Location = new System.Drawing.Point(193, 38);
             this.editCodigoItem.Multiline = true;
             this.editCodigoItem.Name = "editCodigoItem";
@@ -286,10 +286,10 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(203, 18);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(127, 18);
+            this.label9.Size = new System.Drawing.Size(139, 18);
             this.label9.TabIndex = 1;
             this.label9.Text = "Clave del Articulo";
             // 
@@ -301,7 +301,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // FrmItemDetails
+            // FormItemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -309,7 +309,7 @@
             this.ClientSize = new System.Drawing.Size(872, 584);
             this.Controls.Add(this.tabControlItemDetail);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "FrmItemDetails";
+            this.Name = "FormItemDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Información del Articulo";
             this.Load += new System.EventHandler(this.frmArticuloInfo_Load);

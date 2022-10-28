@@ -42,7 +42,7 @@ namespace SyncTPV.Models
                 lastId++;
                 String query = "INSERT INTO " + LocalDatabase.TABLA_CLIENTEADC + " VALUES(@id, @nombre, @zona, @calle, @numero, " +
                     "@colonia, @poblacion, @ciudad, @estado, @referencia, @telefono, @cp, @email, @rfc, @idServer, @enviado,"+
-                    "@tipoContribuyente,@usoCfdi,@regimenFiscal)";
+                    "@tipoContribuyente,@regimenFiscal,@usoCfdi)";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     command.Parameters.AddWithValue("@id", lastId);

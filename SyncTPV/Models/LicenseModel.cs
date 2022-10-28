@@ -26,6 +26,8 @@ namespace SyncTPV.Models
         public String description { get; set; }
         public String codigoEquipo { get; set; }
         public String fechaActualServer { get; set; }
+        public int idE { get; set; }
+
     }
 
     public class LicenseModel
@@ -40,6 +42,7 @@ namespace SyncTPV.Models
             await Task.Run(async () =>
             {
                 int value = 0;
+                int idE = 0;
                 String description = "";
                 try
                 {
@@ -48,7 +51,7 @@ namespace SyncTPV.Models
                         siteCode = AES.Desencriptar(siteCode);
                         synckey = AES.Desencriptar(synckey);
                     }
-                    string WSLic = "http://18.205.136.9:3000/wsRomLicense320/WsLicROM.asmx";
+                    string WSLic = "http://18.205.136.9:3000/wsRomLicense321/WsLicROM.asmx";
                     var client = new RestClient(WSLic); 
                     var request = new RestRequest("/activateLicense", Method.Post);
                     //request.AddParameter("codigo", siteCode);
@@ -85,7 +88,7 @@ namespace SyncTPV.Models
                                 }
                                 else
                                 {
-                                    if (saveLicenseDataInLocalDb(siteCode, synckey, fechaFin, tipoLic))
+                                    if (saveLicenseDataInLocalDb(siteCode, synckey, fechaFin, tipoLic, idE))//ide en 0
                                     {
                                         DateTime fechaActual = DateTime.Now;
                                         DateTime fechaActivacion = DateTime.Now;
@@ -240,13 +243,15 @@ namespace SyncTPV.Models
             await Task.Run(async () =>
             {
                 int value = 0;
+                int idE = 0;
                 String description = "";
                 try
                 {
                     String siteCode = BajoNivel.getCodigoSitio();
                     updateSiteCode(1, siteCode);
                     String synckey = getSynckeyInLocalDb();
-                    String WSLic = "http://18.205.136.9:3000/wsRomLicense/WsLicROM.asmx";
+                    //String WSLic = "http://18.205.136.9:3000/wsRomLicense/WsLicROM.asmx";
+                    String WSLic = "http://18.205.136.9:3000/wsRomLicense321/WsLicROM.asmx";
                     var client = new RestClient(WSLic);
                     var request = new RestRequest("/validateLicense", Method.Post);
                     request.AddJsonBody(new
@@ -263,6 +268,7 @@ namespace SyncTPV.Models
                         {
                             int tipoLic = responseValidateLic.value;
                             String codigoEquipo = responseValidateLic.codigoEquipo;
+                            idE = responseValidateLic.idE;
                             String fechaFin = "";
                             if (tipoLic == 0)
                             {
@@ -277,7 +283,7 @@ namespace SyncTPV.Models
                                 if (!licenseActive)
                                 {
                                     /** La licencia está vencida */
-                                    saveLicenseDataInLocalDb(siteCode, synckey, fechaFin, tipoLic);
+                                    saveLicenseDataInLocalDb(siteCode, synckey, fechaFin, tipoLic, idE);
                                     value = -2;
                                     description = "Licencia vencida";
                                     deleteLocalLicenseDb();
@@ -286,7 +292,7 @@ namespace SyncTPV.Models
                                 {
                                     if (siteCode.Equals(codigoEquipo))
                                     {
-                                        if (saveLicenseDataInLocalDb(siteCode, synckey, fechaFin, tipoLic))
+                                        if (saveLicenseDataInLocalDb(siteCode, synckey, fechaFin, tipoLic, idE))
                                         {
                                             value = 1;
                                             description = "Licencia activada con exito!";
@@ -597,7 +603,7 @@ namespace SyncTPV.Models
             return exists;
         }
 
-        public static bool saveLicenseDataInLocalDb(String cs, String synckey, string fecha, int tipoLic)
+        public static bool saveLicenseDataInLocalDb(String cs, String synckey, string fecha, int tipoLic, int idE)
         {
             bool saved = false;
             var conn = new SQLiteConnection();
@@ -608,7 +614,7 @@ namespace SyncTPV.Models
                 fecha = BajoNivel.Encriptar(fecha);
                 conn.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
                 conn.Open();
-                String query = "INSERT OR REPLACE INTO " + LocalDatabase.TABLA_LICENCIA + " VALUES (1, @siteCode, @synckey, @fecha, @x, @tipoLic); " +
+                String query = "INSERT OR REPLACE INTO " + LocalDatabase.TABLA_LICENCIA + " VALUES (1, @siteCode, @synckey, @fecha, @x, @tipoLic, @idE); " +
                     "SELECT last_insert_rowid();";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
@@ -617,6 +623,7 @@ namespace SyncTPV.Models
                     cmd.Parameters.AddWithValue("@fecha", fecha);
                     cmd.Parameters.AddWithValue("@x", "x");
                     cmd.Parameters.AddWithValue("@tipoLic", tipoLic);
+                    cmd.Parameters.AddWithValue("@idE", idE);
                     int records = cmd.ExecuteNonQuery();
                     if (records > 0)
                         saved = true;
@@ -826,6 +833,44 @@ namespace SyncTPV.Models
                     conn.Close();
             }
             return type;
+        }
+
+        public static int getIdEspeciualLocalDb()
+        {
+            int idE = 0;
+            var conn = new SQLiteConnection();
+            try
+            {
+                conn.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                conn.Open();
+                String query = "SELECT " + LocalDatabase.CAMPO_IDE_LICENCIA + " FROM " + LocalDatabase.TABLA_LICENCIA;
+                using (SQLiteCommand command = new SQLiteCommand(query, conn))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                if (reader[LocalDatabase.CAMPO_IDE_LICENCIA] != DBNull.Value)
+                                    idE = Convert.ToInt32(reader[LocalDatabase.CAMPO_IDE_LICENCIA].ToString().Trim());
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                SECUDOC.writeLog(Ex.ToString());
+            }
+            finally
+            {
+                if (conn != null && conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+            return idE;
         }
 
         public static Boolean isItTPVLicense()

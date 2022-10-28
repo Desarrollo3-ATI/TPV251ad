@@ -310,7 +310,7 @@ namespace SyncTPV
                         numCopies = Convert.ToInt32(numeroCopiasText);
                     if (!PrinterModel.verifyIfAPrinterIdAdded())
                     {
-                        dynamic responsePrinter = PrinterModel.saveANewPrinter(printerName, "", 1, 1, textoOriginal, textoCopia, 1, 1, 1, 1, 1);
+                        dynamic responsePrinter = PrinterModel.saveANewPrinter(printerName, "", 1, 1, textoOriginal, textoCopia, 1, 1, 1, 1, 1, 1);
                         if (responsePrinter.value == 1)
                         {
                             dynamic responseCopias = ConfiguracionModel.updateNumeroCopias(numCopies);
@@ -665,10 +665,10 @@ namespace SyncTPV
                     PopupNotifier popup = new PopupNotifier();
                     popup.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.success_green, 100, 100);
                     popup.TitleColor = Color.FromArgb(43, 143, 192);
-                    popup.TitleText = "Uso de productos No fiscales Activado";
+                    popup.TitleText = "Uso de productos de control Activado";
                     popup.TitlePadding = new Padding(5, 5, 5, 5);
                     popup.ButtonBorderColor = Color.Red;
-                    popup.ContentText = "Se activó el manejo de productos fiscales y No fiscales";
+                    popup.ContentText = "Se activó el manejo de productos comercial y de control";
                     popup.ContentColor = Color.FromArgb(43, 143, 192);
                     popup.HeaderHeight = 10;
                     popup.AnimationDuration = 1000;
@@ -681,10 +681,10 @@ namespace SyncTPV
                     PopupNotifier popup = new PopupNotifier();
                     popup.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.success_green, 100, 100);
                     popup.TitleColor = Color.FromArgb(175, 82, 82);
-                    popup.TitleText = "Uso de productos No fiscales Desactivado";
+                    popup.TitleText = "Uso de productos de control Desactivado";
                     popup.TitlePadding = new Padding(5, 5, 5, 5);
                     popup.ButtonBorderColor = Color.Red;
-                    popup.ContentText = "Se desactivó el manejo de productos fiscales y No fiscales";
+                    popup.ContentText = "Se desactivó el manejo de productos comerciales y de control";
                     popup.ContentColor = Color.FromArgb(175, 82, 82);
                     popup.HeaderHeight = 10;
                     popup.AnimationDuration = 1000;

@@ -854,6 +854,7 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
         public static String CAMPO_NAMEIMP3_DATOSTICKET = "nameImpuesto3";
         public static String CAMPO_NAMERETEN1_DATOSTICKET = "nameRetencion1";
         public static String CAMPO_NAMERETEN2_DATOSTICKET = "nameRetencion2";
+        public static String CAMPO_ACTUALIZACIONLOCAL_DATOSTICKET = "banActualizacionDatosTicket";
 
         public static String CREAR_TABLA_DATOS_TICKET = " CREATE TABLE IF NOT EXISTS " +
             "" + TABLA_DATOSTICKET + " (" + CAMPO_TICCONFIGURA + " INTEGER," + CAMPO_TICEMPRESA + " TEXT," + CAMPO_TICDIRECCION + " TEXT," +
@@ -864,7 +865,8 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
             CAMPO_EDITSUCINFO_DATOSTICKET + " INT NOT NULL DEFAULT 0, " + CAMPO_VENDERCONEXISTENCIA_DATOSTICKET + " INT NOT NULL DEFAULT 0, " +
             CAMPO_NAMEIMP1_DATOSTICKET + " TEXT DEFAULT '', " + CAMPO_NAMEIMP2_DATOSTICKET + " TEXT DEFAULT '', " +
             CAMPO_NAMEIMP3_DATOSTICKET + " TEXT DEFAULT '', " + CAMPO_NAMERETEN1_DATOSTICKET + " TEXT DEFAULT '', " +
-            CAMPO_NAMERETEN2_DATOSTICKET + " TEXT DEFAULT '')";
+            CAMPO_NAMERETEN2_DATOSTICKET + " TEXT DEFAULT '', " +
+            CAMPO_ACTUALIZACIONLOCAL_DATOSTICKET + " INT NOT NULL DEFAULT 0)"; 
 
         public static void validateAndCreateNewFieldsInDatosTicket(SQLiteConnection db)
         {
@@ -894,6 +896,11 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
                         cmd.CommandText = "ALTER TABLE " + TABLA_DATOSTICKET + " ADD " + CAMPO_NAMERETEN1_DATOSTICKET + " TEXT DEFAULT ''";
                         cmd.ExecuteNonQuery();
                         cmd.CommandText = "ALTER TABLE " + TABLA_DATOSTICKET + " ADD " + CAMPO_NAMERETEN2_DATOSTICKET + " TEXT DEFAULT ''";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (campos == 25) {
+                        SQLiteCommand cmd = new SQLiteCommand(db);
+                        cmd.CommandText = "ALTER TABLE " + TABLA_DATOSTICKET + " ADD " + CAMPO_ACTUALIZACIONLOCAL_DATOSTICKET + " INT NOT NULL DEFAULT 0";
                         cmd.ExecuteNonQuery();
                     }
                     if (reader != null && !reader.IsClosed)
@@ -1354,6 +1361,7 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
         public static String CAMPO_SHOWNOMBREUSUARIO_IMPRESORA = "showNombreUsuario";
         public static String CAMPO_SHOWCODIGOUSUARIO_IMPRESORA = "showCodigoUsuario";
         public static String CAMPO_SHOWFECHAHORA_IMPRESORA = "showFechaHora";
+        public static String CAMPO_SHOWPORCENTAJEDESCUENTOMOVIMIENTO_IMPRESORA = "showPorcentajeDescuentoMovimiento";
 
         public static String CREAR_TABLA_TIPO_IMPRESORAS = "CREATE TABLE IF NOT EXISTS " +
             TABLA_IMPRESORAS + " (" + CAMPO_ID_IMPRESORA + " INTEGER PRIMARY KEY, " + CAMPO_NOMBRE_IMPRESORA + " TEXT, " + 
@@ -1361,7 +1369,8 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
             CAMPO_ORIGINAL_IMPRESORA + " VARCHAR(30) NOT NULL DEFAULT '', "+ CAMPO_COPIA_IMPRESORA + " VARCHAR(30) NOT NULL DEFAULT '', " +
             CAMPO_SHOWFOLIO_IMPRESORA+" INT NOT NULL DEFAULT 1, "+CAMPO_SHOWCODIGOCAJA_IMPRESORA+" INT NOT NULL DEFAULT 1, "+
             CAMPO_SHOWNOMBREUSUARIO_IMPRESORA+" INT NOT NULL DEFAULT 1, "+ CAMPO_SHOWCODIGOUSUARIO_IMPRESORA + " INT NOT NULL DEFAULT 1, " +
-            CAMPO_SHOWFECHAHORA_IMPRESORA+" INT NOT NULL DEFAULT 1)";
+            CAMPO_SHOWFECHAHORA_IMPRESORA + " INT NOT NULL DEFAULT 1, " +
+            CAMPO_SHOWPORCENTAJEDESCUENTOMOVIMIENTO_IMPRESORA + " INT NOT NULL DEFAULT 1)";
 
         public static void validateAndCreateNewFieldsInTickets(SQLiteConnection db)
         {
@@ -1393,7 +1402,13 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
                         cmd.CommandText = "ALTER TABLE " + TABLA_IMPRESORAS + " ADD " + CAMPO_SHOWFECHAHORA_IMPRESORA + " INT NOT NULL DEFAULT 1";
                         cmd.ExecuteNonQuery();
                     }
-                    if (reader != null && !reader.IsClosed)
+                    if (campos == 12)
+                    {
+                        SQLiteCommand cmd = new SQLiteCommand(db);
+                        cmd.CommandText = "ALTER TABLE " + TABLA_IMPRESORAS + " ADD " + CAMPO_SHOWPORCENTAJEDESCUENTOMOVIMIENTO_IMPRESORA + " INT NOT NULL DEFAULT 1";
+                        cmd.ExecuteNonQuery();
+                    }
+                        if (reader != null && !reader.IsClosed)
                         reader.Close();
                 }
             }
@@ -1444,11 +1459,32 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
         public static String CAMPO_FECHA_FIN_LICENCIA = "fecha_fin";
         public static String CAMPO_X_LICENCIA = "x";
         public static String CAMPO_TIPOLIC_LICENCA = "tipo_lic";
+        public static String CAMPO_IDE_LICENCIA = "idE";
 
         public static String CREAR_TABLA_LICENCIA = "CREATE TABLE IF NOT EXISTS " +
             TABLA_LICENCIA + " (" + CAMPO_ID_LICENCIA + " INTEGER PRIMARY KEY, " +
             CAMPO_CODIGO_DE_SITIO_LICENCIA + " TEXT, " + CAMPO_SYNCKEY_LICENCIA + " TEXT, "
-            + CAMPO_FECHA_FIN_LICENCIA + " TEXT, " + CAMPO_X_LICENCIA + " TEXT, " + CAMPO_TIPOLIC_LICENCA + " INTEGER DEFAULT 1)";
+            + CAMPO_FECHA_FIN_LICENCIA + " TEXT, " + CAMPO_X_LICENCIA + " TEXT, " + CAMPO_IDE_LICENCIA + " INTEGER DEFAULT 0," + CAMPO_TIPOLIC_LICENCA + " INTEGER DEFAULT 1)";
+
+        public static void validateAndCreateNewFieldsInDatosLicencia(SQLiteConnection db)
+        {
+            String queryItem = "SELECT * FROM " + TABLA_LICENCIA;
+            using (SQLiteCommand command = new SQLiteCommand(queryItem, db))
+            {
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    int campoConcept = reader.FieldCount;  // see if the column is there
+                    if (campoConcept < 7)
+                    {
+                        SQLiteCommand cmd = new SQLiteCommand(db);
+                        cmd.CommandText = "ALTER TABLE " + TABLA_LICENCIA + " ADD " + CAMPO_IDE_LICENCIA + " INTEGER DEFAULT 0";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (reader != null && !reader.IsClosed)
+                        reader.Close();
+                }
+            }
+        }
 
         public static String TABLA_SERVERDATA = "Syncromsdl";
         public static String CAMPO_ID_SERVERDATA = "id";

@@ -20,9 +20,11 @@ namespace SyncTPV.Models
         public int showCodigoUsuario { get; set; }
         public int showNombreUsuario { get; set; }
         public int showFechaHora { get; set; }
+        public int showPorcentajeDescuentoMovimiento { get; set; }
+        
 
         public static ExpandoObject saveANewPrinter(String name, String direccion, int tipoTicket, int tipoPrinter, String leyendaOriginal, 
-            String leyendaCopia, int showFolio, int showCodigoCaja, int showCodigoUsuario, int showNombreUsuario, int showFechaHora)
+            String leyendaCopia, int showFolio, int showCodigoCaja, int showCodigoUsuario, int showNombreUsuario, int showFechaHora, int showPorcentajeDescuentoMovimiento)
         {
             dynamic response = new ExpandoObject();
             int value = 0;
@@ -35,7 +37,7 @@ namespace SyncTPV.Models
                 db.Open();
                 String query = "INSERT INTO " + LocalDatabase.TABLA_IMPRESORAS +
                     " VALUES(@id, @name, @direccion, @tipoTicket, @tipoPrinter, @leyendaOriginal, @leyendaCopia, @showFolio, @showCodigoCaja, " +
-                    "@showCodigoUsuario, @showNombreUsuario, @showFechaHora)";
+                    "@showCodigoUsuario, @showNombreUsuario, @showFechaHora, @showPorcentajeDescuentoMovimiento)";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     command.Parameters.AddWithValue("@id", 1);
@@ -50,6 +52,7 @@ namespace SyncTPV.Models
                     command.Parameters.AddWithValue("@showCodigoUsuario", showCodigoUsuario);
                     command.Parameters.AddWithValue("@showNombreUsuario", showNombreUsuario);
                     command.Parameters.AddWithValue("@showFechaHora", showFechaHora);
+                    command.Parameters.AddWithValue("@showPorcentajeDescuentoMovimiento", showPorcentajeDescuentoMovimiento);
                     int records = command.ExecuteNonQuery();
                     if (records > 0)
                     {
@@ -146,6 +149,8 @@ namespace SyncTPV.Models
                     query += LocalDatabase.CAMPO_SHOWNOMBREUSUARIO_IMPRESORA + " = @status ";
                 else if (type == 4)
                     query += LocalDatabase.CAMPO_SHOWFECHAHORA_IMPRESORA + " = @status ";
+                else if (type == 5)
+                    query += LocalDatabase.CAMPO_SHOWPORCENTAJEDESCUENTOMOVIMIENTO_IMPRESORA + " = @status ";
                 query += " WHERE " + LocalDatabase.CAMPO_ID_IMPRESORA + " = " + 1;
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
@@ -229,6 +234,7 @@ namespace SyncTPV.Models
                                 pm.showCodigoUsuario = Convert.ToInt32(reader[LocalDatabase.CAMPO_SHOWCODIGOUSUARIO_IMPRESORA].ToString().Trim());
                                 pm.showNombreUsuario = Convert.ToInt32(reader[LocalDatabase.CAMPO_SHOWNOMBREUSUARIO_IMPRESORA].ToString().Trim());
                                 pm.showFechaHora = Convert.ToInt32(reader[LocalDatabase.CAMPO_SHOWFECHAHORA_IMPRESORA].ToString().Trim());
+                                pm.showPorcentajeDescuentoMovimiento = Convert.ToInt32(reader[LocalDatabase.CAMPO_SHOWPORCENTAJEDESCUENTOMOVIMIENTO_IMPRESORA].ToString().Trim());
                             }
                         }
                         if (reader != null && !reader.IsClosed)

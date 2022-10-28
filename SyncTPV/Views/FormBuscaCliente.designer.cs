@@ -33,6 +33,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBuscaCliente));
             this.editBuscarCliente = new System.Windows.Forms.TextBox();
             this.dtGridBuscaClientes = new System.Windows.Forms.DataGridView();
+            this.idCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.textTotalClientes = new System.Windows.Forms.Label();
             this.checkBoxMostrarNuevos = new System.Windows.Forms.CheckBox();
@@ -40,9 +43,6 @@
             this.panelToolbar = new System.Windows.Forms.Panel();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.idCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridBuscaClientes)).BeginInit();
             this.panelToolbar.SuspendLayout();
             this.SuspendLayout();
@@ -51,10 +51,10 @@
             // 
             this.editBuscarCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editBuscarCliente.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editBuscarCliente.Location = new System.Drawing.Point(72, 72);
             this.editBuscarCliente.Name = "editBuscarCliente";
-            this.editBuscarCliente.Size = new System.Drawing.Size(317, 22);
+            this.editBuscarCliente.Size = new System.Drawing.Size(310, 21);
             this.editBuscarCliente.TabIndex = 0;
             this.editBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             this.editBuscarCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editBuscarCliente_KeyPress);
@@ -69,7 +69,7 @@
             this.dtGridBuscaClientes.BackgroundColor = System.Drawing.Color.FloralWhite;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -87,7 +87,7 @@
             this.dtGridBuscaClientes.ReadOnly = true;
             this.dtGridBuscaClientes.RowHeadersVisible = false;
             this.dtGridBuscaClientes.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FloralWhite;
-            this.dtGridBuscaClientes.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtGridBuscaClientes.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtGridBuscaClientes.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.dtGridBuscaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridBuscaClientes.Size = new System.Drawing.Size(499, 202);
@@ -97,6 +97,27 @@
             this.dtGridBuscaClientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtGridBuscaClientes_KeyDown);
             this.dtGridBuscaClientes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtGridBuscaClientes_KeyPress);
             this.dtGridBuscaClientes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dtGridBuscaClientes_KeyUp);
+            // 
+            // idCliente
+            // 
+            this.idCliente.HeaderText = "Id";
+            this.idCliente.Name = "idCliente";
+            this.idCliente.ReadOnly = true;
+            this.idCliente.Visible = false;
+            // 
+            // codigo
+            // 
+            this.codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.codigo.HeaderText = "Clave";
+            this.codigo.Name = "codigo";
+            this.codigo.ReadOnly = true;
+            // 
+            // nombre
+            // 
+            this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             // 
             // button1
             // 
@@ -112,7 +133,7 @@
             // 
             this.textTotalClientes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTotalClientes.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalClientes.Location = new System.Drawing.Point(10, 99);
             this.textTotalClientes.Name = "textTotalClientes";
             this.textTotalClientes.Size = new System.Drawing.Size(499, 24);
@@ -123,10 +144,10 @@
             // checkBoxMostrarNuevos
             // 
             this.checkBoxMostrarNuevos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxMostrarNuevos.Font = new System.Drawing.Font("Roboto Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMostrarNuevos.Location = new System.Drawing.Point(395, 74);
+            this.checkBoxMostrarNuevos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxMostrarNuevos.Location = new System.Drawing.Point(388, 74);
             this.checkBoxMostrarNuevos.Name = "checkBoxMostrarNuevos";
-            this.checkBoxMostrarNuevos.Size = new System.Drawing.Size(114, 18);
+            this.checkBoxMostrarNuevos.Size = new System.Drawing.Size(121, 18);
             this.checkBoxMostrarNuevos.TabIndex = 53;
             this.checkBoxMostrarNuevos.Text = "Mostrar Nuevos";
             this.checkBoxMostrarNuevos.UseVisualStyleBackColor = true;
@@ -154,7 +175,7 @@
             this.btnAgregarCliente.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnAgregarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAgregarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarCliente.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarCliente.ForeColor = System.Drawing.Color.White;
             this.btnAgregarCliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAgregarCliente.Location = new System.Drawing.Point(84, 3);
@@ -171,7 +192,7 @@
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnClose.Location = new System.Drawing.Point(3, 3);
@@ -182,27 +203,6 @@
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // idCliente
-            // 
-            this.idCliente.HeaderText = "Id";
-            this.idCliente.Name = "idCliente";
-            this.idCliente.ReadOnly = true;
-            this.idCliente.Visible = false;
-            // 
-            // codigo
-            // 
-            this.codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.codigo.HeaderText = "Clave";
-            this.codigo.Name = "codigo";
-            this.codigo.ReadOnly = true;
-            // 
-            // nombre
-            // 
-            this.nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
             // 
             // FormBuscaCliente
             // 

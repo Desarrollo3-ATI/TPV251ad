@@ -7,13 +7,17 @@ using SyncTPV.Views.Customers;
 using SyncTPV.Views.Extras;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
+using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Interop;
 using System.Windows.Threading;
 using Tulpep.NotificationWindow;
+using Windows.Media.Protection.PlayReady;
 using wsROMClases.Models;
 using wsROMClases.Models.Commercial;
 
@@ -36,7 +40,9 @@ namespace SyncTPV
         public static ProgressBar progressCargaCliente;
         private FormWaiting frmWaiting;
         private String panelInstance = "", comInstance = "", codigoCaja = "";
-
+        FormMessage msj;
+        private FormWaiting formWaiting;
+        private bool cotmosActive = false;
         public FormClientes()
         {
             InitializeComponent();
@@ -52,10 +58,20 @@ namespace SyncTPV
             btnCobranzaDetalleCliente.Click += new EventHandler(btnCobranzaDetalleCliente_Click);
             progressCargaCliente = progressBarGetCustomer;
         }
+        private async Task deleteAllCustomersSendedAndUploadedToComercialPremium()
+        {
+            await Task.Run(async () =>
+            {
+                CustomerADCModel.deleteAllCustomersUploadedToComercial();
+            });
+        }
 
         private async void frmClientes_Load(object sender, EventArgs e)
         {
             await validateIfServerModeLANIsActive();
+            CustomerModel.validarCLientesADCyCustomers();
+            
+            await deleteAllCustomersSendedAndUploadedToComercialPremium();
             editPendienteDetalleCliente.ReadOnly = true;
             if (UserModel.doYouHaveACollectionPermit() == 0)
             {
@@ -132,6 +148,7 @@ namespace SyncTPV
         {
             hideScrollBars();
             lastLoading = DateTime.Now;
+            CustomerModel.validarCLientesADCyCustomers();
             customersListTemp = await getAllCustomers();
             if (customersListTemp != null)
             {
@@ -287,6 +304,29 @@ namespace SyncTPV
                         }
                     }
                 }
+                query = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId;
+                queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " < " + lastId;
+                int totalCustomers2 = CustomerModel.getTotalRecordsWithParameters(queryTotals, "", "", 0);
+                totalCustomers = totalCustomers + totalCustomers2;
+                List<ClsClienteModel> customersList2 = CustomerModel.getAllCustomersWithParameters(query, "", "", 0);
+                if (customersList2 != null)
+                {
+                    customersList.AddRange(customersList2);
+                }
+                //
+                /*los customers
+                if(customersList != null)
+                {
+                    String query2 = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTEADC;
+                    customersList = CustomerModel.getAllClientesADC(query2);
+
+                }
+                else
+                {
+                    String query2 = "SELECT * FROM " + LocalDatabase.TABLA_CLIENTEADC;
+                    List <ClsClienteModel> clientesADC = CustomerModel.getAllClientesADC(query2);
+                    customersList.AddRange(clientesADC);
+                }*/
             });
             return customersList;
         }
@@ -521,65 +561,133 @@ namespace SyncTPV
 
         private void btnCobranzaDetalleCliente_Click(object sender, EventArgs e)
         {
-            string createdAt = DateTime.Now.ToString("yyyyMMdd");
+            int value = 0;
+            String description = "";
+
             if (UserModel.doYouHavePermissionPrepedido())
             {
-                FrmCobranzaCxc fcxc = new FrmCobranzaCxc(idCustomer);
-                fcxc.ShowDialog();
-            } else
-            {
-                if (serverModeLAN)
+                PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                if (pm != null)
                 {
-                    ClsAperturaCajaModel atm = ClsAperturaCajaModel.getARecordWithParameters(panelInstance, createdAt,
-                                    ClsRegeditController.getIdUserInTurn());
-                    if (atm != null)
+                    value = 1;
+                }
+                else
+                {
+                    description = "Asegurate de actualizar la información de la impresora en la " +
+                        "Configuración";
+                }
+            }
+            else
+            {
+                if (cotmosActive)
+                {
+                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                    if (pm != null)
                     {
-                        PrinterModel pm = PrinterModel.getallDataFromAPrinter();
-                        if (pm != null)
-                        {
-                            FrmCobranzaCxc fcxc = new FrmCobranzaCxc(idCustomer);
-                            fcxc.ShowDialog();
-                        }
-                        else
-                        {
-                            FormMessage formMessage = new FormMessage("Impresora Faltante", "Asegurate de actualizar la información de la impresora en la " +
-                                "Configuración", 3);
-                            formMessage.ShowDialog();
-                        }
+                        value = 1;
                     }
                     else
                     {
-                        FormMessage fm = new FormMessage("Apertura de Caja Faltante", "Antes de iniciar el proceso de venta tienes que realizar la apertura de caja!", 2);
-                        fm.ShowDialog();
+                        description = "Asegurate de actualizar la información de la impresora en la " +
+                    "Configuración";
                     }
                 }
                 else
                 {
-                    String query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
-                                " WHERE " + LocalDatabase.CAMPO_CREATEDAT_APERTURATURNO + " = '" + createdAt + "' AND " + LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " +
-                                ClsRegeditController.getIdUserInTurn();
-                    AperturaTurnoModel atm = AperturaTurnoModel.getARecord(query);
-                    if (atm != null)
+                    int idEspecial = LicenseModel.getIdEspeciualLocalDb();
+                    if (1 == idEspecial)
                     {
-                        PrinterModel pm = PrinterModel.getallDataFromAPrinter();
-                        if (pm != null)
+                        if (Eselmismoagente())
                         {
-                            FrmCobranzaCxc fcxc = new FrmCobranzaCxc(idCustomer);
-                            fcxc.ShowDialog();
+                            value = 1;
                         }
                         else
                         {
-                            FormMessage formMessage = new FormMessage("Impresora Faltante", "Asegurate de actualizar la información de la impresora en la " +
-                                "Configuración", 3);
-                            formMessage.ShowDialog();
+                            description = "El agente de venta cambio, realice la apertura de caja para poder vender.\n\rlas ventas seran eliminadas al realizar la apertrua de caja.";
+
                         }
+                    }
+                    else if (2 == idEspecial)
+                    {
+                        value = 1;
+                        msj = new FormMessage("Recordatorio", "Recuerde que es primordial el uso de la apertura de caja cada inicio de turno de venta para su optimo funcionamiento.", 1);
+                        msj.ShowDialog();
                     }
                     else
                     {
-                        FormMessage fm = new FormMessage("Apertura de Caja Faltante", "Antes de iniciar el proceso de venta tienes que realizar la apertura de caja!", 2);
-                        fm.ShowDialog();
+                        string dateNow = DateTime.Now.ToString("yyyyMMdd");
+                        if (serverModeLAN)
+                        {
+                            ClsAperturaCajaModel atm = ClsAperturaCajaModel.getARecordWithParameters(panelInstance, dateNow,
+                                ClsRegeditController.getIdUserInTurn());
+                            if (atm != null)
+                            {
+                                PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                                if (pm != null)
+                                {
+                                    value = 1;
+                                    /*this.Visible = false;
+                                    FormVenta Venta = new FormVenta(0);
+                                    Venta.ShowDialog();
+                                    this.Visible = true;*/
+                                }
+                                else
+                                {
+                                    description = "Asegurate de actualizar la información de la impresora en la " +
+                                "Configuración";
+                                }
+                            }
+                            else
+                            {
+                                description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
+                            }
+                        }
+                        else
+                        {
+                            String query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
+                            " WHERE " + LocalDatabase.CAMPO_CREATEDAT_APERTURATURNO + " = '" + dateNow + "' AND " +
+                            LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " + ClsRegeditController.getIdUserInTurn();
+                            AperturaTurnoModel atm = AperturaTurnoModel.getARecord(query);
+                            if (atm != null)
+                            {
+                                PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                                if (pm != null)
+                                {
+                                    value = 1;
+                                    /*this.Visible = false;
+                                    FormVenta Venta = new FormVenta(0);
+                                    Venta.ShowDialog();
+                                    this.Visible = true;*/
+                                }
+                                else
+                                {
+                                    description = "Asegurate de actualizar la información de la impresora en la " +
+                                "Configuración";
+                                }
+                            }
+                            else
+                            {
+                                description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
+                            }
+                        }
                     }
                 }
+            }
+
+            if (formWaiting != null)
+            {
+                formWaiting.Dispose();
+                formWaiting.Close();
+            }
+            if (value == 1)
+            {
+                FrmCobranzaCxc fcxc = new FrmCobranzaCxc(idCustomer);
+                fcxc.ShowDialog();
+            }
+            else
+            {
+                FormMessage formMessage = new FormMessage("Cobranza", description, 3);
+                formMessage.ShowDialog();
             }
         }
 
@@ -741,61 +849,173 @@ namespace SyncTPV
             LlenarImagen(idCustomer);
         }
 
+        public bool Eselmismoagente()
+        {
+            bool value = false;
+            var db = new SQLiteConnection();
+            try
+            {
+                String query = "SELECT * from Documentos where Documentos.USUARIO_ID != '" + ClsRegeditController.getIdUserInTurn() + "'";
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            value = false;
+                        }
+                        else
+                        {
+                            value = true;
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                SECUDOC.writeLog(Ex.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return value;
+        }
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            string createdAt = DateTime.Now.ToString("yyyyMMdd");
-            if (serverModeLAN)
-            {
-                ClsAperturaCajaModel atm = ClsAperturaCajaModel.getARecordWithParameters(panelInstance, createdAt,
+            int value = 0;
+            String description = "";
+            
+                if (UserModel.doYouHavePermissionPrepedido())
+                {
+                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                    if (pm != null)
+                    {
+                        value = 1;
+                    }
+                    else
+                    {
+                        description = "Asegurate de actualizar la información de la impresora en la " +
+                            "Configuración";
+                    }
+                }
+                else
+                {
+                    if (cotmosActive)
+                    {
+                        PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                        if (pm != null)
+                        {
+                            value = 1;
+                        }
+                        else
+                        {
+                            description = "Asegurate de actualizar la información de la impresora en la " +
+                        "Configuración";
+                        }
+                    }
+                    else
+                    {
+                        int idEspecial = LicenseModel.getIdEspeciualLocalDb();
+                        if (1 == idEspecial)
+                        {
+                            if (Eselmismoagente())
+                            {
+                                value = 1;
+                            }
+                            else
+                            {
+                                description = "El agente de venta cambio, realice la apertura de caja para poder vender.\n\rlas ventas seran eliminadas al realizar la apertrua de caja.";
+
+                            }
+                        }
+                        else if (2 == idEspecial)
+                        {
+                            value = 1;
+                            msj = new FormMessage("Recordatorio", "Recuerde que es primordial el uso de la apertura de caja cada inicio de turno de venta para su optimo funcionamiento.", 1);
+                            msj.ShowDialog();
+                        }
+                        else
+                        {
+                            string dateNow = DateTime.Now.ToString("yyyyMMdd");
+                            if (serverModeLAN)
+                            {
+                                ClsAperturaCajaModel atm = ClsAperturaCajaModel.getARecordWithParameters(panelInstance, dateNow,
                                     ClsRegeditController.getIdUserInTurn());
-                if (atm != null)
-                {
-                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
-                    if (pm != null)
-                    {
-                        FormAddCustomer formAddCustomer = new FormAddCustomer();
-                        formAddCustomer.StartPosition = FormStartPosition.CenterScreen;
-                        formAddCustomer.ShowDialog();
-                    }
-                    else
-                    {
-                        FormMessage formMessage = new FormMessage("Impresora Faltante", "Asegurate de actualizar la información de la impresora en la " +
-                            "Configuración", 3);
-                        formMessage.ShowDialog();
+                                if (atm != null)
+                                {
+                                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                                    if (pm != null)
+                                    {
+                                        value = 1;
+                                        /*this.Visible = false;
+                                        FormVenta Venta = new FormVenta(0);
+                                        Venta.ShowDialog();
+                                        this.Visible = true;*/
+                                    }
+                                    else
+                                    {
+                                        description = "Asegurate de actualizar la información de la impresora en la " +
+                                    "Configuración";
+                                    }
+                                }
+                                else
+                                {
+                                    description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
+                                }
+                            }
+                            else
+                            {
+                                String query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
+                                " WHERE " + LocalDatabase.CAMPO_CREATEDAT_APERTURATURNO + " = '" + dateNow + "' AND " +
+                                LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " + ClsRegeditController.getIdUserInTurn();
+                                AperturaTurnoModel atm = AperturaTurnoModel.getARecord(query);
+                                if (atm != null)
+                                {
+                                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                                    if (pm != null)
+                                    {
+                                        value = 1;
+                                        /*this.Visible = false;
+                                        FormVenta Venta = new FormVenta(0);
+                                        Venta.ShowDialog();
+                                        this.Visible = true;*/
+                                    }
+                                    else
+                                    {
+                                        description = "Asegurate de actualizar la información de la impresora en la " +
+                                    "Configuración";
+                                    }
+                                }
+                                else
+                                {
+                                    description = "Antes de iniciar el proceso de Ventas tienes que realizar Apertura de Caja!";
+                                }
+                            }
+                        }
                     }
                 }
-                else
-                {
-                    FormMessage fm = new FormMessage("Apertura de Caja Faltante", "Antes de iniciar el proceso de venta tienes que realizar la apertura de caja!", 2);
-                    fm.ShowDialog();
-                }
-            } else
+            
+            if (formWaiting != null)
             {
-                String query = "SELECT * FROM " + LocalDatabase.TABLA_APERTURATURNO +
-                                " WHERE " + LocalDatabase.CAMPO_CREATEDAT_APERTURATURNO + " = '" + createdAt + "' AND " + LocalDatabase.CAMPO_USERID_APERTURATURNO + " = " +
-                                ClsRegeditController.getIdUserInTurn();
-                AperturaTurnoModel atm = AperturaTurnoModel.getARecord(query);
-                if (atm != null)
-                {
-                    PrinterModel pm = PrinterModel.getallDataFromAPrinter();
-                    if (pm != null)
-                    {
-                        FormAddCustomer formAddCustomer = new FormAddCustomer();
-                        formAddCustomer.StartPosition = FormStartPosition.CenterScreen;
-                        formAddCustomer.ShowDialog();
-                    }
-                    else
-                    {
-                        FormMessage formMessage = new FormMessage("Impresora Faltante", "Asegurate de actualizar la información de la impresora en la " +
-                            "Configuración", 3);
-                        formMessage.ShowDialog();
-                    }
-                }
-                else
-                {
-                    FormMessage fm = new FormMessage("Apertura de Caja Faltante", "Antes de iniciar el proceso de venta tienes que realizar la apertura de caja!", 2);
-                    fm.ShowDialog();
-                }
+                formWaiting.Dispose();
+                formWaiting.Close();
+            }
+            if (value == 1)
+            {
+                FormAddCustomer formAddCustomer = new FormAddCustomer();
+                formAddCustomer.StartPosition = FormStartPosition.CenterScreen;
+                formAddCustomer.ShowDialog();
+            }
+            else
+            {
+                FormMessage formMessage = new FormMessage("Clientes", description, 3);
+                formMessage.ShowDialog();
             }
         }
 
@@ -845,6 +1065,12 @@ namespace SyncTPV
                 fillCustomersDataGrid();
                 timerBusquedaClientes.Stop();
             }
+        }
+
+        private void btnLocalClientes_Click(object sender, EventArgs e)
+        {
+            frmWaiting = new FormWaiting(this, 0);
+            frmWaiting.ShowDialog();
         }
 
         private void pctBoxCliente_Click(object sender, EventArgs e)

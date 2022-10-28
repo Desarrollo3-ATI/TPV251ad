@@ -292,24 +292,42 @@ namespace SyncTPV
                 {
                     if (permissionPrepedido)
                     {
-                        queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
-                    LocalDatabase.CAMPO_ID_DOC + " <= " + lastId + " AND "+LocalDatabase.CAMPO_FECHAHORAMOV_DOC+" BETWEEN @startDate AND @endDate " +
-                    "ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                        queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0 " + 
+                        " AND "+LocalDatabase.CAMPO_FECHAHORAMOV_DOC+" BETWEEN @startDate AND @endDate " +
+                        "ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC " ;
                         queryReporte = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0" +
                         " AND " + LocalDatabase.CAMPO_FECHAHORAMOV_DOC + " BETWEEN @startDate AND @endDate";
                         queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA+ " WHERE "+ 
                         LocalDatabase.CAMPO_FECHAHORAMOV_DOC + " BETWEEN @startDate AND @endDate";
                         documentList = DocumentModel.getAllDocumentsWithParamtersDates(queryTemp, "startDate", startDate, "endDate", endDate);
                         totalItems = DocumentModel.getIntValueWithParametersDates(queryTotals, "startDate", startDate, "endDate", endDate);
+                        
                     } else
                     {
-                        queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
-                    LocalDatabase.CAMPO_ID_DOC + " <= " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
-                        queryReporte = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0" +
-                        " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC";
-                        queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA;
+                        queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0 " + 
+                        " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + 1;
                         documentList = DocumentModel.getAllDocuments(queryTemp);
-                        totalItems = DocumentModel.getIntValue(queryTotals);
+                        if (documentList != null)
+                        {
+                            int fistid = documentList[0].id;
+                            if (fistid != lastId)
+                            {
+                                queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
+                                LocalDatabase.CAMPO_ID_DOC + " < " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                                queryReporte = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0" +
+                                " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC";
+                            }
+                            else
+                            {
+                                queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
+                                                            LocalDatabase.CAMPO_ID_DOC + " <= " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                                queryReporte = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " != 0" +
+                                " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC";
+                            }
+                            queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA;
+                            documentList = DocumentModel.getAllDocuments(queryTemp);
+                            totalItems = DocumentModel.getIntValue(queryTotals);
+                        }
                     }
                 } else if (queryType == 1)
                 {
@@ -329,8 +347,27 @@ namespace SyncTPV
                     } else
                     {
                         queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
-                        LocalDatabase.CAMPO_CANCELADO_DOC + " = 1 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
-                        LocalDatabase.CAMPO_ID_DOC + " <= " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                        LocalDatabase.CAMPO_CANCELADO_DOC + " = 1 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0 " +
+                        " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + 1;
+                        documentList = DocumentModel.getAllDocuments(queryTemp);
+                        if (documentList != null)
+                        {
+                            int fistid = documentList[0].id;
+                            if (fistid != lastId)
+                            {
+                                queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
+                               LocalDatabase.CAMPO_CANCELADO_DOC + " = 1 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
+                               LocalDatabase.CAMPO_ID_DOC + " < " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                            }
+                            else
+                            {
+                                queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
+                               LocalDatabase.CAMPO_CANCELADO_DOC + " = 1 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
+                               LocalDatabase.CAMPO_ID_DOC + " <= " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                            }
+                        }
+
+                           
                         queryReporte = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
                         LocalDatabase.CAMPO_CANCELADO_DOC + " = 1 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0" +
                         " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC";
@@ -378,11 +415,26 @@ namespace SyncTPV
                     } else
                     {
                         queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ENVIADOALWS_DOC + " = 1 " +
-                    "AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
-                        LocalDatabase.CAMPO_ID_DOC + " <= " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
-                        queryReporte = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ENVIADOALWS_DOC + " = 1 " +
-                    "AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0" +
-                    " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC";
+                        "AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0 " +
+                        " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + 1;
+                        documentList = DocumentModel.getAllDocuments(queryTemp);
+                        if (documentList != null)
+                        {
+                            int fistid = documentList[0].id;
+                            if (fistid != lastId)
+                            {
+                                queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ENVIADOALWS_DOC + " = 1 " +
+                                "AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
+                                    LocalDatabase.CAMPO_ID_DOC + " <= " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                            }
+                            else
+                            {
+                                queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ENVIADOALWS_DOC + " = 1 " +
+                                "AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " + LocalDatabase.CAMPO_ID_DOC + " != 0 AND " +
+                                    LocalDatabase.CAMPO_ID_DOC + " < " + lastId + " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                            }
+                        }
+
                         queryTotals = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ENVIADOALWS_DOC + " = 1 AND " +
                             LocalDatabase.CAMPO_CANCELADO_DOC + " = 0";
                         documentList = DocumentModel.getAllDocuments(queryTemp);
@@ -402,7 +454,7 @@ namespace SyncTPV
                         "INNER JOIN Movimientos M ON D.id = M.DOCTO_ID_PEDIDO " +
                         "INNER JOIN Weight W ON M.id = W.movementId " +
                         "WHERE D.id_web_service != 0 AND P.type = 4 AND P.surtido = 1 AND P.listo = 1 " +
-                        "AND W.box_weight != 0 AND W.net_weight != 0 AND D." + LocalDatabase.CAMPO_ID_DOC + " <= " + lastId +
+                        "AND W.box_weight != 0 AND W.net_weight != 0 AND D." + LocalDatabase.CAMPO_ID_DOC + " < " + lastId +
                         " AND D."+LocalDatabase.CAMPO_FECHAHORAMOV_DOC+" BETWEEN @startDate AND @endDate " +
                         "ORDER BY D." + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
                         queryReporte = "SELECT D.id, D.clave_cliente, D.cliente_id, D.descuento, D.total, D.NOMBREU, D.ALMACEN_ID, D.ANTICIPO, " +
@@ -427,9 +479,29 @@ namespace SyncTPV
                     } else
                     {
                         queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
+                   LocalDatabase.CAMPO_PAUSAR_DOC + " = 1 AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " +
+                   LocalDatabase.CAMPO_ID_DOC + " != 0 " +
+                   " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + 1;
+                        documentList = DocumentModel.getAllDocuments(queryTemp);
+                        if (documentList != null)
+                        {
+                            int fistid = documentList[0].id;
+                            if (fistid != lastId)
+                            {
+                                queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
+                    LocalDatabase.CAMPO_PAUSAR_DOC + " = 1 AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " +
+                    LocalDatabase.CAMPO_ID_DOC + " != 0 AND " + LocalDatabase.CAMPO_ID_DOC + " < " + lastId +
+                    " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                            }
+                            else
+                            {
+                                queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
                     LocalDatabase.CAMPO_PAUSAR_DOC + " = 1 AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " +
                     LocalDatabase.CAMPO_ID_DOC + " != 0 AND " + LocalDatabase.CAMPO_ID_DOC + " <= " + lastId +
                     " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                            }
+                        }
+                                
                         queryReporte = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
                     LocalDatabase.CAMPO_PAUSAR_DOC + " = 1 AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = 0 AND " +
                     LocalDatabase.CAMPO_ID_DOC + " != 0 ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC";
@@ -441,9 +513,29 @@ namespace SyncTPV
                 } else if (queryType == 4)
                 {
                     queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " D INNER JOIN " + LocalDatabase.TABLA_CLIENTES + " C ON D." +
+                   LocalDatabase.CAMPO_CLIENTEID_DOC + " = C." + LocalDatabase.CAMPO_ID_CLIENTE + " WHERE D." + LocalDatabase.CAMPO_ID_DOC + " != 0 " +
+                   " AND D." + LocalDatabase.CAMPO_FVENTA_DOC + " LIKE @searchWord1 OR C." +
+                   LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @searchWord2 ORDER BY D." + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + 1;
+                    documentList = DocumentModel.getAllDocumentsWithParamtersToSearch(queryTemp, "searchWord1", searchWord, "searchWord2", searchWord);
+                    if (documentList != null)
+                    {
+                        int fistid = documentList[0].id;
+                        if (fistid != lastId)
+                        {
+                            queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " D INNER JOIN " + LocalDatabase.TABLA_CLIENTES + " C ON D." +
+                                               LocalDatabase.CAMPO_CLIENTEID_DOC + " = C." + LocalDatabase.CAMPO_ID_CLIENTE + " WHERE D." + LocalDatabase.CAMPO_ID_DOC + " != 0 AND D." +
+                                               LocalDatabase.CAMPO_ID_DOC + " < " + lastId + " AND D." + LocalDatabase.CAMPO_FVENTA_DOC + " LIKE @searchWord1 OR C." +
+                                               LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @searchWord2 ORDER BY D." + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                        }
+                        else
+                        {
+                            queryTemp = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " D INNER JOIN " + LocalDatabase.TABLA_CLIENTES + " C ON D." +
                    LocalDatabase.CAMPO_CLIENTEID_DOC + " = C." + LocalDatabase.CAMPO_ID_CLIENTE + " WHERE D." + LocalDatabase.CAMPO_ID_DOC + " != 0 AND D." +
                    LocalDatabase.CAMPO_ID_DOC + " <= " + lastId + " AND D." + LocalDatabase.CAMPO_FVENTA_DOC + " LIKE @searchWord1 OR C." +
                    LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @searchWord2 ORDER BY D." + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT " + LIMIT;
+                        }
+                    }
+                            
                     queryReporte = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " D INNER JOIN " + LocalDatabase.TABLA_CLIENTES + " C ON D." +
                    LocalDatabase.CAMPO_CLIENTEID_DOC + " = C." + LocalDatabase.CAMPO_ID_CLIENTE + " WHERE D." + LocalDatabase.CAMPO_ID_DOC + " != 0" +
                    " AND D." + LocalDatabase.CAMPO_FVENTA_DOC + " LIKE @searchWord1 OR C." +LocalDatabase.CAMPO_NOMBRECLIENTE + " LIKE @searchWord2";

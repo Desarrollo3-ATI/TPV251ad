@@ -362,8 +362,8 @@ namespace SyncTPV.Models
             {
                 db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
                 db.Open();
-                String query = "SELECT "+LocalDatabase.CAMPO_IMPORTE_APERTURATURNO+" FROM "+LocalDatabase.TABLA_APERTURATURNO+" WHERE "+
-                    LocalDatabase.CAMPO_CREATEDAT_APERTURATURNO+" = @fechaActual";
+                String query = "SELECT "+LocalDatabase.CAMPO_IMPORTE_APERTURATURNO+" FROM "+LocalDatabase.TABLA_APERTURATURNO+" Order by "+
+                    LocalDatabase.CAMPO_ID_APERTURATURNO + " DESC LIMIT 1";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     command.Parameters.AddWithValue("fechaActual",DateTime.Now.ToString("yyyyMMdd"));

@@ -1,9 +1,12 @@
 ﻿using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Globalization;
+using wsROMClases.Models.Panel;
 
 namespace SyncTPV
 {
@@ -397,6 +400,86 @@ namespace SyncTPV
                 
             }
             return idInserted;
+        }
+
+        public static int validarCLientesADCyCustomers()
+        {
+            int Error = 0;
+            decimal total = 0.0M, cambio = 0.0M;
+            List<CustomerADCModel> clientesADCs = new List<CustomerADCModel>();
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                String query = "SELECT * from "+LocalDatabase.TABLA_CLIENTEADC;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                int auxADC = Convert.ToInt32("-"+reader["id"].ToString().Trim());
+                                ClsClienteModel auxclient = getAllDataFromACustomer(auxADC);
+                                if(auxclient == null)
+                                {
+                                    CustomerADCModel ADC = new CustomerADCModel();
+                                    ADC.id = Convert.ToInt32(reader["id"].ToString().Trim());
+                                    ADC.nombre = reader["NOMBRE"].ToString().Trim();
+                                    ADC.rfc = reader["RFC"].ToString().Trim();
+                                    ADC.referencia = reader["REFERENCIA"].ToString().Trim();
+                                    ADC.telefono = reader["TELEFONO"].ToString().Trim();
+                                    ADC.tipoContribuyente = Convert.ToInt32(reader["tipoContribuyente"].ToString().Trim());
+                                    ADC.codigoRegimenFiscal = reader["codigoRegimenFiscal"].ToString().Trim();
+                                    ADC.codigoUsoCFDI = reader["codigoUsoCFDI"].ToString().Trim();
+                                    clientesADCs.Add(ADC);
+                                }
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                Error = 1;
+                SECUDOC.writeLog(Ex.ToString());
+
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            try
+            {
+
+            }catch(Exception e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            for (int i=0; i< clientesADCs.Count; i++)
+            {
+                try
+                {
+                    String idClienteNegativo = "-" + clientesADCs[i].id;
+                    CustomerModel.createNewCustomer(Convert.ToInt32(idClienteNegativo), clientesADCs[i].nombre, "", 0, "", "1", "",
+                        clientesADCs[i].telefono, 1, 0, "", clientesADCs[i].referencia, "", 0, "Bueno", "", 0, 0, 0, "", clientesADCs[i].rfc, "", "", clientesADCs[i].tipoContribuyente, clientesADCs[i].codigoRegimenFiscal, clientesADCs[i].codigoUsoCFDI);
+                    if (CustomerModel.updateClaveClienteAdditionalAgregado(Convert.ToInt32(idClienteNegativo)) > 0)
+                    {
+                        Error = Convert.ToInt32(idClienteNegativo);
+                    }
+                }
+                catch(Exception e)
+                {
+                    Error = 1;
+                    SECUDOC.writeLog(e.ToString());
+                }
+            }
+            return Error;
         }
 
         public static int createNewCustomer(int idCliente, String nombre, String codigo, double limiteCredito, String condicionesDePago, 
@@ -1171,6 +1254,55 @@ namespace SyncTPV
         }
 
         public static List<ClsClienteModel> getAllCustomers(String query)
+        {
+            List<ClsClienteModel> customersList = null;
+            ClsClienteModel clientes;
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            customersList = new List<ClsClienteModel>();
+                            while (reader.Read())
+                            {
+                                clientes = new ClsClienteModel();
+                                clientes.CLIENTE_ID = Convert.ToInt32(reader[LocalDatabase.CAMPO_ID_CLIENTE].ToString().Trim());
+                                clientes.NOMBRE = reader[LocalDatabase.CAMPO_NOMBRECLIENTE].ToString().Trim();
+                                clientes.CLAVE = reader[LocalDatabase.CAMPO_CLAVECLIENTE].ToString().Trim();
+                                clientes.rfc = reader[LocalDatabase.CAMPO_RFC_CLIENTE].ToString().Trim();
+                                clientes.LIMITE_CREDITO = Convert.ToDouble(reader[LocalDatabase.CAMPO_LIMITECREDITO_CLIENTE].ToString().Trim());
+                                clientes.TELEFONO = reader[LocalDatabase.CAMPO_TELEFONO_CLIENTE].ToString().Trim();
+                                clientes.HISTORIA_CREDITO = reader[LocalDatabase.CAMPO_HISTORIA_CREDITO].ToString().Trim();
+                                clientes.PRECIO_EMPRESA_ID = Convert.ToInt32(reader[LocalDatabase.CAMPO_PRECIOEMPRESA_ID_CLIENTE].ToString().Trim());
+                                clientes.denominacionComercial = reader[LocalDatabase.CAMPO_DENOMINACIONCOMCERCIAL_CLIENTE].ToString().Trim();
+                                customersList.Add(clientes);
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                SECUDOC.writeLog(Ex.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return customersList;
+        }
+
+
+        public static List<ClsClienteModel> getAllClientesADC(String query)
         {
             List<ClsClienteModel> customersList = null;
             ClsClienteModel clientes;

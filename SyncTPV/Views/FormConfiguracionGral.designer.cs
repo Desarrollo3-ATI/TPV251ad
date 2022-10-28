@@ -67,8 +67,8 @@
             this.checkBoxFiscales = new System.Windows.Forms.CheckBox();
             this.editFiscalItemField = new System.Windows.Forms.TextBox();
             this.panelToolbar = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.checkBoxUsoWeb = new System.Windows.Forms.CheckBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnGuardar = new SyncTPV.RoundedButton();
             this.groupBox1.SuspendLayout();
             this.panelLeyendas.SuspendLayout();
@@ -92,7 +92,7 @@
             this.groupBox1.Controls.Add(this.txtImpresora);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbImpresoras);
-            this.groupBox1.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(28, 99);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(623, 159);
@@ -107,12 +107,12 @@
             this.btnConfigTicket.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnConfigTicket.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnConfigTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfigTicket.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfigTicket.Location = new System.Drawing.Point(10, 120);
+            this.btnConfigTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfigTicket.Location = new System.Drawing.Point(10, 111);
             this.btnConfigTicket.Name = "btnConfigTicket";
-            this.btnConfigTicket.Size = new System.Drawing.Size(116, 33);
+            this.btnConfigTicket.Size = new System.Drawing.Size(161, 42);
             this.btnConfigTicket.TabIndex = 52;
-            this.btnConfigTicket.Text = "Encabezado";
+            this.btnConfigTicket.Text = "Configuracion de ticket";
             this.btnConfigTicket.UseVisualStyleBackColor = true;
             this.btnConfigTicket.Click += new System.EventHandler(this.btnConfigTicket_Click);
             this.btnConfigTicket.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnConfigTicket_KeyUp);
@@ -139,7 +139,7 @@
             this.editLeyendaCopia.Location = new System.Drawing.Point(62, 49);
             this.editLeyendaCopia.MaxLength = 30;
             this.editLeyendaCopia.Name = "editLeyendaCopia";
-            this.editLeyendaCopia.Size = new System.Drawing.Size(368, 22);
+            this.editLeyendaCopia.Size = new System.Drawing.Size(368, 21);
             this.editLeyendaCopia.TabIndex = 4;
             this.editLeyendaCopia.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editLeyendaCopia_KeyUp);
             // 
@@ -150,7 +150,7 @@
             this.editLeyendaOriginal.Location = new System.Drawing.Point(62, 20);
             this.editLeyendaOriginal.MaxLength = 30;
             this.editLeyendaOriginal.Name = "editLeyendaOriginal";
-            this.editLeyendaOriginal.Size = new System.Drawing.Size(368, 22);
+            this.editLeyendaOriginal.Size = new System.Drawing.Size(368, 21);
             this.editLeyendaOriginal.TabIndex = 3;
             this.editLeyendaOriginal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editLeyendaOriginal_KeyUp);
             // 
@@ -159,7 +159,7 @@
             this.textLeyendaCopia.AutoSize = true;
             this.textLeyendaCopia.Location = new System.Drawing.Point(7, 52);
             this.textLeyendaCopia.Name = "textLeyendaCopia";
-            this.textLeyendaCopia.Size = new System.Drawing.Size(39, 14);
+            this.textLeyendaCopia.Size = new System.Drawing.Size(39, 15);
             this.textLeyendaCopia.TabIndex = 2;
             this.textLeyendaCopia.Text = "Copia";
             this.textLeyendaCopia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -169,7 +169,7 @@
             this.textLeyendaOriginal.AutoSize = true;
             this.textLeyendaOriginal.Location = new System.Drawing.Point(7, 23);
             this.textLeyendaOriginal.Name = "textLeyendaOriginal";
-            this.textLeyendaOriginal.Size = new System.Drawing.Size(49, 14);
+            this.textLeyendaOriginal.Size = new System.Drawing.Size(50, 15);
             this.textLeyendaOriginal.TabIndex = 1;
             this.textLeyendaOriginal.Text = "Original";
             this.textLeyendaOriginal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,7 +181,7 @@
             this.textInfoLeyendas.AutoSize = true;
             this.textInfoLeyendas.Location = new System.Drawing.Point(128, 3);
             this.textInfoLeyendas.Name = "textInfoLeyendas";
-            this.textInfoLeyendas.Size = new System.Drawing.Size(115, 14);
+            this.textInfoLeyendas.Size = new System.Drawing.Size(118, 15);
             this.textInfoLeyendas.TabIndex = 0;
             this.textInfoLeyendas.Text = "Leyendas en Tickets";
             this.textInfoLeyendas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -191,7 +191,7 @@
             this.editNumCopias.Location = new System.Drawing.Point(126, 84);
             this.editNumCopias.MaxLength = 1;
             this.editNumCopias.Name = "editNumCopias";
-            this.editNumCopias.Size = new System.Drawing.Size(45, 22);
+            this.editNumCopias.Size = new System.Drawing.Size(45, 21);
             this.editNumCopias.TabIndex = 2;
             this.editNumCopias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.editNumCopias.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editNumCopias_KeyPress);
@@ -200,10 +200,10 @@
             // textNumCopias
             // 
             this.textNumCopias.AutoSize = true;
-            this.textNumCopias.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNumCopias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNumCopias.Location = new System.Drawing.Point(10, 87);
             this.textNumCopias.Name = "textNumCopias";
-            this.textNumCopias.Size = new System.Drawing.Size(108, 14);
+            this.textNumCopias.Size = new System.Drawing.Size(110, 15);
             this.textNumCopias.TabIndex = 49;
             this.textNumCopias.Text = "Número de Copias";
             // 
@@ -294,7 +294,7 @@
             this.groupBoxScalePermission.Controls.Add(this.label2);
             this.groupBoxScalePermission.Controls.Add(this.pictureBox1);
             this.groupBoxScalePermission.Controls.Add(this.label3);
-            this.groupBoxScalePermission.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxScalePermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxScalePermission.Location = new System.Drawing.Point(28, 264);
             this.groupBoxScalePermission.Name = "groupBoxScalePermission";
             this.groupBoxScalePermission.Size = new System.Drawing.Size(623, 183);
@@ -306,10 +306,10 @@
             // 
             this.checkBoxCerrarCOM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxCerrarCOM.AutoSize = true;
-            this.checkBoxCerrarCOM.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxCerrarCOM.Location = new System.Drawing.Point(6, 154);
+            this.checkBoxCerrarCOM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCerrarCOM.Location = new System.Drawing.Point(6, 153);
             this.checkBoxCerrarCOM.Name = "checkBoxCerrarCOM";
-            this.checkBoxCerrarCOM.Size = new System.Drawing.Size(169, 19);
+            this.checkBoxCerrarCOM.Size = new System.Drawing.Size(195, 20);
             this.checkBoxCerrarCOM.TabIndex = 55;
             this.checkBoxCerrarCOM.Text = "Cerrar COM a cada ciclo";
             this.checkBoxCerrarCOM.UseVisualStyleBackColor = true;
@@ -320,10 +320,10 @@
             // 
             this.checkBoxCapturaPesoManual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxCapturaPesoManual.AutoSize = true;
-            this.checkBoxCapturaPesoManual.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxCapturaPesoManual.Location = new System.Drawing.Point(437, 154);
+            this.checkBoxCapturaPesoManual.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCapturaPesoManual.Location = new System.Drawing.Point(408, 153);
             this.checkBoxCapturaPesoManual.Name = "checkBoxCapturaPesoManual";
-            this.checkBoxCapturaPesoManual.Size = new System.Drawing.Size(167, 19);
+            this.checkBoxCapturaPesoManual.Size = new System.Drawing.Size(196, 20);
             this.checkBoxCapturaPesoManual.TabIndex = 12;
             this.checkBoxCapturaPesoManual.Text = "Captura de Peso Manual";
             this.checkBoxCapturaPesoManual.UseVisualStyleBackColor = true;
@@ -334,7 +334,7 @@
             // 
             this.cnombrebascula.Location = new System.Drawing.Point(145, 32);
             this.cnombrebascula.Name = "cnombrebascula";
-            this.cnombrebascula.Size = new System.Drawing.Size(291, 22);
+            this.cnombrebascula.Size = new System.Drawing.Size(291, 21);
             this.cnombrebascula.TabIndex = 6;
             this.cnombrebascula.Text = "BASCULA TECNOCOR";
             this.cnombrebascula.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cnombrebascula_KeyUp);
@@ -343,9 +343,9 @@
             // 
             this.checkBoxUsoBascula.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxUsoBascula.AutoSize = true;
-            this.checkBoxUsoBascula.Location = new System.Drawing.Point(504, 0);
+            this.checkBoxUsoBascula.Location = new System.Drawing.Point(502, -1);
             this.checkBoxUsoBascula.Name = "checkBoxUsoBascula";
-            this.checkBoxUsoBascula.Size = new System.Drawing.Size(109, 18);
+            this.checkBoxUsoBascula.Size = new System.Drawing.Size(111, 19);
             this.checkBoxUsoBascula.TabIndex = 5;
             this.checkBoxUsoBascula.Text = "Uso de báscula";
             this.checkBoxUsoBascula.UseVisualStyleBackColor = true;
@@ -362,7 +362,7 @@
             "2"});
             this.cBitsPadada.Location = new System.Drawing.Point(351, 95);
             this.cBitsPadada.Name = "cBitsPadada";
-            this.cBitsPadada.Size = new System.Drawing.Size(121, 22);
+            this.cBitsPadada.Size = new System.Drawing.Size(121, 23);
             this.cBitsPadada.TabIndex = 10;
             this.cBitsPadada.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
@@ -378,7 +378,7 @@
             "8"});
             this.cBitsdatos.Location = new System.Drawing.Point(351, 69);
             this.cBitsdatos.Name = "cBitsdatos";
-            this.cBitsdatos.Size = new System.Drawing.Size(121, 22);
+            this.cBitsdatos.Size = new System.Drawing.Size(121, 23);
             this.cBitsdatos.TabIndex = 8;
             // 
             // cParidad
@@ -393,7 +393,7 @@
             "4"});
             this.cParidad.Location = new System.Drawing.Point(99, 122);
             this.cParidad.Name = "cParidad";
-            this.cParidad.Size = new System.Drawing.Size(121, 22);
+            this.cParidad.Size = new System.Drawing.Size(121, 23);
             this.cParidad.TabIndex = 11;
             // 
             // cBitsxSeg
@@ -408,7 +408,7 @@
             "14400"});
             this.cBitsxSeg.Location = new System.Drawing.Point(99, 95);
             this.cBitsxSeg.Name = "cBitsxSeg";
-            this.cBitsxSeg.Size = new System.Drawing.Size(121, 22);
+            this.cBitsxSeg.Size = new System.Drawing.Size(121, 23);
             this.cBitsxSeg.TabIndex = 9;
             this.cBitsxSeg.SelectedIndexChanged += new System.EventHandler(this.cBitsxSeg_SelectedIndexChanged);
             // 
@@ -416,7 +416,7 @@
             // 
             this.cPuerto.Location = new System.Drawing.Point(99, 68);
             this.cPuerto.Name = "cPuerto";
-            this.cPuerto.Size = new System.Drawing.Size(100, 22);
+            this.cPuerto.Size = new System.Drawing.Size(100, 21);
             this.cPuerto.TabIndex = 7;
             this.cPuerto.Text = "COM4";
             this.cPuerto.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -500,12 +500,12 @@
             // 
             this.checkBoxFiscales.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxFiscales.AutoSize = true;
-            this.checkBoxFiscales.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFiscales.Location = new System.Drawing.Point(12, 479);
+            this.checkBoxFiscales.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxFiscales.Location = new System.Drawing.Point(12, 478);
             this.checkBoxFiscales.Name = "checkBoxFiscales";
-            this.checkBoxFiscales.Size = new System.Drawing.Size(233, 18);
+            this.checkBoxFiscales.Size = new System.Drawing.Size(298, 19);
             this.checkBoxFiscales.TabIndex = 48;
-            this.checkBoxFiscales.Text = "Validar productos ficales y no fiscales";
+            this.checkBoxFiscales.Text = "Validar productos comerciales y de control";
             this.checkBoxFiscales.UseVisualStyleBackColor = true;
             this.checkBoxFiscales.CheckedChanged += new System.EventHandler(this.checkBoxFiscales_CheckedChanged);
             this.checkBoxFiscales.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkBoxFiscales_KeyUp);
@@ -515,13 +515,13 @@
             this.editFiscalItemField.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.editFiscalItemField.BackColor = System.Drawing.Color.LightBlue;
             this.editFiscalItemField.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editFiscalItemField.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editFiscalItemField.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editFiscalItemField.Location = new System.Drawing.Point(12, 453);
             this.editFiscalItemField.Name = "editFiscalItemField";
             this.editFiscalItemField.ReadOnly = true;
-            this.editFiscalItemField.Size = new System.Drawing.Size(233, 15);
+            this.editFiscalItemField.Size = new System.Drawing.Size(233, 14);
             this.editFiscalItemField.TabIndex = 49;
-            this.editFiscalItemField.Text = "Campo Fiscal";
+            this.editFiscalItemField.Text = "Campo Comercial";
             this.editFiscalItemField.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editFiscalItemField_KeyUp);
             // 
             // panelToolbar
@@ -536,13 +536,36 @@
             this.panelToolbar.Size = new System.Drawing.Size(678, 75);
             this.panelToolbar.TabIndex = 50;
             // 
+            // checkBoxUsoWeb
+            // 
+            this.checkBoxUsoWeb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxUsoWeb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxUsoWeb.Checked = true;
+            this.checkBoxUsoWeb.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxUsoWeb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxUsoWeb.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.checkBoxUsoWeb.FlatAppearance.CheckedBackColor = System.Drawing.Color.Green;
+            this.checkBoxUsoWeb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.checkBoxUsoWeb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxUsoWeb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxUsoWeb.ForeColor = System.Drawing.Color.White;
+            this.checkBoxUsoWeb.Location = new System.Drawing.Point(532, 12);
+            this.checkBoxUsoWeb.Name = "checkBoxUsoWeb";
+            this.checkBoxUsoWeb.Size = new System.Drawing.Size(134, 31);
+            this.checkBoxUsoWeb.TabIndex = 1;
+            this.checkBoxUsoWeb.Text = "Uso Web (Sí)";
+            this.checkBoxUsoWeb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxUsoWeb.UseVisualStyleBackColor = true;
+            this.checkBoxUsoWeb.CheckedChanged += new System.EventHandler(this.checkBoxUsoWeb_CheckedChanged);
+            this.checkBoxUsoWeb.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkBoxUsoWeb_KeyUp);
+            // 
             // btnClose
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnClose.Location = new System.Drawing.Point(3, 3);
@@ -555,29 +578,6 @@
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             this.btnClose.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnClose_KeyUp);
             // 
-            // checkBoxUsoWeb
-            // 
-            this.checkBoxUsoWeb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxUsoWeb.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxUsoWeb.Checked = true;
-            this.checkBoxUsoWeb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxUsoWeb.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxUsoWeb.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.checkBoxUsoWeb.FlatAppearance.CheckedBackColor = System.Drawing.Color.Green;
-            this.checkBoxUsoWeb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
-            this.checkBoxUsoWeb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBoxUsoWeb.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxUsoWeb.ForeColor = System.Drawing.Color.White;
-            this.checkBoxUsoWeb.Location = new System.Drawing.Point(532, 12);
-            this.checkBoxUsoWeb.Name = "checkBoxUsoWeb";
-            this.checkBoxUsoWeb.Size = new System.Drawing.Size(134, 31);
-            this.checkBoxUsoWeb.TabIndex = 1;
-            this.checkBoxUsoWeb.Text = "Uso Web (Sí)";
-            this.checkBoxUsoWeb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxUsoWeb.UseVisualStyleBackColor = true;
-            this.checkBoxUsoWeb.CheckedChanged += new System.EventHandler(this.checkBoxUsoWeb_CheckedChanged);
-            this.checkBoxUsoWeb.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkBoxUsoWeb_KeyUp);
-            // 
             // btnGuardar
             // 
             this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -587,7 +587,7 @@
             this.btnGuardar.FlatAppearance.BorderSize = 2;
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(517, 456);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(144, 41);

@@ -49,7 +49,7 @@ namespace SyncTPV
                         String query = "INSERT INTO " + LocalDatabase.TABLA_DATOSTICKET + " VALUES(@id, @empresa, @direccion, @rfc, " +
                             "@expedido, @pieVentas, @pieCredito, @piePedido, @pieCotizacion, @pieCobranza, @pieDevolucion, " +
                             "@ftpServer, @ftpUser, @ftpPassword, @ftpPuerto, @claveSup, @pDevolucion, @valVC, @modificarInfoSucursal," +
-                            "@venderConExistencia, @nameImp1, @nameImp2, @nameImp3, @nameReten1, @nameReten2)";
+                            "@venderConExistencia, @nameImp1, @nameImp2, @nameImp3, @nameReten1, @nameReten2,@banauto)";
                         using (SQLiteCommand command = new SQLiteCommand(query, db))
                         {
                             command.Parameters.AddWithValue("@id", dt.CONFIGURA_ID);
@@ -76,7 +76,8 @@ namespace SyncTPV
                             command.Parameters.AddWithValue("@nameImp2", dt.nameImp2);
                             command.Parameters.AddWithValue("@nameImp3", dt.nameImp3);
                             command.Parameters.AddWithValue("@nameReten1", dt.nameReten1);
-                            command.Parameters.AddWithValue("@nameReten2", dt.nameReten2);
+                            command.Parameters.AddWithValue("@nameReten2", dt.nameReten2); 
+                            command.Parameters.AddWithValue("@banauto", 1); 
                             int recordSaved = command.ExecuteNonQuery();
                             if (recordSaved != 0)
                                 lastId = Convert.ToInt32(dt.CONFIGURA_ID);
@@ -107,7 +108,7 @@ namespace SyncTPV
                 String query = "INSERT INTO " + LocalDatabase.TABLA_DATOSTICKET + " VALUES(@id, @empresa, @direccion, @rfc, " +
                         "@expedido, @pieVentas, @pieCredito, @piePedido, @pieCotizacion, @pieCobranza, @pieDevolucion, " +
                         "@ftpServer, @ftpUser, @ftpPassword, @ftpPuerto, @claveSup, @pDevolucion, @valVC, @modificarInfoSucursal, " +
-                        "@venderConExistencia, @nameImp1, @nameImp2, @nameImp3, @nameReten1, @nameReten2)";
+                        "@venderConExistencia, @nameImp1, @nameImp2, @nameImp3, @nameReten1, @nameReten2,@banactualizar)";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     command.Parameters.AddWithValue("@id", dt.CONFIGURA_ID);
@@ -135,6 +136,7 @@ namespace SyncTPV
                     command.Parameters.AddWithValue("@nameImp3", dt.nameImp3);
                     command.Parameters.AddWithValue("@nameReten1", dt.@nameReten1);
                     command.Parameters.AddWithValue("@nameReten2", dt.@nameReten2);
+                    command.Parameters.AddWithValue("@banactualizar", 1);
                     int recordSaved = command.ExecuteNonQuery();
                     if (recordSaved != 0)
                         lastId = Convert.ToInt32(dt.CONFIGURA_ID);

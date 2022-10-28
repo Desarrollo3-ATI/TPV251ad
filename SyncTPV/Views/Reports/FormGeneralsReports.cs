@@ -1173,15 +1173,15 @@ namespace SyncTPV.Views.Reports
             List<RetiroModel> retirosList = null;
             await Task.Run(async () =>
             {
-                if (queryTypeEITurno == 0)
-                {
-                    queryEITurno = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS + " WHERE " +
-                    LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn()+
-                    " AND "+LocalDatabase.CAMPO_ID_RETIRO+" > "+lastIdEITurno+
-                    " ORDER BY "+LocalDatabase.CAMPO_ID_RETIRO+" ASC LIMIT "+LIMIT;
-                    queryTotalEITurno = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS + " WHERE " +
-                    LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn();
-                }
+                
+                    queryEITurno = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS +
+                    //+ " WHERE " +
+                    //LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn()+
+                    //" AND " + LocalDatabase.CAMPO_ID_RETIRO+" > "+lastIdEITurno+
+                    " ORDER BY " + LocalDatabase.CAMPO_ID_RETIRO+" ASC ";
+                    queryTotalEITurno = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS;
+                    //+ " WHERE " +LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn();
+                
                 retirosList = RetiroModel.getAllWithdrawals(queryEITurno);
                 totalEITurno = RetiroModel.getIntValue(queryTotalEITurno);
             });
@@ -1237,7 +1237,7 @@ namespace SyncTPV.Views.Reports
                     queryEITurno = "SELECT * FROM " + LocalDatabase.TABLA_INGRESO + " WHERE " +
                     LocalDatabase.CAMPO_IDUSUARIO_INGRESO + " = " + ClsRegeditController.getIdUserInTurn() +
                     " AND " + LocalDatabase.CAMPO_ID_INGRESO + " > " + lastIdEITurno +
-                    " ORDER BY " + LocalDatabase.CAMPO_ID_INGRESO + " ASC LIMIT " + LIMIT;
+                    " ORDER BY " + LocalDatabase.CAMPO_ID_INGRESO + " ASC ";
                     queryTotalEITurno = "SELECT * FROM " + LocalDatabase.TABLA_INGRESO + " WHERE " +
                     LocalDatabase.CAMPO_IDUSUARIO_INGRESO + " = " + ClsRegeditController.getIdUserInTurn();
                 }

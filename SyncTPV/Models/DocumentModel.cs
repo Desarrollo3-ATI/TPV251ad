@@ -1296,7 +1296,7 @@ namespace SyncTPV
                                 {
                                     if (capturedUnits > stock)
                                     {
-                                        if (serverModeLAN)
+                                        /*if (serverModeLAN)
                                             await DatosTicketController.downloadAllDatosTicketLAN();
                                         else
                                         {
@@ -1304,13 +1304,13 @@ namespace SyncTPV
                                             {
                                                 await DatosTicketController.downloadAllDatosTicketAPI();
                                             }
-                                        }
+                                        }*/
                                         if (DatosTicketModel.sellOnlyWithStock())
                                             count--;
                                     }
                                 } else
                                 {
-                                    if (serverModeLAN)
+                                    /*if (serverModeLAN)
                                         await DatosTicketController.downloadAllDatosTicketLAN();
                                     else
                                     {
@@ -1318,7 +1318,7 @@ namespace SyncTPV
                                         {
                                             await DatosTicketController.downloadAllDatosTicketAPI();
                                         }
-                                    }
+                                    }*/
                                     if (DatosTicketModel.sellOnlyWithStock())
                                         count--;
                                 }
@@ -1433,7 +1433,7 @@ namespace SyncTPV
                                     }
                                     else
                                     {
-                                        if (serverModeLAN)
+                                        /*if (serverModeLAN)
                                             await DatosTicketController.downloadAllDatosTicketLAN();
                                         else
                                         {
@@ -1441,7 +1441,7 @@ namespace SyncTPV
                                             {
                                                 await DatosTicketController.downloadAllDatosTicketAPI();
                                             }
-                                        }
+                                        }*/
                                         if (DatosTicketModel.sellOnlyWithStock())
                                             count--;
                                     }
@@ -1514,7 +1514,7 @@ namespace SyncTPV
                                 }
                                 else
                                 {
-                                    if (serverModeLAN)
+                                    /*if (serverModeLAN)
                                         await DatosTicketController.downloadAllDatosTicketLAN();
                                     else
                                     {
@@ -1522,7 +1522,7 @@ namespace SyncTPV
                                         {
                                             await DatosTicketController.downloadAllDatosTicketAPI();
                                         }
-                                    }
+                                    }*/
                                     if (DatosTicketModel.sellOnlyWithStock())
                                         count--;
                                 }

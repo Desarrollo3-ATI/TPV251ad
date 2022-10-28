@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace SyncTPV
@@ -15,9 +16,18 @@ namespace SyncTPV
             Application.SetCompatibleTextRenderingDefault(false);
             try
             {
-                FormIniciarSesion frmIniciarSesion = new FormIniciarSesion();
-                frmIniciarSesion.ShowDialog();
-                Application.Run(frmIniciarSesion);
+                string NombreProceso = Process.GetCurrentProcess().ProcessName;
+                Process[] OProcesos = Process.GetProcessesByName(NombreProceso);
+                if (OProcesos.Length == 1)
+                {
+                    FormIniciarSesion frmIniciarSesion = new FormIniciarSesion();
+                    frmIniciarSesion.ShowDialog();
+                    Application.Run(frmIniciarSesion);
+                }
+                else
+                {
+                    MessageBox.Show("¡SyncTPV ya esta en ejecucion!");
+                }
             }
             catch (ObjectDisposedException e)
             {

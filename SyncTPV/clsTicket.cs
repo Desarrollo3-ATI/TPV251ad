@@ -221,6 +221,7 @@ namespace SyncTPV
             linea.AppendLine(itemCode + "    " + precio + "  " + descuento + "  " + total);
         }
 
+
         //Método para agregar Articulos al ticket
         public void AgregaGranTotalArticulos(string textoFinal, string importe)
         {
@@ -718,11 +719,38 @@ namespace SyncTPV
                         } else itemName = ItemModel.getTheNameOfAnItem(movimiento.itemId);
                         if (!permissionPrepedido)
                         {
-                            AgregaArticulo(Convert.ToDouble(movimiento.capturedUnits), capturedUnitName, movimiento.itemCode,
+                            PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                            if (pm != null)
+                            {
+                                if (pm.showPorcentajeDescuentoMovimiento == 1)
+                                {
+                                    AgregaArticulo(Convert.ToDouble(movimiento.capturedUnits), capturedUnitName, movimiento.itemCode,
+                                    await sustituirAcentos(itemName),
+                                    movimiento.price.ToString("C", CultureInfo.CurrentCulture),
+                                    movimiento.descuentoPorcentaje + "% " + movimiento.descuentoImporte.ToString("C", CultureInfo.CurrentCulture),
+                                    movimiento.total.ToString("C", CultureInfo.CurrentCulture) + "MXN");
+                                }
+                                else
+                                {
+                                    AgregaArticulo(Convert.ToDouble(movimiento.capturedUnits), capturedUnitName, movimiento.itemCode,
+                                    await sustituirAcentos(itemName),
+                                    movimiento.price.ToString("C", CultureInfo.CurrentCulture),
+                                    movimiento.descuentoImporte.ToString("C", CultureInfo.CurrentCulture),
+                                    movimiento.total.ToString("C", CultureInfo.CurrentCulture) + "MXN");
+                                }
+
+                            }
+                            else
+                            {
+                                AgregaArticulo(Convert.ToDouble(movimiento.capturedUnits), capturedUnitName, movimiento.itemCode,
                                 await sustituirAcentos(itemName),
-                            movimiento.price.ToString("C", CultureInfo.CurrentCulture),
-                            movimiento.descuentoPorcentaje + "% " + movimiento.descuentoImporte.ToString("C", CultureInfo.CurrentCulture),
-                            movimiento.total.ToString("C", CultureInfo.CurrentCulture) + "MXN");
+                                movimiento.price.ToString("C", CultureInfo.CurrentCulture),
+                                movimiento.descuentoPorcentaje + "% " + movimiento.descuentoImporte.ToString("C", CultureInfo.CurrentCulture),
+                                movimiento.total.ToString("C", CultureInfo.CurrentCulture) + "MXN");
+                            }
+
+
+
                         }
                         else
                         {
@@ -894,10 +922,20 @@ namespace SyncTPV
                             TextoCentro("");
                         }
                     }
-                    TextoCentro(pieTicket);
-                    TextoCentro(DateTime.Now.ToString());
+                    if (!pieTicket.Equals(""))
+                    {
+                        TextoCentro(pieTicket);
+                    }
                     TextoCentro("");
-                    TextoCentro("* * * "+originalCopia+" * * *");
+                    if (originalCopia.Equals(""))
+                    {
+                        TextoCentro("* * * Impresión original * * *");
+                    }
+                    else
+                    {
+                        TextoCentro("* * * " + originalCopia + " * * *");
+                    }
+                    TextoIzquierda(DateTime.Now.ToString());
                     TextoCentro("");
                     TextoCentro("");
                     TextoCentro("");
@@ -1198,15 +1236,25 @@ namespace SyncTPV
                     {
                         TextoCentro("Folio Fiscal");
                         TextoCentro(fdm.uuid);
-                    } else
+                    }
+                    else
                     {
                         dynamic responseDtm = null;
-                        if (serverModeLAN)
-                            responseDtm = await DatosTicketController.downloadAllDatosTicketLAN();
-                        else responseDtm = await DatosTicketController.downloadAllDatosTicketAPI();
-                        if (responseDtm.value == 1)
+                        dtm = DatosTicketModel.getAllData();
+                        if (dtm == null)
                         {
-                            dtm = DatosTicketModel.getAllData();
+                            if (serverModeLAN)
+                                responseDtm = await DatosTicketController.downloadAllDatosTicketLAN();
+                            else responseDtm = await DatosTicketController.downloadAllDatosTicketAPI();
+                            if (responseDtm.value == 1)
+                            {
+                                dtm = DatosTicketModel.getAllData();
+                                TextoCentro("Folio Fiscal");
+                                TextoCentro(fdm.uuid);
+                            }
+                        }
+                        else
+                        {
                             TextoCentro("Folio Fiscal");
                             TextoCentro(fdm.uuid);
                         }
@@ -1232,7 +1280,7 @@ namespace SyncTPV
             bool showRetiros)
         {
             DatosTicketModel dtm = DatosTicketModel.getAllData();
-            if (dtm != null)
+            if (dtm == null)
             {
                 dynamic response = null;
                 if (serverModeLAN)
@@ -1428,7 +1476,7 @@ namespace SyncTPV
                             String query = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA +
                                 " WHERE (" + LocalDatabase.CAMPO_TIPODOCUMENTO_DOC + " = " + 2 + " OR " +
                                 LocalDatabase.CAMPO_TIPODOCUMENTO_DOC + " = " + 4 + ") AND " +
-                                LocalDatabase.CAMPO_PAUSAR_DOC + " = " + 0;
+                                LocalDatabase.CAMPO_PAUSAR_DOC + " = " + 0 + " AND "+ LocalDatabase.CAMPO_CANCELADO_DOC + " = "+ 0;
                             List<DocumentModel>  documentsList = DocumentModel.getAllDocuments(query);
                             if (documentsList != null) {
                                 int count = 0;
@@ -1450,7 +1498,7 @@ namespace SyncTPV
                                         }
                                         String queryTotal = "SELECT sum(" + LocalDatabase.CAMPO_ANTICIPO_DOC + ") FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
                                         "(" + LocalDatabase.CAMPO_TIPODOCUMENTO_DOC + " = " + 2 + " OR " + LocalDatabase.CAMPO_TIPODOCUMENTO_DOC + " = " + 4 + ") AND " +
-                                    LocalDatabase.CAMPO_PAUSAR_DOC + " = " + 0 +
+                                    LocalDatabase.CAMPO_PAUSAR_DOC + " = " + 0 + " AND " + LocalDatabase.CAMPO_CANCELADO_DOC + " = " + 0 +
                                         " AND " + LocalDatabase.CAMPO_ID_DOC + " = " + document.id;
                                         totalDocument = DocumentModel.getDoubleValue(queryTotal);
                                         if (document.estado == 0)
@@ -1575,8 +1623,7 @@ namespace SyncTPV
             List<RetiroModel> retirosList = null;
             await Task.Run(async () =>
             {
-                String query = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS + " WHERE " +
-                    LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn();
+                String query = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS;
                 retirosList = RetiroModel.getAllWithdrawals(query);
             });
             return retirosList;
@@ -1587,8 +1634,7 @@ namespace SyncTPV
             List<IngresoModel> ingresosList = null;
             await Task.Run(async () =>
             {
-                String query = "SELECT * FROM " + LocalDatabase.TABLA_INGRESO + " WHERE " +
-                    LocalDatabase.CAMPO_IDUSUARIO_INGRESO + " = " + ClsRegeditController.getIdUserInTurn();
+                String query = "SELECT * FROM " + LocalDatabase.TABLA_INGRESO ;
                 ingresosList = IngresoModel.getAllEntries(query);
             });
             return ingresosList;
@@ -1759,11 +1805,26 @@ namespace SyncTPV
                     TextoCentro(await sustituirAcentos("Validar Información de la empresa en SyncROM Panel"));
                 }
             }
-            else TextoCentro(await sustituirAcentos(dtm.EMPRESA));
-            TextoCentro(await sustituirAcentos(documentType));
-            TextoCentro(await sustituirAcentos(dtm.DIRECCION));
-            TextoCentro("RFC:" + await sustituirAcentos(dtm.RFC));
-            TextoCentro("EXPED:" + await sustituirAcentos(dtm.EXPEDIDO));
+            else
+            {
+                if (!dtm.EMPRESA.Equals(""))
+                {
+                    TextoCentro(await sustituirAcentos(dtm.EMPRESA));
+                }
+                    TextoCentro(await sustituirAcentos(documentType));
+                if (!dtm.DIRECCION.Equals(""))
+                {
+                    TextoCentro(await sustituirAcentos(dtm.DIRECCION));
+                }
+                if (!dtm.RFC.Equals(""))
+                {
+                    TextoCentro("RFC:" + await sustituirAcentos(dtm.RFC));
+                }
+                if (!dtm.EXPEDIDO.Equals(""))
+                {
+                    TextoCentro("EXPED:" + await sustituirAcentos(dtm.EXPEDIDO));
+                }
+            }
             PrinterModel pm = PrinterModel.getallDataFromAPrinter();
             if (Titulo.Equals("Ticket Documento"))
             {

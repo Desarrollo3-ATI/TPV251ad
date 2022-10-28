@@ -132,6 +132,31 @@ namespace SyncTPV.Views.Reports
         private void btnGeneratePdf_Click(object sender, EventArgs e)
         {
             SECUDOC.corteLog("**Imprimiendo Reporte - "+ DateTime.Now+ " - IdUsuario: "+ClsRegeditController.getIdUserInTurn());
+            try
+            {
+                String RutaTPV = (AdminDll.General.RutaInicial + "\\Data\\").Replace("\\", "/");
+                String Ruta = (AdminDll.General.RutaInicial + "\\SQLiteDatabaseBrowserPortable\\Other\\").Replace("\\", "/");
+                String newfile = "CorteTPV-" + DateTime.Now.ToString("ddMMyyyyHHmmss") + ".db";
+                string[] Archivos = Directory.GetFiles(Ruta, "*.db").OrderBy(d => new FileInfo(d).CreationTime).ToArray();
+                SECUDOC.corteLog("Corte de caja Realizada: " + DateTime.Now.ToString() + " (" + Archivos.Length+")");
+               
+                    File.Copy(RutaTPV + "SyncTPV.db", (Ruta + newfile), true);
+                    if (Archivos.Length > 99)
+                    {
+                        int elementosAEliminar = Archivos.Length - 99;
+                        for (int i = 0; i < elementosAEliminar; i++)
+                        {
+                                File.Delete(Archivos[i]);
+                            
+                        }
+                    }
+
+                
+            }
+            catch (Exception error)
+            {
+                SECUDOC.writeLog("*Error al respaldar la base de datos*\n" + error.ToString());
+            }
             if (formGeneralsReports != null)
             {
                 processtoPrintTicketReport();

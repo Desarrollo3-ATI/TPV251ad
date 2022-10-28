@@ -315,11 +315,11 @@ namespace SyncTPV
                 bool isFiscal = await ItemModel.getFiscalItemFieldValue(item, positionFiscalItemFeld);
                 if (isFiscal)
                 {
-                    textProductFiscalNoFiscal.Text = "Producto Fiscal";
+                    textProductFiscalNoFiscal.Text = "Producto comercial";
                     textProductFiscalNoFiscal.ForeColor = Color.FromArgb(113, 173, 240);
                 } else
                 {
-                    textProductFiscalNoFiscal.Text = "Producto No Fiscal";
+                    textProductFiscalNoFiscal.Text = "Producto de control";
                     textProductFiscalNoFiscal.ForeColor = Color.FromArgb(240, 127, 113);
                 }
                 if (serverModeLAN)

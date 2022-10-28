@@ -189,7 +189,7 @@ namespace SyncTPV.Views
                 if (cxcm != null)
                 {
                     textPendienteDocument.Text = "Pendiente: $ " + MetodosGenerales.obtieneDosDecimales((cxcm.saldo_actual - cxcm.amount)) + " MXN";
-                    referenceAbonoFiniquitar = "" + idCustomer + MetodosGenerales.getCurrentDateAndHourForFolioVenta();
+                    referenceAbonoFiniquitar = "A"+ ClsRegeditController.getIdUserInTurn() + "C"+idCustomer + MetodosGenerales.getCurrentDateAndHourForFolioVenta();
                     textReferenciaAbonoFiniquitar.Text = "Referencia: " + referenceAbonoFiniquitar;
                 }
                 fillComboBoxFormasDecobro();

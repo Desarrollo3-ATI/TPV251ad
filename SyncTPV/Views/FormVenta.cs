@@ -2193,7 +2193,57 @@ namespace SyncTPV
                 {
                     comboPreciosItemVenta.Items.Add(price.NOMBRE + " " + price.precioImporte.ToString("C", CultureInfo.CurrentCulture));
                 }
-                comboPreciosItemVenta.SelectedIndex = 0;
+                //validar la lista de precios
+                int listaActual = 0;
+                if(customerModel != null)
+                {
+                    var db = new SQLiteConnection();
+                    try
+                    {
+                        ///aqui me quede 
+
+                        String query = "SELECT " + LocalDatabase.CAMPO_LISTAPRECIO + " FROM " + LocalDatabase.TABLA_CLIENTES + " WHERE " +
+                        LocalDatabase.CAMPO_ID_CLIENTE + " = " + customerModel.CLIENTE_ID;
+                        db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                        db.Open();
+                        using (SQLiteCommand command = new SQLiteCommand(query, db))
+                        {
+                            using (SQLiteDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.HasRows)
+                                {
+                                    while (reader.Read())
+                                    {
+                                        if (reader.GetValue(0) != DBNull.Value)
+                                            listaActual = Convert.ToInt32(reader.GetValue(0).ToString().Trim());
+                                    }
+                                }
+                                if (reader != null && !reader.IsClosed)
+                                    reader.Close();
+                            }
+                        }
+                    }
+                    catch (SQLiteException Ex)
+                    {
+                        SECUDOC.writeLog(Ex.ToString());
+                        listaActual = 0;
+                    }
+                    finally
+                    {
+                        if (db != null && db.State == ConnectionState.Open)
+                            db.Close();
+                    }
+                }
+                
+                if (1 > pricesList.Count)
+                {
+                    FormMessage formMessage = new FormMessage("Lista de precio no encontrada", "El agente no tiene permitido la acción de la lista de precios", 3);
+                    formMessage.ShowDialog();
+                }
+                else
+                {
+                    comboPreciosItemVenta.SelectedIndex = listaActual-1;
+                }
             }
         }
 
@@ -2562,12 +2612,12 @@ namespace SyncTPV
                         {
                             if (movimientosFiscalesYNoFiscales == 0)
                             {
-                                description = "Solo puedes agregar productos o servicios Fiscales";
+                                description = "Solo puedes agregar productos o servicios Comerciales";
                                 procesoPrincipal = false;
                             }
                             else
                             {
-                                description = "Solo puedes agregar productos o servicios No Fiscales";
+                                description = "Solo puedes agregar productos o servicios de Control";
                                 procesoPrincipal = false;
                             }
                         }
