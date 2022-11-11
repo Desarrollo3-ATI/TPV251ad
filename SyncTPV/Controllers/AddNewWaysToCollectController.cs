@@ -1,6 +1,7 @@
 ﻿using SyncTPV.Models;
 using System;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace SyncTPV.Controllers
 {
@@ -16,6 +17,7 @@ namespace SyncTPV.Controllers
                 int idDocument = maps.idDocument;
                 int fcIdDocument = DocumentModel.getPaymentMethodForADocument(idDocument);
                 int cobrado = 0;
+                
                 if (fcIdDocument == DocumentModel.FORMA_PAGO_CREDITO)
                 {
                     double beforeAdvance = DocumentModel.getDocumentAdvance(idDocument);
@@ -71,7 +73,31 @@ namespace SyncTPV.Controllers
                 }
                 else
                 {
-                    double beforeTotal = DocumentModel.getTotalForADocumentWithContext(idDocument);
+                    bool existe= FormasDeCobroDocumentoModel.checkIfExistWithFcId(fcId, idDocument);
+                    double v1 = 0.0;
+                    double v2 = 0.0;
+                    double totalv1 = DocumentModel.getTotalForADocumentWithContext(idDocument);
+                    if (existe)
+                    {
+                        FormasDeCobroDocumentoModel.updateRecalculoBD(
+                             fcId, idDocument, importe, v1, v2
+                            );
+                        
+                    }
+                    else
+                    {
+                        FormasDeCobroDocumentoModel.addNewFcDocument(idDocument, fcId, totalv1, importe, v1, v2);
+                    }
+                    bool a = false;
+                    try
+                    {
+                       a = FormasDeCobroDocumentoModel.recalculoFormasCobroDocumento(idDocument);
+                    }
+                    catch(Exception e)
+                    {
+                        SECUDOC.writeLog(e.ToString());
+                    }
+                    /*double beforeTotal = DocumentModel.getTotalForADocumentWithContext(idDocument);
                     String totalDocTwoDecText = beforeTotal + "";
                     if (importe == Convert.ToDouble(totalDocTwoDecText))
                     {
@@ -80,7 +106,7 @@ namespace SyncTPV.Controllers
                     else
                     {
                         cobrado = FormasDeCobroDocumentoModel.createUpdateOrDeleteFcDocument(idDocument, fcId, importe);
-                    }
+                    }*/
                     int fcIdHigher = FormasDeCobroDocumentoModel.getFcWithHigherAmount(idDocument);
                     if (DocumentModel.updatePaymentFormIdWithHigherAmount(idDocument, fcIdHigher))
                     {
@@ -112,7 +138,9 @@ namespace SyncTPV.Controllers
                             }
                         }
                     }
+                    
                 }
+
             });
             return response;
         }
@@ -124,7 +152,7 @@ namespace SyncTPV.Controllers
             {
                 response = -1;
             }
-            else if (cobrado > 0)
+            else if (cobrado >= 0)
             {
                 response = 1;
             }

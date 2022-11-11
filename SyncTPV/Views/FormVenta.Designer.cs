@@ -32,9 +32,9 @@ namespace SyncTPV
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVenta));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelToolbar = new System.Windows.Forms.Panel();
             this.btnSurtirPedidos = new System.Windows.Forms.Button();
             this.btnClearOptions = new System.Windows.Forms.Button();
@@ -69,6 +69,8 @@ namespace SyncTPV
             this.comboBoxUnitMWITemVenta = new System.Windows.Forms.ComboBox();
             this.textInfoCantidad = new System.Windows.Forms.Label();
             this.panelFieldsCodItemsVenta = new System.Windows.Forms.Panel();
+            this.textporcentajepromocion = new System.Windows.Forms.Label();
+            this.textPromocionesMovimiento = new System.Windows.Forms.Label();
             this.progressBarLoadPrices = new System.Windows.Forms.ProgressBar();
             this.pictureBoxInfoDescuento = new System.Windows.Forms.PictureBox();
             this.textDiscountRateInfoVenta = new System.Windows.Forms.Label();
@@ -166,7 +168,7 @@ namespace SyncTPV
             this.btnSurtirPedidos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(20)))), ((int)(((byte)(224)))));
             this.btnSurtirPedidos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnSurtirPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSurtirPedidos.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSurtirPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSurtirPedidos.ForeColor = System.Drawing.Color.White;
             this.btnSurtirPedidos.Image = ((System.Drawing.Image)(resources.GetObject("btnSurtirPedidos.Image")));
             this.btnSurtirPedidos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -188,7 +190,7 @@ namespace SyncTPV
             this.btnClearOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(20)))), ((int)(((byte)(224)))));
             this.btnClearOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnClearOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearOptions.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearOptions.ForeColor = System.Drawing.Color.White;
             this.btnClearOptions.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnClearOptions.Location = new System.Drawing.Point(12, 5);
@@ -244,7 +246,7 @@ namespace SyncTPV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editNombreCliente.BackColor = System.Drawing.Color.Azure;
             this.editNombreCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editNombreCliente.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editNombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editNombreCliente.Location = new System.Drawing.Point(61, 6);
             this.editNombreCliente.Multiline = true;
             this.editNombreCliente.Name = "editNombreCliente";
@@ -262,7 +264,7 @@ namespace SyncTPV
             this.btnRecuperar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(20)))), ((int)(((byte)(224)))));
             this.btnRecuperar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnRecuperar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecuperar.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecuperar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecuperar.ForeColor = System.Drawing.Color.White;
             this.btnRecuperar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRecuperar.Location = new System.Drawing.Point(174, 5);
@@ -283,7 +285,7 @@ namespace SyncTPV
             this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(20)))), ((int)(((byte)(224)))));
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCerrar.Location = new System.Drawing.Point(445, 5);
@@ -304,7 +306,7 @@ namespace SyncTPV
             this.btnPayWithCashFrmVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(20)))), ((int)(((byte)(224)))));
             this.btnPayWithCashFrmVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnPayWithCashFrmVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPayWithCashFrmVenta.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayWithCashFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayWithCashFrmVenta.ForeColor = System.Drawing.Color.White;
             this.btnPayWithCashFrmVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnPayWithCashFrmVenta.Image")));
             this.btnPayWithCashFrmVenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -325,7 +327,7 @@ namespace SyncTPV
             this.btnPausarDocumentoFrmVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(20)))), ((int)(((byte)(224)))));
             this.btnPausarDocumentoFrmVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.btnPausarDocumentoFrmVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPausarDocumentoFrmVenta.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPausarDocumentoFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPausarDocumentoFrmVenta.ForeColor = System.Drawing.Color.White;
             this.btnPausarDocumentoFrmVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnPausarDocumentoFrmVenta.Image")));
             this.btnPausarDocumentoFrmVenta.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -404,10 +406,10 @@ namespace SyncTPV
             // textExistenciaReal
             // 
             this.textExistenciaReal.AutoSize = true;
-            this.textExistenciaReal.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textExistenciaReal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textExistenciaReal.Location = new System.Drawing.Point(8, 240);
             this.textExistenciaReal.Name = "textExistenciaReal";
-            this.textExistenciaReal.Size = new System.Drawing.Size(62, 14);
+            this.textExistenciaReal.Size = new System.Drawing.Size(73, 15);
             this.textExistenciaReal.TabIndex = 86;
             this.textExistenciaReal.Text = "Existencia";
             // 
@@ -428,7 +430,7 @@ namespace SyncTPV
             // 
             this.textObservationMovement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textObservationMovement.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textObservationMovement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textObservationMovement.Location = new System.Drawing.Point(10, 6);
             this.textObservationMovement.Name = "textObservationMovement";
             this.textObservationMovement.Size = new System.Drawing.Size(237, 23);
@@ -439,7 +441,7 @@ namespace SyncTPV
             // 
             this.editObservationMovement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editObservationMovement.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editObservationMovement.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editObservationMovement.Location = new System.Drawing.Point(10, 32);
             this.editObservationMovement.Multiline = true;
             this.editObservationMovement.Name = "editObservationMovement";
@@ -451,7 +453,7 @@ namespace SyncTPV
             // 
             this.textFolioFrmVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textFolioFrmVenta.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFolioFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textFolioFrmVenta.Location = new System.Drawing.Point(13, 85);
             this.textFolioFrmVenta.Name = "textFolioFrmVenta";
             this.textFolioFrmVenta.Size = new System.Drawing.Size(266, 23);
@@ -464,7 +466,7 @@ namespace SyncTPV
             this.textInfoDocumentTypeFrmVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textInfoDocumentTypeFrmVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.textInfoDocumentTypeFrmVenta.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoDocumentTypeFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoDocumentTypeFrmVenta.Location = new System.Drawing.Point(48, 5);
             this.textInfoDocumentTypeFrmVenta.Name = "textInfoDocumentTypeFrmVenta";
             this.textInfoDocumentTypeFrmVenta.Size = new System.Drawing.Size(192, 23);
@@ -480,11 +482,11 @@ namespace SyncTPV
             this.comboBoxDocumentTypeFrmVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxDocumentTypeFrmVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDocumentTypeFrmVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxDocumentTypeFrmVenta.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxDocumentTypeFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxDocumentTypeFrmVenta.FormattingEnabled = true;
             this.comboBoxDocumentTypeFrmVenta.Location = new System.Drawing.Point(11, 42);
             this.comboBoxDocumentTypeFrmVenta.Name = "comboBoxDocumentTypeFrmVenta";
-            this.comboBoxDocumentTypeFrmVenta.Size = new System.Drawing.Size(268, 27);
+            this.comboBoxDocumentTypeFrmVenta.Size = new System.Drawing.Size(268, 28);
             this.comboBoxDocumentTypeFrmVenta.TabIndex = 82;
             this.comboBoxDocumentTypeFrmVenta.SelectedIndexChanged += new System.EventHandler(this.comboBoxDocumentTypeFrmVenta_SelectedIndexChanged);
             this.comboBoxDocumentTypeFrmVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboBoxDocumentTypeFrmVenta_KeyUp);
@@ -538,10 +540,10 @@ namespace SyncTPV
             // 
             this.textUnidadDeMedida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textUnidadDeMedida.AutoSize = true;
-            this.textUnidadDeMedida.Font = new System.Drawing.Font("Roboto Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textUnidadDeMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUnidadDeMedida.Location = new System.Drawing.Point(267, 4);
             this.textUnidadDeMedida.Name = "textUnidadDeMedida";
-            this.textUnidadDeMedida.Size = new System.Drawing.Size(125, 13);
+            this.textUnidadDeMedida.Size = new System.Drawing.Size(144, 13);
             this.textUnidadDeMedida.TabIndex = 74;
             this.textUnidadDeMedida.Text = "Unidad de Medida/Peso";
             // 
@@ -574,10 +576,10 @@ namespace SyncTPV
             // textUnidadNoConvertible
             // 
             this.textUnidadNoConvertible.AutoSize = true;
-            this.textUnidadNoConvertible.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textUnidadNoConvertible.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textUnidadNoConvertible.Location = new System.Drawing.Point(9, 2);
             this.textUnidadNoConvertible.Name = "textUnidadNoConvertible";
-            this.textUnidadNoConvertible.Size = new System.Drawing.Size(96, 14);
+            this.textUnidadNoConvertible.Size = new System.Drawing.Size(112, 15);
             this.textUnidadNoConvertible.TabIndex = 72;
             this.textUnidadNoConvertible.Text = "Unidad no Conv.";
             this.textUnidadNoConvertible.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -591,7 +593,7 @@ namespace SyncTPV
             this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnAgregar.FlatAppearance.BorderSize = 2;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(206, 56);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(210, 45);
@@ -618,10 +620,10 @@ namespace SyncTPV
             // textInfoCantidad
             // 
             this.textInfoCantidad.AutoSize = true;
-            this.textInfoCantidad.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoCantidad.Location = new System.Drawing.Point(8, 42);
             this.textInfoCantidad.Name = "textInfoCantidad";
-            this.textInfoCantidad.Size = new System.Drawing.Size(67, 18);
+            this.textInfoCantidad.Size = new System.Drawing.Size(74, 18);
             this.textInfoCantidad.TabIndex = 82;
             this.textInfoCantidad.Text = "Cantidad";
             this.textInfoCantidad.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -631,6 +633,8 @@ namespace SyncTPV
             this.panelFieldsCodItemsVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelFieldsCodItemsVenta.BackColor = System.Drawing.Color.FloralWhite;
+            this.panelFieldsCodItemsVenta.Controls.Add(this.textporcentajepromocion);
+            this.panelFieldsCodItemsVenta.Controls.Add(this.textPromocionesMovimiento);
             this.panelFieldsCodItemsVenta.Controls.Add(this.progressBarLoadPrices);
             this.panelFieldsCodItemsVenta.Controls.Add(this.pictureBoxInfoDescuento);
             this.panelFieldsCodItemsVenta.Controls.Add(this.textDiscountRateInfoVenta);
@@ -644,6 +648,28 @@ namespace SyncTPV
             this.panelFieldsCodItemsVenta.Name = "panelFieldsCodItemsVenta";
             this.panelFieldsCodItemsVenta.Size = new System.Drawing.Size(374, 134);
             this.panelFieldsCodItemsVenta.TabIndex = 79;
+            // 
+            // textporcentajepromocion
+            // 
+            this.textporcentajepromocion.AutoSize = true;
+            this.textporcentajepromocion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textporcentajepromocion.ForeColor = System.Drawing.Color.Red;
+            this.textporcentajepromocion.Location = new System.Drawing.Point(353, 111);
+            this.textporcentajepromocion.Name = "textporcentajepromocion";
+            this.textporcentajepromocion.Size = new System.Drawing.Size(18, 20);
+            this.textporcentajepromocion.TabIndex = 91;
+            this.textporcentajepromocion.Text = "0";
+            // 
+            // textPromocionesMovimiento
+            // 
+            this.textPromocionesMovimiento.AutoSize = true;
+            this.textPromocionesMovimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textPromocionesMovimiento.ForeColor = System.Drawing.Color.Red;
+            this.textPromocionesMovimiento.Location = new System.Drawing.Point(170, 110);
+            this.textPromocionesMovimiento.Name = "textPromocionesMovimiento";
+            this.textPromocionesMovimiento.Size = new System.Drawing.Size(185, 20);
+            this.textPromocionesMovimiento.TabIndex = 90;
+            this.textPromocionesMovimiento.Text = "Producto con promoción:";
             // 
             // progressBarLoadPrices
             // 
@@ -683,10 +709,10 @@ namespace SyncTPV
             // 
             this.editPriceItemVenta.BackColor = System.Drawing.Color.LightGreen;
             this.editPriceItemVenta.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.editPriceItemVenta.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPriceItemVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPriceItemVenta.Location = new System.Drawing.Point(3, 104);
             this.editPriceItemVenta.Name = "editPriceItemVenta";
-            this.editPriceItemVenta.Size = new System.Drawing.Size(165, 27);
+            this.editPriceItemVenta.Size = new System.Drawing.Size(165, 26);
             this.editPriceItemVenta.TabIndex = 86;
             this.editPriceItemVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.editPriceItemVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editPriceItemVenta_KeyPress);
@@ -695,10 +721,10 @@ namespace SyncTPV
             // 
             this.editDiscountItemVenta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.editDiscountItemVenta.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.editDiscountItemVenta.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editDiscountItemVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editDiscountItemVenta.Location = new System.Drawing.Point(257, 77);
             this.editDiscountItemVenta.Name = "editDiscountItemVenta";
-            this.editDiscountItemVenta.Size = new System.Drawing.Size(78, 23);
+            this.editDiscountItemVenta.Size = new System.Drawing.Size(78, 22);
             this.editDiscountItemVenta.TabIndex = 87;
             this.editDiscountItemVenta.Text = "0";
             this.editDiscountItemVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -711,12 +737,12 @@ namespace SyncTPV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboCodigoItemVenta.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboCodigoItemVenta.BackColor = System.Drawing.Color.Khaki;
-            this.comboCodigoItemVenta.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboCodigoItemVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboCodigoItemVenta.FormattingEnabled = true;
             this.comboCodigoItemVenta.IntegralHeight = false;
             this.comboCodigoItemVenta.Location = new System.Drawing.Point(3, 3);
             this.comboCodigoItemVenta.Name = "comboCodigoItemVenta";
-            this.comboCodigoItemVenta.Size = new System.Drawing.Size(363, 27);
+            this.comboCodigoItemVenta.Size = new System.Drawing.Size(363, 28);
             this.comboCodigoItemVenta.TabIndex = 71;
             this.comboCodigoItemVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboCodigoItemVenta_KeyPress);
             this.comboCodigoItemVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboCodigoItemVenta_KeyUp);
@@ -729,7 +755,7 @@ namespace SyncTPV
             this.btnBuscarArticuloTeclado.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnBuscarArticuloTeclado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnBuscarArticuloTeclado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarArticuloTeclado.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarArticuloTeclado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarArticuloTeclado.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticuloTeclado.Image")));
             this.btnBuscarArticuloTeclado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarArticuloTeclado.Location = new System.Drawing.Point(324, 37);
@@ -748,10 +774,10 @@ namespace SyncTPV
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editNombreItemVenta.BackColor = System.Drawing.Color.Khaki;
             this.editNombreItemVenta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.editNombreItemVenta.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editNombreItemVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editNombreItemVenta.Location = new System.Drawing.Point(3, 37);
             this.editNombreItemVenta.Name = "editNombreItemVenta";
-            this.editNombreItemVenta.Size = new System.Drawing.Size(315, 27);
+            this.editNombreItemVenta.Size = new System.Drawing.Size(315, 26);
             this.editNombreItemVenta.TabIndex = 2;
             this.editNombreItemVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarProductoTeclado_KeyPress);
             this.editNombreItemVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editNombreItemVenta_KeyUp);
@@ -763,11 +789,11 @@ namespace SyncTPV
             this.comboPreciosItemVenta.BackColor = System.Drawing.Color.LightGreen;
             this.comboPreciosItemVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPreciosItemVenta.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboPreciosItemVenta.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPreciosItemVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPreciosItemVenta.FormattingEnabled = true;
             this.comboPreciosItemVenta.Location = new System.Drawing.Point(3, 72);
             this.comboPreciosItemVenta.Name = "comboPreciosItemVenta";
-            this.comboPreciosItemVenta.Size = new System.Drawing.Size(185, 27);
+            this.comboPreciosItemVenta.Size = new System.Drawing.Size(185, 28);
             this.comboPreciosItemVenta.TabIndex = 4;
             this.comboPreciosItemVenta.SelectedIndexChanged += new System.EventHandler(this.CmbPreciosNew_SelectedIndexChanged);
             this.comboPreciosItemVenta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.comboPreciosItemVenta_KeyUp);
@@ -889,7 +915,7 @@ namespace SyncTPV
             this.panelSubtotales.Controls.Add(this.textPendingFrmVenta);
             this.panelSubtotales.Controls.Add(this.textDiscountFrmVenta);
             this.panelSubtotales.Controls.Add(this.textSubtotalFrmVenta);
-            this.panelSubtotales.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelSubtotales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelSubtotales.Location = new System.Drawing.Point(10, 3);
             this.panelSubtotales.Name = "panelSubtotales";
             this.panelSubtotales.Size = new System.Drawing.Size(256, 97);
@@ -956,7 +982,7 @@ namespace SyncTPV
             this.textDiscountFrmVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textDiscountFrmVenta.BackColor = System.Drawing.Color.Honeydew;
-            this.textDiscountFrmVenta.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDiscountFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDiscountFrmVenta.Location = new System.Drawing.Point(11, 53);
             this.textDiscountFrmVenta.Name = "textDiscountFrmVenta";
             this.textDiscountFrmVenta.Size = new System.Drawing.Size(235, 31);
@@ -969,7 +995,7 @@ namespace SyncTPV
             this.textSubtotalFrmVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textSubtotalFrmVenta.BackColor = System.Drawing.Color.Honeydew;
-            this.textSubtotalFrmVenta.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSubtotalFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSubtotalFrmVenta.Location = new System.Drawing.Point(11, 9);
             this.textSubtotalFrmVenta.Name = "textSubtotalFrmVenta";
             this.textSubtotalFrmVenta.Size = new System.Drawing.Size(239, 33);
@@ -982,7 +1008,7 @@ namespace SyncTPV
             this.textInfoTotal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textInfoTotal.BackColor = System.Drawing.Color.Honeydew;
-            this.textInfoTotal.Font = new System.Drawing.Font("Roboto Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoTotal.Location = new System.Drawing.Point(12, 106);
             this.textInfoTotal.Name = "textInfoTotal";
             this.textInfoTotal.Size = new System.Drawing.Size(256, 38);
@@ -995,7 +1021,7 @@ namespace SyncTPV
             this.textTotalFrmVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textTotalFrmVenta.BackColor = System.Drawing.Color.Honeydew;
-            this.textTotalFrmVenta.Font = new System.Drawing.Font("Roboto Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalFrmVenta.Location = new System.Drawing.Point(19, 154);
             this.textTotalFrmVenta.Name = "textTotalFrmVenta";
             this.textTotalFrmVenta.Size = new System.Drawing.Size(249, 67);
@@ -1014,14 +1040,14 @@ namespace SyncTPV
             this.dataGridMovements.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridMovements.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridMovements.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridMovements.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridMovements.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridMovements.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMovements.ColumnHeadersVisible = false;
             this.dataGridMovements.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1044,7 +1070,7 @@ namespace SyncTPV
             this.dataGridMovements.Name = "dataGridMovements";
             this.dataGridMovements.ReadOnly = true;
             this.dataGridMovements.RowHeadersVisible = false;
-            this.dataGridMovements.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridMovements.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridMovements.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridMovements.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.dataGridMovements.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -1116,8 +1142,8 @@ namespace SyncTPV
             // Descuento
             // 
             this.Descuento.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Descuento.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Descuento.DefaultCellStyle = dataGridViewCellStyle8;
             this.Descuento.FillWeight = 83.56756F;
             this.Descuento.HeaderText = "Descuento";
             this.Descuento.Name = "Descuento";
@@ -1134,11 +1160,11 @@ namespace SyncTPV
             // Eliminar
             // 
             this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightCoral;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            this.Eliminar.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightCoral;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            this.Eliminar.DefaultCellStyle = dataGridViewCellStyle9;
             this.Eliminar.FillWeight = 70F;
             this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Eliminar.HeaderText = "Eliminar";
@@ -1157,7 +1183,7 @@ namespace SyncTPV
             // 
             this.textTotalMovements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTotalMovements.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalMovements.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalMovements.Location = new System.Drawing.Point(18, 0);
             this.textTotalMovements.Name = "textTotalMovements";
             this.textTotalMovements.Size = new System.Drawing.Size(564, 22);
@@ -1205,7 +1231,7 @@ namespace SyncTPV
             // textVersion
             // 
             this.textVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textVersion.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textVersion.Location = new System.Drawing.Point(724, 33);
             this.textVersion.Name = "textVersion";
             this.textVersion.Size = new System.Drawing.Size(175, 23);
@@ -1223,7 +1249,7 @@ namespace SyncTPV
             this.btnCobrarFrmVenta.FlatAppearance.BorderSize = 3;
             this.btnCobrarFrmVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGreen;
             this.btnCobrarFrmVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCobrarFrmVenta.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCobrarFrmVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrarFrmVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnCobrarFrmVenta.Image")));
             this.btnCobrarFrmVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCobrarFrmVenta.Location = new System.Drawing.Point(335, 8);
@@ -1312,18 +1338,6 @@ namespace SyncTPV
         private System.Windows.Forms.ComboBox comboBoxDocumentTypeFrmVenta;
         private System.Windows.Forms.Panel panelTotales;
         public System.Windows.Forms.Button btnPayWithCashFrmVenta;
-        private System.Windows.Forms.Panel panelFieldsVenta;
-        private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.Label textInfoCantidad;
-        private System.Windows.Forms.Panel panelFieldsCodItemsVenta;
-        private System.Windows.Forms.ComboBox comboBoxUnitMWITemVenta;
-        private System.Windows.Forms.Button btnBuscarArticuloTeclado;
-        private System.Windows.Forms.TextBox editNombreItemVenta;
-        private System.Windows.Forms.ComboBox comboPreciosItemVenta;
-        private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBoxInfoSeleccionarPrecio;
         private System.Windows.Forms.Panel panelObservationMovement;
         private System.Windows.Forms.Label textObservationMovement;
         private System.Windows.Forms.TextBox editObservationMovement;
@@ -1332,24 +1346,14 @@ namespace SyncTPV
         private System.Windows.Forms.PictureBox imgCliente;
         private System.Windows.Forms.Button btnBuscarClientesNew;
         private System.Windows.Forms.TextBox editNombreCliente;
-        private System.Windows.Forms.ComboBox comboCodigoItemVenta;
-        private System.Windows.Forms.Label textUnidadDeMedida;
-        private System.Windows.Forms.TextBox editUnidadNoConvertible;
-        private System.Windows.Forms.Label textUnidadNoConvertible;
         public System.Windows.Forms.DataGridView dataGridMovements;
         private System.Windows.Forms.PictureBox imgSinDatosFrmVenta;
         private System.Windows.Forms.Label textTotalMovements;
         private System.Windows.Forms.Panel panelGridMovementsVenta;
         private System.Windows.Forms.Button btnClearOptions;
         private System.Windows.Forms.Button btnSurtirPedidos;
-        private System.Windows.Forms.Button btnOpenScale;
-        public System.Windows.Forms.TextBox editCapturedUnits;
         private System.Windows.Forms.Label textInfoTotal;
         private System.Windows.Forms.Label textTotalFrmVenta;
-        private System.Windows.Forms.Label textDiscountRateInfoVenta;
-        public System.Windows.Forms.TextBox editDiscountItemVenta;
-        public System.Windows.Forms.TextBox editPriceItemVenta;
-        private System.Windows.Forms.PictureBox pictureBoxInfoDescuento;
         private System.Windows.Forms.Panel panelSubtotales;
         private System.Windows.Forms.Label editChangeFrmVenta;
         private System.Windows.Forms.Label editPendingFrmVenta;
@@ -1358,7 +1362,6 @@ namespace SyncTPV
         private System.Windows.Forms.Label textDiscountFrmVenta;
         private System.Windows.Forms.Label textSubtotalFrmVenta;
         private System.Windows.Forms.Panel panelBotonCobrar;
-        private RoundedButton btnAgregar;
         private RoundedButton btnCobrarFrmVenta;
         private System.Windows.Forms.Label textExistenciaReal;
         private System.Windows.Forms.DataGridViewTextBoxColumn idMovimentDgv;
@@ -1375,7 +1378,32 @@ namespace SyncTPV
         private System.Windows.Forms.DataGridViewTextBoxColumn itemIdDgvItems;
         private System.Windows.Forms.Panel panelImgItem;
         private System.Windows.Forms.PictureBox imgItem;
-        private System.Windows.Forms.ProgressBar progressBarLoadPrices;
         private System.Windows.Forms.Label textVersion;
+        private System.Windows.Forms.Panel panelFieldsVenta;
+        private System.Windows.Forms.Panel panel32;
+        private System.Windows.Forms.TextBox editUnidadNoConvertible;
+        private System.Windows.Forms.Label textUnidadDeMedida;
+        private System.Windows.Forms.Button btnOpenScale;
+        public System.Windows.Forms.TextBox editCapturedUnits;
+        private System.Windows.Forms.Label textUnidadNoConvertible;
+        private RoundedButton btnAgregar;
+        private System.Windows.Forms.ComboBox comboBoxUnitMWITemVenta;
+        private System.Windows.Forms.Label textInfoCantidad;
+        private System.Windows.Forms.Panel panelFieldsCodItemsVenta;
+        private System.Windows.Forms.Label textporcentajepromocion;
+        private System.Windows.Forms.Label textPromocionesMovimiento;
+        private System.Windows.Forms.ProgressBar progressBarLoadPrices;
+        private System.Windows.Forms.PictureBox pictureBoxInfoDescuento;
+        private System.Windows.Forms.Label textDiscountRateInfoVenta;
+        public System.Windows.Forms.TextBox editPriceItemVenta;
+        public System.Windows.Forms.TextBox editDiscountItemVenta;
+        private System.Windows.Forms.ComboBox comboCodigoItemVenta;
+        private System.Windows.Forms.Button btnBuscarArticuloTeclado;
+        private System.Windows.Forms.TextBox editNombreItemVenta;
+        private System.Windows.Forms.ComboBox comboPreciosItemVenta;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBoxInfoSeleccionarPrecio;
     }
 }

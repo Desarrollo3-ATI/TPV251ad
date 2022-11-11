@@ -132,15 +132,7 @@ namespace SyncTPV.Views
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == 3)
             {
-                if (serverModeLAN)
-                {
-                    FormMessage formMessage = new FormMessage("Modo LAN Activado", "Cuando usas el modo LAN la consulta de información se realiza directamente, " +
-                        "a la base de datos por lo que las opciones de descargas no estan disponibles", 1);
-                    formMessage.ShowDialog();
-                } else
-                {
-                    processToDownloadData(e.RowIndex);
-                }
+                processToDownloadData(e.RowIndex);
             }
         }
 

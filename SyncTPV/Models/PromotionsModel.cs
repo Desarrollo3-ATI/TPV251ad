@@ -186,8 +186,147 @@ namespace SyncTPV.Models
             return count;
         }
 
+        public static ExpandoObject logicForAplyPromotionsCustomersItems(ClsItemModel itemModel, double cantidadArticulo, double monto, bool serverModeLAN, int idDocumento)
+        {
+            int idCustomer = idDocumento;
+            dynamic a = new ExpandoObject();
+            a.valor = 0;
+            a.categoria1 = 0;
+            a.categoria2 = 0;
+            a.categoria3 = 0;
+            a.categoria4 = 0;
+            a.categoria5 = 0;
+            a.categoria6 = 0;
+            try
+            {
+                a = CustomerModel.getAllDataFromACustomerCategorias(idCustomer);
+            }catch(Exception e)
+            {
+                SECUDOC.writeLog(e.ToString());
+                a.valor = 0;
+            }
+
+            dynamic rateAndAmountDiscountList = new ExpandoObject();
+            String promotionName = "";
+            double promotionDiscount = 0;
+            double rateDiscountPromo = 0;
+            /** Validamos si tiene promoción para aplicarlo */
+            ClsPromocionesModel pm = null;
+            /*if (serverModeLAN)
+            {
+                if (itemModel.clasificacionId1 != 0 || itemModel.clasificacionId2 != 0 || itemModel.clasificacionId3 != 0 ||
+                    itemModel.clasificacionId4 != 0 || itemModel.clasificacionId5 != 0 || itemModel.clasificacionId6 != 0)
+                {
+                    String comInstance = InstanceSQLSEModel.getStringComInstance();
+                    pm = ClsPromocionesModel.getPromotionForAnItem(comInstance, itemModel);
+                }
+            }
+            else
+            {
+                if (itemModel.clasificacionId1 != 0 || itemModel.clasificacionId2 != 0 || itemModel.clasificacionId3 != 0 ||
+                    itemModel.clasificacionId4 != 0 || itemModel.clasificacionId5 != 0 || itemModel.clasificacionId6 != 0)
+                {
+                    pm = getPromotionForAnItem(itemModel); 
+                }
+            }*/
+            pm = getPromotionForAnItemCustomer(a, itemModel);
+            if (pm != null)
+            {
+                int vigente = validateValidityEndDate(pm.fechaFin.ToString());
+                if (vigente > 0)
+                {
+                    if (pm.volumenMinimo != 0 && cantidadArticulo >= pm.volumenMinimo &&
+                            pm.volumenMaximo != 0 && cantidadArticulo <= pm.volumenMaximo)
+                    {
+                        promotionName = pm.code;
+                        rateDiscountPromo = pm.porcentajeDescuento;
+                        promotionDiscount = (monto * rateDiscountPromo) / 100;
+                        rateAndAmountDiscountList.aplica = "1";
+                        rateAndAmountDiscountList.code = promotionName;
+                        rateAndAmountDiscountList.porcentaje = rateDiscountPromo + "";
+                        rateAndAmountDiscountList.importe = promotionDiscount + "";
+                    }
+                    else if (pm.volumenMinimo == 0 && cantidadArticulo >= pm.volumenMinimo &&
+                          pm.volumenMaximo != 0 && cantidadArticulo <= pm.volumenMaximo)
+                    {
+                        promotionName = pm.code;
+                        rateDiscountPromo = pm.porcentajeDescuento;
+                        promotionDiscount = (monto * rateDiscountPromo) / 100;
+                        rateAndAmountDiscountList.aplica = "1";
+                        rateAndAmountDiscountList.code = promotionName;
+                        rateAndAmountDiscountList.porcentaje = rateDiscountPromo + "";
+                        rateAndAmountDiscountList.importe = promotionDiscount + "";
+                    }
+                    else if (pm.volumenMinimo != 0 && cantidadArticulo <= pm.volumenMinimo && pm.volumenMaximo == 0)
+                    {
+                        promotionName = pm.code;
+                        rateDiscountPromo = pm.porcentajeDescuento;
+                        promotionDiscount = (monto * rateDiscountPromo) / 100;
+                        rateAndAmountDiscountList.aplica = "1";
+                        rateAndAmountDiscountList.code = promotionName;
+                        rateAndAmountDiscountList.porcentaje = rateDiscountPromo + "";
+                        rateAndAmountDiscountList.importe = promotionDiscount + "";
+                    }
+                    else if (pm.volumenMinimo == 0 && pm.volumenMaximo == 0)
+                    {
+                        promotionName = pm.code;
+                        rateDiscountPromo = pm.porcentajeDescuento;
+                        promotionDiscount = (monto * rateDiscountPromo) / 100;
+                        rateAndAmountDiscountList.aplica = "1";
+                        rateAndAmountDiscountList.code = promotionName;
+                        rateAndAmountDiscountList.porcentaje = rateDiscountPromo + "";
+                        rateAndAmountDiscountList.importe = promotionDiscount + "";
+                    }
+                    else
+                    {
+                        promotionName = pm.code;
+                        rateDiscountPromo = 0;
+                        rateAndAmountDiscountList.aplica = "-2";
+                        rateAndAmountDiscountList.code = promotionName;
+                        rateAndAmountDiscountList.porcentaje = rateDiscountPromo + "";
+                        rateAndAmountDiscountList.importe = promotionDiscount + "";
+                    }
+                }
+                else
+                {
+                    rateDiscountPromo = 0;
+                    rateAndAmountDiscountList.aplica = "-1";
+                    rateAndAmountDiscountList.code = "Sin promoción";
+                    rateAndAmountDiscountList.porcentaje = rateDiscountPromo + "";
+                    rateAndAmountDiscountList.importe = promotionDiscount + "";
+                }
+            }
+            else
+            {
+                rateDiscountPromo = 0;
+                rateAndAmountDiscountList.aplica = "-1";
+                rateAndAmountDiscountList.code = "Sin promoción";
+                rateAndAmountDiscountList.porcentaje = rateDiscountPromo + "";
+                rateAndAmountDiscountList.importe = promotionDiscount + "";
+            }
+            return rateAndAmountDiscountList;
+        }
+
         public static ExpandoObject logicForAplyPromotions(ClsItemModel itemModel, double cantidadArticulo, double monto, bool serverModeLAN)
         {
+            int idCustomer = FormVenta.idCustomer;
+            dynamic a = new ExpandoObject();
+            a.valor = 0;
+            a.categoria1 = 0;
+            a.categoria2 = 0;
+            a.categoria3 = 0;
+            a.categoria4 = 0;
+            a.categoria5 = 0;
+            a.categoria6 = 0;
+            try
+            {
+                a = CustomerModel.getAllDataFromACustomerCategorias(idCustomer);
+            }
+            catch (Exception e)
+            {
+                SECUDOC.writeLog(e.ToString());
+                a.valor = 0;
+            }
             dynamic rateAndAmountDiscountList = new ExpandoObject();
             String promotionName = "";
             double promotionDiscount = 0;
@@ -206,7 +345,7 @@ namespace SyncTPV.Models
                 if (itemModel.clasificacionId1 != 0 || itemModel.clasificacionId2 != 0 || itemModel.clasificacionId3 != 0 ||
                     itemModel.clasificacionId4 != 0 || itemModel.clasificacionId5 != 0 || itemModel.clasificacionId6 != 0)
                 {
-                    pm = getPromotionForAnItem(itemModel); ;
+                    pm = getPromotionForAnItemCustomer(a, itemModel); 
                 }
             }
             if (pm != null)
@@ -422,6 +561,80 @@ namespace SyncTPV.Models
             {
                 if (db != null && db.State == ConnectionState.Open)
                     db.Close();
+            }
+            return pm;
+        }
+
+        public static ClsPromocionesModel getPromotionForAnItemCustomer(dynamic a, ClsItemModel im)
+        {
+            //falta los 2 de estos de abajo
+            ClsPromocionesModel pm = null;
+            if (a.valor == 1)
+            {
+                var db = new SQLiteConnection();
+                try
+                {
+                    db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                    db.Open();
+                    String query = "SELECT * FROM " + LocalDatabase.TABLA_PROMOCIONES + " WHERE " +
+                        LocalDatabase.CAMPO_CLASIPRODUCTOID1_PROMOTION + " = " + im.clasificacionId1 + " AND " +
+                        LocalDatabase.CAMPO_CLASIPRODUCTOID2_PROMOTION + " = " + im.clasificacionId2 + " AND " +
+                        LocalDatabase.CAMPO_CLASIPRODUCTOID3_PROMOTION + " = " + im.clasificacionId3 + " AND " +
+                        LocalDatabase.CAMPO_CLASIPRODUCTOID4_PROMOTION + " = " + im.clasificacionId4 + " AND " +
+                        LocalDatabase.CAMPO_CLASIPRODUCTOID5_PROMOTION + " = " + im.clasificacionId5 + " AND " +
+                        LocalDatabase.CAMPO_CLASIPRODUCTOID6_PROMOTION + " = " + im.clasificacionId6 + " AND " +
+                        LocalDatabase.CAMPO_CLASICLIENTEID1_PROMOTION + " = " + a.categoria1 + " AND " +
+                        LocalDatabase.CAMPO_CLASICLIENTEID2_PROMOTION + " = " + a.categoria2 + " AND " +
+                        LocalDatabase.CAMPO_CLASICLIENTEID3_PROMOTION + " = " + a.categoria3 + " AND " +
+                        LocalDatabase.CAMPO_CLASICLIENTEID4_PROMOTION + " = " + a.categoria4 + " AND " +
+                        LocalDatabase.CAMPO_CLASICLIENTEID5_PROMOTION + " = " + a.categoria5 + " AND " +
+                        LocalDatabase.CAMPO_CLASICLIENTEID6_PROMOTION + " = " + a.categoria6;
+                    using (SQLiteCommand command = new SQLiteCommand(query, db))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    pm = new ClsPromocionesModel();
+                                    pm.id = Convert.ToInt32(reader[LocalDatabase.CAMPO_ID_PROMOTION].ToString().Trim());
+                                    pm.code = reader[LocalDatabase.CAMPO_CODIGO_PROMOTION].ToString().Trim();
+                                    pm.nombre = reader[LocalDatabase.CAMPO_NOMBRE_PROMOTION].ToString().Trim();
+                                    pm.fechaInicio = Convert.ToDateTime(reader[LocalDatabase.CAMPO_FECHAINICIO_PROMOTION].ToString().Trim());
+                                    pm.fechaFin = Convert.ToDateTime(reader[LocalDatabase.CAMPO_FECHAFIN_PROMOTION].ToString().Trim());
+                                    pm.volumenMinimo = Convert.ToDouble(reader[LocalDatabase.CAMPO_VOLUMENMINIMO_PROMOTION].ToString().Trim());
+                                    pm.volumenMaximo = Convert.ToDouble(reader[LocalDatabase.CAMPO_VOLUMENMAXIMO_PROMOTION].ToString().Trim());
+                                    pm.porcentajeDescuento = Convert.ToDouble(reader[LocalDatabase.CAMPO_PORCENTAJEDESCUENTO_PROMOTION].ToString().Trim());
+                                    pm.clasiProductoIdUno = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIPRODUCTOID1_PROMOTION].ToString().Trim());
+                                    pm.clasiProductoIdDos = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIPRODUCTOID2_PROMOTION].ToString().Trim());
+                                    pm.clasiProductoIdTres = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIPRODUCTOID3_PROMOTION].ToString().Trim());
+                                    pm.clasiProductoIdCuatro = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIPRODUCTOID4_PROMOTION].ToString().Trim());
+                                    pm.clasiProductoIdCinco = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIPRODUCTOID5_PROMOTION].ToString().Trim());
+                                    pm.clasiProductoIdSeis = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIPRODUCTOID6_PROMOTION].ToString().Trim());
+                                    pm.creado = reader[LocalDatabase.CAMPO_CREADO_PROMOTION].ToString().Trim();
+                                    pm.clasiClienteIdUno = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASICLIENTEID1_PROMOTION].ToString().Trim());
+                                    pm.clasiClienteIdDos = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASICLIENTEID2_PROMOTION].ToString().Trim());
+                                    pm.clasiClienteIdTres = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASICLIENTEID3_PROMOTION].ToString().Trim());
+                                    pm.clasiClienteIdCuatro = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASICLIENTEID4_PROMOTION].ToString().Trim());
+                                    pm.clasiClienteIdCinco = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASICLIENTEID5_PROMOTION].ToString().Trim());
+                                    pm.clasiClienteIdSeis = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASICLIENTEID6_PROMOTION].ToString().Trim());
+                                }
+                            }
+                            if (reader != null && !reader.IsClosed)
+                                reader.Close();
+                        }
+                    }
+                }
+                catch (SQLiteException e)
+                {
+                    SECUDOC.writeLog(e.ToString());
+                }
+                finally
+                {
+                    if (db != null && db.State == ConnectionState.Open)
+                        db.Close();
+                }
             }
             return pm;
         }

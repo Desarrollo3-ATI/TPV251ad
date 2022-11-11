@@ -298,7 +298,6 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;

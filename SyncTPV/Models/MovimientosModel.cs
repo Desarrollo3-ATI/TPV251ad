@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
+using System.Dynamic;
 using System.Threading.Tasks;
 using wsROMClase;
 using wsROMClases;
@@ -53,6 +54,10 @@ namespace SyncTPV
                                                         double descuentoEnPorcentaje, double descuentoEnImporte,
                                                         String observaciones, int idUsuario, double rateDiscountPromo)
         {
+            if (descuentoEnPorcentaje >= rateDiscountPromo)
+            {
+                descuentoEnPorcentaje -= rateDiscountPromo;
+            }
             MovimientosModel mdm = new MovimientosModel();
             mdm.documentId = idDocumento;
             mdm.itemCode = itemModel.codigo;
@@ -1640,6 +1645,11 @@ namespace SyncTPV
                                                          int capturedUnitId, double baseUnits) {
             Boolean removed = false;
             double lastCapturedUnits = getCapturedUnitsOfAMove(idMovement, idDocumento);
+            
+            
+            
+            
+            
             if (await subtractOrAddAndRecalculateSalesMovement(idMovement, itemModel, position, capturedUnits, 
                 addOrSubstrac, actualizar, newPrice, capturedNonConvertibleUnits, discountRate, capturedUnitId, baseUnits))
             {
@@ -1947,6 +1957,17 @@ namespace SyncTPV
                     nuevoMonto = (newCapturedUnits * newPrice);
                     nuevoDescuento = (nuevoMonto * discountRate) / 100;
                     nuevoTotal = (nuevoMonto - nuevoDescuento);
+                    try
+                    {
+                        double newdisconunt = MovimientosModel.getPorcentajePromotionMoviments(idMovement);
+                        if (newdisconunt <= discountRate)
+                        {
+                            discountRate = discountRate - newdisconunt;
+                        }
+                    }catch(Exception e)
+                    {
+                        SECUDOC.writeLog(e.ToString());
+                    }
                     query = "UPDATE " + LocalDatabase.TABLA_MOVIMIENTO + " SET " + LocalDatabase.CAMPO_BASEUNIT_MOV + " = " + baseUnits + ", " +
                         LocalDatabase.CAMPO_NONCONVERTIBLEUNIT_MOV + " = " + capturedNonConvertibleUnits + ", " +
                         LocalDatabase.CAMPO_PRECIO_MOV + " = " + newPrice + ", " +
@@ -1977,12 +1998,30 @@ namespace SyncTPV
             return subtracted;
         }
 
-        public static Boolean validateWhetherToApplyPromotionToAMovement(int idMovement, double itemUnits, ClsItemModel itemModel)
+        public static Boolean validateWhetherToApplyPromotionToAMovement(int idMovement, double itemUnits, ClsItemModel itemModel, double descuento)
         {
+            dynamic a = new ExpandoObject();
+            a.valor = 0;
+            a.categoria1 = 0;
+            a.categoria2 = 0;
+            a.categoria3 = 0;
+            a.categoria4 = 0;
+            a.categoria5 = 0;
+            a.categoria6 = 0;
+            int idCustomer = FormVenta.idCustomer;
+            try
+            {
+                a = CustomerModel.getAllDataFromACustomerCategorias(idCustomer);
+            }
+            catch (Exception e)
+            {
+                SECUDOC.writeLog(e.ToString());
+                a.valor = 0;
+            }
             bool changed = false;
             double rateDiscountPromo = 0;
             /** Validamos si tiene promoción para aplicarlo */
-            ClsPromocionesModel pm = PromotionsModel.getPromotionForAnItem(itemModel);
+            ClsPromocionesModel pm = PromotionsModel.getPromotionForAnItemCustomer(a, itemModel);
             if (pm != null)
             {
                 int vigente = PromotionsModel.validateValidityEndDate(pm.fechaFin.ToString());
@@ -2016,7 +2055,7 @@ namespace SyncTPV
                         {
                             double amount = getAmountOfAMovement(idMovement);
                             double discountAmount = getDiscountOnTheAmountOfAMovement(idMovement);
-                            discountAmount += (amount * rateDiscountPromo) / 100;
+                            discountAmount += (amount * discountAmount) / 100;
                             if (changeTheDiscountOnTheAmountOfAMove(idMovement, discountAmount))
                             {
                                 double total = amount - discountAmount;
@@ -2029,17 +2068,22 @@ namespace SyncTPV
                     }
                     else
                     {
-                        if (changePromotionDiscountPercentageToAnItem(idMovement, rateDiscountPromo))
+                        if (changePromotionDiscountPercentageToAnItem(idMovement, 0))
                             changed = true;
                     }
                 }
                 else
                 {
-                    rateDiscountPromo = 0;
-                    changed = true;
+                    if (changePromotionDiscountPercentageToAnItem(idMovement, 0))
+                        changed = true;
                 }
             }
-            return changed;
+            else
+            {
+                if(changePromotionDiscountPercentageToAnItem(idMovement, 0))
+                            changed = true;
+            }
+            return true;
         }
 
         public static Boolean changePromotionDiscountPercentageToAnItem(int idMovement,
@@ -2122,7 +2166,7 @@ namespace SyncTPV
                 db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
                 db.Open();
                 String query = "SELECT " + LocalDatabase.CAMPO_MONTO_MOV + " FROM " + LocalDatabase.TABLA_MOVIMIENTO +
-                        " WHERE " + LocalDatabase.CAMPO_ARTICULOID_MOV + " = @idMovement";
+                        " WHERE " + LocalDatabase.CAMPO_ID_MOV + " = @idMovement";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     command.Parameters.AddWithValue("@idMovement", idMovement);
@@ -2200,7 +2244,7 @@ namespace SyncTPV
                 db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
                 db.Open();
                 String query = "SELECT " + LocalDatabase.CAMPO_DESCUENTOIMP_MOV + " FROM " +
-                        LocalDatabase.TABLA_MOVIMIENTO + " WHERE " + LocalDatabase.CAMPO_ARTICULOID_MOV + " = @idMovement";
+                        LocalDatabase.TABLA_MOVIMIENTO + " WHERE " + LocalDatabase.CAMPO_ID_MOV + " = @idMovement";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     command.Parameters.AddWithValue("@idMovement", idMovement);
@@ -2211,7 +2255,9 @@ namespace SyncTPV
                             while (reader.Read())
                             {
                                 if (reader[LocalDatabase.CAMPO_DESCUENTOIMP_MOV] != DBNull.Value)
-                                    discountAmount = Convert.ToDouble(reader[LocalDatabase.CAMPO_DESCUENTOIMP_MOV].ToString().Trim());
+                                    discountAmount = Convert.ToDouble(reader[LocalDatabase.CAMPO_DESCUENTOPOR_MOV].ToString().Trim());
+                                else
+                                    discountAmount = 0;
                             }
                         }
                         if (reader != null && !reader.IsClosed)
@@ -2419,6 +2465,69 @@ namespace SyncTPV
             return mcm;
         }
 
+        public static MovimientosModel getAMovementSurtir(String query)
+        {
+            MovimientosModel mcm = null;
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                mcm = new MovimientosModel();
+                                mcm.id = Convert.ToInt32(reader[LocalDatabase.CAMPO_ID_MOV].ToString().Trim());
+                                mcm.documentId = Convert.ToInt32(reader[LocalDatabase.CAMPO_DOCUMENTOID_MOV].ToString().Trim());
+                                mcm.itemCode = reader[LocalDatabase.CAMPO_CLAVEART_MOV].ToString().Trim();
+                                mcm.itemId = Convert.ToInt32(reader[LocalDatabase.CAMPO_ARTICULOID_MOV].ToString().Trim());
+                                mcm.baseUnits = Convert.ToDouble(reader[LocalDatabase.CAMPO_BASEUNIT_MOV].ToString().Trim());
+                                mcm.nonConvertibleUnits = Convert.ToDouble(reader[LocalDatabase.CAMPO_NONCONVERTIBLEUNIT_MOV].ToString().Trim());
+                                mcm.capturedUnits = Convert.ToDouble(reader[LocalDatabase.CAMPO_CAPTUREDUNIT_MOV].ToString().Trim());
+                                mcm.nonConvertibleUnitId = Convert.ToInt32(reader[LocalDatabase.CAMPO_NONCONVERTIBLEUNITID_MOV].ToString().Trim());
+                                mcm.capturedUnitId = Convert.ToInt32(reader[LocalDatabase.CAMPO_CAPTUREDUNITID_MOV].ToString().Trim());
+                                mcm.capturesUnitsType = Convert.ToInt32(reader[LocalDatabase.CAMPO_CAPTUREDUNITTYPE_MOV].ToString().Trim());
+                                mcm.price = Convert.ToDouble(reader[LocalDatabase.CAMPO_PRECIO_MOV].ToString().Trim());
+                                mcm.monto = Convert.ToDouble(reader[LocalDatabase.CAMPO_MONTO_MOV].ToString().Trim());
+                                mcm.total = Convert.ToDouble(reader[LocalDatabase.CAMPO_TOTAL_MOV].ToString().Trim());
+                                mcm.position = Convert.ToInt32(reader[LocalDatabase.CAMPO_POSICION_MOV].ToString().Trim());
+                                mcm.documentType = Convert.ToInt32(reader[LocalDatabase.CAMPO_TIPODOCUMENTO_MOV].ToString().Trim());
+                                mcm.nameUser = reader[LocalDatabase.CAMPO_NOMBREU_MOV].ToString().Trim();
+                                mcm.invoice = reader[LocalDatabase.CAMPO_FACTURA_MOV].ToString().Trim();
+                                mcm.descuentoPorcentaje = Convert.ToDouble(reader[LocalDatabase.CAMPO_DESCUENTOPOR_MOV].ToString().Trim());
+                                mcm.descuentoImporte = Convert.ToDouble(reader[LocalDatabase.CAMPO_DESCUENTOIMP_MOV].ToString().Trim());
+                                mcm.observations = reader[LocalDatabase.CAMPO_OBSERVACIONES_MOV].ToString().Trim();
+                                mcm.idDev = Convert.ToInt32(reader[LocalDatabase.CAMPO_IDDEV_MOV].ToString().ToString());
+                                mcm.comments = reader[LocalDatabase.CAMPO_COMENTARIO_MOV].ToString().Trim();
+                                mcm.userId = Convert.ToInt32(reader[LocalDatabase.CAMPO_USUARIOID_MOV].ToString().Trim());
+                                mcm.enviadoAlWs = Convert.ToInt32(reader[LocalDatabase.CAMPO_ENVIADOALWS_MOV].ToString().Trim());
+                                mcm.rateDiscountPromo = Convert.ToDouble(reader[LocalDatabase.CAMPO_RATEDISCOUNTPROMO_MOV].ToString().Trim());
+                                mcm.cancel = Convert.ToInt32(reader[LocalDatabase.CAMPO_CANCEL_MOV].ToString().Trim());
+                                mcm.descuentoPorcentaje = mcm.descuentoPorcentaje - mcm.rateDiscountPromo;
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return mcm;
+        }
+
         public static MovimientosModel getMovement(String query)
         {
             MovimientosModel mcm = null;
@@ -2472,6 +2581,44 @@ namespace SyncTPV
             catch (SQLiteException e)
             {
                 SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return mcm;
+        }
+
+        public static double getPorcentajePromotionMoviments(int idMov)
+        {
+            double mcm = 0;
+            var db = new SQLiteConnection();
+            String query = "select "+LocalDatabase.CAMPO_RATEDISCOUNTPROMO_MOV + " from Movimientos where id = " + idMov;
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                mcm = Convert.ToDouble(reader[LocalDatabase.CAMPO_RATEDISCOUNTPROMO_MOV].ToString().Trim());
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+                mcm = 0;
             }
             finally
             {

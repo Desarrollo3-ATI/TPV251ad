@@ -58,7 +58,7 @@ namespace SyncTPV.Views.AperturaTurno
             this.btnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.ForeColor = System.Drawing.Color.White;
             this.btnCerrar.Image = global::SyncTPV.Properties.Resources.close;
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -95,7 +95,7 @@ namespace SyncTPV.Views.AperturaTurno
             this.btnIniciar.FlatAppearance.BorderSize = 2;
             this.btnIniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIniciar.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.Location = new System.Drawing.Point(319, 214);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(154, 42);
@@ -107,10 +107,10 @@ namespace SyncTPV.Views.AperturaTurno
             // textImporte
             // 
             this.textImporte.AutoSize = true;
-            this.textImporte.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textImporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textImporte.Location = new System.Drawing.Point(55, 166);
             this.textImporte.Name = "textImporte";
-            this.textImporte.Size = new System.Drawing.Size(92, 15);
+            this.textImporte.Size = new System.Drawing.Size(104, 16);
             this.textImporte.TabIndex = 2;
             this.textImporte.Text = "Importe Inicial";
             // 
@@ -118,10 +118,10 @@ namespace SyncTPV.Views.AperturaTurno
             // 
             this.editImporte.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editImporte.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editImporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editImporte.Location = new System.Drawing.Point(169, 163);
             this.editImporte.Name = "editImporte";
-            this.editImporte.Size = new System.Drawing.Size(249, 23);
+            this.editImporte.Size = new System.Drawing.Size(249, 22);
             this.editImporte.TabIndex = 1;
             this.editImporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.editImporte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editImporte_KeyPress);
@@ -130,13 +130,13 @@ namespace SyncTPV.Views.AperturaTurno
             // 
             this.textInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textInformation.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInformation.Location = new System.Drawing.Point(3, 0);
             this.textInformation.Name = "textInformation";
             this.textInformation.Size = new System.Drawing.Size(486, 87);
             this.textInformation.TabIndex = 0;
-            this.textInformation.Text = "Este proceso eliminará todos los datos registrados en un turno anterior para inci" +
-    "ar con saldo cero\r\n";
+            this.textInformation.Text = "Este proceso eliminará todos los datos registrados en un turno anterior para inic" +
+    "iar con saldo cero\r\n";
             this.textInformation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmAperturaTurno

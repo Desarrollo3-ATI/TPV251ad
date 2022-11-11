@@ -41,8 +41,12 @@ namespace SyncTPV
             {
                 this.Show();
             }
+            editUsernameFrmIniciarSesion.Enabled = false;
+            editPassFrmIniciarSesion.Enabled = false;
             await loadInitialData();
             await validateIfCheckoutIsCotMos();
+            editUsernameFrmIniciarSesion.Enabled = true;
+            editPassFrmIniciarSesion.Enabled = true;
         }
 
         private async Task loadInitialData()

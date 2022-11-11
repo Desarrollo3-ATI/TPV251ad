@@ -615,6 +615,98 @@ namespace SyncTPV
             return valuesList;
         }
 
+        public static List<dynamic> getReporteDeDocumentos(String query)
+        {
+            List<dynamic> listaResDocument = null;
+            dynamic docVenta;
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            listaResDocument = new List<dynamic>();
+                            while (reader.Read())
+                            {
+                                docVenta = new ExpandoObject();
+                                docVenta.id = Convert.ToInt32(reader[LocalDatabase.CAMPO_ID_DOC].ToString().Trim());
+                                docVenta.clave_cliente = reader[LocalDatabase.CAMPO_CLAVECLIENTE_DOC].ToString().Trim();
+                                docVenta.cliente_id = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLIENTEID_DOC].ToString().Trim());
+                                docVenta.descuento = Convert.ToDouble(reader[LocalDatabase.CAMPO_DESCUENTO_DOC].ToString().Trim());
+                                docVenta.total = Convert.ToDouble(reader[LocalDatabase.CAMPO_TOTAL_DOC].ToString().Trim());
+                                docVenta.nombreu = reader[LocalDatabase.CAMPO_NOMBREU_DOC].ToString().Trim();
+                                docVenta.almacen_id = Convert.ToInt32(reader[LocalDatabase.CAMPO_ALMACENID_DOC].ToString().Trim());
+                                docVenta.anticipo = Convert.ToDouble(reader[LocalDatabase.CAMPO_ANTICIPO_DOC].ToString().Trim());
+                                docVenta.tipo_documento = Convert.ToInt32(reader[LocalDatabase.CAMPO_TIPODOCUMENTO_DOC].ToString().Trim());
+                                docVenta.forma_cobro_id = Convert.ToInt32(reader[LocalDatabase.CAMPO_FORMACOBROID_DOC].ToString().Trim());
+                                docVenta.factura = Convert.ToInt32(reader[LocalDatabase.CAMPO_FACTURA_DOC].ToString().Trim());
+                                docVenta.nombreformacobro = reader[LocalDatabase.CAMPO_NOMBRE_FORMASCOBRO].ToString().Trim();
+                                if (reader[LocalDatabase.CAMPO_OBSERVACION_DOC] != DBNull.Value)
+                                    docVenta.observacion = reader[LocalDatabase.CAMPO_OBSERVACION_DOC].ToString().Trim();
+                                else docVenta.observacion = "";
+                                docVenta.fventa = reader[LocalDatabase.CAMPO_FVENTA_DOC].ToString().Trim();
+                                docVenta.fechahoramov = reader[LocalDatabase.CAMPO_FECHAHORAMOV_DOC].ToString().Trim();
+                                docVenta.forma_corbo_id_abono = Convert.ToInt32(reader[LocalDatabase.CAMPO_FORMACOBROIDABONO_DOC].ToString().Trim());
+                                docVenta.ciddoctopedidocc = Convert.ToInt32(reader[LocalDatabase.CAMPO_CIDDOCTOPEDIDOCC_DOC].ToString().Trim());
+                                docVenta.estado = Convert.ToInt32(reader[LocalDatabase.CAMPO_CANCELADO_DOC].ToString().Trim());
+                                docVenta.enviadoAlWs = Convert.ToInt32(reader[LocalDatabase.CAMPO_ENVIADOALWS_DOC].ToString().Trim());
+                                docVenta.idWebService = Convert.ToInt32(reader[LocalDatabase.CAMPO_IDWEBSERVICE_DOC].ToString().Trim());
+                                docVenta.documentoArchivado = Convert.ToInt32(reader[LocalDatabase.CAMPO_ARCHIVADO_DOC].ToString().Trim());
+                                docVenta.pausado = Convert.ToInt32(reader[LocalDatabase.CAMPO_PAUSAR_DOC].ToString().Trim());
+                                docVenta.papeleraReciclaje = Convert.ToInt32(reader[LocalDatabase.CAMPO_PAPELERARECICLAJE_DOC].ToString().Trim());
+                                docVenta.Totalmovimientos = 0;
+                                try
+                                {
+                                    String query2 = "SELECT count(*) totalMovimientos from Movimientos where DOCTO_ID_PEDIDO ="+ docVenta.id;
+                                    using (SQLiteCommand command2 = new SQLiteCommand(query2, db))
+                                    {
+                                        using (SQLiteDataReader reader2 = command2.ExecuteReader())
+                                        {
+                                            if (reader2.HasRows)
+                                            {
+                                                while (reader2.Read())
+                                                {
+                                                    docVenta.totalMovimientos = Convert.ToInt32(reader2["totalMovimientos"].ToString().Trim()); 
+                                                }
+                                            }
+                                            else
+                                            {
+                                                docVenta.Totalmovimientos = 0;
+                                            }
+                                            if (reader2 != null && !reader2.IsClosed)
+                                                reader2.Close();
+                                        }
+                                    }
+                                }catch(Exception error)
+                                {
+                                    docVenta.Totalmovimientos = 0;
+                                    SECUDOC.writeLog(error.ToString());
+                                }
+                                listaResDocument.Add(docVenta);
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return listaResDocument;
+        }
+
         public static int getCiddoctopedidoFromADocument(int idDocument)
         {
             int idDocumentoPedido = 0;
@@ -1423,7 +1515,8 @@ namespace SyncTPV
                                             }
                                             if (MovimientosModel.updateCapturedUnits(movesList[i].id, originalStock))
                                             {
-                                                MovimientosModel.validateWhetherToApplyPromotionToAMovement(movesList[i].id, movesList[i].capturedUnits, itemModel);
+                                                
+                                                MovimientosModel.validateWhetherToApplyPromotionToAMovement(movesList[i].id, movesList[i].capturedUnits, itemModel, Math.Abs(movesList[i].rateDiscountPromo - movesList[i].descuentoPorcentaje));
                                                 /*double newTotal = getTheRecalculatedTotal(context, movesList.get(i).getId(), originalStock);
                                                 MovimientosDocumentoModel.changeTheTotalOfAMove(context, movesList.get(i).getArticulo_id(),
                                                         movesList.get(i).getPosicion(), newTotal);*/
@@ -1498,7 +1591,7 @@ namespace SyncTPV
                                         if (MovimientosModel.updateCapturedUnits(movesList[i].id, stock))
                                         {
                                             MovimientosModel.validateWhetherToApplyPromotionToAMovement(movesList[i].id, movesList[i].capturedUnits,
-                                                itemModel);
+                                                itemModel, Math.Abs(movesList[i].rateDiscountPromo - movesList[i].descuentoPorcentaje));
                                             /*double newTotal = getTheRecalculatedTotal(context, movesList.get(i).getId(), stock);
                                             MovimientosDocumentoModel.changeTheTotalOfAMove(context, movesList.get(i).getArticulo_id(),
                                                     movesList.get(i).getPosicion(), newTotal);*/
@@ -1771,7 +1864,7 @@ namespace SyncTPV
                     using (SQLiteCommand command = new SQLiteCommand(query, db))
                     {
                         command.Parameters.AddWithValue("@descuento", descuento);
-                        command.Parameters.AddWithValue("@total", descuento);
+                        command.Parameters.AddWithValue("@total", total);
                         command.Parameters.AddWithValue("@dev", dev);
                         command.Parameters.AddWithValue("@fechaHora", MetodosGenerales.getCurrentDateAndHour());
                         command.Parameters.AddWithValue("@idDocument", documentoId);

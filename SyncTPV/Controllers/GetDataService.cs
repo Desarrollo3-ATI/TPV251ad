@@ -73,6 +73,7 @@ namespace SyncTPV.Controllers
             return response;
         }
 
+
         public async Task<ExpandoObject> downloadAllWithdrawalsLAN(int userId, String startDate, String endDate, int lastId, int limit)
         {
             dynamic response = new ExpandoObject();
@@ -202,7 +203,7 @@ namespace SyncTPV.Controllers
                 url = url.Replace(" ", "%20");
                 var client = new RestClient(url);
                 // client.Authenticator = new HttpBasicAuthenticator(username, password);
-                var request = new RestRequest("/obtainDocumentsWithTheirPaymentFormsByDateOrUser", Method.Post);
+                var request = new RestRequest("/obtainDocumentsWithTheirPaymentFormsByDateOrUserTPV", Method.Post);
                 request.AddJsonBody(new
                 {
                     lastId = lastId,
@@ -265,7 +266,7 @@ namespace SyncTPV.Controllers
             try
             {
                 String panelInstance = InstanceSQLSEModel.getStringPanelInstance();
-                List<DocumentoModel> obtainedDocs = ClsDocumentoModel.getDocumentsWithTheirPaymentFormsByDateAndUser(panelInstance,
+                List<DocumentoModel> obtainedDocs = ClsDocumentoModel.getDocumentsWithTheirPaymentFormsByDateAndUserTPV(panelInstance,
                         lastId, userId, startDate, endDate, limit);
                 if (obtainedDocs != null && obtainedDocs.Count > 0)
                 {

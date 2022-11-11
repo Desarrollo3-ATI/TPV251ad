@@ -476,7 +476,6 @@ namespace SyncTPV.Controllers.Downloads
                     if (users.value >= 1)
                     {
                         await ClsDatosDistribuidorController.downloadAllDatosDistribuidorLAN();
-                        await decreaseExistenceInCaseOfHavingUnsentDocumentsOfSaleType(serverModeLAN, codigoCaja);
                         if (fd != null)
                             await fd.updateUIAftherDownload(1, true, "La actualización de usuarios, distribuidor y otros procesos a finalizado", positionTable);
                     } else
@@ -490,7 +489,6 @@ namespace SyncTPV.Controllers.Downloads
                     if (usersResponse.value >= 1)
                     {
                         await ClsDatosDistribuidorController.downloadAllDatosDistribuidor();
-                        await decreaseExistenceInCaseOfHavingUnsentDocumentsOfSaleType(serverModeLAN, codigoCaja);
                         if (fd != null)
                             await fd.updateUIAftherDownload(1, true, "La actualización de usuarios, distribuidor y otros procesos a finalizado", positionTable);
                     } else

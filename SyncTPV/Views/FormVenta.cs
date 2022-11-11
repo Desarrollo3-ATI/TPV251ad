@@ -84,6 +84,9 @@ namespace SyncTPV
 
         private async void FrmVentaNew_Load(object sender, EventArgs e)
         {
+            textporcentajepromocion.Text = "0";
+            textporcentajepromocion.Visible = false;
+            textPromocionesMovimiento.Visible = false;
             await loadInitialData();
             await validateIfWebIsActive();
             validateInitialData();
@@ -165,7 +168,7 @@ namespace SyncTPV
                 if (customerModel != null)
                 {
                     editNombreCliente.Text = customerModel.NOMBRE;
-                    editDiscountItemVenta.Text = customerModel.descuentoMovimiento+"";
+                    editDiscountItemVenta.Text = customerModel.descuentoMovimiento + "";
                     comboCodigoItemVenta.Focus();
                     downloadImageCustomer(idCustomer);
                 }
@@ -351,11 +354,11 @@ namespace SyncTPV
                     btnPausarDocumentoFrmVenta.Visible = false;
                     btnSurtirPedidos.Visible = true;
                 }
-                dataGridMovements.RowTemplate.DefaultCellStyle.Padding = new Padding(10,15,10,15);
+                dataGridMovements.RowTemplate.DefaultCellStyle.Padding = new Padding(10, 15, 10, 15);
                 dataGridMovements.RowTemplate.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 editCapturedUnits.ReadOnly = true;
             }
-            else 
+            else
             {
                 editCapturedUnits.ReadOnly = false;
                 btnRecuperar.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.recuperardocumento_white, 35, 35);
@@ -448,8 +451,8 @@ namespace SyncTPV
                         dataGridMovements.Rows[n].Cells[7].Value = movesListTemp[i].monto.ToString("C", CultureInfo.CurrentCulture);
                         this.dataGridMovements.Columns["Subtotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                         this.dataGridMovements.Columns["Subtotal"].Width = 80;
-                        dataGridMovements.Rows[n].Cells[8].Value = movesListTemp[i].descuentoPorcentaje + "% = "+
-                            movesListTemp[i].descuentoImporte.ToString("C", CultureInfo.CurrentCulture)+" MXN";
+                        dataGridMovements.Rows[n].Cells[8].Value = movesListTemp[i].descuentoPorcentaje + "% = " +
+                            movesListTemp[i].descuentoImporte.ToString("C", CultureInfo.CurrentCulture) + " MXN";
                         this.dataGridMovements.Columns["Descuento"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                         dataGridMovements.Rows[n].Cells[9].Value = movesListTemp[i].total.ToString("C", CultureInfo.CurrentCulture) + " MXN";
                         style.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -483,7 +486,7 @@ namespace SyncTPV
                             dataGridMovements.Columns["piezasMovements"].Visible = true;
                         } else
                         {
-                            dataGridMovements.Rows[n].Cells[5].Value = "" + movesListTemp[i].nonConvertibleUnits+" Unidades";
+                            dataGridMovements.Rows[n].Cells[5].Value = "" + movesListTemp[i].nonConvertibleUnits + " Unidades";
                             dataGridMovements.Columns["piezasMovements"].Visible = true;
                         }
                         dataGridMovements.Rows[n].Cells[6].Value = movesListTemp[i].price.ToString("C", CultureInfo.CurrentCulture) + " MXN";
@@ -498,8 +501,8 @@ namespace SyncTPV
                             dataGridMovements.Rows[n].Cells[7].Value = movesListTemp[i].monto.ToString("C", CultureInfo.CurrentCulture);
                             dataGridMovements.Columns["Subtotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                         }
-                        dataGridMovements.Rows[n].Cells[8].Value = movesListTemp[i].descuentoPorcentaje+"% = "+
-                            movesListTemp[i].descuentoImporte.ToString("C", CultureInfo.CurrentCulture) +" MXN";
+                        dataGridMovements.Rows[n].Cells[8].Value = movesListTemp[i].descuentoPorcentaje + "% = " +
+                            movesListTemp[i].descuentoImporte.ToString("C", CultureInfo.CurrentCulture) + " MXN";
                         this.dataGridMovements.Columns["Descuento"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                         dataGridMovements.Rows[n].Cells[9].Value = movesListTemp[i].total.ToString("C", CultureInfo.CurrentCulture) + " MXN";
                         style.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -544,7 +547,7 @@ namespace SyncTPV
                     imgSinDatosFrmVenta.Visible = false;
                     if (idDocument != 0)
                         btnCerrar.Text = "Cencelar";
-                    else btnCerrar.Text = "Cerrar";                     
+                    else btnCerrar.Text = "Cerrar";
                 }
                 else btnCerrar.Text = "Cerrar";
             }
@@ -775,6 +778,10 @@ namespace SyncTPV
                 dataGridMovements.Rows[n].Cells[7].Value = movimiento.monto.ToString("C", CultureInfo.CurrentCulture);
                 this.dataGridMovements.Columns["Subtotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 this.dataGridMovements.Columns["Subtotal"].Width = 80;
+                if(movimiento.descuentoPorcentaje >= movimiento.rateDiscountPromo)
+                {
+                    movimiento.descuentoPorcentaje = movimiento.descuentoPorcentaje - movimiento.discount;
+                }
                 dataGridMovements.Rows[n].Cells[8].Value = movimiento.descuentoPorcentaje + "% = " +
                     movimiento.descuentoImporte.ToString("C", CultureInfo.CurrentCulture) + " MXN";
                 this.dataGridMovements.Columns["Descuento"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -848,7 +855,7 @@ namespace SyncTPV
         {
             totalMovements = await getTotalNumberOfMovements();
             totalArticulos = await getTotalNumberOfItems();
-            textTotalMovements.Text = "Movimientos: " + totalMovements.ToString().Trim()+" - Artículos: "+totalArticulos.ToString().Trim();
+            textTotalMovements.Text = "Movimientos: " + totalMovements.ToString().Trim() + " - Artículos: " + totalArticulos.ToString().Trim();
         }
 
         private void showScrollBars()
@@ -1088,6 +1095,9 @@ namespace SyncTPV
 
         private async void DataGridArticulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            textporcentajepromocion.Text = "0";
+            textporcentajepromocion.Visible = false;
+            textPromocionesMovimiento.Visible = false;
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.ColumnIndex <= 9) {
                 editMove = true;
                 if (movesList.Count > 0)
@@ -1105,7 +1115,7 @@ namespace SyncTPV
                     FormMessage formMessage = new FormMessage("Movmieno No Encontrado", "La lista de movimientos está vacia pausar o eliminar el documento", 3);
                     formMessage.ShowDialog();
                 }
-            } else if (e.RowIndex >= 0  && e.ColumnIndex == 10) {
+            } else if (e.RowIndex >= 0 && e.ColumnIndex == 10) {
                 formWaiting = new FormWaiting(this, 1, e.RowIndex);
                 formWaiting.ShowDialog();
             }
@@ -1121,8 +1131,8 @@ namespace SyncTPV
             {
                 if (item != null)
                 {
-                    String query = "SELECT * FROM " + LocalDatabase.TABLA_MOVIMIENTO + " WHERE " + 
-                        LocalDatabase.CAMPO_ARTICULOID_MOV + " = " + itemId + " AND " + 
+                    String query = "SELECT * FROM " + LocalDatabase.TABLA_MOVIMIENTO + " WHERE " +
+                        LocalDatabase.CAMPO_ARTICULOID_MOV + " = " + itemId + " AND " +
                         LocalDatabase.CAMPO_DOCUMENTOID_MOV + " = " + idDocument;
                     MovimientosModel mm = MovimientosModel.getAMovement(query);
                     if (mm != null)
@@ -1163,8 +1173,8 @@ namespace SyncTPV
                         item = response.item;
                     if (item != null)
                     {
-                        String query = "SELECT * FROM " + LocalDatabase.TABLA_MOVIMIENTO + " WHERE " + 
-                            LocalDatabase.CAMPO_ARTICULOID_MOV + " = " + item.id+" AND "+LocalDatabase.CAMPO_DOCUMENTOID_MOV+" = "+idDocument;
+                        String query = "SELECT * FROM " + LocalDatabase.TABLA_MOVIMIENTO + " WHERE " +
+                            LocalDatabase.CAMPO_ARTICULOID_MOV + " = " + item.id + " AND " + LocalDatabase.CAMPO_DOCUMENTOID_MOV + " = " + idDocument;
                         MovimientosModel mm = MovimientosModel.getAMovement(query);
                         if (mm != null)
                         {
@@ -1193,8 +1203,8 @@ namespace SyncTPV
                 {
                     if (item != null)
                     {
-                        String query = "SELECT * FROM " + LocalDatabase.TABLA_MOVIMIENTO + " WHERE " + 
-                            LocalDatabase.CAMPO_ARTICULOID_MOV + " = " + item.id+ " AND " + LocalDatabase.CAMPO_DOCUMENTOID_MOV + " = " + idDocument;
+                        String query = "SELECT * FROM " + LocalDatabase.TABLA_MOVIMIENTO + " WHERE " +
+                            LocalDatabase.CAMPO_ARTICULOID_MOV + " = " + item.id + " AND " + LocalDatabase.CAMPO_DOCUMENTOID_MOV + " = " + idDocument;
                         MovimientosModel mm = MovimientosModel.getAMovement(query);
                         if (mm != null)
                         {
@@ -1257,6 +1267,8 @@ namespace SyncTPV
 
         private async Task fillAllFieldsFromAMovement(MovimientosModel mm)
         {
+            textporcentajepromocion.Visible = true;
+            textPromocionesMovimiento.Visible = true;
             if (procesoLlenadoInfoMovimiento)
             {
                 procesoLlenadoInfoMovimiento = false;
@@ -1348,13 +1360,29 @@ namespace SyncTPV
                         }
                     }
                     downloadImageItem(idItem);
+                    double porcentajepromocion = MovimientosModel.getPorcentajePromotionMoviments(mm.id);
+                    if (porcentajepromocion > 0)
+                    {
+                        textporcentajepromocion.Visible = true;
+                        textporcentajepromocion.Text = porcentajepromocion + "%";
+                        textPromocionesMovimiento.Visible = true;
+                    }
+                    else
+                    {
+                        textporcentajepromocion.Visible = false;
+                        textporcentajepromocion.Text = "0";
+                        textPromocionesMovimiento.Visible = false;
+                    }
                     comboCodigoItemVenta.Text = mm.itemCode;
                     editNombreItemVenta.Text = itemModel.nombre;
                     await loadInitialData(0, mm, false);
                     editCapturedUnits.Text = mm.capturedUnits.ToString();
-                    editDiscountItemVenta.Text = mm.descuentoPorcentaje.ToString();
+                    double realdescuento = mm.descuentoPorcentaje;
+
+                    editDiscountItemVenta.Text = (realdescuento).ToString();
                     editPriceItemVenta.Text = mm.price.ToString("C", CultureInfo.CurrentCulture);
                     panelObservationMovement.Visible = true;
+
                     if (mm.nonConvertibleUnits != 0)
                     {
                         String unidadNoConvertibleName = "";
@@ -1432,9 +1460,10 @@ namespace SyncTPV
                     msj.ShowDialog();
                 }
                 procesoLlenadoInfoMovimiento = true;
+
             }
         }
-
+        //D3sde4Pps$22_E
         private async Task downloadImageItem(int idItem)
         {
             if (idItem != 0)
@@ -1726,7 +1755,7 @@ namespace SyncTPV
                 {
                     await getCapturedUnitIdFromAnItemWithBarCodeProcess(item);
                     finalRealPrice = await getPriceOfAnItemForCurrentCustomer(item, capturedUnitId, true, barCode);
-                    editPriceItemVenta.Text = finalRealPrice+"";
+                    editPriceItemVenta.Text = finalRealPrice + "";
                 } else
                 {
                     downloadImageItem(item.id);
@@ -1962,7 +1991,7 @@ namespace SyncTPV
                     {
                         if (selectPricesPermission)
                         {
-                            List<ClsPreciosEmpresaModel> pricesList = await ItemsController.getPricesOfAnItem(itemModel, capturedUnitId, 
+                            List<ClsPreciosEmpresaModel> pricesList = await ItemsController.getPricesOfAnItem(itemModel, capturedUnitId,
                                 customerModel.PRECIO_EMPRESA_ID, serverModeLAN, codigoCaja);
                             if (pricesList != null)
                             {
@@ -2009,7 +2038,7 @@ namespace SyncTPV
                     {
                         if (selectPricesPermission)
                         {
-                            List<ClsPreciosEmpresaModel> pricesList = await ItemsController.getPricesOfAnItem(itemModel, capturedUnitId, 
+                            List<ClsPreciosEmpresaModel> pricesList = await ItemsController.getPricesOfAnItem(itemModel, capturedUnitId,
                                 customerModel.PRECIO_EMPRESA_ID, serverModeLAN, codigoCaja);
                             if (pricesList != null)
                             {
@@ -2057,7 +2086,7 @@ namespace SyncTPV
                 {
                     if (serverModeLAN)
                     {
-                        dynamic responsePrice = await ItemsController.getAmountForAPriceLAN(itemModel.id, 
+                        dynamic responsePrice = await ItemsController.getAmountForAPriceLAN(itemModel.id,
                             customerModel.PRECIO_EMPRESA_ID, itemModel.imp1, itemModel.imp2, itemModel.imp3,
                             itemModel.imp1Excento, itemModel.imp2CuotaFija, itemModel.imp3CuotaFija, itemModel.cantidadFiscal,
                             itemModel.reten1, itemModel.reten2, codigoCaja);
@@ -2195,7 +2224,7 @@ namespace SyncTPV
                 }
                 //validar la lista de precios
                 int listaActual = 0;
-                if(customerModel != null)
+                if (customerModel != null)
                 {
                     var db = new SQLiteConnection();
                     try
@@ -2234,7 +2263,7 @@ namespace SyncTPV
                             db.Close();
                     }
                 }
-                
+
                 if (1 > pricesList.Count)
                 {
                     FormMessage formMessage = new FormMessage("Lista de precio no encontrada", "El agente no tiene permitido la acción de la lista de precios", 3);
@@ -2242,7 +2271,7 @@ namespace SyncTPV
                 }
                 else
                 {
-                    comboPreciosItemVenta.SelectedIndex = listaActual-1;
+                    comboPreciosItemVenta.SelectedIndex = listaActual - 1;
                 }
             }
         }
@@ -2282,7 +2311,7 @@ namespace SyncTPV
             }
         }
 
-        public async Task addOrEditMovementLocal(double capturedUnits, double finalPrice, String discountText, 
+        public async Task addOrEditMovementLocal(double capturedUnits, double finalPrice, String discountText,
             String observation, double nonConvertibleUnits)
         {
             if (editMove)
@@ -2308,6 +2337,7 @@ namespace SyncTPV
                         capturedUnitId = umwList[comboBoxUnitMWITemVenta.SelectedIndex].idServer;
                     dynamic respuesta = await asuc.doInBackgroundLocal(itemModel, 1, actualizar, nonConvertibleUnits, finalPrice, serverModeLAN,
                         permissionPrepedido, discountText, observation, capturedUnitId);
+                    
                     if (respuesta.call == 0)
                     {
                         if (respuesta.value == 1)
@@ -2433,6 +2463,7 @@ namespace SyncTPV
                     btnPausarDocumentoFrmVenta.Visible = true;
                     btnRecuperar.Visible = false;
                     editMove = false;
+
                 }
             }
             else
@@ -2473,10 +2504,10 @@ namespace SyncTPV
                                         }
                                  */
                                 int movimientosFiscalesDiferente = 0;
-                                if(idDocument > 0)
+                                if (idDocument > 0)
                                 {
                                     movimientosFiscalesDiferente = MovimientosModel.getTotalNumberOfMovimientosFiscalesDiferentesAlQueIntentamosAgregar(
-                                    idDocument, addFiscalOrNotMovementCurrent, fieldName,serverModeLAN);
+                                    idDocument, addFiscalOrNotMovementCurrent, fieldName, serverModeLAN);
                                 }
                                 if (movimientosFiscalesDiferente > 0)
                                     addItem = false;
@@ -2502,6 +2533,14 @@ namespace SyncTPV
                                         itemModel, discountText, itemModel.descuentoMaximo, documentType, observation,
                                     nonConvertibleUnits, serverModeLAN);
                                     dynamic response = await amc.doInBackgroundLocal(capturedUnitId, serverModeLAN, permissionPrepedido, webActive);
+                                    try
+                                    {
+                                        discountText = discountText + MovimientosModel.getPorcentajePromotionMoviments(itemModel.id);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        SECUDOC.writeLog(e.ToString());
+                                    }
                                     if (response.valor == 1)
                                     {
                                         value = 1;
@@ -2558,6 +2597,7 @@ namespace SyncTPV
                                 itemModel.descuentoMaximo, documentType, observation,
                                 nonConvertibleUnits, serverModeLAN);
                                 dynamic response = await amc.doInBackgroundLocal(capturedUnitId, serverModeLAN, permissionPrepedido, webActive);
+                                
                                 if (response.valor == 1)
                                 {
                                     value = 1;
@@ -2625,7 +2665,7 @@ namespace SyncTPV
                 });
                 Cursor.Current = Cursors.Default;
                 editMove = false;
-                if (value == 1) { 
+                if (value == 1) {
                     if (permissionPrepedido)
                     {
                         if (showWarningStock == 1)
@@ -2707,6 +2747,14 @@ namespace SyncTPV
                             capturedUnitId = umwList[comboBoxUnitMWITemVenta.SelectedIndex].idServer;
                         dynamic respuesta = await asuc.doInBackgroundLocal(itemModel, 1, actualizar, nonConvertibleUnits, finalPrice,
                             serverModeLAN, permissionPrepedido, discountText, observation, capturedUnitId);
+                        try
+                        {
+                            discountText = discountText + respuesta.porcentajepromocion;
+                        }
+                        catch (Exception e)
+                        {
+                            SECUDOC.writeLog(e.ToString());
+                        }
                         if (respuesta.call == 0)
                         {
                             if (respuesta.value == 1)
@@ -2784,6 +2832,14 @@ namespace SyncTPV
                             capturedUnitId = umwList[comboBoxUnitMWITemVenta.SelectedIndex].idServer;
                         dynamic respuesta = await asuc.doInBackgroundLocal(itemModel, 1, actualizar, nonConvertibleUnits, finalPrice,
                             serverModeLAN, permissionPrepedido, discountText, observation, capturedUnitId);
+                        try
+                        {
+                            discountText = discountText + MovimientosModel.getPorcentajePromotionMoviments(itemModel.id);
+                        }
+                        catch (Exception e)
+                        {
+                            SECUDOC.writeLog(e.ToString());
+                        }
                         if (respuesta.call == 0)
                         {
                             if (respuesta.value == 1)
@@ -2962,9 +3018,9 @@ namespace SyncTPV
                         "INNER JOIN PedidoEncabezado P ON D.CIDDOCTOPEDIDOCC = P.CIDDOCTOPEDIDOCC " +
                         "INNER JOIN Movimientos M ON D.id = M.DOCTO_ID_PEDIDO " +
                         "INNER JOIN Weight W ON M.id = W.movementId " +
-                        "WHERE D."+LocalDatabase.CAMPO_ID_DOC+" = "+idDocument+" AND D.pausa = 1 AND P.type = "+
-                        PedidosEncabezadoModel.TYPE_PREPEDIDOS+" AND P.surtido = 1 AND P.listo = 1 AND "+
-                        "W."+LocalDatabase.CAMPO_PESOCAJA_PESO+" = "+0+" AND W."+LocalDatabase.CAMPO_PESONETO_PESO+" != 0";
+                        "WHERE D." + LocalDatabase.CAMPO_ID_DOC + " = " + idDocument + " AND D.pausa = 1 AND P.type = " +
+                        PedidosEncabezadoModel.TYPE_PREPEDIDOS + " AND P.surtido = 1 AND P.listo = 1 AND " +
+                        "W." + LocalDatabase.CAMPO_PESOCAJA_PESO + " = " + 0 + " AND W." + LocalDatabase.CAMPO_PESONETO_PESO + " != 0";
                     int documentoPendienteDeDescatarar = DocumentModel.getIntValue(query);
                     if (documentoPendienteDeDescatarar > 0)
                     {
@@ -3160,7 +3216,7 @@ namespace SyncTPV
                                 int idPanel = CustomerADCModel.getNewClientIdPanel(Math.Abs(idCustomer));
                                 String customerCode = ClsClienteModel.getCodeForAditionalCustomer(panelInstance, idPanel);
                                 int idClienteSubido = ClsCustomersModel.getIdByCode(comInstance, customerCode);
-                                    customerModel = new ClsClienteModel();
+                                customerModel = new ClsClienteModel();
                                 customerModel.CLIENTE_ID = idClienteSubido;
                                 await getAndFillCustomerInformation(customerModel.CLIENTE_ID);
                                 customerModel.NOMBRE = customerSended.nombre;
@@ -3305,7 +3361,7 @@ namespace SyncTPV
                                 formMessage.ShowDialog();
                             }
                         }
-                    }                 
+                    }
                 }
             }
         }
@@ -3430,7 +3486,7 @@ namespace SyncTPV
             if (Char.IsDigit(e.KeyChar) || e.KeyChar == signo_decimal)
             {
                 e.Handled = false;
-            }else if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso
+            } else if (Char.IsControl(e.KeyChar)) //permitir teclas de control como retroceso
             {
                 e.Handled = false;
             } else
@@ -3465,7 +3521,7 @@ namespace SyncTPV
                 //el resto de teclas pulsadas se desactivan
                 e.Handled = true;
             }
-            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 double capturedUnits = 1;
                 double value = 0;
@@ -3667,7 +3723,7 @@ namespace SyncTPV
                             else
                             {
                                 processToDeleteDocumentDirectly();
-                            }                            
+                            }
                         }
                     }
                 }
@@ -3953,7 +4009,7 @@ namespace SyncTPV
                     if (permissionPrepedido) {
                         activarODesactivarElementosAlSurtirPrepedidos(false);
                         btnBuscarClientesNew.Enabled = false;
-                        String query = "SELECT * FROM " + LocalDatabase.TABLA_MOVIMIENTO + " WHERE " + 
+                        String query = "SELECT * FROM " + LocalDatabase.TABLA_MOVIMIENTO + " WHERE " +
                             LocalDatabase.CAMPO_DOCUMENTOID_MOV + " = " + idDocument;
                         MovimientosModel mm = MovimientosModel.getAMovement(query);
                         procesoLlenadoInfoMovimiento = true;
@@ -4188,8 +4244,8 @@ namespace SyncTPV
                             {
                                 errorcambio = false;
                             }
-                            
-                            
+
+
                             if (errorcambio)
                             {
                                 FormMessage msj = new FormMessage("Cambio de concepto invalido", "No puedes tener movimientos fiscales y no fiscales en el mismo documento.\r\nBorra los productos inconsistentes o elimina el documento.", 2);
@@ -4360,6 +4416,8 @@ namespace SyncTPV
             {
                 await logicToAddItemLocal(capturedUnits);
             }
+            textporcentajepromocion.Visible = false;
+            textPromocionesMovimiento.Visible = false;
         }
 
         public async Task logicToAddItemLocal(double capturedUnits)
@@ -4439,6 +4497,7 @@ namespace SyncTPV
                 comboCodigoItemVenta.DroppedDown = false;
                 comboCodigoItemVenta.Focus();
                 editCapturedUnits.Text = Convert.ToString(1);
+
             }
             else
             {
@@ -4504,8 +4563,23 @@ namespace SyncTPV
             textExistenciaReal.Visible = false;
         }
 
+        public List<MovimientosModel> listaarecalcular()
+        {
+            List<MovimientosModel> movimientosModels = new List<MovimientosModel>();
+            try
+            {
+                movimientosModels = MovimientosModel.getAllMovements("");//aqui
+            }
+            catch(Exception e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            return movimientosModels;
+        }
+
         public void actualizarSubDescYTotalVenta(int idDocumento)
         {
+            //List<MovimientosModel> listaarecalcular = listaarecalcular();
             String folioDoc = DocumentModel.getFolioVentaForADocument(idDocumento);
             if (folioDoc.Trim().Equals(""))
                 textFolioFrmVenta.Text = "Documento No Creado";

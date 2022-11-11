@@ -1531,6 +1531,7 @@ namespace SyncTPV
             }
             formWaiting = new FormWaiting(this, 2, "Validando apertura de turno...");
             formWaiting.ShowDialog();
+            validarUltimaApertura();
         }
 
         public async Task aperturaDeCajaProcess()
@@ -1771,7 +1772,7 @@ namespace SyncTPV
         {
             if (atm != null)
             {
-                toolTip1.SetToolTip(editBoxUltimaApertura, "Agente:"+atm.userId.ToString() + " $" + atm.importe.ToString());
+                toolTip1.SetToolTip(editBoxUltimaApertura, "Agente:"+atm.userId.ToString() + " inicio con $" + atm.importe.ToString()+" en caja");
             }
             else
             {

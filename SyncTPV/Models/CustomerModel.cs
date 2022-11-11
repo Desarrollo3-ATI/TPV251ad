@@ -3,8 +3,10 @@ using SyncTPV.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SQLite;
+using System.Dynamic;
 using System.Globalization;
 using wsROMClases.Models.Panel;
 
@@ -397,7 +399,7 @@ namespace SyncTPV
             }
             finally
             {
-                
+
             }
             return idInserted;
         }
@@ -412,7 +414,7 @@ namespace SyncTPV
             {
                 db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
                 db.Open();
-                String query = "SELECT * from "+LocalDatabase.TABLA_CLIENTEADC;
+                String query = "SELECT * from " + LocalDatabase.TABLA_CLIENTEADC;
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     using (SQLiteDataReader reader = command.ExecuteReader())
@@ -421,9 +423,9 @@ namespace SyncTPV
                         {
                             while (reader.Read())
                             {
-                                int auxADC = Convert.ToInt32("-"+reader["id"].ToString().Trim());
+                                int auxADC = Convert.ToInt32("-" + reader["id"].ToString().Trim());
                                 ClsClienteModel auxclient = getAllDataFromACustomer(auxADC);
-                                if(auxclient == null)
+                                if (auxclient == null)
                                 {
                                     CustomerADCModel ADC = new CustomerADCModel();
                                     ADC.id = Convert.ToInt32(reader["id"].ToString().Trim());
@@ -457,11 +459,11 @@ namespace SyncTPV
             try
             {
 
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 SECUDOC.writeLog(e.ToString());
             }
-            for (int i=0; i< clientesADCs.Count; i++)
+            for (int i = 0; i < clientesADCs.Count; i++)
             {
                 try
                 {
@@ -473,7 +475,7 @@ namespace SyncTPV
                         Error = Convert.ToInt32(idClienteNegativo);
                     }
                 }
-                catch(Exception e)
+                catch (Exception e)
                 {
                     Error = 1;
                     SECUDOC.writeLog(e.ToString());
@@ -482,10 +484,10 @@ namespace SyncTPV
             return Error;
         }
 
-        public static int createNewCustomer(int idCliente, String nombre, String codigo, double limiteCredito, String condicionesDePago, 
+        public static int createNewCustomer(int idCliente, String nombre, String codigo, double limiteCredito, String condicionesDePago,
             String listaDePrecio, String direccion, String telefono, int precioEmpresaId, int zonaDeClienteId, String aval, String referencia,
-            String formaDeCobro, int formaDeCobroId, String historialCredito, String claveQR, int clienteVisitado, int clienteNoVisitado, 
-            int papelera, String photo, String rfc, String curp, String denominacionComercial, int tipoContribuyente,String usoCFDI, String RegimenFiscal)
+            String formaDeCobro, int formaDeCobroId, String historialCredito, String claveQR, int clienteVisitado, int clienteNoVisitado,
+            int papelera, String photo, String rfc, String curp, String denominacionComercial, int tipoContribuyente, String usoCFDI, String RegimenFiscal)
         {
             int count = 0;
             var db = new SQLiteConnection();
@@ -581,7 +583,7 @@ namespace SyncTPV
         public static int updateNewCustomer(int idCliente, String nombre, String codigo, double limiteCredito, String condicionesDePago,
             String listaDePrecio, String direccion, String telefono, int precioEmpresaId, int zonaDeClienteId, String aval, String referencia,
             String formaDeCobro, int formaDeCobroId, String historialCredito, String claveQR, int clienteVisitado, int clienteNoVisitado,
-            int papelera, String photo, String rfc, String curp, String denominacionComercial, int tipoContribuyente, 
+            int papelera, String photo, String rfc, String curp, String denominacionComercial, int tipoContribuyente,
             String regimenFiscal, String usoCFDI)
         {
             int count = 0;
@@ -590,22 +592,22 @@ namespace SyncTPV
             {
                 db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
                 db.Open();
-                String query = "UPDATE " + LocalDatabase.TABLA_CLIENTES + " SET "+LocalDatabase.CAMPO_NOMBRECLIENTE+" = @name, "+
-                    LocalDatabase.CAMPO_CLAVECLIENTE+" = @code, "+LocalDatabase.CAMPO_LIMITECREDITO_CLIENTE+" = @creditLimit, "+
-                    LocalDatabase.CAMPO_CONDICIONPAGO+" = @condicionDePago, "+LocalDatabase.CAMPO_LISTAPRECIO+ " = @listaPrecio, "+
-                    LocalDatabase.CAMPO_DIRECCION+" = @direccion, "+LocalDatabase.CAMPO_TELEFONO_CLIENTE+" = @telefono, "+
-                    LocalDatabase.CAMPO_PRECIOEMPRESA_ID_CLIENTE+" = @precioEmpresaId, "+LocalDatabase.CAMPO_ZONACLIENTE_ID+" = @zonaClienteId, "+
-                    LocalDatabase.CAMPO_AVAL+" = @aval, "+LocalDatabase.CAMPO_REFERENCIA+" = @referencia, "+
-                    LocalDatabase.CAMPO_FORMA_COBRO+" = @formaCobro, "+LocalDatabase.CAMPO_FORMA_COBRO_CC+" = @formaCobroCcId, "+
-                    LocalDatabase.CAMPO_HISTORIA_CREDITO+" = @historialCredito, "+LocalDatabase.CAMPO_CLAVEQR+" = @claveQr, "+
-                    LocalDatabase.CAMPO_CLIVISITADO + " = @clienteVisitado, "+LocalDatabase.CAMPO_CLINOVISITADO_CLIENTE+" = @clienteNoVisitado, "+
-                    LocalDatabase.CAMPO_PAPELERARECICLAJE_CLIENTE+" = @papeleraReciclaje, "+LocalDatabase.CAMPO_PHOTONAME_CLIENTE+" = @photo, "+
-                    LocalDatabase.CAMPO_RFC_CLIENTE+" = @rfc, "+LocalDatabase.CAMPO_CURP_CLIENTE+" = @curp, "+
-                    LocalDatabase.CAMPO_DENOMINACIONCOMCERCIAL_CLIENTE+" = @denominacionComercial, " +
+                String query = "UPDATE " + LocalDatabase.TABLA_CLIENTES + " SET " + LocalDatabase.CAMPO_NOMBRECLIENTE + " = @name, " +
+                    LocalDatabase.CAMPO_CLAVECLIENTE + " = @code, " + LocalDatabase.CAMPO_LIMITECREDITO_CLIENTE + " = @creditLimit, " +
+                    LocalDatabase.CAMPO_CONDICIONPAGO + " = @condicionDePago, " + LocalDatabase.CAMPO_LISTAPRECIO + " = @listaPrecio, " +
+                    LocalDatabase.CAMPO_DIRECCION + " = @direccion, " + LocalDatabase.CAMPO_TELEFONO_CLIENTE + " = @telefono, " +
+                    LocalDatabase.CAMPO_PRECIOEMPRESA_ID_CLIENTE + " = @precioEmpresaId, " + LocalDatabase.CAMPO_ZONACLIENTE_ID + " = @zonaClienteId, " +
+                    LocalDatabase.CAMPO_AVAL + " = @aval, " + LocalDatabase.CAMPO_REFERENCIA + " = @referencia, " +
+                    LocalDatabase.CAMPO_FORMA_COBRO + " = @formaCobro, " + LocalDatabase.CAMPO_FORMA_COBRO_CC + " = @formaCobroCcId, " +
+                    LocalDatabase.CAMPO_HISTORIA_CREDITO + " = @historialCredito, " + LocalDatabase.CAMPO_CLAVEQR + " = @claveQr, " +
+                    LocalDatabase.CAMPO_CLIVISITADO + " = @clienteVisitado, " + LocalDatabase.CAMPO_CLINOVISITADO_CLIENTE + " = @clienteNoVisitado, " +
+                    LocalDatabase.CAMPO_PAPELERARECICLAJE_CLIENTE + " = @papeleraReciclaje, " + LocalDatabase.CAMPO_PHOTONAME_CLIENTE + " = @photo, " +
+                    LocalDatabase.CAMPO_RFC_CLIENTE + " = @rfc, " + LocalDatabase.CAMPO_CURP_CLIENTE + " = @curp, " +
+                    LocalDatabase.CAMPO_DENOMINACIONCOMCERCIAL_CLIENTE + " = @denominacionComercial, " +
                     LocalDatabase.CAMPO_TIPOCONTRIBUYENTE_CLIENTE + " = @tipoContribuyente, " +
                     LocalDatabase.CAMPO_CODIGOREGIMENFISCAL_CLIENTE + " = @regimenFiscal, " +
                     LocalDatabase.CAMPO_CODIGOUSOCFDI_CLIENTE + " = @usoCFDI " +
-                    " WHERE " +LocalDatabase.CAMPO_ID_CLIENTE+ " = @id";
+                    " WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " = @id";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     command.Parameters.AddWithValue("@id", idCliente);
@@ -688,7 +690,7 @@ namespace SyncTPV
                                 "cuentaMensajeria = @cuentaMensajeria, almacenId = @almacenId, agenteVentaId = @agenteVentaId, " +
                                 "agenteCobroId = @agenteCobroId, restriccionAgente = @restriccionAgente, imp1 = @imp1, " +
                                 "imp2 = @imp2, imp3 = @imp3, reten1 = @reten1, reten2 = @reten2, " +
-                                LocalDatabase.CAMPO_TIPOCONTRIBUYENTE_CLIENTE+" = @tipoContribuyente, "+
+                                LocalDatabase.CAMPO_TIPOCONTRIBUYENTE_CLIENTE + " = @tipoContribuyente, " +
                                 LocalDatabase.CAMPO_CODIGOREGIMENFISCAL_CLIENTE + " = @regimenFiscal, " +
                                 LocalDatabase.CAMPO_CODIGOUSOCFDI_CLIENTE + " = @usoCFDI " +
                                 "WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " = " + cliente.CLIENTE_ID;
@@ -886,7 +888,7 @@ namespace SyncTPV
                                 "cuentaMensajeria = @cuentaMensajeria, almacenId = @almacenId, agenteVentaId = @agenteVentaId, " +
                                 "agenteCobroId = @agenteCobroId, restriccionAgente = @restriccionAgente, imp1 = @imp1, " +
                                 "imp2 = @imp2, imp3 = @imp3, reten1 = @reten1, reten2 = @reten2, " +
-                                LocalDatabase.CAMPO_TIPOCONTRIBUYENTE_CLIENTE+" = @tipoContribuyente, "+
+                                LocalDatabase.CAMPO_TIPOCONTRIBUYENTE_CLIENTE + " = @tipoContribuyente, " +
                                 LocalDatabase.CAMPO_CODIGOREGIMENFISCAL_CLIENTE + " = @regimenFiscal, " +
                                 LocalDatabase.CAMPO_CODIGOUSOCFDI_CLIENTE + " = @usoCFDI " +
                                 "WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " = " + cliente.CLIENTE_ID;
@@ -1142,7 +1144,7 @@ namespace SyncTPV
                                 "cuentaMensajeria = @cuentaMensajeria, almacenId = @almacenId, agenteVentaId = @agenteVentaId, " +
                                 "agenteCobroId = @agenteCobroId, restriccionAgente = @restriccionAgente, imp1 = @imp1, " +
                                 "imp2 = @imp2, imp3 = @imp3, reten1 = @reten1, reten2 = @reten2, " +
-                                LocalDatabase.CAMPO_TIPOCONTRIBUYENTE_CLIENTE+" = @tipoContribuyente, "+
+                                LocalDatabase.CAMPO_TIPOCONTRIBUYENTE_CLIENTE + " = @tipoContribuyente, " +
                                 LocalDatabase.CAMPO_CODIGOREGIMENFISCAL_CLIENTE + " = @regimenFiscal, " +
                                 LocalDatabase.CAMPO_CODIGOUSOCFDI_CLIENTE + " = @usoCFDI " +
                                 "WHERE " + LocalDatabase.CAMPO_ID_CLIENTE + " = " + cliente.CLIENTE_ID;
@@ -1217,7 +1219,7 @@ namespace SyncTPV
             }
             finally
             {
-                
+
             }
             return count;
         }
@@ -1230,7 +1232,7 @@ namespace SyncTPV
             {
                 db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
                 db.Open();
-                String query = "UPDATE "+ LocalDatabase.TABLA_CLIENTES+" SET "+LocalDatabase.CAMPO_CLAVECLIENTE+" = @codigo WHERE "+
+                String query = "UPDATE " + LocalDatabase.TABLA_CLIENTES + " SET " + LocalDatabase.CAMPO_CLAVECLIENTE + " = @codigo WHERE " +
                     LocalDatabase.CAMPO_ID_CLIENTE + " = @idCliente";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
@@ -1474,7 +1476,54 @@ namespace SyncTPV
             return customersList;
         }
 
-        public static ClsClienteModel getAllDataFromACustomer(int idCustomer)
+        public static dynamic getAllDataFromACustomerCategorias(int idDocumento)
+        {
+            dynamic cliente = new ExpandoObject();
+            cliente.valor = 0;
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                String query = "select * from " + LocalDatabase.TABLA_CLIENTES + " "+
+                    "where "+ LocalDatabase.TABLA_CLIENTES + "."+LocalDatabase.CAMPO_CLIENTE_ID_CXC+" = @idDocumento";
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    command.Parameters.AddWithValue("@idDocumento", idDocumento);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                cliente.valor = 1;
+                                cliente.categoria1 = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIFICACIONID1_CLIENTE].ToString().Trim());
+                                cliente.categoria2 = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIFICACIONID2_CLIENTE].ToString().Trim());
+                                cliente.categoria3 = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIFICACIONID3_CLIENTE].ToString().Trim());
+                                cliente.categoria4 = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIFICACIONID4_CLIENTE].ToString().Trim());
+                                cliente.categoria5 = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIFICACIONID5_CLIENTE].ToString().Trim());
+                                cliente.categoria6 = Convert.ToInt32(reader[LocalDatabase.CAMPO_CLASIFICACIONID6_CLIENTE].ToString().Trim());
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException Ex)
+            {
+                SECUDOC.writeLog(Ex.ToString());
+                cliente.valor = 0;
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return cliente;
+        }
+
+            public static ClsClienteModel getAllDataFromACustomer(int idCustomer)
         {
             ClsClienteModel cliente = null;
             var db = new SQLiteConnection();

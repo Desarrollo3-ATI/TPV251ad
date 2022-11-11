@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Dynamic;
+using System.Windows.Documents;
 
 namespace SyncTPV.Models
 {
@@ -202,6 +203,141 @@ namespace SyncTPV.Models
                     db.Close();
             }
             return resp;
+        }
+        
+        public static bool recalculoFormasCobroDocumento(int documentoId)
+        {
+            bool recalculado = true;
+            double saldo = 0;
+            Boolean withoutFcDocuments = false;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            //traer doumento
+            List<dynamic> FormasCobroDoc = new List<dynamic>();
+            double totalAPagar = 0;
+            db.Open();
+            try
+            {
+                String query = "SELECT * FROM " +
+                        LocalDatabase.TABLA_FORMA_COBRO_DOCUMENTO + " WHERE " + LocalDatabase.CAMPO_DOCID_FORMACOBRODOC + " = " + documentoId;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            withoutFcDocuments = true;
+                            while (reader.Read())
+                            {
+                                dynamic forma = new ExpandoObject();
+                                forma.id = Convert.ToUInt32(reader[LocalDatabase.CAMPO_ID_FORMACOBRODOC].ToString().Trim());
+                                forma.idTipoPago = Convert.ToUInt32(reader[LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC].ToString().Trim());
+                                forma.importe = Convert.ToDouble(reader[LocalDatabase.CAMPO_IMPORTE_FORMACOBRODOC].ToString().Trim());
+                                forma.totalDoc = Convert.ToDouble(reader[LocalDatabase.CAMPO_TOTALDOC_FORMACOBRODOC].ToString().Trim());
+                                forma.pendienteDoc = Convert.ToDouble(reader[LocalDatabase.CAMPO_SALDODOC_FORMACOBRODOC].ToString().Trim());
+                                forma.cambio = Convert.ToDouble(reader[LocalDatabase.CAMPO_CAMBIO_FORMACOBRODOC].ToString().Trim());
+                                forma.idDoc = Convert.ToDouble(reader[LocalDatabase.CAMPO_DOCID_FORMACOBRODOC].ToString().Trim());
+                                forma.idDocServer = Convert.ToDouble(reader[LocalDatabase.CAMPO_IDSERVER_FORMACOBRODOC].ToString().Trim());
+                                FormasCobroDoc.Add(forma);
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+                
+            }
+            //traer formas de cobro
+            db.Open();
+            try
+            {
+                String query = "SELECT " + LocalDatabase.CAMPO_TOTAL_DOC + " FROM " +
+                        LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " = " + documentoId +
+                        " ORDER BY " + LocalDatabase.CAMPO_ID_DOC + " DESC LIMIT 1";
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            withoutFcDocuments = true;
+                            while (reader.Read())
+                            {
+                                totalAPagar = Convert.ToDouble(reader[LocalDatabase.CAMPO_TOTAL_DOC].ToString().Trim());
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+                
+            }
+            double porpagar = totalAPagar;
+            if(totalAPagar < 0)
+            {
+                recalculado = false;
+            }
+            else
+            {
+                bool correcto = false;
+                if(FormasCobroDoc != null)
+                {
+                    for(int x = 0; x< FormasCobroDoc.Count; x++)
+                    {
+                        porpagar = porpagar - FormasCobroDoc[x].importe;
+                        if(porpagar < 0 && (x+1)  == FormasCobroDoc.Count)
+                        {
+                            FormasCobroDoc[x].cambio = Math.Abs(porpagar);
+                            FormasCobroDoc[x].pendienteDoc = 0;
+                        }
+                        else
+                        {
+                            if(porpagar < 0)
+                            {
+                                
+                                FormasCobroDoc[x].cambio = Math.Abs(porpagar);
+                                FormasCobroDoc[x].pendienteDoc = 0;
+                                porpagar = 0;
+                            }
+                            else
+                            {
+                                FormasCobroDoc[x].cambio = 0;
+                                FormasCobroDoc[x].pendienteDoc = porpagar;
+                            }
+                        }
+                        FormasCobroDoc[x].totalDoc = totalAPagar;
+                    }
+                    //insert
+                    for (int x = 0; x < FormasCobroDoc.Count; x++)
+                    {
+                        correcto = FormasDeCobroDocumentoModel.updateRecalculoBD(
+                             (int) FormasCobroDoc[x].idTipoPago, (int) documentoId, (double) FormasCobroDoc[x].importe, (double) FormasCobroDoc[x].cambio, (double) FormasCobroDoc[x].pendienteDoc
+                            );
+                        if (correcto == false)
+                        {
+                            recalculado = false;
+                        }
+                    }
+                }
+            }
+            return recalculado;
         }
 
         public static double getSaldoPendienteOfTheLastFcDcoument(int documentoId)
@@ -499,8 +635,11 @@ namespace SyncTPV.Models
                     }
                     else
                     {
-                        if (deleteAFcDocument(idDocument, fcId))
+                        //aquimodificar
+                        if (updateRecalculoBD(idDocument, fcId,amount,0,0))
                         {
+                            recalculoFormasCobroDocumento(idDocument);
+                            /*
                             List<FormasDeCobroDocumentoModel> fcdList = getAllDataFromTheFirstFcIdDoc(idDocument);
                             if (fcdList != null)
                             {
@@ -564,7 +703,7 @@ namespace SyncTPV.Models
                                         response = 1;
                                     }
                                 }
-                            }
+                            }*/
                         }
                     }
                 }
@@ -734,6 +873,47 @@ namespace SyncTPV.Models
             return exists;
         }
 
+        public static Boolean checkIfExistWithFcId(int fcId, int idDocument)
+        {
+            Boolean isIt = false;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            db.Open();
+            try
+            {
+                 String query = "SELECT " + LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC + " FROM " +
+                        LocalDatabase.TABLA_FORMA_COBRO_DOCUMENTO + " WHERE " + LocalDatabase.CAMPO_DOCID_FORMACOBRODOC + " = " + idDocument + 
+                        " AND "+LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC+" = "+fcId;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                if (Convert.ToInt32(reader[LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC].ToString().Trim()) == fcId)
+                                {
+                                    isIt = true;
+                                }
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return isIt;
+        }
+
         public static Boolean checkIfItIsTheLastRecordWithFcId(int fcId, int idDocument)
         {
             Boolean isIt = false;
@@ -775,7 +955,7 @@ namespace SyncTPV.Models
             return isIt;
         }
 
-        private static Boolean addNewFcDocument(int idDocument, int fcId, double totalDocument,
+        public static Boolean addNewFcDocument(int idDocument, int fcId, double totalDocument,
                                             double amount, double change, double balance)
         {
             Boolean created = false;
@@ -922,6 +1102,36 @@ namespace SyncTPV.Models
             try
             {
                 String query = "UPDATE " + LocalDatabase.TABLA_FORMA_COBRO_DOCUMENTO + " SET " + LocalDatabase.CAMPO_CAMBIO_FORMACOBRODOC + " = " + change + ", " +
+                    LocalDatabase.CAMPO_SALDODOC_FORMACOBRODOC + " = " + balance + " WHERE " + LocalDatabase.CAMPO_DOCID_FORMACOBRODOC +
+                        " = " + idDocument + " AND " + LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC + " = " + fcId;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    int records = command.ExecuteNonQuery();
+                    if (records > 0)
+                        updated = true;
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return updated;
+        }
+
+        public static Boolean updateRecalculoBD(int fcId, int idDocument, double importe, double change, double balance)
+        {
+            Boolean updated = false;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            db.Open();
+            try
+            {
+                String query = "UPDATE " + LocalDatabase.TABLA_FORMA_COBRO_DOCUMENTO + " SET " + LocalDatabase.CAMPO_CAMBIO_FORMACOBRODOC + " = " + change + ", " +
+                    LocalDatabase.CAMPO_IMPORTE_FORMACOBRODOC + " = " + importe + ", " +
                     LocalDatabase.CAMPO_SALDODOC_FORMACOBRODOC + " = " + balance + " WHERE " + LocalDatabase.CAMPO_DOCID_FORMACOBRODOC +
                         " = " + idDocument + " AND " + LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC + " = " + fcId;
                 using (SQLiteCommand command = new SQLiteCommand(query, db))

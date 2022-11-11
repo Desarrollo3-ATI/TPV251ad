@@ -2,6 +2,7 @@
 using iTextSharp.text.pdf;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
+using SyncTPV.Views.Reports;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -259,6 +260,604 @@ namespace SyncTPV.Controllers
                             tabla2.AddCell(CeldaImprimeTexto);
                         }
                         else{
+                            //double total = MontoRetiroModel.getTotalOfAWithdrawal(retiro.id);
+                            CeldaImprimeTexto = new PdfPCell(new Phrase(documento.total.ToString("C", CultureInfo.CurrentCulture) + " MXN", Fuente_Arial_Negra_8));
+                            CeldaImprimeTexto.Colspan = 3;
+                            CeldaImprimeTexto.Border = Bordes_Ninguno;
+                            CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                            tabla2.AddCell(CeldaImprimeTexto);
+                        }
+
+                        totalDocumentos += documento.total;
+                        //TotalValor += liquidacionProducto.Valor;
+                    }
+                }
+
+                PdfPTable Tabla3 = new PdfPTable(10);
+                Tabla3.TotalWidth = dimension;
+                Tabla3.LockedWidth = true;
+
+                #region ENCABEZADO
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_12));
+                CeldaImprimeTexto.Colspan = 1;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+                Tabla3.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_10));
+                CeldaImprimeTexto.Colspan = 4;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla3.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_10));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla3.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Total General", Fuente_Arial_Azul_Bold_12));
+                CeldaImprimeTexto.Colspan = 4;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla3.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_12));
+                CeldaImprimeTexto.Colspan = 1;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+                Tabla3.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_10));
+                CeldaImprimeTexto.Colspan = 4;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla3.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_10));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla3.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(totalDocumentos.ToString("C") + " MXN", Fuente_Arial_Azul_Bold_12));
+                CeldaImprimeTexto.Colspan = 4;
+                CeldaImprimeTexto.Border = Bordes_Superior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla3.AddCell(CeldaImprimeTexto);
+                #endregion
+
+
+                #region T4
+                /*PdfPTable Tabla4 = new PdfPTable(20);
+                Tabla4.TotalWidth = dimension;
+                Tabla4.LockedWidth = true;
+
+                //ESPACIO
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 20;
+                CeldaImprimeTexto.Border = Bordes_Superior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                //LINEAS DE TOTALES GENERALES
+                #region EFECTIVO ENTREGADO
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("EFECTIVO ENTREGADO", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 5;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(FormatearCadena_Moneda(TotalEfectivo), Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 6;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+                #endregion
+
+                #region NOTAS
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("NOTAS", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 5;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(FormatearCadena_Moneda(TotalNotas), Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 6;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+                #endregion
+
+                #region C. COMERCIALES
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("C. COMERCIALES", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 5;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(FormatearCadena_Moneda(TotalCentrosComerciales), Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 6;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+                #endregion
+
+                #region TOTAL EFECTIVO Y NOTAS
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("TOTAL EFECTIVO Y NOTAS", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 5;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(FormatearCadena_Moneda(TotalEfectivoNotas), Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 6;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+                #endregion
+
+                #region DIFERENCIA
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("DIFERENCIA", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 5;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                /*CeldaImprimeTexto = new PdfPCell(new Phrase(FormatearCadena_Moneda(TotalDiferencia), Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 6;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+                #endregion
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 1;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 18;
+                CeldaImprimeTexto.Border = Bordes_Inferior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 1;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla4.AddCell(CeldaImprimeTexto);*/
+
+                #endregion
+
+                #region T5
+                /*PdfPTable Tabla5 = new PdfPTable(20);
+                Tabla5.TotalWidth = dimension;
+                Tabla5.LockedWidth = true;
+
+                #region Espacios para firmar
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 20;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla5.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 20;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla5.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 20;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla5.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 20;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla5.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_1, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 20;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                Tabla5.AddCell(CeldaImprimeTexto);
+                #endregion
+
+                #region Firmas_Lineas
+                string linea = "______________________________";
+                CeldaImprimeTexto = new PdfPCell(new Phrase(linea, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 10;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla5.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(linea, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 10;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla5.AddCell(CeldaImprimeTexto);
+                #endregion
+
+                #region Firmas_Nombres
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Administrador de Almacén", Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 10;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla5.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Agente.nombre, Fuente_Arial_Azul_Bold_9));
+                CeldaImprimeTexto.Colspan = 10;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                Tabla5.AddCell(CeldaImprimeTexto);*/
+
+                #endregion
+
+                //#endregion
+
+                //Agrega las tablas con la información al documento.
+                document.Add(TablaEncabezado);
+                document.Add(TablaEspacio);
+                document.Add(tabla2);
+                document.Add(TablaEspacio);
+                document.Add(TablaEspacio);
+                document.Add(TablaEspacio);
+                document.Add(Tabla3);
+                //document.Add(Tabla4);
+                //document.Add(Tabla5);
+
+                document.Close();
+                try
+                {
+                    if (File.Exists(destinationFile))
+                    {
+                        File.Delete(destinationFile);
+                    }
+                    File.Move(sourceFile, destinationFile);
+                    created = true;
+                }
+                catch (Exception ex)
+                {
+                    //MensajeError = ex.Message;
+                    SECUDOC.writeLog("-Crear PDF de Retiros-");
+                    SECUDOC.writeLog(ex.ToString());
+                }
+            });
+            return created;
+        }
+
+        public async Task<bool> createPdfDocumentsBDLOCAL(String nombreEmpresa, String rutaArchivo, String nameReport, int userID, bool permissionPrepedido,
+            String startDate, String endDate, int lastId, int LIMIT)
+        {
+            bool created = false;
+            await Task.Run(async () =>
+            {
+                List<dynamic> documentos = null;
+                GetDataService gds = new GetDataService();
+                dynamic respuesta = null;
+                respuesta = FormGeneralsReports.fillDataGridDocumentsDBLocal(startDate, endDate);
+                if (respuesta != null)
+                {
+                    int value = respuesta.value;
+                    String description = respuesta.description;
+                    if (value < 0)
+                    {
+                        FormMessage fm = new FormMessage("Exception", description, 2);
+                        fm.ShowDialog();
+                    }
+                    else
+                    {
+                        
+                        if (value > 0)
+                        {
+                            documentos = respuesta.documentos;
+                        }
+                        else if (value == 0)
+                        {
+                            FormMessage formMessage = new FormMessage("No se encontro información", description, 3);
+                            formMessage.ShowDialog();
+                        }
+                        else
+                        {
+                            FormMessage formMessage = new FormMessage("Exception", description, 2);
+                            formMessage.ShowDialog();
+                        }
+                        
+                    }
+                }
+                else
+                {
+
+                }
+                //Creates an instance of the iTextSharp.text.Document-object:
+                //Document document = new Document(PageSize.LETTER, 30, 30, 20, 30);
+                //                                tamañoPagina, mIzq, mDer, mTop, mBot                            
+                Document document = new Document(PageSize.LETTER, 30, 30, 9, 1);
+                //float dimension = 570f;
+                float dimension = 556f;
+                string sourceFile = Application.StartupPath + @"\Temp.pdf";
+                string destinationFile = rutaArchivo;
+                PdfWriter.GetInstance(document, new FileStream(sourceFile, FileMode.Create));
+                document.Open();
+
+                //Agrega una tabla (espacio en blanco)
+                PdfPTable TablaEspacio = new PdfPTable(1);
+                TablaEspacio.TotalWidth = dimension;
+                TablaEspacio.LockedWidth = true;
+                PdfPCell CeldaEspacio = new PdfPCell(new Phrase(" ", Fuente_Espacio_2));
+                CeldaEspacio.Border = Bordes_Ninguno;
+                TablaEspacio.AddCell(CeldaEspacio);
+
+                PdfPCell CeldaImprimeTexto;
+
+                //Comienza llenado de archivo
+                PdfPTable TablaEncabezado = new PdfPTable(1);
+                TablaEncabezado.TotalWidth = dimension;
+                TablaEncabezado.LockedWidth = true;
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(nombreEmpresa, Fuente_Arial_Azul_Bold_16));
+                CeldaImprimeTexto.Colspan = 1;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                TablaEncabezado.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Documentos", Fuente_Arial_Azul_Bold_12));
+                CeldaImprimeTexto.Colspan = 1;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                TablaEncabezado.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase(Sangria_2, Fuente_Arial_Azul_Bold_12));
+                CeldaImprimeTexto.Colspan = 1;
+                CeldaImprimeTexto.Border = Bordes_Ninguno;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                TablaEncabezado.AddCell(CeldaImprimeTexto);
+
+                PdfPTable tabla2 = new PdfPTable(20);
+                tabla2.TotalWidth = dimension;
+                tabla2.LockedWidth = true;
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Cliente", Fuente_Arial_Negra_8));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Inferior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                tabla2.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Tipo", Fuente_Arial_Negra_8));
+                CeldaImprimeTexto.Colspan = 2;
+                CeldaImprimeTexto.Border = Bordes_Inferior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                tabla2.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Fecha", Fuente_Arial_Negra_8));
+                CeldaImprimeTexto.Colspan = 4;
+                CeldaImprimeTexto.Border = Bordes_Inferior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                tabla2.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Folio", Fuente_Arial_Negra_8));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Inferior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                tabla2.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Movimientos", Fuente_Arial_Negra_8));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Inferior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                tabla2.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Descuento", Fuente_Arial_Negra_8));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Inferior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                tabla2.AddCell(CeldaImprimeTexto);
+
+                CeldaImprimeTexto = new PdfPCell(new Phrase("Total", Fuente_Arial_Negra_8));
+                CeldaImprimeTexto.Colspan = 3;
+                CeldaImprimeTexto.Border = Bordes_Inferior;
+                CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                tabla2.AddCell(CeldaImprimeTexto);
+
+                double totalDocumentos = 0;
+                decimal TotalValor = 0;
+                if (documentos != null)
+                {
+                    foreach (var documento in documentos)
+                    {
+                        // TotalVentas += liquidacionProducto.Valor;
+                        CeldaImprimeTexto = new PdfPCell(new Phrase(documento.clave_cliente.ToString(), Fuente_Arial_Negra_8));
+                        CeldaImprimeTexto.Colspan = 2;
+                        CeldaImprimeTexto.Border = Bordes_Ninguno;
+                        CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                        tabla2.AddCell(CeldaImprimeTexto);
+
+                        String documentType = "";
+                        if (documento.tipo_documento == 1)
+                            documentType = "Cotización";
+                        else if (documento.tipo_documento == 2)
+                            documentType = "Venta";
+                        else if (documento.tipo_documento == 3)
+                            documentType = "Pedido";
+                        else if (documento.tipo_documento == 4)
+                            documentType = "Remisión";
+                        else if (documento.tipo_documento == 9)
+                            documentType = "Pago del Cliente";
+                        else if (documento.tipo_documento == 50)
+                            documentType = "Prepedido";
+                        else if (documento.tipo_documento == 51)
+                            documentType = "Cotización de Mostrador";
+                        if (documentType.Equals(""))
+                            documentType = documento.tipo_documento.ToString();
+                        CeldaImprimeTexto = new PdfPCell(new Phrase(documentType, Fuente_Arial_Negra_8));
+                        CeldaImprimeTexto.Colspan = 2;
+                        CeldaImprimeTexto.Border = Bordes_Ninguno;
+                        CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+                        tabla2.AddCell(CeldaImprimeTexto);
+
+                        CeldaImprimeTexto = new PdfPCell(new Phrase(documento.fechahoramov.ToString(), Fuente_Arial_Negra_8));
+                        CeldaImprimeTexto.Colspan = 4;
+                        CeldaImprimeTexto.Border = Bordes_Ninguno;
+                        CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                        tabla2.AddCell(CeldaImprimeTexto);
+
+                        CeldaImprimeTexto = new PdfPCell(new Phrase(documento.fventa.ToString(), Fuente_Arial_Negra_8));
+                        CeldaImprimeTexto.Colspan = 3;
+                        CeldaImprimeTexto.Border = Bordes_Ninguno;
+                        CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                        tabla2.AddCell(CeldaImprimeTexto);
+                        String movimientosText = "";
+                        double totalMovs = 0;
+                        movimientosText = documento.totalMovimientos+"";
+                        
+                        CeldaImprimeTexto = new PdfPCell(new Phrase(movimientosText, Fuente_Arial_Negra_8));
+                        CeldaImprimeTexto.Colspan = 3;
+                        CeldaImprimeTexto.Border = Bordes_Ninguno;
+                        CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                        tabla2.AddCell(CeldaImprimeTexto);
+
+                        CeldaImprimeTexto = new PdfPCell(new Phrase(documento.descuento.ToString("C", CultureInfo.CurrentCulture), Fuente_Arial_Negra_8));
+                        CeldaImprimeTexto.Colspan = 3;
+                        CeldaImprimeTexto.Border = Bordes_Ninguno;
+                        CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_CENTER;
+                        tabla2.AddCell(CeldaImprimeTexto);
+                        if (documento.tipo_documento == 9)
+                        {
+                            //double total = MontoRetiroModel.getTotalOfAWithdrawal(retiro.id);
+                            CeldaImprimeTexto = new PdfPCell(new Phrase(documento.anticipo.ToString("C", CultureInfo.CurrentCulture) + " MXN", Fuente_Arial_Negra_8));
+                            CeldaImprimeTexto.Colspan = 3;
+                            CeldaImprimeTexto.Border = Bordes_Ninguno;
+                            CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_RIGHT;
+                            tabla2.AddCell(CeldaImprimeTexto);
+                        }
+                        else
+                        {
                             //double total = MontoRetiroModel.getTotalOfAWithdrawal(retiro.id);
                             CeldaImprimeTexto = new PdfPCell(new Phrase(documento.total.ToString("C", CultureInfo.CurrentCulture) + " MXN", Fuente_Arial_Negra_8));
                             CeldaImprimeTexto.Colspan = 3;

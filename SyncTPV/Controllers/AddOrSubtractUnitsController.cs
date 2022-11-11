@@ -39,7 +39,7 @@ namespace SyncTPV.Controllers
                 MovimientosModel.updateObervation(idMovement, observation);
                 try
                 {
-                    double discountRate = 0;
+                    double discountRate = double.Parse(discountText);
                     if (call == 0)
                     {
                         if (await MovimientosModel.removeOrAddQuantityToAMovement(idMovement, positionMovement, itemModel, capturedUnits, idDocument,
@@ -48,7 +48,7 @@ namespace SyncTPV.Controllers
                             if (DocumentModel.getDocumentType(idDocument) != 5)
                             {
                                 double newUnitOfMove = MovimientosModel.getCapturedUnitsOfAMove(idMovement, idDocument);
-                                if (MovimientosModel.validateWhetherToApplyPromotionToAMovement(idMovement, newUnitOfMove, itemModel))
+                                if (MovimientosModel.validateWhetherToApplyPromotionToAMovement(idMovement, newUnitOfMove, itemModel, discountRate))
                                 {
                                     value = 1;
                                 }
@@ -213,10 +213,19 @@ namespace SyncTPV.Controllers
                             add = true;
                         }
                         int mayorAExistencia = 0;
+                        double descuentoIngresado = 0;
                         if (!discountText.Equals(""))
                         {
                             discountText = discountText.Replace("$", "").Replace(",", "");
-                            double descuentoIngresado = Convert.ToDouble(discountText);
+                            descuentoIngresado = Convert.ToDouble(discountText);
+                           try
+                            {
+                                descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(idMovement);
+                            }
+                            catch (Exception e)
+                            {
+                                SECUDOC.writeLog(e.ToString());
+                            }
                             if (descuentoIngresado > itemModel.descuentoMaximo)
                             {
                                 value = -5;
@@ -234,10 +243,51 @@ namespace SyncTPV.Controllers
                                     discountRate = descuentoIngresado;
                                 }
                             }
+                            try
+                            {
+                                descuentoIngresado = descuentoIngresado - MovimientosModel.getPorcentajePromotionMoviments(idMovement);
+                            }
+                            catch (Exception e)
+                            {
+                                SECUDOC.writeLog(e.ToString());
+                            }
                         }
                         else
                         {
-                            discountRate = 0;
+                            descuentoIngresado = 0;
+                            try
+                            {
+                                descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(idMovement);
+                            }
+                            catch (Exception e)
+                            {
+                                SECUDOC.writeLog(e.ToString());
+                            }
+                            if (descuentoIngresado > itemModel.descuentoMaximo)
+                            {
+                                value = -5;
+                                description = "El descuento máximo es de " + itemModel.descuentoMaximo + " %";
+                            }
+                            else
+                            {
+                                if (descuentoIngresado > 100.0)
+                                {
+                                    value = -6;
+                                    description = "El anexo 20 no permite descuentos mayores al 100%";
+                                }
+                                else
+                                {
+                                    discountRate = descuentoIngresado;
+                                }
+                            }
+                            try
+                            {
+                                descuentoIngresado = descuentoIngresado - MovimientosModel.getPorcentajePromotionMoviments(idMovement);
+                            }
+                            catch (Exception e)
+                            {
+                                SECUDOC.writeLog(e.ToString());
+                            }
                         }
                         
                         if (permissionPrepedido)
@@ -251,7 +301,7 @@ namespace SyncTPV.Controllers
                                     if (DocumentModel.getDocumentType(idDocument) != 5)
                                     {
                                         double newUnitOfMove = MovimientosModel.getCapturedUnitsOfAMove(idMovement, idDocument);
-                                        if (MovimientosModel.validateWhetherToApplyPromotionToAMovement(idMovement, newUnitOfMove, itemModel))
+                                        if (MovimientosModel.validateWhetherToApplyPromotionToAMovement(idMovement, newUnitOfMove, itemModel, discountRate))
                                         {
                                             value = 1;
                                             //Toast.makeText(context, "Cantidad restada correctamente!", Toast.LENGTH_SHORT).show();
@@ -303,7 +353,7 @@ namespace SyncTPV.Controllers
                                             if (DocumentModel.getDocumentType(idDocument) != 5)
                                             {
                                                 double newUnitOfMove = MovimientosModel.getCapturedUnitsOfAMove(idMovement, idDocument);
-                                                if (MovimientosModel.validateWhetherToApplyPromotionToAMovement(idMovement, newUnitOfMove, itemModel))
+                                                if (MovimientosModel.validateWhetherToApplyPromotionToAMovement(idMovement, newUnitOfMove, itemModel, discountRate))
                                                 {
                                                     value = 1;
                                                     //Toast.makeText(context, "Cantidad restada correctamente!", Toast.LENGTH_SHORT).show();
@@ -351,7 +401,7 @@ namespace SyncTPV.Controllers
                                             if (DocumentModel.getDocumentType(idDocument) != 5)
                                             {
                                                 double newUnitOfMove = MovimientosModel.getCapturedUnitsOfAMove(idMovement, idDocument);
-                                                if (MovimientosModel.validateWhetherToApplyPromotionToAMovement(idMovement, newUnitOfMove, itemModel))
+                                                if (MovimientosModel.validateWhetherToApplyPromotionToAMovement(idMovement, newUnitOfMove, itemModel, discountRate))
                                                 {
                                                     value = 1;
                                                     //Toast.makeText(context, "Cantidad restada correctamente!", Toast.LENGTH_SHORT).show();

@@ -1538,6 +1538,7 @@ namespace SyncTPV.Views
                         double newAmountDiscount = (monto * descuento) / 100;
                         dynamic myMap = applyDiscountPromotions(documentType, itemModel, capturedUnits, monto);
                         double totalItem = (monto - newAmountDiscount);
+                        descuento = descuento - myMap.rateDiscountPromo;
                         int capturedUnitType = 0;
                         if (serverModeLAN)
                             capturedUnitType = ClsItemModel.getCapturedUnitType(comInstance, itemModel.id, capturedUnitId);
@@ -1558,6 +1559,7 @@ namespace SyncTPV.Views
                             double newAmountDiscount = (monto * descuento) / 100;
                             dynamic myMap = applyDiscountPromotions(documentType, itemModel, capturedUnits, monto);
                             //newAmountDiscount += myMap.newAmountDiscount;
+                            descuento = descuento - myMap.rateDiscountPromo;
                             double totalItem = (monto - newAmountDiscount);
                             int capturedUnitType = 0;
                             if (serverModeLAN)
@@ -1579,12 +1581,13 @@ namespace SyncTPV.Views
 
         private ExpandoObject applyDiscountPromotions(int documentType, ClsItemModel itemModel, double cantidadArticulo, double monto)
         {
+            int idCustomer = FormVenta.idCustomer;
             dynamic myMap = new ExpandoObject();
             double rateDiscountPromo = 0;
             double newAmountDiscount = 0;
             if (documentType != 5)
             {
-                dynamic rateAndDiscountList = PromotionsModel.logicForAplyPromotions(itemModel, cantidadArticulo, monto, serverModeLAN);
+                dynamic rateAndDiscountList = PromotionsModel.logicForAplyPromotionsCustomersItems(itemModel, cantidadArticulo, monto, serverModeLAN, idCustomer);
                 if (rateAndDiscountList != null)
                 {
                     if (rateAndDiscountList.aplica == "1")

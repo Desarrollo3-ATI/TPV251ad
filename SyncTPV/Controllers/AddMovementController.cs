@@ -37,6 +37,7 @@ namespace SyncTPV.Controllers
             dynamic response = new ExpandoObject();
             await Task.Run(async () =>
             {
+                double porcentajepromocion = 0;
                 dynamic responseMovimiento = new ExpandoObject();
                 bool insufficientStock = false;
                 int nonConvertibleUnitId = itemModel.nonConvertibleUnitId;
@@ -360,10 +361,12 @@ namespace SyncTPV.Controllers
                     {
                         if (!insufficientStock)
                         {
+                            double descuentoIngresado = 0;
                             if (!discountText.Equals(""))
                             {
                                 discountText = discountText.Replace(",", "");
-                                double descuentoIngresado = Convert.ToDouble(discountText);
+                                descuentoIngresado = Convert.ToDouble(discountText);
+                                
                                 if (descuentoIngresado > descMax)
                                 {
                                     responseMovimiento.valor = -5;
@@ -382,31 +385,62 @@ namespace SyncTPV.Controllers
                                     }
                                     else
                                     {
-                                        discountRate = descuentoIngresado;
+                                        dynamic myMap = applyDiscountPromotionsLocalCustomersItems(documentType, itemModel,
+                                                                                        capturedUnits, monto);
+                                        newAmountDiscount += myMap.newAmountDiscount;
+                                        discountRate = descuentoIngresado + myMap.rateDiscountPromo;
                                         monto = (capturedUnits * price);
                                         newAmountDiscount = (monto * discountRate) / 100;
-                                        dynamic myMap = applyDiscountPromotionsLocal(documentType, itemModel,
-                                                capturedUnits, monto);
-                                        newAmountDiscount += myMap.newAmountDiscount;
+                                        
                                         double totalItem = (monto - newAmountDiscount);
                                         responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
                                                 capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
-                                                monto, totalItem, myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);
+                                                monto, totalItem, descuentoIngresado, newAmountDiscount, observation, permissionPrepedido);
+                                        porcentajepromocion = myMap.rateDiscountPromo;
+                                        try
+                                        {
+                                            descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(responseMovimiento.idMovimiento);
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            SECUDOC.writeLog(e.ToString());
+                                        }
                                     }
                                 }
                             }
                             else
                             {
-                                discountRate = 0;
+                                dynamic myMap = applyDiscountPromotionsLocalCustomersItems(documentType, itemModel,
+                                                                                        capturedUnits, monto);
+                                newAmountDiscount += myMap.newAmountDiscount;
+                                discountRate = descuentoIngresado + myMap.rateDiscountPromo;
                                 monto = (capturedUnits * price);
                                 newAmountDiscount = (monto * discountRate) / 100;
-                                dynamic myMap = applyDiscountPromotionsLocal(documentType, itemModel,
-                                        capturedUnits, monto);
-                                newAmountDiscount += myMap.newAmountDiscount;
+                                /*try
+                                {
+                                    double newdisconunt = MovimientosModel.getPorcentajePromotionMoviments(itemModel.id);
+                                    if (newdisconunt <= discountRate)
+                                    {
+                                        discountRate = discountRate - newdisconunt;
+                                    }
+                                }
+                                catch (Exception e)
+                                {
+                                    SECUDOC.writeLog(e.ToString());
+                                }*/
                                 double totalItem = (monto - newAmountDiscount);
                                 responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
                                         capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
-                                        monto, totalItem, myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);
+                                        monto, totalItem, descuentoIngresado, newAmountDiscount, observation, permissionPrepedido);
+                                porcentajepromocion = myMap.rateDiscountPromo;
+                                try
+                                {
+                                    descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(responseMovimiento.idMovimiento);
+                                }
+                                catch (Exception e)
+                                {
+                                    SECUDOC.writeLog(e.ToString());
+                                }
                             }
                         }
                         else
@@ -417,10 +451,15 @@ namespace SyncTPV.Controllers
                         }
                     } else
                     {
+                        double descuentoIngresado = 0;
+                        dynamic myMap = applyDiscountPromotionsLocalCustomersItems(documentType, itemModel,
+                                                                                            capturedUnits, monto);
                         if (!discountText.Equals(""))
                         {
                             discountText = discountText.Replace(",", "");
-                            double descuentoIngresado = Convert.ToDouble(discountText);
+                            descuentoIngresado = Convert.ToDouble(discountText);
+
+                            descuentoIngresado = descuentoIngresado + myMap.rateDiscountPromo;
                             if (descuentoIngresado > descMax)
                             {
                                 responseMovimiento.valor = -5;
@@ -429,39 +468,60 @@ namespace SyncTPV.Controllers
                             }
                             else
                             {
-                                if (descuentoIngresado > 100.0)
-                                {
-                                    responseMovimiento.valor = -6;
-                                    responseMovimiento.position = 0;
-                                    responseMovimiento.idMovimiento = 0;
-                                }
-                                else
-                                {
-                                    discountRate = descuentoIngresado;
+                            if (descuentoIngresado > 100.0)
+                            {
+                                responseMovimiento.valor = -6;
+                                responseMovimiento.position = 0;
+                                responseMovimiento.idMovimiento = 0;
+                            }
+                            else
+                            {
+                                    descuentoIngresado = Convert.ToDouble(discountText);
+                                    
+                                    newAmountDiscount += myMap.newAmountDiscount;
+                                    discountRate = descuentoIngresado + myMap.rateDiscountPromo;
                                     monto = (capturedUnits * price);
                                     newAmountDiscount = (monto * discountRate) / 100;
-                                    dynamic myMap = applyDiscountPromotionsLocal(documentType, itemModel,
-                                            capturedUnits, monto);
-                                    newAmountDiscount += myMap.newAmountDiscount;
+                              
+
                                     double totalItem = (monto - newAmountDiscount);
                                     responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
                                             capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
                                             monto, totalItem, myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);
+                                    porcentajepromocion = myMap.rateDiscountPromo;
+                                    try
+                                    {
+                                        descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(responseMovimiento.idMovimiento);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        SECUDOC.writeLog(e.ToString());
+                                    }
                                 }
+                                
                             }
                         }
                         else
                         {
-                            discountRate = 0;
+                            descuentoIngresado = Convert.ToDouble(discountText);
+                            newAmountDiscount += myMap.newAmountDiscount;
+                            discountRate = descuentoIngresado + myMap.rateDiscountPromo;
                             monto = (capturedUnits * price);
                             newAmountDiscount = (monto * discountRate) / 100;
-                            dynamic myMap = applyDiscountPromotionsLocal(documentType, itemModel,
-                                    capturedUnits, monto);
-                            newAmountDiscount += myMap.newAmountDiscount;
+                            
                             double totalItem = (monto - newAmountDiscount);
                             responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
                                     capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
                                     monto, totalItem, myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);
+                            porcentajepromocion = myMap.rateDiscountPromo;
+                            try
+                            {
+                                descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(responseMovimiento.idMovimiento);
+                            }
+                            catch (Exception e)
+                            {
+                                SECUDOC.writeLog(e.ToString());
+                            }
                         }
                     }
                 }
@@ -507,10 +567,12 @@ namespace SyncTPV.Controllers
                     {
                         salesUnits = capturedUnits;
                     }
+                    double descuentoIngresado = 0;
                     if (!discountText.Equals(""))
                     {
                         discountText = discountText.Replace(",", "");
-                        double descuentoIngresado = Convert.ToDouble(discountText);
+                        descuentoIngresado = Convert.ToDouble(discountText);
+                        
                         if (descuentoIngresado > descMax)
                         {
                             responseMovimiento.valor = -5;
@@ -527,31 +589,51 @@ namespace SyncTPV.Controllers
                             }
                             else
                             {
-                                discountRate = descuentoIngresado;
+                                dynamic myMap = applyDiscountPromotionsLocalCustomersItems(documentType, itemModel,
+                                                                                        capturedUnits, monto);
+                                newAmountDiscount += myMap.newAmountDiscount;
+                                discountRate = descuentoIngresado + myMap.rateDiscountPromo;
                                 monto = (capturedUnits * price);
                                 newAmountDiscount = (monto * discountRate) / 100;
-                                dynamic myMap = applyDiscountPromotionsLocal(documentType, itemModel,
-                                        capturedUnits, monto);
-                                newAmountDiscount += myMap.newAmountDiscount;
+                                
                                 double totalItem = (monto - newAmountDiscount);
                                 responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
                                         capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
-                                        monto, totalItem, myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);
+                                        monto, totalItem, descuentoIngresado, newAmountDiscount, observation, permissionPrepedido);
+                                porcentajepromocion = myMap.rateDiscountPromo;
+                                try
+                                {
+                                    descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(responseMovimiento.idMovimiento);
+                                }
+                                catch (Exception e)
+                                {
+                                    SECUDOC.writeLog(e.ToString());
+                                }
                             }
                         }
                     }
                     else
                     {
-                        discountRate = 0;
+                        dynamic myMap = applyDiscountPromotionsLocalCustomersItems(documentType, itemModel,
+                                                                                        capturedUnits, monto);
+                        newAmountDiscount += myMap.newAmountDiscount;
+                        discountRate = descuentoIngresado + myMap.rateDiscountPromo;
                         monto = (capturedUnits * price);
                         newAmountDiscount = (monto * discountRate) / 100;
-                        dynamic myMap = applyDiscountPromotionsLocal(documentType, itemModel,
-                                capturedUnits, monto);
-                        newAmountDiscount += myMap.newAmountDiscount;
+                        
                         double totalItem = (monto - newAmountDiscount);
                         responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
                                 capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
-                                monto, totalItem, myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);
+                                monto, totalItem, descuentoIngresado, newAmountDiscount, observation, permissionPrepedido);
+                        porcentajepromocion = myMap.rateDiscountPromo;
+                        try
+                        {
+                            descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(responseMovimiento.idMovimiento);
+                        }
+                        catch (Exception e)
+                        {
+                            SECUDOC.writeLog(e.ToString());
+                        }
                     }
                 }
                 else
@@ -690,10 +772,12 @@ namespace SyncTPV.Controllers
                             else salesUnits = capturedUnits;
                         }
                     }
+                    double descuentoIngresado = 0;
                     if (!discountText.Equals(""))
                     {
                         discountText = discountText.Replace(",", "");
-                        double descuentoIngresado = Convert.ToDouble(discountText);
+                        descuentoIngresado = Convert.ToDouble(discountText);
+                        
                         if (descuentoIngresado > descMax)
                         {
                             responseMovimiento.valor = -5;
@@ -702,30 +786,43 @@ namespace SyncTPV.Controllers
                         }
                         else
                         {
-                            discountRate = descuentoIngresado;
+                            dynamic myMap = applyDiscountPromotionsLocalCustomersItems(documentType, itemModel,
+                                                                                        capturedUnits, monto);
+                            newAmountDiscount += myMap.newAmountDiscount;
+                            discountRate = descuentoIngresado + myMap.rateDiscountPromo;
                             monto = (capturedUnits * price);
                             newAmountDiscount = (monto * discountRate) / 100;
-                            dynamic myMap = applyDiscountPromotionsLocal(documentType, itemModel,
-                                    capturedUnits, monto);
-                            newAmountDiscount += myMap.newAmountDiscount;
+                            
                             double totalItem = (monto - newAmountDiscount);
                             responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
                                     capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
-                                    monto, totalItem, myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);
+                                    monto, totalItem, descuentoIngresado, newAmountDiscount, observation, permissionPrepedido);
+                            porcentajepromocion = myMap.rateDiscountPromo;
+                            try
+                            {
+                                descuentoIngresado = descuentoIngresado + MovimientosModel.getPorcentajePromotionMoviments(responseMovimiento.idMovimiento);
+                            }
+                            catch (Exception e)
+                            {
+                                SECUDOC.writeLog(e.ToString());
+                            }
                         }
                     }
                     else
                     {
-                        discountRate = 0;
+                        dynamic myMap = applyDiscountPromotionsLocalCustomersItems(documentType, itemModel,
+                                                                                        capturedUnits, monto);
+                        newAmountDiscount += myMap.newAmountDiscount;
+                        discountRate = descuentoIngresado + myMap.rateDiscountPromo;
                         monto = (capturedUnits * price);
                         newAmountDiscount = (monto * discountRate) / 100;
-                        dynamic myMap = applyDiscountPromotionsLocal(documentType, itemModel,
-                                capturedUnits, monto);
-                        newAmountDiscount += myMap.newAmountDiscount;
+                        
                         double totalItem = (monto - newAmountDiscount);
                         responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
-                                capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId), monto, totalItem,
-                                myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);
+                                capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
+                                monto, totalItem, descuentoIngresado, newAmountDiscount, observation, permissionPrepedido);
+                        porcentajepromocion = descuentoIngresado;
+                        
                     }
                 }
                 if (responseMovimiento.valor > 0)
@@ -752,6 +849,7 @@ namespace SyncTPV.Controllers
                         response.noStock = 0;
                     response.idMovimiento = responseMovimiento.idMovimiento;
                 }
+                response.porcentajepromocion = porcentajepromocion;
             });
             return response;
         }
@@ -973,15 +1071,51 @@ namespace SyncTPV.Controllers
             }
         }
 
-
-        private ExpandoObject applyDiscountPromotionsLocal(int documentType, ClsItemModel itemModel, double cantidadArticulo, double monto)
+        private ExpandoObject applyDiscountPromotionsLocalCustomersItems(int documentType, ClsItemModel itemModel, double cantidadArticulo, double monto)
         {
+            int idCustomer = FormVenta.idCustomer;
             dynamic myMap = new ExpandoObject();
             double rateDiscountPromo = 0;
             double newAmountDiscount = 0;
             if (documentType != 5)
             {
-                dynamic rateAndDiscountList = PromotionsModel.logicForAplyPromotions(itemModel, cantidadArticulo, monto, serverModeLAN);
+                dynamic rateAndDiscountList = PromotionsModel.logicForAplyPromotionsCustomersItems(itemModel, cantidadArticulo, monto, serverModeLAN, idCustomer);
+                if (rateAndDiscountList != null)
+                {
+                    if (rateAndDiscountList.aplica == "1")
+                    {
+                        rateDiscountPromo = Convert.ToDouble(rateAndDiscountList.porcentaje);
+                        double promotionDiscount = Convert.ToDouble(rateAndDiscountList.importe);
+                        newAmountDiscount = promotionDiscount;
+                    }
+                    else if (rateAndDiscountList.aplica == "-1")
+                    {
+                        rateDiscountPromo = 0;
+                    }
+                    else if (rateAndDiscountList.aplica == "-2")
+                    {
+                        rateDiscountPromo = 0;
+                    }
+                    else
+                    {
+                        rateDiscountPromo = 0;
+                    }
+                }
+            }
+            myMap.rateDiscountPromo = rateDiscountPromo;
+            myMap.newAmountDiscount = newAmountDiscount;
+            return myMap;
+        }
+
+        private ExpandoObject applyDiscountPromotionsLocal(int documentType, ClsItemModel itemModel, double cantidadArticulo, double monto)
+        {
+            int idCustomer = FormVenta.idCustomer;
+            dynamic myMap = new ExpandoObject();
+            double rateDiscountPromo = 0;
+            double newAmountDiscount = 0;
+            if (documentType != 5)
+            {
+                dynamic rateAndDiscountList = PromotionsModel.logicForAplyPromotionsCustomersItems(itemModel, cantidadArticulo, monto, serverModeLAN, idCustomer);
                 if (rateAndDiscountList != null)
                 {
                     if (rateAndDiscountList.aplica == "1")

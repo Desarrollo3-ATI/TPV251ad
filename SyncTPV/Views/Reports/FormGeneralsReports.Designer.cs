@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,6 +40,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelFilters = new System.Windows.Forms.Panel();
+            this.txtlimite = new System.Windows.Forms.Label();
+            this.ComboBoxLimite = new System.Windows.Forms.TextBox();
+            this.chckBDlocal = new System.Windows.Forms.CheckBox();
+            this.btnBuscarReportes = new System.Windows.Forms.Button();
             this.textUser = new System.Windows.Forms.Label();
             this.textEndDate = new System.Windows.Forms.Label();
             this.textStartDate = new System.Windows.Forms.Label();
@@ -114,6 +119,7 @@
             this.panelTotalesEITurno = new System.Windows.Forms.Panel();
             this.comboBoxSelectEI = new System.Windows.Forms.ComboBox();
             this.editTotaltesEITurno = new System.Windows.Forms.TextBox();
+            this.toolTipLimite = new System.Windows.Forms.ToolTip(this.components);
             this.panelToolbar.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -158,7 +164,7 @@
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::SyncTPV.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -187,6 +193,10 @@
             // 
             this.panelFilters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelFilters.Controls.Add(this.txtlimite);
+            this.panelFilters.Controls.Add(this.ComboBoxLimite);
+            this.panelFilters.Controls.Add(this.chckBDlocal);
+            this.panelFilters.Controls.Add(this.btnBuscarReportes);
             this.panelFilters.Controls.Add(this.textUser);
             this.panelFilters.Controls.Add(this.textEndDate);
             this.panelFilters.Controls.Add(this.textStartDate);
@@ -198,10 +208,54 @@
             this.panelFilters.Size = new System.Drawing.Size(898, 58);
             this.panelFilters.TabIndex = 2;
             // 
+            // txtlimite
+            // 
+            this.txtlimite.AutoSize = true;
+            this.txtlimite.Location = new System.Drawing.Point(220, 10);
+            this.txtlimite.Name = "txtlimite";
+            this.txtlimite.Size = new System.Drawing.Size(37, 13);
+            this.txtlimite.TabIndex = 9;
+            this.txtlimite.Text = "Limite:";
+            // 
+            // ComboBoxLimite
+            // 
+            this.ComboBoxLimite.Location = new System.Drawing.Point(263, 5);
+            this.ComboBoxLimite.Name = "ComboBoxLimite";
+            this.ComboBoxLimite.Size = new System.Drawing.Size(75, 20);
+            this.ComboBoxLimite.TabIndex = 8;
+            // 
+            // chckBDlocal
+            // 
+            this.chckBDlocal.AutoSize = true;
+            this.chckBDlocal.Location = new System.Drawing.Point(6, 5);
+            this.chckBDlocal.Name = "chckBDlocal";
+            this.chckBDlocal.Size = new System.Drawing.Size(143, 17);
+            this.chckBDlocal.TabIndex = 7;
+            this.chckBDlocal.Text = "Usar base de datos local";
+            this.chckBDlocal.UseVisualStyleBackColor = true;
+            this.chckBDlocal.CheckedChanged += new System.EventHandler(this.chckBDlocal_CheckedChanged);
+            // 
+            // btnBuscarReportes
+            // 
+            this.btnBuscarReportes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarReportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarReportes.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscarReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnBuscarReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarReportes.Location = new System.Drawing.Point(680, 3);
+            this.btnBuscarReportes.Name = "btnBuscarReportes";
+            this.btnBuscarReportes.Size = new System.Drawing.Size(208, 46);
+            this.btnBuscarReportes.TabIndex = 6;
+            this.btnBuscarReportes.Text = "Buscar reportes";
+            this.btnBuscarReportes.UseVisualStyleBackColor = true;
+            this.btnBuscarReportes.Click += new System.EventHandler(this.btnBuscarReportes_Click);
+            // 
             // textUser
             // 
             this.textUser.AutoSize = true;
-            this.textUser.Location = new System.Drawing.Point(3, 19);
+            this.textUser.Location = new System.Drawing.Point(3, 35);
             this.textUser.Name = "textUser";
             this.textUser.Size = new System.Drawing.Size(43, 13);
             this.textUser.TabIndex = 5;
@@ -210,7 +264,7 @@
             // textEndDate
             // 
             this.textEndDate.AutoSize = true;
-            this.textEndDate.Location = new System.Drawing.Point(743, 16);
+            this.textEndDate.Location = new System.Drawing.Point(382, 35);
             this.textEndDate.Name = "textEndDate";
             this.textEndDate.Size = new System.Drawing.Size(62, 13);
             this.textEndDate.TabIndex = 4;
@@ -219,7 +273,7 @@
             // textStartDate
             // 
             this.textStartDate.AutoSize = true;
-            this.textStartDate.Location = new System.Drawing.Point(493, 16);
+            this.textStartDate.Location = new System.Drawing.Point(382, 6);
             this.textStartDate.Name = "textStartDate";
             this.textStartDate.Size = new System.Drawing.Size(67, 13);
             this.textStartDate.TabIndex = 3;
@@ -227,7 +281,7 @@
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(667, 35);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(455, 30);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerEnd.TabIndex = 2;
@@ -235,16 +289,17 @@
             // 
             // dateTimePickerStart
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(418, 35);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(455, 3);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerStart.TabIndex = 1;
+            this.dateTimePickerStart.Value = new System.DateTime(2022, 10, 31, 14, 17, 49, 0);
             this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePickerStart_ValueChanged);
             // 
             // comboBoxSelectUser
             // 
             this.comboBoxSelectUser.FormattingEnabled = true;
-            this.comboBoxSelectUser.Location = new System.Drawing.Point(90, 16);
+            this.comboBoxSelectUser.Location = new System.Drawing.Point(68, 30);
             this.comboBoxSelectUser.Name = "comboBoxSelectUser";
             this.comboBoxSelectUser.Size = new System.Drawing.Size(270, 21);
             this.comboBoxSelectUser.TabIndex = 0;
@@ -294,9 +349,10 @@
             // 
             this.imgSinDatosDocumentosAnteriores.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imgSinDatosDocumentosAnteriores.BackColor = System.Drawing.Color.Azure;
-            this.imgSinDatosDocumentosAnteriores.Location = new System.Drawing.Point(321, 77);
+            this.imgSinDatosDocumentosAnteriores.Image = global::SyncTPV.Properties.Resources.sindatos;
+            this.imgSinDatosDocumentosAnteriores.Location = new System.Drawing.Point(243, 73);
             this.imgSinDatosDocumentosAnteriores.Name = "imgSinDatosDocumentosAnteriores";
-            this.imgSinDatosDocumentosAnteriores.Size = new System.Drawing.Size(249, 191);
+            this.imgSinDatosDocumentosAnteriores.Size = new System.Drawing.Size(406, 222);
             this.imgSinDatosDocumentosAnteriores.TabIndex = 3;
             this.imgSinDatosDocumentosAnteriores.TabStop = false;
             // 
@@ -306,7 +362,7 @@
             this.btnReportePdfDocumentosAnteriores.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnReportePdfDocumentosAnteriores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnReportePdfDocumentosAnteriores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportePdfDocumentosAnteriores.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportePdfDocumentosAnteriores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportePdfDocumentosAnteriores.Location = new System.Drawing.Point(740, 301);
             this.btnReportePdfDocumentosAnteriores.Name = "btnReportePdfDocumentosAnteriores";
             this.btnReportePdfDocumentosAnteriores.Size = new System.Drawing.Size(142, 44);
@@ -319,7 +375,7 @@
             // 
             this.textTotalDocumentsAnteriores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTotalDocumentsAnteriores.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalDocumentsAnteriores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalDocumentsAnteriores.Location = new System.Drawing.Point(3, 0);
             this.textTotalDocumentsAnteriores.Name = "textTotalDocumentsAnteriores";
             this.textTotalDocumentsAnteriores.Size = new System.Drawing.Size(879, 27);
@@ -338,7 +394,7 @@
             this.dataGridViewDocumentosAnteriores.BackgroundColor = System.Drawing.Color.Azure;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -361,7 +417,7 @@
             this.dataGridViewDocumentosAnteriores.Name = "dataGridViewDocumentosAnteriores";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -371,7 +427,7 @@
             this.dataGridViewDocumentosAnteriores.RowHeadersVisible = false;
             this.dataGridViewDocumentosAnteriores.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewDocumentosAnteriores.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Azure;
-            this.dataGridViewDocumentosAnteriores.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewDocumentosAnteriores.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewDocumentosAnteriores.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this.dataGridViewDocumentosAnteriores.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewDocumentosAnteriores.Size = new System.Drawing.Size(879, 265);
@@ -382,55 +438,55 @@
             // 
             this.idDgvDocuments.HeaderText = "Id";
             this.idDgvDocuments.Name = "idDgvDocuments";
-            this.idDgvDocuments.Width = 45;
+            this.idDgvDocuments.Width = 47;
             // 
             // customerDgvDocuments
             // 
             this.customerDgvDocuments.HeaderText = "Clientes";
             this.customerDgvDocuments.Name = "customerDgvDocuments";
-            this.customerDgvDocuments.Width = 83;
+            this.customerDgvDocuments.Width = 90;
             // 
             // typeDgvDocuments
             // 
             this.typeDgvDocuments.HeaderText = "Tipo";
             this.typeDgvDocuments.Name = "typeDgvDocuments";
-            this.typeDgvDocuments.Width = 60;
+            this.typeDgvDocuments.Width = 66;
             // 
             // dateDgvDocuments
             // 
             this.dateDgvDocuments.HeaderText = "Fecha";
             this.dateDgvDocuments.Name = "dateDgvDocuments";
-            this.dateDgvDocuments.Width = 69;
+            this.dateDgvDocuments.Width = 77;
             // 
             // folioDgvDocuments
             // 
             this.folioDgvDocuments.HeaderText = "Folio";
             this.folioDgvDocuments.Name = "folioDgvDocuments";
-            this.folioDgvDocuments.Width = 63;
+            this.folioDgvDocuments.Width = 69;
             // 
             // discountDgvDocuments
             // 
             this.discountDgvDocuments.HeaderText = "Descuento";
             this.discountDgvDocuments.Name = "discountDgvDocuments";
-            this.discountDgvDocuments.Width = 95;
+            this.discountDgvDocuments.Width = 108;
             // 
             // fcDgvDocuments
             // 
             this.fcDgvDocuments.HeaderText = "Forma de Cobro";
             this.fcDgvDocuments.Name = "fcDgvDocuments";
-            this.fcDgvDocuments.Width = 116;
+            this.fcDgvDocuments.Width = 134;
             // 
             // anticipoDgvDocuments
             // 
             this.anticipoDgvDocuments.HeaderText = "Anticipo";
             this.anticipoDgvDocuments.Name = "anticipoDgvDocuments";
-            this.anticipoDgvDocuments.Width = 83;
+            this.anticipoDgvDocuments.Width = 90;
             // 
             // totalDgvDocuments
             // 
             this.totalDgvDocuments.HeaderText = "Total";
             this.totalDgvDocuments.Name = "totalDgvDocuments";
-            this.totalDgvDocuments.Width = 63;
+            this.totalDgvDocuments.Width = 70;
             // 
             // tabPageEgresosIngresos
             // 
@@ -473,7 +529,7 @@
             this.btnReportePdfEI.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnReportePdfEI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnReportePdfEI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportePdfEI.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportePdfEI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportePdfEI.Location = new System.Drawing.Point(740, 301);
             this.btnReportePdfEI.Name = "btnReportePdfEI";
             this.btnReportePdfEI.Size = new System.Drawing.Size(142, 44);
@@ -486,7 +542,7 @@
             // 
             this.textTotalEIAnteriores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTotalEIAnteriores.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalEIAnteriores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalEIAnteriores.Location = new System.Drawing.Point(3, 0);
             this.textTotalEIAnteriores.Name = "textTotalEIAnteriores";
             this.textTotalEIAnteriores.Size = new System.Drawing.Size(879, 27);
@@ -503,7 +559,7 @@
             this.dataGridViewEIAnteriores.BackgroundColor = System.Drawing.Color.Azure;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -524,7 +580,7 @@
             this.dataGridViewEIAnteriores.Name = "dataGridViewEIAnteriores";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -534,7 +590,7 @@
             this.dataGridViewEIAnteriores.RowHeadersVisible = false;
             this.dataGridViewEIAnteriores.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewEIAnteriores.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Azure;
-            this.dataGridViewEIAnteriores.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewEIAnteriores.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewEIAnteriores.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this.dataGridViewEIAnteriores.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewEIAnteriores.Size = new System.Drawing.Size(879, 265);
@@ -633,7 +689,7 @@
             this.btnImprimirReporteCaja.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnImprimirReporteCaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnImprimirReporteCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimirReporteCaja.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirReporteCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimirReporteCaja.Location = new System.Drawing.Point(3, 115);
             this.btnImprimirReporteCaja.Name = "btnImprimirReporteCaja";
             this.btnImprimirReporteCaja.Size = new System.Drawing.Size(208, 46);
@@ -658,7 +714,7 @@
             this.editTotalesVentasTurno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editTotalesVentasTurno.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editTotalesVentasTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editTotalesVentasTurno.Location = new System.Drawing.Point(3, 3);
             this.editTotalesVentasTurno.Multiline = true;
             this.editTotalesVentasTurno.Name = "editTotalesVentasTurno";
@@ -682,7 +738,7 @@
             this.editTotalesCreditsAbonosTurno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editTotalesCreditsAbonosTurno.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editTotalesCreditsAbonosTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editTotalesCreditsAbonosTurno.Location = new System.Drawing.Point(3, 3);
             this.editTotalesCreditsAbonosTurno.Multiline = true;
             this.editTotalesCreditsAbonosTurno.Name = "editTotalesCreditsAbonosTurno";
@@ -721,7 +777,7 @@
             this.dataGridViewEITurno.Name = "dataGridViewEITurno";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -731,7 +787,7 @@
             this.dataGridViewEITurno.RowHeadersVisible = false;
             this.dataGridViewEITurno.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewEITurno.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Azure;
-            this.dataGridViewEITurno.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewEITurno.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewEITurno.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this.dataGridViewEITurno.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewEITurno.Size = new System.Drawing.Size(205, 125);
@@ -816,7 +872,7 @@
             this.dataGridViewCreditsTurno.Name = "dataGridViewCreditsTurno";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(1);
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -826,7 +882,7 @@
             this.dataGridViewCreditsTurno.RowHeadersVisible = false;
             this.dataGridViewCreditsTurno.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewCreditsTurno.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Azure;
-            this.dataGridViewCreditsTurno.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewCreditsTurno.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewCreditsTurno.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(1);
             this.dataGridViewCreditsTurno.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewCreditsTurno.Size = new System.Drawing.Size(205, 125);
@@ -946,11 +1002,11 @@
             // 
             this.editTotalEnCaja.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editTotalEnCaja.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editTotalEnCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editTotalEnCaja.ForeColor = System.Drawing.Color.Black;
             this.editTotalEnCaja.Location = new System.Drawing.Point(3, 55);
             this.editTotalEnCaja.Name = "editTotalEnCaja";
-            this.editTotalEnCaja.Size = new System.Drawing.Size(208, 23);
+            this.editTotalEnCaja.Size = new System.Drawing.Size(208, 22);
             this.editTotalEnCaja.TabIndex = 3;
             this.editTotalEnCaja.Text = "Total En Caja";
             // 
@@ -958,7 +1014,7 @@
             // 
             this.editImporteApertura.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editImporteApertura.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editImporteApertura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editImporteApertura.ForeColor = System.Drawing.Color.Black;
             this.editImporteApertura.Location = new System.Drawing.Point(3, 6);
             this.editImporteApertura.Multiline = true;
@@ -972,17 +1028,17 @@
             // 
             this.editSobrante.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editSobrante.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editSobrante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editSobrante.Location = new System.Drawing.Point(3, 137);
             this.editSobrante.Name = "editSobrante";
-            this.editSobrante.Size = new System.Drawing.Size(205, 23);
+            this.editSobrante.Size = new System.Drawing.Size(205, 22);
             this.editSobrante.TabIndex = 1;
             // 
             // editFaltante
             // 
             this.editFaltante.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editFaltante.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editFaltante.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editFaltante.ForeColor = System.Drawing.Color.Tomato;
             this.editFaltante.Location = new System.Drawing.Point(3, 99);
             this.editFaltante.Multiline = true;
@@ -1009,7 +1065,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxSelectEI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSelectEI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxSelectEI.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSelectEI.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSelectEI.FormattingEnabled = true;
             this.comboBoxSelectEI.Location = new System.Drawing.Point(3, 138);
             this.comboBoxSelectEI.Name = "comboBoxSelectEI";
@@ -1022,13 +1078,17 @@
             this.editTotaltesEITurno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editTotaltesEITurno.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editTotaltesEITurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editTotaltesEITurno.Location = new System.Drawing.Point(3, 3);
             this.editTotaltesEITurno.Multiline = true;
             this.editTotaltesEITurno.Name = "editTotaltesEITurno";
             this.editTotaltesEITurno.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.editTotaltesEITurno.Size = new System.Drawing.Size(205, 129);
             this.editTotaltesEITurno.TabIndex = 1;
+            // 
+            // toolTipLimite
+            // 
+            this.toolTipLimite.Tag = "SIn limite: 0";
             // 
             // FormGeneralsReports
             // 
@@ -1135,15 +1195,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDgvEIAnteriores;
         private System.Windows.Forms.DataGridViewTextBoxColumn amountsDgvEIAnteriores;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalDgvEIAnteriores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerDgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeDgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateDgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn folioDgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn discountDgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fcDgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn anticipoDgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalDgvDocuments;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDgvCreditsTurn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerDgvCreditsTurn;
         private System.Windows.Forms.DataGridViewTextBoxColumn folioDgvCreditsTurn;
@@ -1162,5 +1213,19 @@
         private System.Windows.Forms.ComboBox comboBoxSelectEI;
         private System.Windows.Forms.TextBox editImporteApertura;
         private System.Windows.Forms.TextBox editTotalEnCaja;
+        private System.Windows.Forms.Button btnBuscarReportes;
+        private System.Windows.Forms.CheckBox chckBDlocal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDgvDocuments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerDgvDocuments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDgvDocuments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDgvDocuments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn folioDgvDocuments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountDgvDocuments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fcDgvDocuments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn anticipoDgvDocuments;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalDgvDocuments;
+        private System.Windows.Forms.Label txtlimite;
+        private System.Windows.Forms.TextBox ComboBoxLimite;
+        private System.Windows.Forms.ToolTip toolTipLimite;
     }
 }

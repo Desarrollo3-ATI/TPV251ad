@@ -10,6 +10,7 @@ using System.Dynamic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,7 +32,7 @@ namespace SyncTPV.Views.Reports
             lastIdDocumentosAnteriores = 0, lastIdEIAnteriores = 0;
         FormWaiting frmWaiting;
         /* Todo lo relacionado a la Carga de Créditos*/
-        private readonly int LIMIT = 30;
+        public int LIMIT = 30;
         private int progressCreditosDelTurno = 0, progressVentasDelTurno = 0, progressEITurno = 0,
             progressDocumentosAnteriores = 0, progressEIAnteriores = 0;
         private DateTime lastLoadingCreditosDelTurno, lastLoadingVentasDelTurno, lastLoadingEITurno,
@@ -66,7 +67,9 @@ namespace SyncTPV.Views.Reports
         private double totalDeApertura = 0;
         private bool serverModeLAN = false;
         private String searchWordPrepedidos = "";
-
+        private DateTime fechainicial = DateTime.Now;
+        private DateTime fechafinal = DateTime.Now;
+        private bool BDlocal = false;
         public FormGeneralsReports(String searchWordPrepedidos)
         {
             InitializeComponent();
@@ -84,10 +87,11 @@ namespace SyncTPV.Views.Reports
 
         private void FormGeneralsReports_Load(object sender, EventArgs e)
         {
+            toolTipLimite.SetToolTip(ComboBoxLimite, "Sin limite: 0");
             fillComboUsers();
+            ComboBoxLimite.Text = LIMIT.ToString();
             comboBoxSelectEI.Items.Add("Retiros");
             comboBoxSelectEI.Items.Add("Ingresos");
-            comboBoxSelectEI.SelectedIndex = 0;
             totalDeApertura = AperturaTurnoModel.getImporteDeAperturaActual();
             editImporteApertura.Text = "Importe de Apertura: "+totalDeApertura.ToString("C") + " MXN";
             //checkBoxTipoDeBusqueda.Visible = false;
@@ -201,10 +205,34 @@ namespace SyncTPV.Views.Reports
 
         private void tabControlReportes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            chckBDlocal.Visible = false;
+            String newLimite = "";
+            newLimite = ComboBoxLimite.Text;
+            int reallimit = 30;
+            if (!newLimite.Equals(""))
+            {
+                try
+                {
+                    reallimit = int.Parse(newLimite);
+                    if (reallimit < 0)
+                    {
+                        reallimit = 30;
+                    }
+                }catch(Exception ee)
+                {
+                    reallimit = 30;
+                }
+            }
+            LIMIT = reallimit;
             switch (tabControlReportes.SelectedIndex)
             {
                 case 0:
                     {
+                        ComboBoxLimite.Visible = false;
+                        txtlimite.Visible = false;
+                        LIMIT = 0;
+                        ComboBoxLimite.Text = "0";
+                        chckBDlocal.Visible = true;
                         comboBoxSelectUser.Enabled = true;
                         dateTimePickerStart.Enabled = true;
                         dateTimePickerEnd.Enabled = true;
@@ -216,11 +244,20 @@ namespace SyncTPV.Views.Reports
                                 panelFilters.Height - 45);
                             reporteCajaActivated = 0;
                         }
-                        logicToGetAndChargeDocuments(searchWordPrepedidos);
+                        if (BDlocal)
+                        {
+                            logicToGetAndChargeDocumentsBDLocal(searchWordPrepedidos);
+                        }
+                        else
+                        {
+                            logicToGetAndChargeDocuments(searchWordPrepedidos);
+                        }
                         break;
                     }
                 case 1:
                     {
+                        ComboBoxLimite.Visible = true;
+                        txtlimite.Visible = true;
                         comboBoxSelectUser.Enabled = true;
                         dateTimePickerStart.Enabled = true;
                         dateTimePickerEnd.Enabled = true;
@@ -233,10 +270,12 @@ namespace SyncTPV.Views.Reports
                             reporteCajaActivated = 0;
                         }
                         logicToGetAnbdChargeWithdrawals(searchWordPrepedidos);
+                        
                         break;
                     }
                 case 2:
                     {
+                        resetVariablesEIDelTurno(0);
                         resetVariablesCreditosDelTurno(0);
                         resetearValoresDocumentos(0);
                         resetearValoresEIAnteriores(0);
@@ -273,8 +312,72 @@ namespace SyncTPV.Views.Reports
             frmWaiting = new FormWaiting(this, GetDataService.GET_DOCUMENT, searchWordPrepedidos);
             frmWaiting.StartPosition = FormStartPosition.CenterScreen;
             frmWaiting.ShowDialog();
-            //await fillDataGridDocuments();
+            await fillDataGridDocuments();
             Cursor.Current = Cursors.Default;
+        }
+        private async Task logicToGetAndChargeDocumentsBDLocal(String searchWordPrepedidos)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            showOrHideDateAndUsers(true);
+            dynamic documentosLocal = new ExpandoObject();
+            documentosLocal = fillDataGridDocumentsDBLocal(FechaInicial,FechaFinal);
+            dataGridViewDocumentosAnteriores.Rows.Clear();
+            if (documentosLocal.value == -1)
+            {
+                SECUDOC.writeLog(documentosLocal.descripcion);
+            }
+            else
+            {
+                if(documentosLocal.value == 0)
+                {
+                    imgSinDatosDocumentosAnteriores.Visible = true;
+                }
+                else
+                {
+                    //MessageBox.Show(FechaInicial+" "+" "+FechaFinal+" "+userId);
+                    dynamic Documentos = new ExpandoObject();
+                    Documentos = documentosLocal.documentos;
+                    for (int n = 0; n < Documentos.Count; n++)
+                    {
+                        String documentType = "";
+                        if (Documentos[n].tipo_documento == 1)
+                            documentType = "Cotización";
+                        else if (Documentos[n].tipo_documento == 2)
+                            documentType = "Venta";
+                        else if (Documentos[n].tipo_documento == 3)
+                            documentType = "Pedido";
+                        else if (Documentos[n].tipo_documento == 4)
+                            documentType = "Remisión";
+                        else if (Documentos[n].tipo_documento == 5)
+                            documentType = "Devolución";
+                        else if (Documentos[n].tipo_documento == 9)
+                            documentType = "Pago del Cliente";
+                        else if (Documentos[n].tipo_documento == 50)
+                            documentType = "Prepedido";
+                        else if (Documentos[n].tipo_documento == 51)
+                            documentType = "Cotización de Mostrador";
+                        if (documentType.Equals(""))
+                            documentType = Documentos[n].tipo_documento.ToString();
+                        dynamic[] row = {
+                            Documentos[n].idWebService,
+                            Documentos[n].clave_cliente,
+                            documentType,
+                            Documentos[n].fechahoramov,
+                            Documentos[n].fventa,
+                            Documentos[n].descuento+"%",
+                            Documentos[n].nombreformacobro,
+                            Documentos[n].anticipo,
+                            Documentos[n].total};
+                        dataGridViewDocumentosAnteriores.Rows.Add(row);
+                    }
+                    dataGridViewDocumentosAnteriores.PerformLayout();
+                    dataGridViewDocumentosAnteriores.Columns[5].Visible = true;
+                    dataGridViewDocumentosAnteriores.Columns[6].Visible = true;
+                    Cursor.Current = Cursors.Default;
+
+                    imgSinDatosDocumentosAnteriores.Visible = false;
+                }
+            }
         }
 
         public async Task callDownloadDocumentsFromServer(int information)
@@ -287,8 +390,12 @@ namespace SyncTPV.Views.Reports
             } else if (information == GetDataService.GET_WITHDRAWAL)
             {
                 if (lastIdEIAnteriores == 0)
+                {
                     resetearValoresEIAnteriores(0);
+                    resetVariablesEIDelTurno(0);
+                }
                 await callDownloadWithdrawalsProcess(userId, FechaInicial + " 00:00:00", FechaFinal + " 23:59:59", lastIdEIAnteriores);
+                
             }
         }
 
@@ -299,6 +406,8 @@ namespace SyncTPV.Views.Reports
             /*fw = new FrmWaiting(FrmWaiting.CALL_REPORTES, this, 2, null, 0);
             fw.StartPosition = FormStartPosition.CenterScreen;
             fw.ShowDialog();*/
+
+            
             await fillDataGridCreditosReporteCaja();
             await fillDataGridVentasReporteCaja();
             await fillDataGridRetiradoReporteCaja();
@@ -309,49 +418,57 @@ namespace SyncTPV.Views.Reports
             await fillTotaltesRetiros();
         }
 
-        private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        /*private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
         {
-            if (dateTimePickerStart.Enabled)
+            try
             {
-                if (permissionPrepedido)
-                {
-
-                }
-                else
-                {
-                    if (tabControlReportes.SelectedIndex == 0)
-                        resetearValoresDocumentos(0);
-                    else if (tabControlReportes.SelectedIndex == 1)
-                        resetearValoresEIAnteriores(0);
-                }
-                UserModel um = (UserModel)comboBoxSelectUser.SelectedItem;
-                if (um != null)
-                {
-                    /*FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd HH:mm:ss");
-                    if (contadorBanderaFecha > 1)
+                //if (dateTimePickerStart.Enabled){
+                    /*if (permissionPrepedido)
                     {
+
+                    }
+                    else
+                    {
+                        if (tabControlReportes.SelectedIndex == 0)
+                            resetearValoresDocumentos(0);
+                        else if (tabControlReportes.SelectedIndex == 1)
+                            resetearValoresEIAnteriores(0);
+                    }
+                    UserModel um = (UserModel)comboBoxSelectUser.SelectedItem;
+                    if (um != null)
+                    {
+                        /*FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd HH:mm:ss");
+                        if (contadorBanderaFecha > 1)
+                        {
+                            FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
+                            //FechaInicial += " 00:00:00";  //00:00:00 a. m
+                        }
                         FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
-                        //FechaInicial += " 00:00:00";  //00:00:00 a. m
-                    }*/
-                    FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
-                    FechaFinal = (dateTimePickerEnd.Value).ToString("yyyy-MM-dd");
-                    //FechaFinal += " 23:59:59";
-                    userId = um.id;
-                    tabControlReportes_SelectedIndexChanged(sender, e);
-                    PopupNotifier popup = new PopupNotifier();
-                    popup.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.caution, 100, 100);
-                    popup.TitleColor = Color.Blue;
-                    popup.TitleText = "Datos";
-                    popup.ContentText = "Documentos de " + um.Nombre + " por fecha";
-                    popup.ContentColor = Color.Red;
-                    popup.Popup();
-                }
+                        FechaFinal = (dateTimePickerEnd.Value).ToString("yyyy-MM-dd");
+                        //FechaFinal += " 23:59:59";
+                        userId = um.id;
+                        tabControlReportes_SelectedIndexChanged(sender, e);
+                        PopupNotifier popup = new PopupNotifier();
+                        popup.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.caution, 100, 100);
+                        popup.TitleColor = Color.Blue;
+                        popup.TitleText = "Datos";
+                        popup.ContentText = "Documentos de " + um.Nombre + " por fecha";
+                        popup.ContentColor = Color.Red;
+                        popup.Popup();
+                    }
+                //}
             }
-        }
+            catch(Exception error)
+            {
+                SECUDOC.writeLog(error.ToString());
+            }
+        }*/
 
         private void dateTimePickerEnd_ValueChanged(object sender, EventArgs e)
         {
-            if (dateTimePickerEnd.Enabled)
+            MessageBox.Show((dateTimePickerEnd.Value).ToString("yyyy-MM-dd"));
+            FechaFinal = (dateTimePickerEnd.Value).ToString("yyyy-MM-dd");
+            /*if (dateTimePickerEnd.Enabled)
             {
                 if (permissionPrepedido)
                 {
@@ -372,7 +489,7 @@ namespace SyncTPV.Views.Reports
                     {
                         FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
                         //FechaInicial += " 00:00:00";  //00:00:00 a. m
-                    }*/
+                    }
                     FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
                     FechaFinal = (dateTimePickerEnd.Value).ToString("yyyy-MM-dd");
                     //FechaFinal += " 23:59:59";
@@ -386,7 +503,7 @@ namespace SyncTPV.Views.Reports
                     popup.ContentColor = Color.Red;
                     popup.Popup();
                 }
-            }
+            }*/
         }
 
         private async Task callDownloadDocumentsProcess(int idUser, String startDate, String endDate, int lastId)
@@ -402,14 +519,17 @@ namespace SyncTPV.Views.Reports
 
         private async Task callDownloadWithdrawalsProcess(int idUser, String startDate, String endDate, int lastId)
         {
-            GetDataService gds = new GetDataService();
             dynamic respuesta = new ExpandoObject();
-            if (ConfiguracionModel.isLANPermissionActivated())
-                respuesta = await gds.downloadAllWithdrawalsLAN(idUser, startDate, endDate, lastId, LIMIT);
-            else respuesta = await gds.downloadAllWithdrawals(idUser, startDate, endDate, lastId, LIMIT);
+            
+                GetDataService gds = new GetDataService();
+                if (ConfiguracionModel.isLANPermissionActivated())
+                    respuesta = await gds.downloadAllWithdrawalsLAN(idUser, startDate, endDate, lastId, LIMIT);
+                else respuesta = await gds.downloadAllWithdrawals(idUser, startDate, endDate, lastId, LIMIT);
             validateDownloadDocumentsResponse(respuesta);
+            
         }
 
+        
         private async Task validateDownloadDocumentsResponse(dynamic respuesta)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -487,6 +607,93 @@ namespace SyncTPV.Views.Reports
                 }
             }
             Cursor.Current = Cursors.Default;
+        }
+
+        private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show((dateTimePickerStart.Value).ToString("yyyy-MM-dd"));
+
+            FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
+        }
+
+        private void btnBuscarReportes_Click(object sender, EventArgs e)
+        {
+            if (dateTimePickerEnd.Enabled)
+            {
+                if (permissionPrepedido)
+                {
+
+                }
+                else
+                {
+                    if (tabControlReportes.SelectedIndex == 0)
+                        resetearValoresDocumentos(0);
+                    else if (tabControlReportes.SelectedIndex == 1)
+                        resetearValoresEIAnteriores(0);
+                }
+                UserModel um = (UserModel)comboBoxSelectUser.SelectedItem;
+                if (um != null)
+                {
+                    FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd HH:mm:ss");
+                    if (contadorBanderaFecha > 1)
+                    {
+                        FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
+                        //FechaInicial += " 00:00:00";  //00:00:00 a. m
+                    }
+                    FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
+                    FechaFinal = (dateTimePickerEnd.Value).ToString("yyyy-MM-dd");
+                    //FechaFinal += " 23:59:59";
+                    userId = um.id;
+                    tabControlReportes_SelectedIndexChanged(sender, e);
+                    PopupNotifier popup = new PopupNotifier();
+                    popup.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.caution, 100, 100);
+                    popup.TitleColor = Color.Red;
+                    popup.TitleText = "Datos";
+                    popup.ContentText = "Documentos de " + um.Nombre + " por fecha";
+                    popup.ContentColor = Color.Red;
+                    popup.Popup();
+                }
+            }
+        }
+
+        private void chckBDlocal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chckBDlocal.Checked)
+                BDlocal = true;
+            else BDlocal = false;
+        }
+
+        public static dynamic fillDataGridDocumentsDBLocal(String FechaInicial,String FechaFinal)
+        {
+            
+            dynamic respuesta = new ExpandoObject();
+            List<dynamic> Documentos = null;
+            try
+            {
+                String query = "select * from Documentos inner join FormasDeCobro on Documentos.FORMA_COBRO_ID = FormasDeCobro.FORMA_COBRO_CC_ID Where " + LocalDatabase.CAMPO_FECHAHORAMOV_DOC+ " BETWEEN '"+
+                    FechaInicial+" 00:00:00' AND '"+FechaFinal+" 23:59:59' AND "+LocalDatabase.CAMPO_USUARIOID_DOC + " = "+userId+" " +
+                    "And "+LocalDatabase.CAMPO_PAUSAR_DOC+"= 0 AND "+
+                    LocalDatabase.CAMPO_CANCELADO_DOC+"=0 order by id desc";
+                
+                Documentos = DocumentModel.getReporteDeDocumentos(query);
+                if (Documentos != null)
+                {
+                    respuesta.value = Documentos.Count;
+                    respuesta.description = "";
+                }
+                else
+                {
+                    respuesta.value = 0;
+                    respuesta.description = "No hay documentos encontrados";
+                }
+                respuesta.documentos = Documentos;
+            }
+            catch(Exception e){
+                respuesta.value = -1;
+                respuesta.description = e.ToString();
+                respuesta.documentos = null;
+            }
+            return respuesta;
         }
 
         private async Task fillDataGridDocuments()
@@ -693,19 +900,43 @@ namespace SyncTPV.Views.Reports
             {
                 progressEIAnteriores += egresosListTemp.Count;
                 egresosList.AddRange(egresosListTemp);
-                for (int i = 0; i < egresosListTemp.Count; i++)
+                if(LIMIT == 0)
                 {
-                    int n = dataGridViewEIAnteriores.Rows.Add();
-                    dataGridViewEIAnteriores.Rows[n].Cells[0].Value = egresosListTemp[i].id + "";
-                    dataGridViewEIAnteriores.Rows[n].Cells[1].Value = egresosListTemp[i].number + "";
-                    dataGridViewEIAnteriores.Rows[n].Cells[2].Value = egresosListTemp[i].concept + "";
-                    dataGridViewEIAnteriores.Rows[n].Cells[3].Value = egresosListTemp[i].description + "";
-                    dataGridViewEIAnteriores.Rows[n].Cells[4].Value = egresosListTemp[i].fechaHora + "";
-                    dataGridViewEIAnteriores.Rows[n].Cells[5].Value = "0";
-                    dataGridViewEIAnteriores.Columns[5].Visible = false;
-                    dataGridViewEIAnteriores.Rows[n].Cells[6].Value = "0";
-                    dataGridViewEIAnteriores.Columns[6].Visible = false;
+                    for (int i = 0; i < egresosListTemp.Count; i++)
+                    {
+                            int n = dataGridViewEIAnteriores.Rows.Add();
+                            dataGridViewEIAnteriores.Rows[n].Cells[0].Value = egresosListTemp[i].id + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[1].Value = egresosListTemp[i].number + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[2].Value = egresosListTemp[i].concept + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[3].Value = egresosListTemp[i].description + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[4].Value = egresosListTemp[i].fechaHora + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[5].Value = "0";
+                            dataGridViewEIAnteriores.Columns[5].Visible = false;
+                            dataGridViewEIAnteriores.Rows[n].Cells[6].Value = "0";
+                            dataGridViewEIAnteriores.Columns[6].Visible = false;
+                        
+                    }
                 }
+                else
+                {
+                    for (int i = 0; i < egresosListTemp.Count; i++)
+                    {
+                        if (LIMIT > i)
+                        {
+                            int n = dataGridViewEIAnteriores.Rows.Add();
+                            dataGridViewEIAnteriores.Rows[n].Cells[0].Value = egresosListTemp[i].id + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[1].Value = egresosListTemp[i].number + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[2].Value = egresosListTemp[i].concept + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[3].Value = egresosListTemp[i].description + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[4].Value = egresosListTemp[i].fechaHora + "";
+                            dataGridViewEIAnteriores.Rows[n].Cells[5].Value = "0";
+                            dataGridViewEIAnteriores.Columns[5].Visible = false;
+                            dataGridViewEIAnteriores.Rows[n].Cells[6].Value = "0";
+                            dataGridViewEIAnteriores.Columns[6].Visible = false;
+                        }
+                    }
+                }
+                
                 dataGridViewEIAnteriores.PerformLayout();
                 egresosListTemp.Clear();
                 lastIdEIAnteriores = Convert.ToInt32(egresosList[egresosList.Count - 1].id);
@@ -724,6 +955,8 @@ namespace SyncTPV.Views.Reports
                     dataGridViewEIAnteriores.FirstDisplayedScrollingRowIndex = firstVisibleRowEIAnteriores;
                 //imgSinDatosSalesRepCaja.Visible = false;
             }
+
+            dataGridViewCreditsTurno.ClearSelection();
         }
 
         private async Task<List<RetiroModel>> getAllWithdrawals()
@@ -872,8 +1105,17 @@ namespace SyncTPV.Views.Reports
             }
             String filePath = @"" + folderPath + "\\" + "Reporte-" + nameReport + "_" + MetodosGenerales.getCurrentDateAndHourForFolioVenta() + ".pdf";
             ClsPdfMethods cpdfm = new ClsPdfMethods();
-            await cpdfm.createPdfDocuments(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
+            if (BDlocal)
+            {
+                await cpdfm.createPdfDocumentsBDLOCAL(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
                 FechaInicial, FechaFinal, 0, totalDocumentosAnteriores);
+            }
+            else
+            {
+                await cpdfm.createPdfDocuments(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
+                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores);
+            }
+            
             if (frmWaiting != null)
             {
                 frmWaiting.Close();

@@ -62,7 +62,7 @@ namespace SyncTPV.Views
             this.textNombreFormaDeCobro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textNombreFormaDeCobro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.textNombreFormaDeCobro.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNombreFormaDeCobro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textNombreFormaDeCobro.ForeColor = System.Drawing.Color.DodgerBlue;
             this.textNombreFormaDeCobro.Location = new System.Drawing.Point(22, 9);
             this.textNombreFormaDeCobro.Name = "textNombreFormaDeCobro";
@@ -80,7 +80,7 @@ namespace SyncTPV.Views
             this.btnAbonarFrmAddAbono.FlatAppearance.BorderSize = 2;
             this.btnAbonarFrmAddAbono.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnAbonarFrmAddAbono.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAbonarFrmAddAbono.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbonarFrmAddAbono.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbonarFrmAddAbono.Location = new System.Drawing.Point(208, 107);
             this.btnAbonarFrmAddAbono.Name = "btnAbonarFrmAddAbono";
             this.btnAbonarFrmAddAbono.Size = new System.Drawing.Size(191, 40);
@@ -102,11 +102,11 @@ namespace SyncTPV.Views
             // 
             this.editImporteFrmAddAbono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editImporteFrmAddAbono.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editImporteFrmAddAbono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editImporteFrmAddAbono.ForeColor = System.Drawing.Color.Green;
             this.editImporteFrmAddAbono.Location = new System.Drawing.Point(101, 62);
             this.editImporteFrmAddAbono.Name = "editImporteFrmAddAbono";
-            this.editImporteFrmAddAbono.Size = new System.Drawing.Size(251, 23);
+            this.editImporteFrmAddAbono.Size = new System.Drawing.Size(251, 22);
             this.editImporteFrmAddAbono.TabIndex = 8;
             this.editImporteFrmAddAbono.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.editImporteFrmAddAbono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editImporteFrmAddAbono_KeyPress_1);
@@ -115,20 +115,20 @@ namespace SyncTPV.Views
             // 
             this.textCurrencyFrmAddAbono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textCurrencyFrmAddAbono.AutoSize = true;
-            this.textCurrencyFrmAddAbono.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCurrencyFrmAddAbono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textCurrencyFrmAddAbono.Location = new System.Drawing.Point(358, 65);
             this.textCurrencyFrmAddAbono.Name = "textCurrencyFrmAddAbono";
-            this.textCurrencyFrmAddAbono.Size = new System.Drawing.Size(35, 15);
+            this.textCurrencyFrmAddAbono.Size = new System.Drawing.Size(39, 16);
             this.textCurrencyFrmAddAbono.TabIndex = 7;
             this.textCurrencyFrmAddAbono.Text = "MXN";
             // 
             // textInfoAbonoFrmAddAbono
             // 
             this.textInfoAbonoFrmAddAbono.AutoSize = true;
-            this.textInfoAbonoFrmAddAbono.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoAbonoFrmAddAbono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoAbonoFrmAddAbono.Location = new System.Drawing.Point(19, 65);
             this.textInfoAbonoFrmAddAbono.Name = "textInfoAbonoFrmAddAbono";
-            this.textInfoAbonoFrmAddAbono.Size = new System.Drawing.Size(63, 15);
+            this.textInfoAbonoFrmAddAbono.Size = new System.Drawing.Size(71, 16);
             this.textInfoAbonoFrmAddAbono.TabIndex = 6;
             this.textInfoAbonoFrmAddAbono.Text = "Importe $";
             // 
