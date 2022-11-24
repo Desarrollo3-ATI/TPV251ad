@@ -411,6 +411,37 @@ namespace SyncTPV
             return resp;
         }
 
+        public static Boolean FormasCobroCeroRetiros(int id)
+        {
+            Boolean terminated = false;
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                String query = "UPDATE " + LocalDatabase.TABLA_RETIROS + " SET " + LocalDatabase.CAMPO_FECHAHORA_RETIRO + " = @fechaHora" +
+                    " WHERE " + LocalDatabase.CAMPO_ID_RETIRO + " = @idRetiro";
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    command.Parameters.AddWithValue("@fechaHora", MetodosGenerales.getCurrentDateAndHour());
+                    command.Parameters.AddWithValue("@idRetiro", id);
+                    int records = command.ExecuteNonQuery();
+                    if (records > 0)
+                        terminated = true;
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return terminated;
+        }
+
         public static Boolean updateDateForTerminateWithdrawalOfMoney(int id)
         {
             Boolean terminated = false;

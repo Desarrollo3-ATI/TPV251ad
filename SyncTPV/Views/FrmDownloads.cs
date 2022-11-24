@@ -146,7 +146,8 @@ namespace SyncTPV.Views
             popup.ContentText = "Iniciando descarga de información";
             popup.ContentColor = Color.Red;
             popup.Popup();
-            
+
+            codigoCaja = UserModel.getCodeBox(ClsRegeditController.getIdUserInTurn());
             frmWaiting = new FormWaiting(0, index, this, codigoCaja);
             frmWaiting.StartPosition = FormStartPosition.CenterScreen;
             frmWaiting.ShowDialog();
@@ -163,13 +164,13 @@ namespace SyncTPV.Views
                 {
                     if (showMessage)
                     {
-                        /*PopupNotifier popup = new PopupNotifier();
-                        popup.Image = ClsMetodosGenerales.redimencionarImagenes(Properties.Resources.success_green, 100, 100);
+                        PopupNotifier popup = new PopupNotifier();
+                        popup.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.success_green, 100, 100);
                         popup.TitleColor = Color.Blue;
                         popup.TitleText = "Datos Actualizados";
                         popup.ContentText = description;
                         popup.ContentColor = Color.Red;
-                        popup.Popup();*/
+                        popup.Popup();
                     }
                 } else if (value == 2)
                 {

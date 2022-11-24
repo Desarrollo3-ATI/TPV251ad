@@ -659,8 +659,129 @@ namespace SyncTPV
                                 docVenta.documentoArchivado = Convert.ToInt32(reader[LocalDatabase.CAMPO_ARCHIVADO_DOC].ToString().Trim());
                                 docVenta.pausado = Convert.ToInt32(reader[LocalDatabase.CAMPO_PAUSAR_DOC].ToString().Trim());
                                 docVenta.papeleraReciclaje = Convert.ToInt32(reader[LocalDatabase.CAMPO_PAPELERARECICLAJE_DOC].ToString().Trim());
-                                docVenta.Totalmovimientos = 0;
+                                docVenta.TotalMovimientos = 0;
+                                //comentar esto
+                                List<dynamic> movimientos = new List<dynamic>();
+                                int TotalMov = 0;
                                 try
+                                {
+                                    String query2 = "SELECT * from Movimientos inner join Item on " +
+                                        "Item.code = Movimientos.CLAVE_ART where DOCTO_ID_PEDIDO =" + docVenta.id;
+                                    
+                                    using (SQLiteCommand command2 = new SQLiteCommand(query2, db))
+                                    {
+                                        using (SQLiteDataReader reader2 = command2.ExecuteReader())
+                                        {
+                                            if (reader2.HasRows)
+                                            {
+
+                                                while (reader2.Read())
+                                                {
+                                                    dynamic movimiento = new ExpandoObject();
+                                                    TotalMov += 1;
+                                                    movimiento.DOCTO_ID_PEDIDO = Convert.ToInt32(reader2["DOCTO_ID_PEDIDO"].ToString().Trim());
+                                                    movimiento.CLAVE_ART = reader2["CLAVE_ART"].ToString().Trim();
+                                                    movimiento.unidad_base = Convert.ToInt32(reader2["unidad_base"].ToString().Trim());
+                                                    movimiento.unidad_no_convertible = Convert.ToInt32(reader2["unidad_no_convertible"].ToString().Trim());
+                                                    movimiento.unidades_capturadas = Convert.ToInt32(reader2["unidades_capturadas"].ToString().Trim());
+                                                    movimiento.captured_unit_type = Convert.ToInt32(reader2["captured_unit_type"].ToString().Trim());
+                                                    movimiento.precio = float.Parse(reader2["precio"].ToString().Trim());
+                                                    movimiento.MONTO = float.Parse(reader2["MONTO"].ToString().Trim());
+                                                    movimiento.TOTAL = float.Parse(reader2["TOTAL"].ToString().Trim());
+                                                    movimiento.TIPO_DOCUMENTO = Convert.ToInt32(reader2["TIPO_DOCUMENTO"].ToString().Trim());
+                                                    movimiento.FACTURA = reader2["FACTURA"].ToString().Trim();
+                                                    movimiento.DESCUENTOPOR = Convert.ToInt32(reader2["DESCUENTOPOR"].ToString().Trim());
+                                                    movimiento.DESCUENTO = float.Parse(reader2["DESCUENTO"].ToString().Trim());
+                                                    movimiento.OBSERVACIONES =reader2["OBSERVACIONES"].ToString().Trim();
+                                                    movimiento.COMENTARIO = reader2["COMENTARIO"].ToString().Trim();
+                                                    movimiento.enviado_al_ws = Convert.ToInt32(reader2["enviado_al_ws"].ToString().Trim());
+                                                    movimiento.rate_discount_promo = float.Parse(reader2["rate_discount_promo"].ToString().Trim());
+                                                    movimiento.POSICION = Convert.ToInt32(reader2["POSICION"].ToString().Trim());
+                                                    movimiento.name = reader2["name"].ToString().Trim();
+                                                    movimiento.clasification_1 = Convert.ToInt32(reader2["clasification_1"].ToString().Trim());
+                                                    movimiento.clasification_2 = Convert.ToInt32(reader2["clasification_2"].ToString().Trim());
+                                                    movimiento.clasification_3 = Convert.ToInt32(reader2["clasification_3"].ToString().Trim());
+                                                    movimiento.clasification_4 = Convert.ToInt32(reader2["clasification_4"].ToString().Trim());
+                                                    movimiento.clasification_5 = Convert.ToInt32(reader2["clasification_5"].ToString().Trim());
+                                                    movimiento.clasification_6 = Convert.ToInt32(reader2["clasification_6"].ToString().Trim());
+                                                    movimiento.stock = float.Parse(reader2["stock"].ToString().Trim());
+                                                    movimiento.ordenar = float.Parse(reader2["ordenar"].ToString().Trim());
+                                                    movimiento.precio_1 = float.Parse(reader2["precio_1"].ToString().Trim());
+                                                    movimiento.precio_2 = float.Parse(reader2["precio_2"].ToString().Trim());
+                                                    movimiento.precio_3 = float.Parse(reader2["precio_3"].ToString().Trim());
+                                                    movimiento.precio_4 = float.Parse(reader2["precio_4"].ToString().Trim());
+                                                    movimiento.precio_5 = float.Parse(reader2["precio_5"].ToString().Trim());
+                                                    movimiento.precio_6 = float.Parse(reader2["precio_6"].ToString().Trim());
+                                                    movimiento.precio_7 = float.Parse(reader2["precio_7"].ToString().Trim());
+                                                    movimiento.precio_8 = float.Parse(reader2["precio_8"].ToString().Trim());
+                                                    movimiento.precio_9 = float.Parse(reader2["precio_9"].ToString().Trim());
+                                                    movimiento.precio_10 = float.Parse(reader2["precio_10"].ToString().Trim());
+                                                    movimiento.fiscal_product = Convert.ToInt32(reader2["fiscal_product"].ToString().Trim());
+                                                    movimientos.Add(movimiento);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                TotalMov = 0;
+                                            }
+                                            if (reader2 != null && !reader2.IsClosed)
+                                                reader2.Close();
+                                        }
+                                    }
+                                }
+                                catch(Exception e)
+                                {
+                                    docVenta.Totalmovimientos = 0;
+                                    SECUDOC.writeLog(e.ToString());
+                                }
+                                //movimientos  -  formas de cobro
+                                List<dynamic> formasCobro = new List<dynamic>();
+                                int TotalFC = 0;
+                                try
+                                {
+                                    String query2 = "SELECT * from FormaCobroDocumento where documento_id =" + docVenta.id;
+
+                                    using (SQLiteCommand command2 = new SQLiteCommand(query2, db))
+                                    {
+                                        using (SQLiteDataReader reader2 = command2.ExecuteReader())
+                                        {
+                                            if (reader2.HasRows)
+                                            {
+
+                                                while (reader2.Read())
+                                                {
+                                                    dynamic formasC = new ExpandoObject();
+                                                    TotalFC += 1;
+                                                    formasC.forma_cobro_id_abono = Convert.ToInt32(reader2["forma_cobro_id_abono"].ToString().Trim());
+                                                    formasC.importe = float.Parse(reader2["importe"].ToString().Trim());
+                                                    formasC.total_doc = float.Parse(reader2["total_doc"].ToString().Trim());
+                                                    formasC.cambio = float.Parse(reader2["total_doc"].ToString().Trim());
+                                                    formasC.saldo_doc = float.Parse(reader2["saldo_doc"].ToString().Trim());
+                                                    formasC.documento_id = Convert.ToInt32(reader2["documento_id"].ToString().Trim());
+                                                    formasC.id_server = Convert.ToInt32(reader2["id_server"].ToString().Trim());
+                                                    formasCobro.Add(formasC);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                TotalFC = 0;
+                                            }
+                                            if (reader2 != null && !reader2.IsClosed)
+                                                reader2.Close();
+                                        }
+                                    }
+                                }
+                                catch (Exception e)
+                                {
+                                    docVenta.Totalmovimientos = 0;
+                                    SECUDOC.writeLog(e.ToString());
+                                }
+                                docVenta.formasCobro = formasCobro;
+                                docVenta.totalFormasC = TotalFC;
+                                docVenta.movimientos = movimientos;
+                                docVenta.totalMovimientos = TotalMov;
+                                //comentar esto 
+                                /*try
                                 {
                                     String query2 = "SELECT count(*) totalMovimientos from Movimientos where DOCTO_ID_PEDIDO ="+ docVenta.id;
                                     using (SQLiteCommand command2 = new SQLiteCommand(query2, db))
@@ -686,7 +807,7 @@ namespace SyncTPV
                                 {
                                     docVenta.Totalmovimientos = 0;
                                     SECUDOC.writeLog(error.ToString());
-                                }
+                                }*/
                                 listaResDocument.Add(docVenta);
                             }
                         }

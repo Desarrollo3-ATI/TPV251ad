@@ -287,31 +287,64 @@ namespace SyncTPV
                 editCodigoItem.Text = item.codigo;
                 editNombreItem.Text = item.nombre;
                 editDescuentoItem.Text = item.descuentoMaximo + "%";
-                String baseUnitName = ClsUnitsOfMeasureAndWeightModel.getNameFromAnUnitsMeasureAndWeight(comInstance, item.baseUnitId);
-                if (item.baseUnitId != 0)
+                String baseUnitName = "";
+                try
                 {
-                    textBaseUnit.Text = "Unidad Base: " + baseUnitName;
+                    baseUnitName = ClsUnitsOfMeasureAndWeightModel.getNameFromAnUnitsMeasureAndWeight(comInstance, item.baseUnitId);
+                    if (item.baseUnitId != 0)
+                    {
+                        textBaseUnit.Text = "Unidad Base: " + baseUnitName;
+                    }
+                    else textBaseUnit.Text = "Sin Unidad Base";
                 }
-                else textBaseUnit.Text = "Sin Unidad Base";
-                if (item.nonConvertibleUnitId != 0)
+                catch(Exception e)
                 {
-                    String nonConvertibleUnitName = ClsUnitsOfMeasureAndWeightModel.getNameFromAnUnitsMeasureAndWeight(comInstance, 
-                        item.nonConvertibleUnitId);
-                    textNonConvertibleUnit.Text = "Unidad No Convertible: " + nonConvertibleUnitName;
+                    SECUDOC.writeLog("error unidad base");
                 }
-                else textNonConvertibleUnit.Text = "Sin Unidad No Convertible";
-                if (item.purchaseUnitId != 0)
+                String nonConvertibleUnitName = "";
+                try
                 {
-                    String purchaseUnitName = ClsUnitsOfMeasureAndWeightModel.getNameFromAnUnitsMeasureAndWeight(comInstance, item.purchaseUnitId);
-                    textPurchaseUnit.Text = "Unidad de Compra: " + purchaseUnitName;
+                    if (item.nonConvertibleUnitId != 0)
+                    {
+                         nonConvertibleUnitName = ClsUnitsOfMeasureAndWeightModel.getNameFromAnUnitsMeasureAndWeight(comInstance,
+                            item.nonConvertibleUnitId);
+                        textNonConvertibleUnit.Text = "Unidad No Convertible: " + nonConvertibleUnitName;
+                    }
+                    else textNonConvertibleUnit.Text = "Sin Unidad No Convertible";
                 }
-                else textPurchaseUnit.Text = "Sin Unidad de Compra";
-                String unitSaleName = ClsUnitsOfMeasureAndWeightModel.getNameFromAnUnitsMeasureAndWeight(comInstance, item.salesUnitId);
-                if (item.salesUnitId != 0)
+                catch (Exception e)
                 {
-                    textSalesUnit.Text = "Unidad de Venta: " + unitSaleName;
+                    SECUDOC.writeLog("error unidad no convertible");
                 }
-                else textSalesUnit.Text = "Sin Unidad de Venta";
+                String purchaseUnitName = "";
+                try
+                {
+                    if (item.purchaseUnitId != 0)
+                    {
+                        purchaseUnitName = ClsUnitsOfMeasureAndWeightModel.getNameFromAnUnitsMeasureAndWeight(comInstance, item.purchaseUnitId);
+                        textPurchaseUnit.Text = "Unidad de Compra: " + purchaseUnitName;
+                    }
+                    else textPurchaseUnit.Text = "Sin Unidad de Compra";
+                }
+                catch
+                {
+                    SECUDOC.writeLog("error de unidad de compra");
+                }
+                String unitSaleName = "";
+                try
+                {
+                    unitSaleName = ClsUnitsOfMeasureAndWeightModel.getNameFromAnUnitsMeasureAndWeight(comInstance, item.salesUnitId);
+                    if (item.salesUnitId != 0)
+                    {
+                        textSalesUnit.Text = "Unidad de Venta: " + unitSaleName;
+                    }
+                    else textSalesUnit.Text = "Sin Unidad de Venta";
+                }
+                catch (Exception e)
+                {
+                    SECUDOC.writeLog("error de unidad de venta");
+                }
+                
                 bool isFiscal = await ItemModel.getFiscalItemFieldValue(item, positionFiscalItemFeld);
                 if (isFiscal)
                 {
@@ -474,9 +507,16 @@ namespace SyncTPV
                 double unidadesPendientesLocales = MovimientosModel.getUnidadesBasePendientesLocales(item.id, 0, true);
                 existenciaReal = (item.existencia - unidadesPendientesServer);
                 existenciaReal = (existenciaReal - unidadesPendientesLocales);
-                editExistenciaItem.Text = stock+"\r\nUnidades pendientes (Panel): "+ MetodosGenerales.obtieneDosDecimales(unidadesPendientesServer) +
-                    "\r\nUnidades pendientes (local): "+ MetodosGenerales.obtieneDosDecimales(unidadesPendientesLocales) +
-                    "\r\nExistencia Real: "+ MetodosGenerales.obtieneDosDecimales(existenciaReal);
+                try
+                {
+                    editExistenciaItem.Text = stock + "\r\nUnidades pendientes (Panel): " + MetodosGenerales.obtieneDosDecimales(unidadesPendientesServer) +
+                    "\r\nUnidades pendientes (local): " + MetodosGenerales.obtieneDosDecimales(unidadesPendientesLocales) +
+                    "\r\nExistencia Real: " + MetodosGenerales.obtieneDosDecimales(existenciaReal);
+                }
+                catch(Exception e)
+                {
+                    SECUDOC.writeLog("Existencias con error "+e.ToString());
+                }
             }
         }
 

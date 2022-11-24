@@ -27,6 +27,8 @@ namespace SyncTPV.Views.Reports
         public static int userId = 0;
         int Error = 0;
         string FechaInicial = "", FechaFinal = "", MensajeError = "";
+        string HoraInicial = "00", MinutosInicial = "00", SegundosInicial = "00";
+        string HoraFinal = "23", MinutosFinal = "59", SegundosFinal = "59";
         int contadorBanderaFecha = 0;
         private static int lastIdCreditsTurno = 0, lastIdVentasTurno = 0, lastIdEITurno = 0,
             lastIdDocumentosAnteriores = 0, lastIdEIAnteriores = 0;
@@ -320,7 +322,9 @@ namespace SyncTPV.Views.Reports
             Cursor.Current = Cursors.WaitCursor;
             showOrHideDateAndUsers(true);
             dynamic documentosLocal = new ExpandoObject();
-            documentosLocal = fillDataGridDocumentsDBLocal(FechaInicial,FechaFinal);
+            String horaInicio = HoraInicial+":"+MinutosInicial+":"+SegundosInicial;
+            String horaFin = HoraFinal+":"+MinutosFinal+":"+SegundosFinal;
+            documentosLocal = fillDataGridDocumentsDBLocal(FechaInicial,FechaFinal,horaInicio, horaFin);
             dataGridViewDocumentosAnteriores.Rows.Clear();
             if (documentosLocal.value == -1)
             {
@@ -382,11 +386,13 @@ namespace SyncTPV.Views.Reports
 
         public async Task callDownloadDocumentsFromServer(int information)
         {
+            String horaInicio = HoraInicial + ":" + MinutosInicial + ":" + SegundosInicial;
+            String horaFin = HoraFinal + ":" + MinutosFinal + ":" + SegundosFinal;
             if (information == GetDataService.GET_DOCUMENT)
             {
                 if (lastIdDocumentosAnteriores == 0)
                     resetearValoresDocumentos(0);
-                await callDownloadDocumentsProcess(userId, FechaInicial + " 00:00:00", FechaFinal + " 23:59:59", lastIdDocumentosAnteriores);
+                await callDownloadDocumentsProcess(userId, FechaInicial + " "+horaInicio, FechaFinal + " "+horaFin, lastIdDocumentosAnteriores);
             } else if (information == GetDataService.GET_WITHDRAWAL)
             {
                 if (lastIdEIAnteriores == 0)
@@ -394,7 +400,7 @@ namespace SyncTPV.Views.Reports
                     resetearValoresEIAnteriores(0);
                     resetVariablesEIDelTurno(0);
                 }
-                await callDownloadWithdrawalsProcess(userId, FechaInicial + " 00:00:00", FechaFinal + " 23:59:59", lastIdEIAnteriores);
+                await callDownloadWithdrawalsProcess(userId, FechaInicial + " " + horaInicio, FechaFinal + " " + horaFin, lastIdEIAnteriores);
                 
             }
         }
@@ -466,7 +472,6 @@ namespace SyncTPV.Views.Reports
 
         private void dateTimePickerEnd_ValueChanged(object sender, EventArgs e)
         {
-            MessageBox.Show((dateTimePickerEnd.Value).ToString("yyyy-MM-dd"));
             FechaFinal = (dateTimePickerEnd.Value).ToString("yyyy-MM-dd");
             /*if (dateTimePickerEnd.Enabled)
             {
@@ -609,10 +614,52 @@ namespace SyncTPV.Views.Reports
             Cursor.Current = Cursors.Default;
         }
 
+        private void comboHoraInicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HoraInicial =  (comboHoraInicio.Text).ToString();
+        }
+
+        private void comboMinutosInicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MinutosInicial = (comboMinutosInicio.Text).ToString();
+        }
+
+        private void comboSegundosInicio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SegundosInicial = (comboSegundosInicio.Text).ToString();
+        }
+
+        private void comboHoraFin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HoraFinal = (comboHoraFin.Text).ToString();
+        }
+
+        private void comboMinutosFin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MinutosFinal = (comboMinutosFin.Text).ToString();
+        }
+
+        private void comboSegundosFin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SegundosFinal = (comboSegundosFin.Text).ToString();
+        }
+
+        private void btnFullReporte_Click(object sender, EventArgs e)
+        {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.caution, 100, 100);
+            popup.TitleColor = Color.Red;
+            popup.TitleText = "Proceso Iniciado";
+            popup.ContentText = "Generando PDF";
+            popup.ContentColor = Color.Red;
+            popup.Popup();
+            frmWaiting = new FormWaiting(this, 4, searchWordPrepedidos);
+            frmWaiting.StartPosition = FormStartPosition.CenterScreen;
+            frmWaiting.ShowDialog();
+        }
+
         private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
         {
-            MessageBox.Show((dateTimePickerStart.Value).ToString("yyyy-MM-dd"));
-
             FechaInicial = (dateTimePickerStart.Value).ToString("yyyy-MM-dd");
         }
 
@@ -663,7 +710,7 @@ namespace SyncTPV.Views.Reports
             else BDlocal = false;
         }
 
-        public static dynamic fillDataGridDocumentsDBLocal(String FechaInicial,String FechaFinal)
+        public static dynamic fillDataGridDocumentsDBLocal(String FechaInicial,String FechaFinal,String horainicio, String horafin)
         {
             
             dynamic respuesta = new ExpandoObject();
@@ -671,7 +718,7 @@ namespace SyncTPV.Views.Reports
             try
             {
                 String query = "select * from Documentos inner join FormasDeCobro on Documentos.FORMA_COBRO_ID = FormasDeCobro.FORMA_COBRO_CC_ID Where " + LocalDatabase.CAMPO_FECHAHORAMOV_DOC+ " BETWEEN '"+
-                    FechaInicial+" 00:00:00' AND '"+FechaFinal+" 23:59:59' AND "+LocalDatabase.CAMPO_USUARIOID_DOC + " = "+userId+" " +
+                    FechaInicial+" "+horainicio+"' AND '"+FechaFinal+" "+horafin+"' AND "+LocalDatabase.CAMPO_USUARIOID_DOC + " = "+userId+" " +
                     "And "+LocalDatabase.CAMPO_PAUSAR_DOC+"= 0 AND "+
                     LocalDatabase.CAMPO_CANCELADO_DOC+"=0 order by id desc";
                 
@@ -1105,15 +1152,17 @@ namespace SyncTPV.Views.Reports
             }
             String filePath = @"" + folderPath + "\\" + "Reporte-" + nameReport + "_" + MetodosGenerales.getCurrentDateAndHourForFolioVenta() + ".pdf";
             ClsPdfMethods cpdfm = new ClsPdfMethods();
+            String horaInicio = HoraInicial + ":" + MinutosInicial + ":" + SegundosInicial;
+            String horaFin = HoraFinal + ":" + MinutosFinal + ":" + SegundosFinal;
             if (BDlocal)
             {
                 await cpdfm.createPdfDocumentsBDLOCAL(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
-                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores);
+                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores,horaInicio,horaFin);
             }
             else
             {
                 await cpdfm.createPdfDocuments(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
-                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores);
+                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores, horaInicio, horaFin);
             }
             
             if (frmWaiting != null)
@@ -1122,6 +1171,47 @@ namespace SyncTPV.Views.Reports
                 frmWaiting.Dispose();
             }
             FormMessage formMessage = new FormMessage("Documento Generado", "El documento PDF fue generado correctamente!\r\n"+
+                filePath, 1);
+            formMessage.ShowDialog();
+            Cursor.Current = Cursors.Default;
+        }
+
+        public async Task generatePDfDetallesDocuments()
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            String nameReport = "Documentos";
+            String enterpriseName = "";
+            DatosTicketModel dtm = DatosTicketModel.getAllData();
+            if (dtm != null)
+            {
+                enterpriseName = dtm.EMPRESA;
+            }
+            String folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\PDFsTPV";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            String filePath = @"" + folderPath + "\\" + "Reporte-" + nameReport + "_" + MetodosGenerales.getCurrentDateAndHourForFolioVenta() + ".pdf";
+            ClsPdfMethods cpdfm = new ClsPdfMethods();
+            String horaInicio = HoraInicial + ":" + MinutosInicial + ":" + SegundosInicial;
+            String horaFin = HoraFinal + ":" + MinutosFinal + ":" + SegundosFinal;
+            if (BDlocal)
+            {
+                await cpdfm.createPdfDocumentsDetallesBDLOCAL(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
+                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores, horaInicio, horaFin);
+            }
+            else
+            {
+                await cpdfm.createPdfDocuments(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
+                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores, horaInicio, horaFin);
+            }
+
+            if (frmWaiting != null)
+            {
+                frmWaiting.Close();
+                frmWaiting.Dispose();
+            }
+            FormMessage formMessage = new FormMessage("Documento Generado", "El documento PDF fue generado correctamente!\r\n" +
                 filePath, 1);
             formMessage.ShowDialog();
             Cursor.Current = Cursors.Default;
@@ -1744,6 +1834,20 @@ namespace SyncTPV.Views.Reports
                             totalIngresado += totalFCIngreso;
                         }
                     }
+                    //con 0
+                    totalFCRetiro = MontoRetiroModel.getAllWithdrawalAmountsFromACollectionForm(0);
+                    if (totalFCRetiro > 0)
+                    {
+                        textTotalRetiradoDesc += ">" + "Sin asignar "+ " " + totalFCRetiro.ToString("C", CultureInfo.CurrentCulture) + "MXN\r\n";
+                        totalRetirado += totalFCRetiro;
+                    }
+                    totalFCIngreso = MontoIngresoModel.getAllEntryAmountsFromACollectionForm(0);
+                    if (totalFCIngreso > 0)
+                    {
+                        textTotalIngresadoDesc += ">" + "Sin asignar " + " " + totalFCIngreso.ToString("C", CultureInfo.CurrentCulture) + "MXN\r\n";
+                        totalIngresado += totalFCIngreso;
+                    }
+                    //con 0
                 }
             });
             sobrante = totalVendidoYCobrado + totalIngresado;

@@ -1,10 +1,12 @@
-﻿using SyncTPV.Helpers.SqliteDatabaseHelper;
+﻿using DbStructure;
+using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Dynamic;
 using System.Globalization;
@@ -1350,6 +1352,114 @@ namespace SyncTPV
                     db.Close();
             }
             return customersList;
+        }
+
+
+        
+
+        public static int ActualizarBDCustomers(String panelInstance, String comInstance)
+        {
+            int result = 0;
+            int empresaid = 0;
+            SqlConnection sqlConnection = new SqlConnection();
+            String basePanel = "";
+            String baseComrcial = "";
+            try
+            {
+                String[] panebd = panelInstance.Split(';');
+                String[] panebd2 = panebd[1].Split('=');
+                basePanel = panebd2[1];
+            }
+            catch(Exception e)
+            {
+                SECUDOC.writeLog("No se encotro la BD del panel "+e.ToString());
+            }
+            try
+            {
+                String[] panebd = comInstance.Split(';');
+                String[] panebd2 = panebd[1].Split('=');
+                baseComrcial = panebd2[1];
+            }
+            catch (Exception e)
+            {
+                SECUDOC.writeLog("No se encotro la BD del comercial " + e.ToString());
+            }
+            try
+            {
+                empresaid = UserModel.getEnterpriceForSupervisor();
+            }
+            catch(Exception e)
+            {
+                SECUDOC.writeLog("No se emcontro agente supervisor " + e.ToString());
+            }
+            try
+            {
+                sqlConnection.ConnectionString = comInstance;
+                sqlConnection.Open();
+                string cmdText = "use " + basePanel + " " +
+            "INSERT INTO Customers " +
+          "select " +
+           "cteComercial.CCODIGOCLIENTE " +
+           ",cteComercial.CRAZONSOCIAL " +
+           ",Convert(varchar, cteComercial.CFECHAALTA, 103) " +
+           ",cteComercial.CRFC " +
+           ",cteComercial.CCURP " +
+           ",cteComercial.CIDADDENDA " +
+           ",cteComercial.CDENCOMERCIAL " +
+           ",cteComercial.CREPLEGAL " +
+           ",cteComercial.CLISTAPRECIOCLIENTE " +
+           ",cteComercial.CDESCUENTODOCTO " +
+           ",cteComercial.CDESCUENTOMOVTO " +
+           ",cteComercial.CBANVENTACREDITO " +
+           ",cteComercial.CIDVALORCLASIFCLIENTE1 " +
+           ",cteComercial.CIDVALORCLASIFCLIENTE2 " +
+           ",cteComercial.CIDVALORCLASIFCLIENTE3 " +
+           ",cteComercial.CIDVALORCLASIFCLIENTE4 " +
+           ",cteComercial.CIDVALORCLASIFCLIENTE5 " +
+           ",cteComercial.CIDVALORCLASIFCLIENTE6 " +
+           ",cteComercial.CTIPOCLIENTE " +
+           ",cteComercial.CESTATUS " +
+           ",Convert(varchar, cteComercial.CFECHABAJA, 103) " +
+           ",Convert(varchar, cteComercial.CFECHAULTIMAREVISION, 103) " +
+           ",cteComercial.CLIMITECREDITOCLIENTE " +
+           ",cteComercial.CDIASCREDITOCLIENTE " +
+           ",cteComercial.CBANEXCEDERCREDITO " +
+           ",cteComercial.CDESCUENTOPRONTOPAGO " +
+           ",cteComercial.CDIASPRONTOPAGO " +
+           ",cteComercial.CINTERESMORATORIO " +
+           ",cteComercial.CIDALMACEN " +
+           ",cteComercial.CIDAGENTEVENTA " +
+           ",cteComercial.CIDAGENTECOBRO " +
+           ",cteComercial.CCODIGOCLIENTE " +
+           ",0 " +
+           ",'' " +
+           ",cteComercial.CFECHAALTA " +
+           ",Convert(varchar, cteComercial.CFECHAALTA, 20) " +
+           ","+ empresaid + " " +
+           ",cteComercial.CIDCLIENTEPROVEEDOR " +
+           "FROM [" + baseComrcial + "].[dbo].[admClientes] cteComercial left join " +
+           "[" + basePanel + "].[dbo].[Customers] ctePanel on cteComercial.CCODIGOCLIENTE = ctePanel.code " +
+           "where ctePanel.code is null And cteComercial.CCODIGOCLIENTE != '(Ninguno)';";
+
+                /*
+                 "
+                 */
+                SqlCommand sqlCommand = new SqlCommand(cmdText, sqlConnection);
+                result = sqlCommand.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                SECUDOC.writeLog("Exception: " + ex.ToString());
+            }
+            finally
+            {
+                if (sqlConnection != null && sqlConnection.State == ConnectionState.Open)
+                {
+                    sqlConnection.Close();
+                }
+            }
+
+            return result;
         }
 
         public static List<ClsClienteModel> getAllCustomersWithParameters(String query, String parameterName, String parameterValue, int withValues)

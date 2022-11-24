@@ -65,6 +65,46 @@ namespace SyncTPV
         public int venderSinExistencia { get; set; }
         public int venderACredito { get; set; }
 
+
+        public static int getEnterpriceForSupervisor()
+        {
+            int idEmpresa = 0;
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                String query = "SELECT "+LocalDatabase.CAMPO_ENTERPRISEID_USUARIO + " from "+LocalDatabase.TABLA_USUARIO + 
+                    " Where "+LocalDatabase.CAMPO_ID_USUARIO +" = 0";
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                if (reader.GetValue(0) != DBNull.Value)
+                                    idEmpresa = int.Parse(reader.GetValue(0).ToString().Trim());
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return idEmpresa;
+        }
+
         public static int saveAllUsers(List<clsAgentes> usersList)
         {
             int lastId = 0;
@@ -736,6 +776,8 @@ namespace SyncTPV
             }
             return response;
         }
+
+
 
         public static int getIntValue(String query)
         {

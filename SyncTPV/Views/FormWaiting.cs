@@ -475,9 +475,14 @@ namespace SyncTPV.Views
             else if (call == 2)
             {
                 formGeneralsReports.generatePDfDocuments();
-            } else if (call == 3)
+            }
+            else if (call == 3)
             {
                 formGeneralsReports.processToGeneratePdfRetiros(false);
+            }
+            else if (call == 4)
+            {
+                formGeneralsReports.generatePDfDetallesDocuments();
             }
         }
 

@@ -1421,6 +1421,25 @@ namespace SyncTPV
             double totalVendidoYCobrado = 0;
             await Task.Run(() => {
                 formasList = FormasDeCobroModel.getAllFormasDeCobro();
+                List<FormasDeCobroModel> formaList = null;
+                if (formasList != null)
+                {
+                    FormasDeCobroModel formasCobro = new FormasDeCobroModel();
+                    formasCobro.FORMA_COBRO_ID = 0;
+                    formasCobro.NOMBRE = "Sin asignar";
+                    formaList = new List<FormasDeCobroModel>();
+                    formaList.Add(formasCobro);
+                    formasList.AddRange(formaList);
+                }
+                else
+                {
+                    FormasDeCobroModel formasCobro = new FormasDeCobroModel();
+                    formasCobro.FORMA_COBRO_ID = 0;
+                    formasCobro.NOMBRE = "Sin asignar";
+                    formaList = new List<FormasDeCobroModel>();
+                    formaList.Add(formasCobro);
+                    formasList.AddRange(formaList);
+                }
                 double sumaTXT = 0;
                 double sumaCambio = 0;
                 double sumaDos = 0;
@@ -1461,10 +1480,29 @@ namespace SyncTPV
             double totalVendidoYCobrado = 0;
             List<FormasDeCobroModel> formasList = null;
             await Task.Run(async () => {
+                List<FormasDeCobroModel> formaList = new List<FormasDeCobroModel>();
                 formasList = FormasDeCobroModel.getAllFormasDeCobro();
                 double sumaCambio = 0;
                 double totalDocument = 0;
                 double sumasDeImporte = 0.0;
+                if(formasList != null)
+                {
+                    FormasDeCobroModel formasCobro = new FormasDeCobroModel();
+                    formasCobro.FORMA_COBRO_ID = 0;
+                    formasCobro.NOMBRE = "Sin asignar";
+                    formaList = new List<FormasDeCobroModel>();
+                    formaList.Add(formasCobro);
+                    formasList.AddRange(formaList);
+                }
+                else
+                {
+                    FormasDeCobroModel formasCobro = new FormasDeCobroModel();
+                    formasCobro.FORMA_COBRO_ID = 0;
+                    formasCobro.NOMBRE = "Sin asignar";
+                    formaList = new List<FormasDeCobroModel>();
+                    formaList.Add(formasCobro);
+                    formasList.AddRange(formaList);
+                }
                 if (formasList != null) {
                     int countEncabezadoFc = 0;
                     int lastIdFc = 0;

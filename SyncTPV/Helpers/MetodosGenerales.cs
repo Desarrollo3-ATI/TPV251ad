@@ -20,7 +20,7 @@ namespace SyncTPV
     public class MetodosGenerales
     {
         public static string rootDirectory = Application.StartupPath;
-        public static string versionNumber = "2.5.8";
+        public static string versionNumber = "2.5.9";
         public static string supportedResourceVersion = "5.5.6+";
 
         public static Bitmap redimencionarImagenes(Image originalImage, int width, int height)

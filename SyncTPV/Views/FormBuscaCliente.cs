@@ -1,9 +1,12 @@
-﻿using SyncTPV.Controllers;
+﻿using DbStructure;
+using SyncTPV.Controllers;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using SyncTPV.Views.Customers;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using wsROMClases.Models;
@@ -36,6 +39,41 @@ namespace SyncTPV
             customersList = new List<ClsClienteModel>();
         }
 
+        public void optenerCustomerNewComercialAPI()
+        {
+
+            int newCustomers = 0;
+            int idEmpresa = 0;
+            try
+            {
+                idEmpresa = UserModel.getEnterpriceForSupervisor();
+            }
+            catch (Exception e)
+            {
+                SECUDOC.writeLog("No se emcontro agente supervisor " + e.ToString());
+            }
+            dynamic newCustomersComercial = CustomersController.getNewOfCustomersComercialAPI(idEmpresa);
+
+            if (newCustomers != 0)
+            {
+                FormMessage formMessage = new FormMessage("Clientes actualizados", "nuevos clientes traidos desde comercial" +
+                            "\nNuevos: " + newCustomers, 3);
+                formMessage.ShowDialog();
+            }
+        }
+        public void optenerCustomerNewComercialLAN()
+        {
+            int newCustomersComercial = 0;
+            newCustomersComercial = CustomerModel.ActualizarBDCustomers(panelInstance,comInstance);
+
+            if (newCustomersComercial != 0)
+            {
+                FormMessage formMessage = new FormMessage("Clientes actualizados", "nuevos clientes traidos desde comercial" +
+                            "\nNuevos: "+newCustomersComercial, 3);
+                formMessage.ShowDialog();
+            }
+        }
+
         private async void frmBuscaCliente_Load(object sender, EventArgs e)
         {
             CustomerModel.validarCLientesADCyCustomers();
@@ -46,9 +84,11 @@ namespace SyncTPV
                     comInstance = InstanceSQLSEModel.getStringComInstance();
                     panelInstance = InstanceSQLSEModel.getStringPanelInstance();
                     codigoCaja = ClsCajaModel.getBoxCodeByAgentId(panelInstance, ClsRegeditController.getIdUserInTurn());
+                    optenerCustomerNewComercialLAN();
                 });
             } else
             {
+                optenerCustomerNewComercialAPI();
                 int lastIdNuevo = CustomerADCModel.getLastId();
                 if (lastIdNuevo > 0)
                 {
@@ -131,6 +171,10 @@ namespace SyncTPV
             {
                 //if (progress == 0)
                     //imgSinDatos.Visible = true;
+            }
+            if (totalCustomers < progress)
+            {
+                totalCustomers = progress;
             }
             textTotalClientes.Text = "Clientes: " + totalCustomers.ToString().Trim();
             if (firstVisibleRow > -1)

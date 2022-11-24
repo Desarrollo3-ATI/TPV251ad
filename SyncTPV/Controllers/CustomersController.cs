@@ -107,6 +107,62 @@ namespace SyncTPV.Controllers
             public List<ClsClienteModel> clientesList { get; set; }
         }
 
+        public static async Task<ExpandoObject> getNewOfCustomersComercialAPI(int idEmpresa)
+        {
+            dynamic response = new ExpandoObject();
+            await Task.Run(async () =>
+            {
+                int value = 0;
+                String description = "";
+                int total = 0;
+                try
+                {
+                    String url = ConfiguracionModel.getLinkWs();
+                    url = url.Replace(" ", "%20");
+                    var client = new RestClient(url);
+                    var request = new RestRequest("/getNewOfCustomersComercial", Method.Post);
+                    request.AddJsonBody(new
+                    {
+                        idEmpresa = idEmpresa
+                    });
+                    var responseHeader = client.ExecuteAsync(request);
+                    if (responseHeader.Result.ResponseStatus == ResponseStatus.Completed)
+                    {
+                        var content = responseHeader.Result.Content;
+                        var jsonResp = JsonConvert.DeserializeObject<int>(content);
+                        total = (int)jsonResp;
+                        value = 1;
+                    }
+                    else if (responseHeader.Result.ResponseStatus == ResponseStatus.Error)
+                    {
+                        if (responseHeader.Result.ErrorMessage.Equals("Unable to connect to the remote server"))
+                        {
+                            value = -404;
+                            description = "No pudimos establecer conexión con el servidor";
+                        }
+                        else
+                        {
+                            value = -500;
+                            description = "Algo falló al negociar información con el servidor";
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    SECUDOC.writeLog(ex.ToString());
+                    value = -1;
+                    description = ex.Message;
+                }
+                finally
+                {
+                    response.value = value;
+                    response.description = description;
+                    response.total = total;
+                }
+            });
+            return response;
+        }
+
         public static async Task<ExpandoObject> getTotalOfCustomersAPI(int lastId, int limit, int withParameters, String parameterName, String parameterValue)
         {
             dynamic response = new ExpandoObject();

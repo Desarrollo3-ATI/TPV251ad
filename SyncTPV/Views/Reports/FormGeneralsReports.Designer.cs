@@ -40,6 +40,16 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelFilters = new System.Windows.Forms.Panel();
+            this.comboSegundosFin = new System.Windows.Forms.ComboBox();
+            this.comboSegundosInicio = new System.Windows.Forms.ComboBox();
+            this.labelSegundosFin = new System.Windows.Forms.Label();
+            this.labelHoraFin = new System.Windows.Forms.Label();
+            this.comboMinutosFin = new System.Windows.Forms.ComboBox();
+            this.comboHoraFin = new System.Windows.Forms.ComboBox();
+            this.labelSegundosInicio = new System.Windows.Forms.Label();
+            this.labelHoraInicio = new System.Windows.Forms.Label();
+            this.comboMinutosInicio = new System.Windows.Forms.ComboBox();
+            this.comboHoraInicio = new System.Windows.Forms.ComboBox();
             this.txtlimite = new System.Windows.Forms.Label();
             this.ComboBoxLimite = new System.Windows.Forms.TextBox();
             this.chckBDlocal = new System.Windows.Forms.CheckBox();
@@ -53,6 +63,7 @@
             this.tabControlReportes = new System.Windows.Forms.TabControl();
             this.tabPageReporteVentas = new System.Windows.Forms.TabPage();
             this.panelContentTabDocsAnteriores = new System.Windows.Forms.Panel();
+            this.btnFullReporte = new System.Windows.Forms.Button();
             this.imgSinDatosDocumentosAnteriores = new System.Windows.Forms.PictureBox();
             this.btnReportePdfDocumentosAnteriores = new System.Windows.Forms.Button();
             this.textTotalDocumentsAnteriores = new System.Windows.Forms.Label();
@@ -193,6 +204,16 @@
             // 
             this.panelFilters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelFilters.Controls.Add(this.comboSegundosFin);
+            this.panelFilters.Controls.Add(this.comboSegundosInicio);
+            this.panelFilters.Controls.Add(this.labelSegundosFin);
+            this.panelFilters.Controls.Add(this.labelHoraFin);
+            this.panelFilters.Controls.Add(this.comboMinutosFin);
+            this.panelFilters.Controls.Add(this.comboHoraFin);
+            this.panelFilters.Controls.Add(this.labelSegundosInicio);
+            this.panelFilters.Controls.Add(this.labelHoraInicio);
+            this.panelFilters.Controls.Add(this.comboMinutosInicio);
+            this.panelFilters.Controls.Add(this.comboHoraInicio);
             this.panelFilters.Controls.Add(this.txtlimite);
             this.panelFilters.Controls.Add(this.ComboBoxLimite);
             this.panelFilters.Controls.Add(this.chckBDlocal);
@@ -208,10 +229,400 @@
             this.panelFilters.Size = new System.Drawing.Size(898, 58);
             this.panelFilters.TabIndex = 2;
             // 
+            // comboSegundosFin
+            // 
+            this.comboSegundosFin.FormattingEnabled = true;
+            this.comboSegundosFin.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.comboSegundosFin.Location = new System.Drawing.Point(666, 36);
+            this.comboSegundosFin.Name = "comboSegundosFin";
+            this.comboSegundosFin.Size = new System.Drawing.Size(44, 21);
+            this.comboSegundosFin.TabIndex = 19;
+            this.comboSegundosFin.Text = "59";
+            this.comboSegundosFin.SelectedIndexChanged += new System.EventHandler(this.comboSegundosFin_SelectedIndexChanged);
+            // 
+            // comboSegundosInicio
+            // 
+            this.comboSegundosInicio.FormattingEnabled = true;
+            this.comboSegundosInicio.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.comboSegundosInicio.Location = new System.Drawing.Point(666, 9);
+            this.comboSegundosInicio.Name = "comboSegundosInicio";
+            this.comboSegundosInicio.Size = new System.Drawing.Size(44, 21);
+            this.comboSegundosInicio.TabIndex = 18;
+            this.comboSegundosInicio.Text = "00";
+            this.comboSegundosInicio.SelectedIndexChanged += new System.EventHandler(this.comboSegundosInicio_SelectedIndexChanged);
+            // 
+            // labelSegundosFin
+            // 
+            this.labelSegundosFin.AutoSize = true;
+            this.labelSegundosFin.Location = new System.Drawing.Point(655, 42);
+            this.labelSegundosFin.Name = "labelSegundosFin";
+            this.labelSegundosFin.Size = new System.Drawing.Size(10, 13);
+            this.labelSegundosFin.TabIndex = 17;
+            this.labelSegundosFin.Text = ":";
+            // 
+            // labelHoraFin
+            // 
+            this.labelHoraFin.AutoSize = true;
+            this.labelHoraFin.Location = new System.Drawing.Point(598, 40);
+            this.labelHoraFin.Name = "labelHoraFin";
+            this.labelHoraFin.Size = new System.Drawing.Size(10, 13);
+            this.labelHoraFin.TabIndex = 16;
+            this.labelHoraFin.Text = ":";
+            // 
+            // comboMinutosFin
+            // 
+            this.comboMinutosFin.FormattingEnabled = true;
+            this.comboMinutosFin.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.comboMinutosFin.Location = new System.Drawing.Point(611, 37);
+            this.comboMinutosFin.Name = "comboMinutosFin";
+            this.comboMinutosFin.Size = new System.Drawing.Size(44, 21);
+            this.comboMinutosFin.TabIndex = 15;
+            this.comboMinutosFin.Text = "59";
+            this.comboMinutosFin.SelectedIndexChanged += new System.EventHandler(this.comboMinutosFin_SelectedIndexChanged);
+            // 
+            // comboHoraFin
+            // 
+            this.comboHoraFin.FormattingEnabled = true;
+            this.comboHoraFin.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.comboHoraFin.Location = new System.Drawing.Point(552, 37);
+            this.comboHoraFin.Name = "comboHoraFin";
+            this.comboHoraFin.Size = new System.Drawing.Size(44, 21);
+            this.comboHoraFin.TabIndex = 14;
+            this.comboHoraFin.Text = "23";
+            this.comboHoraFin.SelectedIndexChanged += new System.EventHandler(this.comboHoraFin_SelectedIndexChanged);
+            // 
+            // labelSegundosInicio
+            // 
+            this.labelSegundosInicio.AutoSize = true;
+            this.labelSegundosInicio.Location = new System.Drawing.Point(655, 12);
+            this.labelSegundosInicio.Name = "labelSegundosInicio";
+            this.labelSegundosInicio.Size = new System.Drawing.Size(10, 13);
+            this.labelSegundosInicio.TabIndex = 13;
+            this.labelSegundosInicio.Text = ":";
+            // 
+            // labelHoraInicio
+            // 
+            this.labelHoraInicio.AutoSize = true;
+            this.labelHoraInicio.Location = new System.Drawing.Point(598, 10);
+            this.labelHoraInicio.Name = "labelHoraInicio";
+            this.labelHoraInicio.Size = new System.Drawing.Size(10, 13);
+            this.labelHoraInicio.TabIndex = 12;
+            this.labelHoraInicio.Text = ":";
+            // 
+            // comboMinutosInicio
+            // 
+            this.comboMinutosInicio.FormattingEnabled = true;
+            this.comboMinutosInicio.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59"});
+            this.comboMinutosInicio.Location = new System.Drawing.Point(611, 7);
+            this.comboMinutosInicio.Name = "comboMinutosInicio";
+            this.comboMinutosInicio.Size = new System.Drawing.Size(44, 21);
+            this.comboMinutosInicio.TabIndex = 11;
+            this.comboMinutosInicio.Text = "00";
+            this.comboMinutosInicio.SelectedIndexChanged += new System.EventHandler(this.comboMinutosInicio_SelectedIndexChanged);
+            // 
+            // comboHoraInicio
+            // 
+            this.comboHoraInicio.FormattingEnabled = true;
+            this.comboHoraInicio.Items.AddRange(new object[] {
+            "00",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+            this.comboHoraInicio.Location = new System.Drawing.Point(552, 7);
+            this.comboHoraInicio.Name = "comboHoraInicio";
+            this.comboHoraInicio.Size = new System.Drawing.Size(44, 21);
+            this.comboHoraInicio.TabIndex = 10;
+            this.comboHoraInicio.Text = "00";
+            this.comboHoraInicio.SelectedIndexChanged += new System.EventHandler(this.comboHoraInicio_SelectedIndexChanged);
+            // 
             // txtlimite
             // 
             this.txtlimite.AutoSize = true;
-            this.txtlimite.Location = new System.Drawing.Point(220, 10);
+            this.txtlimite.Location = new System.Drawing.Point(161, 8);
             this.txtlimite.Name = "txtlimite";
             this.txtlimite.Size = new System.Drawing.Size(37, 13);
             this.txtlimite.TabIndex = 9;
@@ -219,7 +630,7 @@
             // 
             // ComboBoxLimite
             // 
-            this.ComboBoxLimite.Location = new System.Drawing.Point(263, 5);
+            this.ComboBoxLimite.Location = new System.Drawing.Point(198, 5);
             this.ComboBoxLimite.Name = "ComboBoxLimite";
             this.ComboBoxLimite.Size = new System.Drawing.Size(75, 20);
             this.ComboBoxLimite.TabIndex = 8;
@@ -244,9 +655,9 @@
             this.btnBuscarReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnBuscarReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarReportes.Location = new System.Drawing.Point(680, 3);
+            this.btnBuscarReportes.Location = new System.Drawing.Point(716, 3);
             this.btnBuscarReportes.Name = "btnBuscarReportes";
-            this.btnBuscarReportes.Size = new System.Drawing.Size(208, 46);
+            this.btnBuscarReportes.Size = new System.Drawing.Size(172, 46);
             this.btnBuscarReportes.TabIndex = 6;
             this.btnBuscarReportes.Text = "Buscar reportes";
             this.btnBuscarReportes.UseVisualStyleBackColor = true;
@@ -264,7 +675,7 @@
             // textEndDate
             // 
             this.textEndDate.AutoSize = true;
-            this.textEndDate.Location = new System.Drawing.Point(382, 35);
+            this.textEndDate.Location = new System.Drawing.Point(284, 35);
             this.textEndDate.Name = "textEndDate";
             this.textEndDate.Size = new System.Drawing.Size(62, 13);
             this.textEndDate.TabIndex = 4;
@@ -273,7 +684,7 @@
             // textStartDate
             // 
             this.textStartDate.AutoSize = true;
-            this.textStartDate.Location = new System.Drawing.Point(382, 6);
+            this.textStartDate.Location = new System.Drawing.Point(279, 10);
             this.textStartDate.Name = "textStartDate";
             this.textStartDate.Size = new System.Drawing.Size(67, 13);
             this.textStartDate.TabIndex = 3;
@@ -281,7 +692,7 @@
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(455, 30);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(352, 38);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
             this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerEnd.TabIndex = 2;
@@ -289,7 +700,7 @@
             // 
             // dateTimePickerStart
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(455, 3);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(352, 8);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
             this.dateTimePickerStart.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerStart.TabIndex = 1;
@@ -299,9 +710,9 @@
             // comboBoxSelectUser
             // 
             this.comboBoxSelectUser.FormattingEnabled = true;
-            this.comboBoxSelectUser.Location = new System.Drawing.Point(68, 30);
+            this.comboBoxSelectUser.Location = new System.Drawing.Point(52, 29);
             this.comboBoxSelectUser.Name = "comboBoxSelectUser";
-            this.comboBoxSelectUser.Size = new System.Drawing.Size(270, 21);
+            this.comboBoxSelectUser.Size = new System.Drawing.Size(221, 21);
             this.comboBoxSelectUser.TabIndex = 0;
             this.comboBoxSelectUser.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectUser_SelectedIndexChanged);
             // 
@@ -336,6 +747,7 @@
             this.panelContentTabDocsAnteriores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelContentTabDocsAnteriores.Controls.Add(this.btnFullReporte);
             this.panelContentTabDocsAnteriores.Controls.Add(this.imgSinDatosDocumentosAnteriores);
             this.panelContentTabDocsAnteriores.Controls.Add(this.btnReportePdfDocumentosAnteriores);
             this.panelContentTabDocsAnteriores.Controls.Add(this.textTotalDocumentsAnteriores);
@@ -345,6 +757,21 @@
             this.panelContentTabDocsAnteriores.Size = new System.Drawing.Size(885, 348);
             this.panelContentTabDocsAnteriores.TabIndex = 0;
             // 
+            // btnFullReporte
+            // 
+            this.btnFullReporte.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFullReporte.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnFullReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnFullReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFullReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFullReporte.Location = new System.Drawing.Point(595, 301);
+            this.btnFullReporte.Name = "btnFullReporte";
+            this.btnFullReporte.Size = new System.Drawing.Size(142, 44);
+            this.btnFullReporte.TabIndex = 4;
+            this.btnFullReporte.Text = "Reporte Detallado";
+            this.btnFullReporte.UseVisualStyleBackColor = true;
+            this.btnFullReporte.Click += new System.EventHandler(this.btnFullReporte_Click);
+            // 
             // imgSinDatosDocumentosAnteriores
             // 
             this.imgSinDatosDocumentosAnteriores.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -352,7 +779,7 @@
             this.imgSinDatosDocumentosAnteriores.Image = global::SyncTPV.Properties.Resources.sindatos;
             this.imgSinDatosDocumentosAnteriores.Location = new System.Drawing.Point(243, 73);
             this.imgSinDatosDocumentosAnteriores.Name = "imgSinDatosDocumentosAnteriores";
-            this.imgSinDatosDocumentosAnteriores.Size = new System.Drawing.Size(406, 222);
+            this.imgSinDatosDocumentosAnteriores.Size = new System.Drawing.Size(406, 213);
             this.imgSinDatosDocumentosAnteriores.TabIndex = 3;
             this.imgSinDatosDocumentosAnteriores.TabStop = false;
             // 
@@ -1227,5 +1654,16 @@
         private System.Windows.Forms.Label txtlimite;
         private System.Windows.Forms.TextBox ComboBoxLimite;
         private System.Windows.Forms.ToolTip toolTipLimite;
+        private System.Windows.Forms.Label labelSegundosFin;
+        private System.Windows.Forms.Label labelHoraFin;
+        private System.Windows.Forms.ComboBox comboMinutosFin;
+        private System.Windows.Forms.ComboBox comboHoraFin;
+        private System.Windows.Forms.Label labelSegundosInicio;
+        private System.Windows.Forms.Label labelHoraInicio;
+        private System.Windows.Forms.ComboBox comboMinutosInicio;
+        private System.Windows.Forms.ComboBox comboHoraInicio;
+        private System.Windows.Forms.ComboBox comboSegundosFin;
+        private System.Windows.Forms.ComboBox comboSegundosInicio;
+        private System.Windows.Forms.Button btnFullReporte;
     }
 }

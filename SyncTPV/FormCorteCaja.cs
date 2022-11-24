@@ -215,15 +215,15 @@ namespace SyncTPV
         private async Task validateAmount()
         {
             String amountText = editAmount.Text.Trim();
-            if (amountText.Equals(""))
+            if (amountText.Equals("") || fcId == 0)
             {
-                FormMessage fm = new FormMessage("Alerta", "Oops tienes que agregar un importe válido!", 2);
+                FormMessage fm = new FormMessage("Alerta", "Oops a la forma de cobro seleccionada se tiene que agregar un importe válido!", 2);
                 fm.ShowDialog();
             }
             else
             {
                 double amount = Convert.ToDouble(amountText.Replace(",", ""));
-                if (amount > 0)
+                if (amount > 0 && fcId > 0)
                 {
                     agregarAbonoAUnaFormaDeCobro(fcId, amount);
                 }
@@ -504,12 +504,20 @@ namespace SyncTPV
                 {
                     for (int i = 0; i < fcList.Count; i++)
                     {
-                        double montoAretirar = MontoRetiroModel.getTotalWithdrawnFromAPaymentMethod(fcList[i].FORMA_COBRO_ID, retiroId);
-                        if (montoAretirar > 0)
+                        if (fcList[i].FORMA_COBRO_ID != 0)
                         {
-                            String montoRetirando = montoAretirar.ToString("C", CultureInfo.CurrentCulture);
-                            msg += fcList[i].NOMBRE +" "+ montoRetirando + " MXN \r\n";
-                            total += montoAretirar;
+                            double montoAretirar = MontoRetiroModel.getTotalWithdrawnFromAPaymentMethod(fcList[i].FORMA_COBRO_ID, retiroId);
+                            if (montoAretirar > 0)
+                            {
+                                String montoRetirando = montoAretirar.ToString("C", CultureInfo.CurrentCulture);
+                                msg += fcList[i].NOMBRE + " " + montoRetirando + " MXN \r\n";
+                                total += montoAretirar;
+                            }
+                            else
+                            {
+                                fcList.RemoveAt(i);
+                                i = i - 1;
+                            }
                         }
                         else
                         {

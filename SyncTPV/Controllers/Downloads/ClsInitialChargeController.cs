@@ -122,7 +122,7 @@ namespace SyncTPV.Controllers.Downloads
                 int response = 0;
                 String query = "SELECT " + LocalDatabase.CAMPO_SERVERMODE_CONFIG + " FROM " + LocalDatabase.TABLA_CONFIGURACION + " WHERE " +
             LocalDatabase.CAMPO_ID_CONFIGURACION + " = 1";
-                int comInstanceCreated = InstanceSQLSEModel.getIntValue(query); ;
+                int comInstanceCreated = InstanceSQLSEModel.getIntValue(query); 
                 if (serverModeLAN && comInstanceCreated == 1)
                 {
                     /*String comInstance = InstanceSQLSEModel.getStringComInstance();
