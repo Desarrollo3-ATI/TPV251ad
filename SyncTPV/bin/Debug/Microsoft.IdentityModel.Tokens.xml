@@ -338,27 +338,6 @@
             Instantiates a new <see cref="T:Microsoft.IdentityModel.Tokens.CallContext"/> with an activityId.
             </summary>
         </member>
-        <member name="P:Microsoft.IdentityModel.Tokens.CallContext.ActivityId">
-            <summary>
-            Gets or set a <see cref="T:System.Guid"/> that will be used in the call to EventSource.SetCurrentThreadActivityId before logging.
-            </summary>
-        </member>
-        <member name="P:Microsoft.IdentityModel.Tokens.CallContext.CaptureLogs">
-            <summary>
-            Gets or sets a boolean controlling if logs are written into the context.
-            Useful when debugging.
-            </summary>
-        </member>
-        <member name="P:Microsoft.IdentityModel.Tokens.CallContext.Logs">
-            <summary>
-            The collection of logs associated with a request. Use <see cref="P:Microsoft.IdentityModel.Tokens.CallContext.CaptureLogs"/> to control capture.
-            </summary>
-        </member>
-        <member name="P:Microsoft.IdentityModel.Tokens.CallContext.PropertyBag">
-            <summary>
-            Gets or sets an <see cref="T:System.Collections.Generic.IDictionary`2"/> that enables custom extensibility scenarios.
-            </summary>
-        </member>
         <member name="T:Microsoft.IdentityModel.Tokens.CollectionUtilities">
             <summary>
             A class which contains useful methods for processing collections.
@@ -1062,9 +1041,22 @@
             Gets the data encryption algorithm.
             </summary>
         </member>
+        <member name="P:Microsoft.IdentityModel.Tokens.EncryptingCredentials.KeyExchangePublicKey">
+            <summary>
+            Public key used in Key Agreement Algorithms
+            </summary>
+        </member>
         <member name="P:Microsoft.IdentityModel.Tokens.EncryptingCredentials.CryptoProviderFactory">
             <summary>
             Users can override the default <see cref="P:Microsoft.IdentityModel.Tokens.EncryptingCredentials.CryptoProviderFactory"/> with this property. This factory will be used for creating encryption providers.
+            </summary>
+        </member>
+        <member name="P:Microsoft.IdentityModel.Tokens.EncryptingCredentials.SetDefaultCtyClaim">
+            <summary>
+            Gets or sets a bool that controls if the encrypted token creation will set default 'cty' if not specified.
+            <remarks>
+            Applies to only JWT tokens.
+            </remarks>
             </summary>
         </member>
         <member name="P:Microsoft.IdentityModel.Tokens.EncryptingCredentials.Key">
@@ -1229,6 +1221,35 @@
             <summary>
             Gets the authentication tag
             </summary>
+        </member>
+        <member name="T:Microsoft.IdentityModel.Tokens.EcdhKeyExchangeProvider">
+            <summary>
+            Provides a Security Key that can be used as Content Encryption Key (CEK) for use with a JWE
+            </summary>
+        </member>
+        <member name="P:Microsoft.IdentityModel.Tokens.EcdhKeyExchangeProvider.KeyDataLen">
+            <summary>
+            Number of bits in the desired output key
+            </summary>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EcdhKeyExchangeProvider.#ctor(Microsoft.IdentityModel.Tokens.SecurityKey,Microsoft.IdentityModel.Tokens.SecurityKey,System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:Microsoft.IdentityModel.Tokens.EcdhKeyExchangeProvider"/> used for CEKs
+            <param name="privateKey">The <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> that will be used for cryptographic operations and represents the private key.</param>
+            <param name="publicKey">The <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> that will be used for cryptographic operations and represents the public key.</param>
+            <param name="alg">alg header parameter value.</param>
+            <param name="enc">enc header parameter value.</param>
+            </summary>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EcdhKeyExchangeProvider.GenerateKdf(System.String,System.String)">
+            <summary>
+            Generates the KDF
+            </summary>
+            <param name="apu">Agreement PartyUInfo (optional). When used, the PartyVInfo value contains information about the producer,
+            represented as a base64url-encoded string.</param>
+            <param name="apv">Agreement PartyVInfo (optional). When used, the PartyUInfo value contains information about the recipient,
+            represented as a base64url-encoded string.</param>
+            <returns>Returns <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> that represents the key generated</returns>
         </member>
         <member name="T:Microsoft.IdentityModel.Tokens.KeyWrapProvider">
             <summary>
@@ -1468,7 +1489,7 @@
             <typeparam name="TKey">The key type to be used by the cache.</typeparam>
             <typeparam name="TValue">The value type to be used by the cache</typeparam>
         </member>
-        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.#ctor(System.Int32,System.Threading.Tasks.TaskCreationOptions,System.Collections.Generic.IEqualityComparer{`0},System.Boolean,System.Int32)">
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.#ctor(System.Int32,System.Threading.Tasks.TaskCreationOptions,System.Collections.Generic.IEqualityComparer{`0},System.Boolean,System.Int32,System.Boolean)">
             <summary>
             Constructor.
             </summary>
@@ -1476,26 +1497,71 @@
             <param name="options">The event queue task creation option, default to None instead of LongRunning as LongRunning will always start a task on a new thread instead of ThreadPool.</param>
             <param name="comparer">The equality comparison implementation to be used by the map when comparing keys.</param>
             <param name="removeExpiredValues">Whether or not to remove expired items.</param>
-            <param name="removeExpiredValuesIntervalInSeconds">The period to wait to remove expired items, in milliseconds.</param>
+            <param name="removeExpiredValuesIntervalInSeconds">The period to wait to remove expired items, in seconds.</param>
+            <param name="maintainLRU">Whether or not to maintain items in a LRU fashion, moving to front of list when accessed in the cache.</param>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.DomainProcessExit(System.Object,System.EventArgs)">
+            <summary>
+            Occurs when the application is ready to exit.
+            </summary>
+            <param name="sender">The sender of the event.</param>
+            <param name="e">The event argument.</param>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.DomainUnload(System.Object,System.EventArgs)">
+            <summary>
+            Occurs when an AppDomain is about to be unloaded.
+            </summary>
+            <param name="sender">The sender of the event.</param>
+            <param name="e">The event argument.</param>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.StopEventQueueTask">
+            <summary>
+            Stop the event queue task.
+            This is provided mainly for users who have unit tests that check for running task(s) to stop the task at the end of each test.
+            </summary>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.StopEventQueueTaskImmediately">
+            <summary>
+            Stop the event queue task immediately if it is running. This allows the task/thread to terminate gracefully.
+            Currently there is no unmanaged resource, if any is added in the future it should be disposed of in this method.
+            </summary>
         </member>
         <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.EventQueueTaskAction">
             <summary>
-            This is the delegate for the event queue task (and the timer to remove the expired items if _removeExpiredValues is true).
-            The task keeps running until it is disposed or expired (DateTime.UtcNow > _eventQueueTaskEndTime).
-            Note the task and timer are synchronized; both are running or stopped.
+            This is the delegate for the event queue task.
             </summary>
         </member>
-        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.RemoveExpiredValuesPeriodically(System.Object)">
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.RemoveExpiredValuesLRU">
             <summary>
-            The timer callback that adds a request to remove expired items from the event queue.
+            Remove all expired cache items from _doubleLinkedList and _map.
             </summary>
-            <param name="state">the timer state</param>
+            <returns>Number of items removed.</returns>
         </member>
-        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.RemoveLRUs">
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.RemoveExpiredValues">
+            <summary>
+            Remove all expired cache items from the _map ONLY. This is called for the non-LRU (_maintainLRU = false) scenaro.
+            The enumerator returned from the dictionary is safe to use concurrently with reads and writes to the dictionary, according to the MS document.
+            </summary>
+            <returns>Number of items removed.</returns>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.CompactLRU">
             <summary>
             Remove items from the LinkedList by the desired compaction percentage.
             This should be a private method.
             </summary>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.Compact">
+            <summary>
+            Remove items from the Dictionary by the desired compaction percentage.
+            Since _map does not have LRU order, items are simply removed from using FirstOrDefault(). 
+            </summary>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.CalculateNewCacheSize">
+            <summary>
+            When the cache is at _maxCapacityPercentage, it needs to be compacted by _compactionPercentage.
+            This method calculates the new size of the cache after being compacted.
+            </summary>
+            <returns>The new target cache size after compaction.</returns>
         </member>
         <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.SetTaskEndTime">
             <summary>
@@ -1509,12 +1575,12 @@
         </member>
         <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.StartEventQueueTaskIfNotRunning">
             <summary>
-            This method is called after an item is added to the event queue, and the event queue task needs to be started if not running (_eventQueueTaskState != EventQueueTaskRunning).
-            Setting _eventQueueTaskState to EventQueueTaskRunning should prevent multiple task being started.
+            This method is called after an item is added to the event queue. It will start the event queue task if one is not already running (_eventQueueTaskState != EventQueueTaskRunning).
+            Using CompareExchange to set the _eventQueueTaskState prevents multiple tasks from being started.
             </summary>
         </member>
         <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.TryGetValue(`0,`1@)">
-            Each time a node gets accessed, it gets moved to the beginning (head) of the list.
+            Each time a node gets accessed, it gets moved to the beginning (head) of the list if the _maintainLRU == true
         </member>
         <member name="M:Microsoft.IdentityModel.Tokens.EventBasedLRUCache`2.TryRemove(`0,`1@)">
             Removes a particular key from the cache.
@@ -2503,17 +2569,12 @@
             FOR TESTING PURPOSES ONLY.
             </summary>
         </member>
-        <member name="P:Microsoft.IdentityModel.Tokens.InMemoryCryptoProviderCache.EventQueueTaskIdleTimeoutInSeconds">
-            <summary>
-            FOR TESTING PURPOSES ONLY.
-            </summary>
-        </member>
         <member name="T:Microsoft.IdentityModel.Tokens.InternalValidators">
             <summary>
             Validators meant to be kept internal
             </summary>
         </member>
-        <member name="M:Microsoft.IdentityModel.Tokens.InternalValidators.ValidateLifetimeAndIssuerAfterSignatureNotValidatedJwt(Microsoft.IdentityModel.Tokens.SecurityToken,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters,Microsoft.IdentityModel.Tokens.BaseConfiguration,System.Text.StringBuilder)">
+        <member name="M:Microsoft.IdentityModel.Tokens.InternalValidators.ValidateLifetimeAndIssuerAfterSignatureNotValidatedJwt(Microsoft.IdentityModel.Tokens.SecurityToken,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters,Microsoft.IdentityModel.Tokens.BaseConfiguration,System.Text.StringBuilder,System.Int32,System.Int32)">
             <summary>
             Called after signature validation has failed. Will always throw an exception.
             </summary>
@@ -2616,6 +2677,11 @@
         <member name="P:Microsoft.IdentityModel.Tokens.JsonWebKey.ConvertedSecurityKey">
             <summary>
             If this was converted to or from a SecurityKey, this field will be set.
+            </summary>
+        </member>
+        <member name="P:Microsoft.IdentityModel.Tokens.JsonWebKey.ConvertKeyInfo">
+            <summary>
+            If this was failed converted to a SecurityKey, this field will be set.
             </summary>
         </member>
         <member name="P:Microsoft.IdentityModel.Tokens.JsonWebKey.AdditionalData">
@@ -3316,6 +3382,17 @@
             <remarks> These claims are only added to the outer header (in case of a JWE).</remarks>
             </summary>
         </member>
+        <member name="P:Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor.AdditionalInnerHeaderClaims">
+            <summary>
+            Gets or sets the <see cref="T:System.Collections.Generic.Dictionary`2"/> which contains any custom header claims that need to be added to the inner JWT token header.
+            The 'alg', 'kid', 'x5t', 'enc', and 'zip' claims are added by default based on the <see cref="P:Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor.SigningCredentials"/>,
+            <see cref="P:Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor.EncryptingCredentials"/>, and/or <see cref="P:Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor.CompressionAlgorithm"/> provided and SHOULD NOT be included in this dictionary as this
+            will result in an exception being thrown. 
+            <remarks>
+            For JsonWebTokenHandler, these claims are merged with <see cref="P:Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor.AdditionalHeaderClaims"/> while adding to the inner JWT header.
+            </remarks>
+            </summary>
+        </member>
         <member name="P:Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor.SigningCredentials">
             <summary>
             Gets or sets the <see cref="P:Microsoft.IdentityModel.Tokens.SecurityTokenDescriptor.SigningCredentials"/> used to create a security token.
@@ -3386,13 +3463,6 @@
             </summary>
             <param name="tokenString">The token string thats needs to be read.</param>
             <returns>'True' if the ReadToken method can parse the token string.</returns>
-        </member>
-        <member name="M:Microsoft.IdentityModel.Tokens.SecurityTokenHandler.ReadToken(System.String)">
-            <summary>
-            Deserializes from string a token of the type handled by this instance.
-            </summary>
-            <param name="tokenString">The string to be deserialized.</param>
-            <returns>SecurityToken instance which represents the serialized token.</returns>
         </member>
         <member name="M:Microsoft.IdentityModel.Tokens.SecurityTokenHandler.ReadToken(System.Xml.XmlReader)">
             <summary>
@@ -3828,6 +3898,25 @@
             <remarks>Used during token creation to set the default expiration ('exp'). </remarks>
             <exception cref="T:System.ArgumentOutOfRangeException">'value' less than 1.</exception>
         </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.TokenHandler.ValidateTokenAsync(System.String,Microsoft.IdentityModel.Tokens.TokenValidationParameters)">
+            <summary>
+            Validates a token.
+            On a validation failure, no exception will be thrown; instead, the exception will be set in the returned TokenValidationResult.Exception property.
+            Callers should always check the TokenValidationResult.IsValid property to verify the validity of the result.
+            </summary>
+            <param name="token">The token to be validated.</param>
+            <param name="validationParameters">A <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/> required for validation.</param>
+            <returns>A <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationResult"/></returns>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.TokenHandler.ReadToken(System.String)">
+            <summary>
+            Converts a string into an instance of <see cref="T:Microsoft.IdentityModel.Tokens.SecurityToken"/>.
+            </summary>
+            <param name="token">The string to be deserialized.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="token"/> is null or empty.</exception>
+            <exception cref="T:System.ArgumentException">'token.Length' is greater than <see cref="P:Microsoft.IdentityModel.Tokens.TokenHandler.MaximumTokenSizeInBytes"/>.</exception>
+            <returns>A <see cref="T:Microsoft.IdentityModel.Tokens.SecurityToken"/>.</returns>
+        </member>
         <member name="T:Microsoft.IdentityModel.Tokens.TokenUtilities">
             <summary>
             A class which contains useful methods for processing tokens.
@@ -3865,13 +3954,20 @@
             <param name="validationParameters">A <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/> required for validation.</param>
             <returns>Returns all <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> provided in validationParameters.</returns>
         </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.TokenUtilities.GetAllSigningKeys(Microsoft.IdentityModel.Tokens.BaseConfiguration)">
+            <summary>
+            Returns all <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> provided in <paramref name="configuration"/>.
+            </summary>
+            <param name="configuration">The <see cref="T:Microsoft.IdentityModel.Tokens.BaseConfiguration"/> that contains signing keys used for validation.</param>
+            <returns>Returns all <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> provided in provided in <paramref name="configuration"/>.</returns>
+        </member>
         <member name="M:Microsoft.IdentityModel.Tokens.TokenUtilities.GetAllSigningKeys(Microsoft.IdentityModel.Tokens.TokenValidationParameters,Microsoft.IdentityModel.Tokens.BaseConfiguration)">
             <summary>
-            Returns all <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> provided in <paramref name="configuration"/> and <paramref name="configuration"/>.
+            Returns all <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> provided in <paramref name="configuration"/> and <paramref name="validationParameters"/>.
             </summary>
-            <param name="validationParameters">A <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/> required for validation.</param>
             <param name="configuration">The <see cref="T:Microsoft.IdentityModel.Tokens.BaseConfiguration"/> that contains signing keys used for validation.</param>
-            <returns>Returns all <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> provided in provided in <paramref name="configuration"/> and <paramref name="configuration"/></returns>
+            <param name="validationParameters">A <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/> required for validation.</param>
+            <returns>Returns all <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> provided in provided in <paramref name="configuration"/> and <paramref name="validationParameters"/>.</returns>
         </member>
         <member name="M:Microsoft.IdentityModel.Tokens.TokenUtilities.MergeClaims(System.Collections.Generic.IEnumerable{System.Security.Claims.Claim},System.Collections.Generic.IEnumerable{System.Security.Claims.Claim})">
             <summary>
@@ -3880,6 +3976,22 @@
             <param name="claims"> Collection of <see cref="T:System.Security.Claims.Claim"/>'s.</param>
             <param name="subjectClaims"> Collection of <see cref="T:System.Security.Claims.Claim"/>'s.</param>
             <returns> A Merged list of <see cref="T:System.Security.Claims.Claim"/>'s.</returns>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.TokenUtilities.IsRecoverableException(System.Exception)">
+            <summary>
+            Check whether the given exception type is recoverable by LKG.
+            </summary>
+            <param name="exception">The exception to check.</param>
+            <returns><c>true</c> if the exception is certain types of exceptions otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Microsoft.IdentityModel.Tokens.TokenUtilities.IsRecoverableConfiguration(Microsoft.IdentityModel.Tokens.TokenValidationParameters,Microsoft.IdentityModel.Tokens.BaseConfiguration,Microsoft.IdentityModel.Tokens.BaseConfiguration@)">
+            <summary>
+            Check whether the given configuration is recoverable by LKG.
+            </summary>
+            <param name="validationParameters">The <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/> to be used for validation.</param>
+            <param name="configuration">The <see cref="T:Microsoft.IdentityModel.Tokens.BaseConfiguration"/> to check.</param>
+            <param name="currentConfiguration">The updated <see cref="T:Microsoft.IdentityModel.Tokens.BaseConfiguration"/>.</param>
+            <returns><c>true</c> if the configuration is recoverable otherwise, <c>false</c>.</returns>
         </member>
         <member name="T:Microsoft.IdentityModel.Tokens.AlgorithmValidator">
             <summary>

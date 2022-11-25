@@ -937,3 +937,252 @@ Nombre del parámetro: length
 Log: 01:24:12 p. m. viernes, 25 de noviembre de 2022
 2023-05-16 11:41:50 - 2022-11-25 19:24:12
 -------------------------------
+Log: 02:09:20 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 02:09:22 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:09:22
+-------------------------------
+Log: 02:10:04 p. m. viernes, 25 de noviembre de 2022
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "Nombre_BDatos_Comercial_01" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en SyncTPV.Controllers.ConfigurationWsController.<>c__DisplayClass5_0.<validateInstances>b__0() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\ConfigurationWsController.cs:línea 209
+ClientConnectionId:39cb9630-43b4-407b-b323-4f19f75630be
+Error Number:4060,State:1,Class:11
+-------------------------------
+Log: 02:10:23 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:10:23
+-------------------------------
+Log: 02:10:25 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:10:25
+-------------------------------
+Log: 02:11:21 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 02:11:24 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:11:24
+-------------------------------
+Log: 02:12:13 p. m. viernes, 25 de noviembre de 2022
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "adATI_SyncPANEL" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en SyncTPV.Controllers.ConfigurationWsController.<>c__DisplayClass5_0.<validateInstances>b__0() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\ConfigurationWsController.cs:línea 209
+ClientConnectionId:c3693f7b-9bec-49e0-ad16-c3cec5ae6fd1
+Error Number:4060,State:1,Class:11
+-------------------------------
+Log: 02:12:36 p. m. viernes, 25 de noviembre de 2022
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "adATI_SyncPANEL" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en SyncTPV.Controllers.ConfigurationWsController.<>c__DisplayClass5_0.<validateInstances>b__0() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\ConfigurationWsController.cs:línea 209
+ClientConnectionId:04620c0a-e6a1-432c-978f-18756daea4c6
+Error Number:4060,State:1,Class:11
+-------------------------------
+Log: 02:12:52 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:12:52
+-------------------------------
+Log: 02:12:54 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:12:54
+-------------------------------
+Log: 02:13:30 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:13:30
+-------------------------------
+Log: 02:13:38 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:13:38
+-------------------------------
+Log: 02:14:02 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:14:02
+-------------------------------
+Log: 02:14:23 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:14:23
+-------------------------------
+Log: 02:14:24 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 02:15:09 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:15:09
+-------------------------------
+Log: 02:15:22 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:15:22
+-------------------------------
+Log: 02:15:40 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:15:40
+-------------------------------
+Log: 02:18:16 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:18:16
+-------------------------------
+Log: 02:18:23 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:18:23
+-------------------------------
+Log: 02:18:36 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:18:36
+-------------------------------
+Log: 02:18:59 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:18:59
+-------------------------------
+Log: 02:19:05 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:19:05
+-------------------------------
+Log: 02:19:16 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:19:16
+-------------------------------
+Log: 02:19:42 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:19:42
+-------------------------------
+Log: 02:19:48 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:19:48
+-------------------------------
+Log: 02:19:56 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 20:19:56
+-------------------------------
+Log: 03:30:10 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 03:30:40 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 21:30:40
+-------------------------------
+Log: 03:30:42 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 03:32:29 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 03:35:02 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 03:35:06 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 21:35:06
+-------------------------------
+Log: 03:35:15 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 03:35:15 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 03:35:15 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 03:35:34 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 03:35:45 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 21:35:44
+-------------------------------
+Log: 03:36:46 p. m. viernes, 25 de noviembre de 2022
+System.Data.SqlClient.SqlException (0x80131904): Cannot open database "ad_ATI__SyncPANEL" requested by the login. The login failed.
+Login failed for user 'sa'.
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en SyncTPV.Controllers.ConfigurationWsController.<>c__DisplayClass5_0.<validateInstances>b__0() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\ConfigurationWsController.cs:línea 209
+ClientConnectionId:db69cc19-8d55-48f8-89cc-8ecb4b565335
+Error Number:4060,State:1,Class:11
+-------------------------------
+Log: 03:37:01 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 21:37:01
+-------------------------------
+Log: 03:37:07 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 21:37:06
+-------------------------------
+Log: 03:37:45 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
