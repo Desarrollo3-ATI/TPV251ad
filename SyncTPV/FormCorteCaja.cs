@@ -204,7 +204,7 @@ namespace SyncTPV
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            validateCurrentWithdrawal(0);
         }
 
         private void btnRetirar_Click(object sender, EventArgs e)
@@ -447,10 +447,10 @@ namespace SyncTPV
             }
             else
             {
-                FrmConfirmation fc = new FrmConfirmation("Cancelación", "Desea cancelar el retiro actual?");
-                fc.StartPosition = FormStartPosition.CenterScreen;
-                fc.ShowDialog();
-                if (FrmConfirmation.confirmation)
+                FormPasswordConfirmation formPasswordConfirmation = new FormPasswordConfirmation("Acceso Supervisor", "Ingresa la contraseña del supervisor");
+                formPasswordConfirmation.StartPosition = FormStartPosition.CenterScreen;
+                formPasswordConfirmation.ShowDialog();
+                if (FormPasswordConfirmation.permissionGranted)
                 {
                     int montos = MontoRetiroModel.checkForWithdrawalAmounts(retiroId);
                     if (montos > 0)

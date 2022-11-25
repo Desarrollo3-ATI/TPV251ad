@@ -91,7 +91,7 @@
             this.groupBoxMontosARetirar.Controls.Add(this.panelAgregarMontos);
             this.groupBoxMontosARetirar.Controls.Add(this.imgSinDatos);
             this.groupBoxMontosARetirar.Controls.Add(this.dataGridFormaCobros);
-            this.groupBoxMontosARetirar.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxMontosARetirar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxMontosARetirar.Location = new System.Drawing.Point(13, 20);
             this.groupBoxMontosARetirar.Name = "groupBoxMontosARetirar";
             this.groupBoxMontosARetirar.Size = new System.Drawing.Size(850, 353);
@@ -121,7 +121,7 @@
             this.btnRetirar.FlatAppearance.BorderSize = 2;
             this.btnRetirar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnRetirar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRetirar.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRetirar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRetirar.Location = new System.Drawing.Point(62, 274);
             this.btnRetirar.Name = "btnRetirar";
             this.btnRetirar.Size = new System.Drawing.Size(203, 39);
@@ -143,20 +143,20 @@
             // textIngresarMonto
             // 
             this.textIngresarMonto.AutoSize = true;
-            this.textIngresarMonto.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textIngresarMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIngresarMonto.Location = new System.Drawing.Point(7, 175);
             this.textIngresarMonto.Name = "textIngresarMonto";
-            this.textIngresarMonto.Size = new System.Drawing.Size(133, 19);
+            this.textIngresarMonto.Size = new System.Drawing.Size(134, 20);
             this.textIngresarMonto.TabIndex = 17;
             this.textIngresarMonto.Text = "Ingresar Monto: $";
             // 
             // textFormaDeCobro
             // 
             this.textFormaDeCobro.AutoSize = true;
-            this.textFormaDeCobro.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textFormaDeCobro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textFormaDeCobro.Location = new System.Drawing.Point(7, 93);
             this.textFormaDeCobro.Name = "textFormaDeCobro";
-            this.textFormaDeCobro.Size = new System.Drawing.Size(126, 19);
+            this.textFormaDeCobro.Size = new System.Drawing.Size(128, 20);
             this.textFormaDeCobro.TabIndex = 15;
             this.textFormaDeCobro.Text = "Forma de Cobro:";
             // 
@@ -193,7 +193,7 @@
             this.dataGridFormaCobros.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Coral;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -214,7 +214,7 @@
             this.dataGridFormaCobros.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -226,7 +226,7 @@
             this.dataGridFormaCobros.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridFormaCobros.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridFormaCobros.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FloralWhite;
-            this.dataGridFormaCobros.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridFormaCobros.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridFormaCobros.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridFormaCobros.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.dataGridFormaCobros.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -264,7 +264,7 @@
             this.btnTerminarRetiro.FlatAppearance.BorderSize = 2;
             this.btnTerminarRetiro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnTerminarRetiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTerminarRetiro.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTerminarRetiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTerminarRetiro.Location = new System.Drawing.Point(379, 379);
             this.btnTerminarRetiro.Name = "btnTerminarRetiro";
             this.btnTerminarRetiro.Size = new System.Drawing.Size(155, 41);
@@ -326,7 +326,7 @@
             this.btnPrintRetiro.FlatAppearance.BorderSize = 2;
             this.btnPrintRetiro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnPrintRetiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrintRetiro.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintRetiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrintRetiro.Location = new System.Drawing.Point(728, 371);
             this.btnPrintRetiro.Name = "btnPrintRetiro";
             this.btnPrintRetiro.Size = new System.Drawing.Size(176, 43);
@@ -348,7 +348,7 @@
             this.dataGridViewRetirosRealizados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.Coral;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -362,7 +362,7 @@
             this.dataGridViewRetirosRealizados.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -374,7 +374,7 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(171)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridViewRetirosRealizados.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewRetirosRealizados.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewRetirosRealizados.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewRetirosRealizados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRetirosRealizados.Size = new System.Drawing.Size(915, 362);
             this.dataGridViewRetirosRealizados.TabIndex = 11;
@@ -396,7 +396,7 @@
             // 
             this.textDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textDescription.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDescription.Location = new System.Drawing.Point(458, 35);
             this.textDescription.Name = "textDescription";
             this.textDescription.Size = new System.Drawing.Size(447, 43);
@@ -405,7 +405,7 @@
             // 
             // textConcept
             // 
-            this.textConcept.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textConcept.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textConcept.Location = new System.Drawing.Point(7, 35);
             this.textConcept.Name = "textConcept";
             this.textConcept.Size = new System.Drawing.Size(445, 43);
@@ -418,10 +418,10 @@
             this.textInfoSeleccionarRetiro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.textInfoSeleccionarRetiro.AutoSize = true;
-            this.textInfoSeleccionarRetiro.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textInfoSeleccionarRetiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textInfoSeleccionarRetiro.Location = new System.Drawing.Point(191, 4);
             this.textInfoSeleccionarRetiro.Name = "textInfoSeleccionarRetiro";
-            this.textInfoSeleccionarRetiro.Size = new System.Drawing.Size(142, 19);
+            this.textInfoSeleccionarRetiro.Size = new System.Drawing.Size(157, 20);
             this.textInfoSeleccionarRetiro.TabIndex = 1;
             this.textInfoSeleccionarRetiro.Text = "Seleccionar Retiro";
             // 
@@ -429,11 +429,11 @@
             // 
             this.comboBoxSeleccionarRetiro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboBoxSeleccionarRetiro.Font = new System.Drawing.Font("Roboto Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSeleccionarRetiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSeleccionarRetiro.FormattingEnabled = true;
             this.comboBoxSeleccionarRetiro.Location = new System.Drawing.Point(361, 3);
             this.comboBoxSeleccionarRetiro.Name = "comboBoxSeleccionarRetiro";
-            this.comboBoxSeleccionarRetiro.Size = new System.Drawing.Size(425, 31);
+            this.comboBoxSeleccionarRetiro.Size = new System.Drawing.Size(425, 32);
             this.comboBoxSeleccionarRetiro.TabIndex = 0;
             this.comboBoxSeleccionarRetiro.SelectedIndexChanged += new System.EventHandler(this.comboBoxSeleccionarRetiro_SelectedIndexChanged);
             // 
@@ -444,7 +444,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlCortesDeCaja.Controls.Add(this.tabPageRealizarRetiro);
             this.tabControlCortesDeCaja.Controls.Add(this.tabPageRetirosRealizados);
-            this.tabControlCortesDeCaja.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlCortesDeCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlCortesDeCaja.Location = new System.Drawing.Point(18, 6);
             this.tabControlCortesDeCaja.Name = "tabControlCortesDeCaja";
             this.tabControlCortesDeCaja.SelectedIndex = 0;
@@ -493,7 +493,7 @@
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(20)))), ((int)(((byte)(224)))));
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(101)))), ((int)(((byte)(192)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Roboto Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = global::SyncTPV.Properties.Resources.close;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -523,6 +523,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(964, 580);
+            this.ControlBox = false;
             this.Controls.Add(this.panelRetirosDeCaja);
             this.Controls.Add(this.panelToolbar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

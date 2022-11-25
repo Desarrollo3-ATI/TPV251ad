@@ -485,6 +485,7 @@ namespace SyncTPV.Controllers
                               
 
                                     double totalItem = (monto - newAmountDiscount);
+                                    totalItem = double.Parse(totalItem.ToString());
                                     responseMovimiento = addMovement(salesUnits, nonConvertibleUnits, capturedUnits, nonConvertibleUnitId,
                                             capturedUnitId, ItemModel.getCapturedUnitType(itemModel.id, capturedUnitId),
                                             monto, totalItem, myMap.rateDiscountPromo, newAmountDiscount, observation, permissionPrepedido);

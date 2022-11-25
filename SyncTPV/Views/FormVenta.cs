@@ -1500,6 +1500,7 @@ namespace SyncTPV
 
         private void cobrarCarritoTpv(int idDocumento)
         {
+            FormasDeCobroDocumentoModel.removePendingBalanceToTheLastFormOfCollectionOfTheDocument(idDocumento);
             if (completarDocumentoConTotales(idDocumento))
             {
                 if (MovimientosModel.checkIfThereAreStillMovementsForTheDocumentInShift(idDocumento))

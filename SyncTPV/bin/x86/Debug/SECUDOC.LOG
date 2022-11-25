@@ -617,3 +617,323 @@ Nombre del objeto: 'FormIniciarSesion'.
 Log: 05:51:26 p. m. miércoles, 23 de noviembre de 2022
 2023-05-16 11:41:50 - 2022-11-23 23:51:26
 -------------------------------
+Log: 08:40:45 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 14:40:46
+-------------------------------
+Log: 08:40:51 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 14:40:52
+-------------------------------
+Log: 08:40:52 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 14:40:53
+-------------------------------
+Log: 08:53:47 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 14:53:48
+-------------------------------
+Log: 08:53:55 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 14:53:56
+-------------------------------
+Log: 08:53:56 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 14:53:57
+-------------------------------
+Log: 09:00:26 a. m. jueves, 24 de noviembre de 2022
+Apertura de caja Realizada: 24/11/2022 09:00:26 a. m. Respaldos detectados:67
+-------------------------------
+Log: 09:01:32 a. m. jueves, 24 de noviembre de 2022
+System.IndexOutOfRangeException: Índice fuera de los límites de la matriz.
+   en System.Data.SQLite.SQLiteDataReader.GetSQLiteType(SQLiteConnectionFlags flags, Int32 i)
+   en System.Data.SQLite.SQLiteDataReader.GetValue(Int32 i)
+   en System.Data.SQLite.SQLiteDataReader.get_Item(String name)
+   en SyncTPV.MovimientosModel.getDiscountOnTheAmountOfAMovement(Int32 idMovement) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\MovimientosModel.cs:línea 2258
+   en SyncTPV.MovimientosModel.validateWhetherToApplyPromotionToAMovement(Int32 idMovement, Double itemUnits, ClsItemModel itemModel, Double descuento) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\MovimientosModel.cs:línea 2057
+   en SyncTPV.Controllers.AddOrSubtractUnitsController.<>c__DisplayClass8_0.<<doInBackgroundLocal>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\AddOrSubtractUnitsController.cs:línea 404
+-------------------------------
+Log: 09:01:57 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 15:01:58
+-------------------------------
+Log: 09:02:01 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 15:02:02
+-------------------------------
+Log: 09:02:03 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 15:02:04
+-------------------------------
+Log: 09:54:49 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 15:54:49
+-------------------------------
+Log: 09:54:59 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 15:55:00
+-------------------------------
+Log: 09:55:00 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 15:55:01
+-------------------------------
+Log: 10:12:49 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 16:12:50
+-------------------------------
+Log: 10:13:47 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 16:13:48
+-------------------------------
+Log: 10:13:49 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 16:13:50
+-------------------------------
+Log: 10:36:04 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 16:36:05
+-------------------------------
+Log: 10:36:17 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 16:36:18
+-------------------------------
+Log: 10:36:18 a. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 16:36:19
+-------------------------------
+Log: 02:30:57 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 20:30:58
+-------------------------------
+Log: 02:33:11 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 20:33:12
+-------------------------------
+Log: 02:33:12 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 20:33:13
+-------------------------------
+Log: 02:33:14 p. m. jueves, 24 de noviembre de 2022
+Apertura de caja Realizada: 24/11/2022 02:33:14 p. m. Respaldos detectados:68
+-------------------------------
+Log: 03:08:48 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 21:08:50
+-------------------------------
+Log: 03:09:38 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 21:09:39
+-------------------------------
+Log: 03:09:39 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 21:09:41
+-------------------------------
+Log: 04:10:56 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:10:57
+-------------------------------
+Log: 04:11:05 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:11:06
+-------------------------------
+Log: 04:11:06 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:11:07
+-------------------------------
+Log: 04:16:42 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:16:43
+-------------------------------
+Log: 04:16:52 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:16:54
+-------------------------------
+Log: 04:16:54 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:16:55
+-------------------------------
+Log: 04:34:11 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:34:12
+-------------------------------
+Log: 04:34:24 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:34:25
+-------------------------------
+Log: 04:34:42 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:34:37
+-------------------------------
+Log: 04:35:46 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:35:47
+-------------------------------
+Log: 04:35:58 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:36:00
+-------------------------------
+Log: 04:36:00 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 22:36:01
+-------------------------------
+Log: 05:03:36 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:03:37
+-------------------------------
+Log: 05:03:49 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:03:50
+-------------------------------
+Log: 05:03:50 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:03:52
+-------------------------------
+Log: 05:13:25 p. m. jueves, 24 de noviembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero)
+   en SyncTPV.clsTicket.<TraerFormasPago>d__38.MoveNext()
+-------------------------------
+Log: 05:23:31 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:23:32
+-------------------------------
+Log: 05:23:55 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:23:56
+-------------------------------
+Log: 05:23:57 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:23:58
+-------------------------------
+Log: 05:38:10 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:38:11
+-------------------------------
+Log: 05:38:16 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:38:18
+-------------------------------
+Log: 05:38:18 p. m. jueves, 24 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-24 23:38:19
+-------------------------------
+Log: 08:14:26 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 14:14:26
+-------------------------------
+Log: 08:26:28 a. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main()
+-------------------------------
+Log: 08:27:03 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 14:27:04
+-------------------------------
+Log: 08:32:43 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 14:32:44
+-------------------------------
+Log: 08:32:45 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 14:32:45
+-------------------------------
+Log: 08:33:10 a. m. viernes, 25 de noviembre de 2022
+Apertura de caja Realizada: 25/11/2022 08:33:10 a. m. Respaldos detectados:69
+-------------------------------
+Log: 08:46:34 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 14:46:34
+-------------------------------
+Log: 08:52:40 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 14:52:40
+-------------------------------
+Log: 08:52:41 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 14:52:42
+-------------------------------
+Log: 08:55:40 a. m. viernes, 25 de noviembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2031
+   en SyncTPV.clsTicket.<TraerFormasPago>d__38.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1779
+-------------------------------
+Log: 08:59:56 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 14:59:57
+-------------------------------
+Log: 09:03:02 a. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 09:04:41 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 09:04:44 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 15:04:44
+-------------------------------
+Log: 09:05:12 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 15:05:12
+-------------------------------
+Log: 09:05:13 a. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 15:05:14
+-------------------------------
+Log: 01:06:36 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:06:37
+-------------------------------
+Log: 01:06:43 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:06:44
+-------------------------------
+Log: 01:06:45 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:06:46
+-------------------------------
+Log: 01:07:10 p. m. viernes, 25 de noviembre de 2022
+Apertura de caja Realizada: 25/11/2022 01:07:10 p. m. Respaldos detectados:71
+-------------------------------
+Log: 01:08:27 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2031
+   en SyncTPV.clsTicket.<TraerFormasPago>d__38.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1779
+-------------------------------
+Log: 01:10:08 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:10:09
+-------------------------------
+Log: 01:10:30 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:10:30
+-------------------------------
+Log: 01:10:31 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:10:32
+-------------------------------
+Log: 01:10:37 p. m. viernes, 25 de noviembre de 2022
+System.InvalidCastException: La conversión especificada no es válida.
+   en System.Data.SQLite.SQLiteDataReader.VerifyType(Int32 i, DbType typ)
+   en System.Data.SQLite.SQLiteDataReader.GetString(Int32 i)
+   en SyncTPV.DocumentModel.obtenerTodosLosDocumentosNoEnviadosAlWs(Int32 enviado) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\DocumentModel.cs:línea 2901
+   en SyncTPV.Controllers.SendDataService.<>c__DisplayClass12_0.<<handleActionSendDocumentsAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 507
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Controllers.SendDataService.<handleActionSendDocumentsAPI>d__12.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 505
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   en SyncTPV.Controllers.SendDataService.<>c__DisplayClass5_0.<<sendDataByMethods>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 83
+-------------------------------
+Log: 01:11:09 p. m. viernes, 25 de noviembre de 2022
+System.InvalidCastException: La conversión especificada no es válida.
+   en System.Data.SQLite.SQLiteDataReader.VerifyType(Int32 i, DbType typ)
+   en System.Data.SQLite.SQLiteDataReader.GetString(Int32 i)
+   en SyncTPV.DocumentModel.obtenerTodosLosDocumentosNoEnviadosAlWs(Int32 enviado) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\DocumentModel.cs:línea 2901
+   en SyncTPV.Controllers.SendDataService.<>c__DisplayClass12_0.<<handleActionSendDocumentsAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 507
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Controllers.SendDataService.<handleActionSendDocumentsAPI>d__12.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 505
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   en SyncTPV.Controllers.SendDataService.<>c__DisplayClass5_0.<<sendDataByMethods>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 83
+-------------------------------
+Log: 01:11:44 p. m. viernes, 25 de noviembre de 2022
+System.InvalidCastException: La conversión especificada no es válida.
+   en System.Data.SQLite.SQLiteDataReader.VerifyType(Int32 i, DbType typ)
+   en System.Data.SQLite.SQLiteDataReader.GetString(Int32 i)
+   en SyncTPV.DocumentModel.obtenerTodosLosDocumentosNoEnviadosAlWs(Int32 enviado) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\DocumentModel.cs:línea 2901
+   en SyncTPV.Controllers.SendDataService.<>c__DisplayClass12_0.<<handleActionSendDocumentsAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 507
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Controllers.SendDataService.<handleActionSendDocumentsAPI>d__12.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 505
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   en SyncTPV.Controllers.SendDataService.<>c__DisplayClass5_0.<<sendDataByMethods>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 83
+-------------------------------
+Log: 01:21:01 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2031
+   en SyncTPV.clsTicket.<TraerFormasPago>d__38.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1779
+-------------------------------
+Log: 01:24:12 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:24:12
+-------------------------------

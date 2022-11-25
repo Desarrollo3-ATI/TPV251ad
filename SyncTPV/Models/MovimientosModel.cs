@@ -70,7 +70,7 @@ namespace SyncTPV
             mdm.capturesUnitsType = capturedUnitType;
             mdm.price = price;
             mdm.monto = monto;
-            mdm.total = total;
+            mdm.total = (double)decimal.Round((decimal)total, 2);
             int numMovimiento = MovimientosModel.getLastNumeroDeMovimiento(idDocumento);
             if (numMovimiento == 0)
                 mdm.position = 1;
@@ -1957,6 +1957,7 @@ namespace SyncTPV
                     nuevoMonto = (newCapturedUnits * newPrice);
                     nuevoDescuento = (nuevoMonto * discountRate) / 100;
                     nuevoTotal = (nuevoMonto - nuevoDescuento);
+                    nuevoTotal = (double)decimal.Round((decimal)nuevoTotal, 2);
                     try
                     {
                         double newdisconunt = MovimientosModel.getPorcentajePromotionMoviments(idMovement);

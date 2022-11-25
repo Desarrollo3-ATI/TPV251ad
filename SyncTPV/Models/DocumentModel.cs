@@ -1975,12 +1975,13 @@ namespace SyncTPV
             Boolean resp = false;
             if (verifyIfADocumentExists(documentoId))
             {
+                
                 var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
                 db.Open();
                 try
                 {
                     String query = "UPDATE " + LocalDatabase.TABLA_DOCUMENTOVENTA + " SET " + LocalDatabase.CAMPO_DESCUENTO_DOC + " = @descuento, " +
-                        LocalDatabase.CAMPO_TOTAL_DOC + " = @total, " + LocalDatabase.CAMPO_DEV_DOC + " = @dev, " +
+                        LocalDatabase.CAMPO_TOTAL_DOC + " = @total, "+ LocalDatabase.CAMPO_DEV_DOC + " = @dev, " +
                         LocalDatabase.CAMPO_FECHAHORAMOV_DOC + " = @fechaHora WHERE " + LocalDatabase.CAMPO_ID_DOC + " = @idDocument"; ;
                     using (SQLiteCommand command = new SQLiteCommand(query, db))
                     {
@@ -2005,6 +2006,43 @@ namespace SyncTPV
                 }
             }
             return resp;
+        }
+
+        public static double optenerImporteDocumento (int idDocument)
+        {
+            double isIt = 0;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            db.Open();
+            try
+            {
+                String query = "SELECT " + LocalDatabase.CAMPO_ANTICIPO_DOC + " FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA +
+                        " WHERE " + LocalDatabase.CAMPO_ID_DOC + " = " + idDocument;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                isIt = Convert.ToInt32(reader[LocalDatabase.CAMPO_FORMACOBROID_DOC].ToString().Trim());
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.Message);
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return isIt;
         }
 
         public static Boolean isItACreditSaleDocument(int idDocument)

@@ -69,7 +69,7 @@ namespace SyncTPV
             if (newCustomersComercial != 0)
             {
                 FormMessage formMessage = new FormMessage("Clientes actualizados", "nuevos clientes traidos desde comercial" +
-                            "\nNuevos: "+newCustomersComercial, 3);
+                            "\n\r Nuevos: "+newCustomersComercial, 3);
                 formMessage.ShowDialog();
             }
         }
