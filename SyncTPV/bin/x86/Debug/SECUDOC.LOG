@@ -1186,3 +1186,1232 @@ Nombre del objeto: 'FormIniciarSesion'.
    en System.Windows.Forms.Application.Run(Form mainForm)
    en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
 -------------------------------
+Log: 03:55:00 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 03:55:10 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 21:55:10
+-------------------------------
+Log: 03:56:39 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 03:56:39 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 03:56:39 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:01:54 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:01:54
+-------------------------------
+Log: 04:02:44 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:02:49 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:02:52 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:04:38 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:04:48 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:04:48
+-------------------------------
+Log: 04:05:29 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:05:29 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:05:29 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:05:35 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:06:12 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:06:12
+-------------------------------
+Log: 04:06:18 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:06:18 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:06:18 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:07:01 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:07:01 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:07:01 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:07:05 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:07:05 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:07:05 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:07:13 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:07:13 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:07:13 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:07:24 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:07:24 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:07:24 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:07:26 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:09:07 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:09:06
+-------------------------------
+Log: 04:09:15 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:09:15 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:09:15 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:09:23 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:09:24 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:09:24 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:09:32 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:10:10 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:10:10
+-------------------------------
+Log: 04:10:16 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:16 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:16 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:25 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:25 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:25 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:26 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:26 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:26 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:27 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:27 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:27 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:27 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:27 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:27 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:28 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:28 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:28 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:29 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:30 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:10:30 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:10:30 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:10:42 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:11:57 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:11:57
+-------------------------------
+Log: 04:12:09 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:09 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:09 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:12 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:12 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:12 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:13 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:13 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:13 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:16 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:16 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:16 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:17 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:17 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:17 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:20 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:20 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:20 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:21 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:21 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:21 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:22 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:22 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:22 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:22 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:22 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:22 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:23 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:23 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:23 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:23 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:23 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:23 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:24 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:26 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:26 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:26 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:27 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:12:27 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:12:27 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:12:30 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:13:27 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:13:27
+-------------------------------
+Log: 04:14:14 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:14:14 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:14:14 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:14:16 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:14:16 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:14:16 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:14:20 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:14:20 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:14:20 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:15:22 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:15:22
+-------------------------------
+Log: 04:15:31 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:15:31
+-------------------------------
+Log: 04:15:41 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:15:41
+-------------------------------
+Log: 04:15:50 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:15:50
+-------------------------------
+Log: 04:15:56 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:15:56
+-------------------------------
+Log: 04:16:03 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:16:15 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:16:15
+-------------------------------
+Log: 04:16:22 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:16:22
+-------------------------------
+Log: 04:16:26 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:16:26
+-------------------------------
+Log: 04:16:34 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:16:34
+-------------------------------
+Log: 04:16:38 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:18:40 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:18:39
+-------------------------------
+Log: 04:18:45 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:18:55 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:18:54
+-------------------------------
+Log: 04:18:57 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:20:00 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:20:00
+-------------------------------
+Log: 04:20:29 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:20:29
+-------------------------------
+Log: 04:20:33 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:20:33
+-------------------------------
+Log: 04:20:41 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:20:40
+-------------------------------
+Log: 04:21:12 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:21:37 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:21:40 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:21:40
+-------------------------------
+Log: 04:21:50 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:22:17 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:22:22 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:23:31 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:23:41 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:23:40
+-------------------------------
+Log: 04:23:54 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:23:56 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:23:57 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:24:48 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:24:58 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:24:58
+-------------------------------
+Log: 04:25:08 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:25:11 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:25:12 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:27:58 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:27:57
+-------------------------------
+Log: 04:28:03 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:28:03 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:28:03 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:28:17 p. m. viernes, 25 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 04:28:17 p. m. viernes, 25 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 04:28:17 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 04:32:40 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:32:40
+-------------------------------
+Log: 04:32:46 p. m. viernes, 25 de noviembre de 2022
+System.InvalidOperationException: No se ha inicializado la propiedad ConnectionString.
+   en System.Data.SqlClient.SqlConnection.PermissionDemand()
+   en System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en wsROMClases.Models.ClsCajaModel.getCajasTotales(String panelInstance) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\wsROMClases\wsROMClases\Models\Panel\ClsCajaModel.cs:línea 106
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass2_0.<<cajasExistLAN>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Controllers\CajaController.cs:línea 90
+-------------------------------
+Log: 04:33:31 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:34:38 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:34:38
+-------------------------------
+Log: 04:35:32 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:36:09 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:36:08
+-------------------------------
+Log: 04:37:12 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:38:03 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:38:02
+-------------------------------
+Log: 04:38:25 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:39:57 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:39:56
+-------------------------------
+Log: 04:40:37 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:41:54 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:41:54
+-------------------------------
+Log: 04:42:38 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:45:06 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:45:05
+-------------------------------
+Log: 04:45:49 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:45:48
+-------------------------------
+Log: 04:45:53 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:45:52
+-------------------------------
+Log: 04:50:52 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:50:52
+-------------------------------
+Log: 04:51:39 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:52:23 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:52:22
+-------------------------------
+Log: 04:52:38 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:53:01 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:53:00
+-------------------------------
+Log: 04:54:42 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:54:42
+-------------------------------
+Log: 04:55:07 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:55:53 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:55:52
+-------------------------------
+Log: 04:56:06 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 04:57:49 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:57:49
+-------------------------------
+Log: 04:58:07 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:58:06
+-------------------------------
+Log: 04:58:10 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:58:10
+-------------------------------
+Log: 04:59:00 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:59:00
+-------------------------------
+Log: 04:59:08 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:59:08
+-------------------------------
+Log: 04:59:15 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 22:59:15
+-------------------------------
