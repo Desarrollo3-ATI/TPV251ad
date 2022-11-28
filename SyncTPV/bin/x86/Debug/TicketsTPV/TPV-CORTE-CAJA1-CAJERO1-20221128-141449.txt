@@ -1,0 +1,76 @@
+            ATI - SyncPANEL
+                    
+       BLVD BELISARIO 4250 Terán
+            RFC:H&E951128469
+         EXPED:Tuxtla Gutiérrez
+Caja: CAJA1
+Clave: CAJERO1
+Cajero: CAJERO 1 TPV
+Fecha y Hora: 2022-11-28 14:14:49
+                    
+            Reporte de Caja
+                    
+    * * * Importe de Apertura * * *
+              Total Ingresado: $0.00 MXN
+* * * Totales por Formas de Cobro * * *
+                    
+> 1 Efectivo = $216 MXN
+> 4 Tarjeta de credito = $200 MXN
+> 28 Tarjeta de debito = $1208 MXN
+                     -------------------
+                       Total: $ 1624 MXN
+                    
+                                        
+                    
+   * Documentos por Formas de Cobros *
+                    
+> 1 Efectivo
+Folio #A1C1221128135339 
+                      Total: $116.00 MXN
+              Suma Efectivo: $116.00 MXN
+> 28 Tarjeta de débito
+Folio #A1C1221128134655 
+                      Total: $232.00 MXN
+Folio #A1C1221128134843 
+                    Total: $1,276.00 MXN
+   Suma Tarjeta de débito: $1,508.00 MXN
+                                        
+          * * * Creditos * * *
+       * * Pagos de Clientes * *
+     * * * Ingresos de Dinero * * *
+Compra de agua
+Ingreso1                     $150.00 MXN
+          * * * Retiros * * *
+Compra de agua
+Retiro1                      $150.00 MXN
+corte de caja
+Retiro2                    $1,646.40 MXN
+         * * Totales Netos * *
+                    
+                 Total a Crédito: $0 MXN
+                    
+          Importe de Apertura: $0.00 MXN
+  Total Vendido y Abonado: $1,624.00 MXN
+                Total Cobrado: $0.00 MXN
+          Total en Ingresos: $150.00 MXN
+                    
+            Total En Caja: $1,774.00 MXN
+                    
+           Total Retirado: $1,796.40 MXN
+                    
+      ----------------------------
+                    Sobrante: $22.40 MXN
+                    
+       28/11/2022 02:14:49 p. m.
+            Firma Del Cajero
+                    
+                    
+       __________________________
+                    
+                    
+                    
+                    
+
+
+
+----------------------------------------

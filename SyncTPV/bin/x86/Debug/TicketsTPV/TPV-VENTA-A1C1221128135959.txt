@@ -1,0 +1,48 @@
+            ATI - SyncPANEL
+               Devolución
+       BLVD BELISARIO 4250 Terán
+            RFC:H&E951128469
+         EXPED:Tuxtla Gutiérrez
+                    
+Folio: A1C1221128135959
+Caja: CAJA1
+Clave: CAJERO1
+Cajero: CAJERO 1 TPV
+Fecha y Hora: 2022-11-28 14:00:28
+                    
+Cliente: PUBLICO GENERAL
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 PZA PRODUCTO CON NOMBRE LARGO A000000000000000000000000000000001
+PROD1000000000000000000000001    $11.60  0% $0.00  $11.60MXN
+                    
+                    
+Neto :                        $10.00 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                    $10.00 MXN
+I.V.A. :                       $1.60 MXN
+                    
+Total :                       $11.60 MXN
+Tarjeta de débito              $0.00 MXN
+Efectivo                      $11.60 MXN
+Cambio :                       $0.00 MXN
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 1
+Usted Ahorro: $0.00
+                    
+               DEVOLUCION
+                    
+          * * * Original * * *
+28/11/2022 02:00:28 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

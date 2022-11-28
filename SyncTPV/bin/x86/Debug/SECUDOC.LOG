@@ -2415,3 +2415,424 @@ Nombre del objeto: 'FormIniciarSesion'.
 Log: 04:59:15 p. m. viernes, 25 de noviembre de 2022
 2022-12-31 23:59:59 - 2022-11-25 22:59:15
 -------------------------------
+Log: 05:05:36 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:05:36
+-------------------------------
+Log: 05:05:45 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:05:45
+-------------------------------
+Log: 05:05:49 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:05:49
+-------------------------------
+Log: 05:06:23 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 05:06:26 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:06:25
+-------------------------------
+Log: 05:07:32 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:07:32
+-------------------------------
+Log: 05:07:34 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:07:34
+-------------------------------
+Log: 05:07:41 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 05:32:28 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 05:40:53 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:40:53
+-------------------------------
+Log: 05:41:01 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:41:01
+-------------------------------
+Log: 05:41:03 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:41:03
+-------------------------------
+Log: 05:41:09 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:41:09
+-------------------------------
+Log: 05:41:19 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:41:19
+-------------------------------
+Log: 05:41:21 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:41:21
+-------------------------------
+Log: 05:47:34 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:47:34
+-------------------------------
+Log: 05:47:41 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:47:41
+-------------------------------
+Log: 05:47:43 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:47:42
+-------------------------------
+Log: 05:51:05 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:51:05
+-------------------------------
+Log: 05:51:09 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:51:08
+-------------------------------
+Log: 05:51:11 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:51:11
+-------------------------------
+Log: 05:56:59 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:56:58
+-------------------------------
+Log: 05:57:04 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:57:04
+-------------------------------
+Log: 05:57:06 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-25 23:57:05
+-------------------------------
+Log: 06:17:05 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:17:05
+-------------------------------
+Log: 06:17:08 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 06:17:59 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:17:58
+-------------------------------
+Log: 06:18:08 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 06:18:26 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:18:26
+-------------------------------
+Log: 06:18:32 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:18:32
+-------------------------------
+Log: 06:18:34 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:18:34
+-------------------------------
+Log: 06:22:11 p. m. viernes, 25 de noviembre de 2022
+System.IO.IOException: El proceso no puede obtener acceso al archivo 'C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\bin\x86\Debug\TicketsTPV\TPV-venta-claveTicket.txt' porque está siendo utilizado en otro proceso.
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   en System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   en System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   en System.IO.StreamWriter..ctor(String path, Boolean append)
+   en System.IO.File.AppendText(String path)
+   en SyncTPV.SECUDOC.TicketTPV(String mensaje, String clave)
+-------------------------------
+Log: 06:22:44 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:22:43
+-------------------------------
+Log: 06:22:53 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:22:52
+-------------------------------
+Log: 06:22:55 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:22:54
+-------------------------------
+Log: 06:26:23 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:26:23
+-------------------------------
+Log: 06:26:30 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:26:30
+-------------------------------
+Log: 06:26:32 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:26:32
+-------------------------------
+Log: 06:31:26 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:31:26
+-------------------------------
+Log: 06:31:49 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:31:49
+-------------------------------
+Log: 06:31:51 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:31:50
+-------------------------------
+Log: 06:33:52 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:33:52
+-------------------------------
+Log: 06:33:56 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:33:55
+-------------------------------
+Log: 06:33:57 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:33:57
+-------------------------------
+Log: 06:46:38 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:46:38
+-------------------------------
+Log: 06:46:41 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:46:41
+-------------------------------
+Log: 06:46:43 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:46:43
+-------------------------------
+Log: 06:47:48 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:47:48
+-------------------------------
+Log: 06:47:52 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:47:52
+-------------------------------
+Log: 06:47:54 p. m. viernes, 25 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-26 00:47:53
+-------------------------------
+Log: 08:48:12 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 14:48:11
+-------------------------------
+Log: 08:48:20 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 14:48:18
+-------------------------------
+Log: 08:48:21 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 14:48:20
+-------------------------------
+Log: 08:52:18 a. m. lunes, 28 de noviembre de 2022
+Apertura de caja Realizada: 28/11/2022 08:52:18 a. m. Respaldos detectados:73
+-------------------------------
+Log: 09:00:05 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:00:03
+-------------------------------
+Log: 09:00:10 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:00:08
+-------------------------------
+Log: 09:00:11 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:00:10
+-------------------------------
+Log: 09:05:44 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:05:43
+-------------------------------
+Log: 09:20:17 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:20:16
+-------------------------------
+Log: 09:20:19 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:20:17
+-------------------------------
+Log: 09:31:11 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:31:10
+-------------------------------
+Log: 09:32:41 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:32:40
+-------------------------------
+Log: 09:32:43 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:32:41
+-------------------------------
+Log: 09:38:44 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:38:43
+-------------------------------
+Log: 09:38:48 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:38:47
+-------------------------------
+Log: 09:38:50 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:38:48
+-------------------------------
+Log: 09:42:50 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:42:49
+-------------------------------
+Log: 09:58:37 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:58:36
+-------------------------------
+Log: 09:58:55 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:58:53
+-------------------------------
+Log: 09:58:56 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 15:58:55
+-------------------------------
+Log: 10:00:57 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:00:56
+-------------------------------
+Log: 10:01:16 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:01:15
+-------------------------------
+Log: 10:01:18 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:01:16
+-------------------------------
+Log: 10:08:20 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:08:18
+-------------------------------
+Log: 10:08:20 a. m. lunes, 28 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 10:10:25 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:10:24
+-------------------------------
+Log: 10:10:29 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:10:28
+-------------------------------
+Log: 10:10:31 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:10:29
+-------------------------------
+Log: 10:30:59 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:30:57
+-------------------------------
+Log: 10:31:03 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:31:01
+-------------------------------
+Log: 10:31:04 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:31:03
+-------------------------------
+Log: 10:41:19 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:41:18
+-------------------------------
+Log: 10:41:23 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:41:21
+-------------------------------
+Log: 10:41:24 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:41:23
+-------------------------------
+Log: 10:43:22 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:43:20
+-------------------------------
+Log: 10:43:29 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:43:28
+-------------------------------
+Log: 10:43:31 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 16:43:29
+-------------------------------
+Log: 11:05:35 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 17:05:33
+-------------------------------
+Log: 11:05:40 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 17:05:38
+-------------------------------
+Log: 11:05:41 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 17:05:40
+-------------------------------
+Log: 11:09:32 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 17:09:31
+-------------------------------
+Log: 11:09:45 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 17:09:44
+-------------------------------
+Log: 11:09:47 a. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 17:09:45
+-------------------------------
+Log: 12:05:07 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:05:05
+-------------------------------
+Log: 12:05:12 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:05:10
+-------------------------------
+Log: 12:05:13 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:05:12
+-------------------------------
+Log: 12:12:30 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:12:29
+-------------------------------
+Log: 12:12:35 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:12:34
+-------------------------------
+Log: 12:12:37 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:12:36
+-------------------------------
+Log: 12:14:58 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:14:56
+-------------------------------
+Log: 12:15:03 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:15:01
+-------------------------------
+Log: 12:15:04 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:15:03
+-------------------------------
+Log: 12:51:18 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:51:16
+-------------------------------
+Log: 12:51:22 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:51:21
+-------------------------------
+Log: 12:51:24 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:51:22
+-------------------------------
+Log: 12:58:31 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:58:30
+-------------------------------
+Log: 12:58:36 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:58:35
+-------------------------------
+Log: 12:58:38 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 18:58:36
+-------------------------------
+Log: 01:38:15 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 
+-------------------------------
+Log: 01:38:18 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:38:17
+-------------------------------
+Log: 01:39:27 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:39:26
+-------------------------------
+Log: 01:39:29 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:39:27
+-------------------------------
+Log: 01:41:15 p. m. lunes, 28 de noviembre de 2022
+Apertura de caja Realizada: 28/11/2022 01:41:15 p. m. Respaldos detectados:74
+-------------------------------
+Log: 01:45:58 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:45:56
+-------------------------------
+Log: 01:46:03 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:46:01
+-------------------------------
+Log: 01:46:04 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:46:03
+-------------------------------
+Log: 01:48:28 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:48:26
+-------------------------------
+Log: 01:48:31 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:48:30
+-------------------------------
+Log: 01:48:33 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:48:31
+-------------------------------
+Log: 01:56:39 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:56:37
+-------------------------------
+Log: 01:56:44 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:56:42
+-------------------------------
+Log: 01:56:46 p. m. lunes, 28 de noviembre de 2022
+2022-12-31 23:59:59 - 2022-11-28 19:56:44
+-------------------------------
+Log: 01:59:19 p. m. lunes, 28 de noviembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\clsTicket.cs:línea 2072
+   en SyncTPV.clsTicket.<TraerFormasPago>d__40.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\clsTicket.cs:línea 1811
+-------------------------------
+Log: 02:00:28 p. m. lunes, 28 de noviembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\clsTicket.cs:línea 2072
+   en SyncTPV.clsTicket.<TraerFormasPago>d__40.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\clsTicket.cs:línea 1811
+-------------------------------

@@ -101,11 +101,28 @@ namespace SyncTPV.Views.AperturaTurno
                             }
                         }
                     }
-
                 }
                 else
                 {
                     SECUDOC.writeLog("No se encontraron respaldos " + DateTime.Now.ToString());
+                }
+                //Elimina archivos antiguos de respaldo de Tickets
+                Ruta = (AdminDll.General.RutaInicial + "\\TicketsTPV\\").Replace("\\", "/");
+                Archivos = Directory.GetFiles(Ruta, "*.txt").OrderBy(d => new FileInfo(d).CreationTime).ToArray();
+                //SECUDOC.writeLog("Apertura de caja Realizada: " + DateTime.Now.ToString() + " Respaldos detectados:" + Archivos.Length);
+                if (Archivos.Length > 0)
+                {
+                    //File.Copy(Ruta + "SyncTPV.db", (Ruta + newfile), true);
+                    int maxArchivos = Properties.Settings.Default.TotalRespaldarTickets;
+                    if (maxArchivos == 0) maxArchivos = 20000;
+                    if (Archivos.Length > maxArchivos)
+                    {
+                        int elementosAEliminar = Archivos.Length - maxArchivos;
+                        for (int i = 0; i < elementosAEliminar; i++)
+                        {
+                            File.Delete(Archivos[i]);
+                        }
+                    }
                 }
             }
             catch (Exception error)
