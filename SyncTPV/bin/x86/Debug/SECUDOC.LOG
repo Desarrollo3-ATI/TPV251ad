@@ -937,3 +937,29 @@ Nombre del parámetro: length
 Log: 01:24:12 p. m. viernes, 25 de noviembre de 2022
 2023-05-16 11:41:50 - 2022-11-25 19:24:12
 -------------------------------
+Log: 01:30:56 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:30:57
+-------------------------------
+Log: 01:31:19 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:31:20
+-------------------------------
+Log: 01:31:21 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 19:31:21
+-------------------------------
+Log: 02:09:47 p. m. viernes, 25 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-25 20:09:48
+-------------------------------
+Log: 02:10:14 p. m. viernes, 25 de noviembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
