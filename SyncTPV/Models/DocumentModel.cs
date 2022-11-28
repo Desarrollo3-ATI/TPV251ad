@@ -1191,6 +1191,37 @@ namespace SyncTPV
             return dt;
         }
 
+        public static int updateCreditFormCobroDocuments(int id, int FC, int typeDocumento)
+        {
+            int resp = 0;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            db.Open();
+            try
+            {
+                String query = "UPDATE " + LocalDatabase.TABLA_DOCUMENTOVENTA + " SET " + LocalDatabase.CAMPO_TIPODOCUMENTO_DOC + " = @tipoDocumento, " +
+                    LocalDatabase.CAMPO_FORMACOBROID_DOC + " = @FormaCobro " + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " = @id";
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    command.Parameters.AddWithValue("@FormaCobro", FC);
+                    command.Parameters.AddWithValue("@tipoDocumento", typeDocumento);
+                    command.Parameters.AddWithValue("@id", id);
+                    int records = command.ExecuteNonQuery();
+                    if (records > 0)
+                        resp = records;
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.Message);
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return resp;
+        }
+
         public static Boolean updateInformationForAPausedDocuments(int id, double descuento, double total)
         {
             Boolean resp = false;
