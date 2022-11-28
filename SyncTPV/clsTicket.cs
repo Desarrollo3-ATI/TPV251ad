@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SyncTPV
 {
@@ -23,6 +24,8 @@ namespace SyncTPV
         StringBuilder linea = new StringBuilder();
         int maxCaracteres = 40, cortar, Error = 0;
         string query = "", MensajeError = "";
+        DateTime TicketCorteFechaHora = new DateTime(1899,1,1);
+        DateTime TicketIngresoFechaHora = new DateTime(1899,1,1);
 
         //Metodod para dibujar una linea de guón en el ticket
         public string LineasGuion()
@@ -452,7 +455,7 @@ namespace SyncTPV
                                                        //Para mandar a imprimir el texto a la impresora que le indicamos 
         }
 
-        public int printTicket()
+        public int printTicket(string tipoTicketTPV = "", string claveTicketTPV = "")
         {
             int response = 0;
             try
@@ -464,8 +467,30 @@ namespace SyncTPV
                     printer = pm.nombre;
                     //Este método recibe el nombre de la impresora a la cual se mandara a imprimir y el texto se imprime
                     //Usaremos un código que nos proporciona microsotf https://support.microsoft.com/es-es/kb/322091
-                    RawPrinterHelper.SendStringToPrinter(printer, linea.ToString());//Imprime texto
-                    linea.Clear();//Al acaba de imprimir la impresora limpia la linea del texto agregado 
+                    string auxLinea = linea.ToString();
+                    if (printer == "Microsoft XPS Document Writer")
+                    {
+                        auxLinea= auxLinea.Replace("\u001bE\u0001", "").Replace("\u001bE\0", "").Replace("\u001bm", "").Replace("\u001bd\u0001", "").Replace("\u001bp0ᐔ", "");
+                    }
+                    RawPrinterHelper.SendStringToPrinter(printer, auxLinea);//Imprime texto
+                    if(tipoTicketTPV == "")
+                    {
+                        claveTicketTPV = "CLAVE-" + DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                    }
+                    else
+                    {
+                        if (claveTicketTPV == "")
+                        {
+                            claveTicketTPV = tipoTicketTPV + "-" + DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                        }
+                        else
+                        {
+                            claveTicketTPV = tipoTicketTPV + "-" + claveTicketTPV;
+                        }
+                    }
+                    //Imprime Ticket de respaldo en TPV.
+                    SECUDOC.TicketTPV(auxLinea, claveTicketTPV);
+                    linea.Clear();//Al acabar de imprimir la impresora limpia la linea del texto agregado 
                     response = 1;
                 }
             }
@@ -515,7 +540,10 @@ namespace SyncTPV
             TextoCentro("");
             TextoCentro("");
             cutTicket();
-            printTicket();
+            string codigoCaja = UserModel.getCodeBox(ClsRegeditController.getIdUserInTurn());
+            string codigoCajero = UserModel.getCode(ClsRegeditController.getIdUserInTurn());
+            //printTicket("RETIRO", "CLAVERETIRO");
+            printTicket(tipoTicketTPV: "RETIRO", claveTicketTPV: codigoCaja + "-" + codigoCajero + "-" + fechaHora.Replace("-", "").Replace(":", "").Replace(" ", "-"));
         }
 
         public async Task imprimirTicketCobranza(int repIdLocal, bool permissionPrepedido, bool serverModeLAN)
@@ -562,7 +590,7 @@ namespace SyncTPV
             TextoCentro("");
             TextoCentro("");
             cutTicket();
-            printTicket();
+            printTicket("COBRANZA");
             abrirCajonDinero();
         }
 
@@ -604,7 +632,9 @@ namespace SyncTPV
             TextoCentro("");
             cutTicket();
             abrirCajonDinero();
-            printTicket();
+            string codigoCaja = UserModel.getCodeBox(ClsRegeditController.getIdUserInTurn());
+            string codigoCajero = UserModel.getCode(ClsRegeditController.getIdUserInTurn());
+            printTicket(tipoTicketTPV: "INGRESO", claveTicketTPV: codigoCaja + "-" + codigoCajero + "-" + TicketIngresoFechaHora.ToString("yyyyMMdd-HHmmss"));
         }
 
         public async Task<int> CrearTicket(int idDocument, Boolean openCashDrawer, bool permissionPrepedido, int documentType, String originalCopia,
@@ -943,7 +973,7 @@ namespace SyncTPV
                     cutTicket();
                     if (openCashDrawer)
                         abrirCajonDinero();
-                    printTicket();
+                    printTicket(tipoTicketTPV: "VENTA", claveTicketTPV: folio);
                 }
             });
             return response;
@@ -1270,7 +1300,7 @@ namespace SyncTPV
                     cutTicket();
                     if (openCashDrawer)
                         abrirCajonDinero();
-                    printTicket();
+                    printTicket("FACTURA");
                 }
             });
             return response;
@@ -1387,7 +1417,9 @@ namespace SyncTPV
             TextoCentro("");
             TextoCentro("");
             cutTicket();
-            printTicket();
+            string codigoCaja = UserModel.getCodeBox(ClsRegeditController.getIdUserInTurn());
+            string codigoCajero = UserModel.getCode(ClsRegeditController.getIdUserInTurn());
+            printTicket(tipoTicketTPV: "CORTE", claveTicketTPV: codigoCaja + "-" + codigoCajero + "-" + TicketCorteFechaHora.ToString("yyyyMMdd-HHmmss"));
         }
 
         private async Task<double> getAllAbonos(bool showPagos)
@@ -1918,8 +1950,13 @@ namespace SyncTPV
             { 
                 if (pm != null)
                 {
+                    //if (pm.showFechaHora == 1)
+                    //    TextoIzquierda("Fecha y Hora: " + fechaHoraDocumento);
                     if (pm.showFechaHora == 1)
-                        TextoIzquierda("Fecha y Hora: " + fechaHoraDocumento);
+                    {
+                        TicketIngresoFechaHora = DateTime.Now;
+                        TextoIzquierda("Fecha y Hora: " + TicketIngresoFechaHora.ToString("yyyy-MM-dd HH:mm:ss"));
+                    }
                 } else TextoIzquierda("Fecha y Hora: " + fechaHoraDocumento);
             }
             else
@@ -1927,7 +1964,11 @@ namespace SyncTPV
                 if (pm != null)
                 {
                     if (pm.showFechaHora == 1)
-                        TextoIzquierda("Fecha y Hora: " + MetodosGenerales.getCurrentDateAndHour());
+                    {
+                        //TextoIzquierda("Fecha y Hora: " + MetodosGenerales.getCurrentDateAndHour());
+                        TicketCorteFechaHora = DateTime.Now;
+                        TextoIzquierda("Fecha y Hora: " + TicketCorteFechaHora.ToString("yyyy-MM-dd HH:mm:ss"));
+                    }
                 } else TextoIzquierda("Fecha y Hora: " + MetodosGenerales.getCurrentDateAndHour());
             }
             TextoCentro("");
@@ -2174,7 +2215,7 @@ namespace SyncTPV
                 TextoCentro("");
                 TextoCentro("");
                 cutTicket();
-                printTicket();
+                printTicket("PRUEBA");
                 value = 1;
             });
             return value;

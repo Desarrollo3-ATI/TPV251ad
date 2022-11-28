@@ -105,7 +105,7 @@ namespace SyncTPV
                 {
                     clsTicket ticket = new clsTicket();
                     ticket.abrirCajonDinero();
-                    ticket.printTicket();
+                    ticket.printTicket("CAJON-ABRIR", DateTime.Now.ToString("yyyyMMdd-HHmmss"));
                 }
             }
             else

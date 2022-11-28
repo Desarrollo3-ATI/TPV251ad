@@ -47,6 +47,7 @@ namespace SyncTPV
             await validateIfCheckoutIsCotMos();
             editUsernameFrmIniciarSesion.Enabled = true;
             editPassFrmIniciarSesion.Enabled = true;
+            editUsernameFrmIniciarSesion.Focus();
         }
 
         private async Task loadInitialData()
