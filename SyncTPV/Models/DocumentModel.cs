@@ -755,7 +755,7 @@ namespace SyncTPV
                                                     formasC.forma_cobro_id_abono = Convert.ToInt32(reader2["forma_cobro_id_abono"].ToString().Trim());
                                                     formasC.importe = float.Parse(reader2["importe"].ToString().Trim());
                                                     formasC.total_doc = float.Parse(reader2["total_doc"].ToString().Trim());
-                                                    formasC.cambio = float.Parse(reader2["total_doc"].ToString().Trim());
+                                                    formasC.cambio = float.Parse(reader2["cambio"].ToString().Trim());
                                                     formasC.saldo_doc = float.Parse(reader2["saldo_doc"].ToString().Trim());
                                                     formasC.documento_id = Convert.ToInt32(reader2["documento_id"].ToString().Trim());
                                                     formasC.id_server = Convert.ToInt32(reader2["id_server"].ToString().Trim());
@@ -1199,7 +1199,8 @@ namespace SyncTPV
             try
             {
                 String query = "UPDATE " + LocalDatabase.TABLA_DOCUMENTOVENTA + " SET " + LocalDatabase.CAMPO_TIPODOCUMENTO_DOC + " = @tipoDocumento, " +
-                    LocalDatabase.CAMPO_FORMACOBROID_DOC + " = @FormaCobro " + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " = @id";
+                    LocalDatabase.CAMPO_FORMACOBROID_DOC + " = @FormaCobro, " + LocalDatabase.CAMPO_ANTICIPO_DOC + " = 0 "
+                    + " WHERE " + LocalDatabase.CAMPO_ID_DOC + " = @id";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
                     command.Parameters.AddWithValue("@FormaCobro", FC);

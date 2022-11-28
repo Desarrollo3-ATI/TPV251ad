@@ -1668,43 +1668,11 @@ namespace SyncTPV
         {
 
             //panel4.BackColor = Color.FromArgb(255, 87, 34);
-            int cambia = 0;
-            int FcActual = DocumentModel.getPaymentMethodForADocument(idDocument);
-            if(FcActual > 0)
-            {
-                cambia = 1;
-            }
-            else
-            {
-                FrmValidacionDocumentos Validacion = new FrmValidacionDocumentos();
-                Validacion.ShowDialog();
-                
-                if (Validacion.Acredito)
-                {
-                    cambia = cambiarSoloFormaCobroDocumento71(idDocument);
-                }
-            }
-            
-            if(cambia > 0)
-            {
-                cobrarCarritoTpv(idDocument);
-            }
-            else
-            {
-                FormMessage msj = new FormMessage("Formas de cobro no ingresadas correctamente", "Ingrese nuevamente sus formas de cobro o asigne si es a credito", 2);
-                msj.ShowDialog();
-            }
+            cobrarCarritoTpv(idDocument);
             //panel4.BackColor = Color.Transparent;
         }
 
-        public int cambiarSoloFormaCobroDocumento71(int idDocument)
-        {
-            int editado = 0;
-            int FCCredito = 71;
-            int tipoDocumento = 2;
-            editado = DocumentModel.updateCreditFormCobroDocuments(idDocument, FCCredito, tipoDocumento);
-            return idDocument;
-        }
+        
 
         private async Task fillAllFieldsFromAMovement(ClsItemModel item, double captedUnits, bool barCode)
         {

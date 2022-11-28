@@ -1277,7 +1277,7 @@ namespace SyncTPV.Models
                                 fcd = new FormasDeCobroDocumentoModel();
                                 fcd.id = Convert.ToInt32(reader[LocalDatabase.CAMPO_ID_FORMACOBRODOC].ToString().Trim());
                                 fcd.formaCobroIdAbono = Convert.ToInt32(reader[LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC].ToString().Trim());
-                                fcd.importe = Convert.ToDouble(LocalDatabase.CAMPO_IMPORTE_FORMACOBRODOC);
+                                fcd.importe = Convert.ToDouble(reader[LocalDatabase.CAMPO_IMPORTE_FORMACOBRODOC].ToString().Trim());
                                 fcd.totalDocumento = Convert.ToDouble(reader[LocalDatabase.CAMPO_TOTALDOC_FORMACOBRODOC].ToString().Trim());
                                 fcd.cambio = Convert.ToDouble(reader[LocalDatabase.CAMPO_CAMBIO_FORMACOBRODOC].ToString().Trim());
                                 fcd.saldoDocumento = Convert.ToDouble(reader[LocalDatabase.CAMPO_SALDODOC_FORMACOBRODOC].ToString().Trim());
