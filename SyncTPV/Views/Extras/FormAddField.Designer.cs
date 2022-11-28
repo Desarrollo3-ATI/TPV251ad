@@ -84,7 +84,7 @@ namespace SyncTPV.Views.Extras
             this.checkBoxMismaInstancia.Location = new System.Drawing.Point(440, 15);
             this.checkBoxMismaInstancia.Name = "checkBoxMismaInstancia";
             this.checkBoxMismaInstancia.Size = new System.Drawing.Size(137, 20);
-            this.checkBoxMismaInstancia.TabIndex = 1;
+            this.checkBoxMismaInstancia.TabIndex = 301;
             this.checkBoxMismaInstancia.Text = "Misma Instancia";
             this.checkBoxMismaInstancia.UseVisualStyleBackColor = true;
             this.checkBoxMismaInstancia.CheckedChanged += new System.EventHandler(this.checkBoxMismaInstancia_CheckedChanged);
@@ -118,7 +118,7 @@ namespace SyncTPV.Views.Extras
             this.btnSave.Location = new System.Drawing.Point(443, 357);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(146, 54);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.TabIndex = 300;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -142,7 +142,7 @@ namespace SyncTPV.Views.Extras
             this.groupBoxPanelInstance.MinimumSize = new System.Drawing.Size(278, 239);
             this.groupBoxPanelInstance.Name = "groupBoxPanelInstance";
             this.groupBoxPanelInstance.Size = new System.Drawing.Size(278, 271);
-            this.groupBoxPanelInstance.TabIndex = 3;
+            this.groupBoxPanelInstance.TabIndex = 100;
             this.groupBoxPanelInstance.TabStop = false;
             this.groupBoxPanelInstance.Text = "Instancia SQLServer de PanelROM";
             // 
@@ -156,7 +156,7 @@ namespace SyncTPV.Views.Extras
             this.btnSeePassPanel.Location = new System.Drawing.Point(233, 227);
             this.btnSeePassPanel.Name = "btnSeePassPanel";
             this.btnSeePassPanel.Size = new System.Drawing.Size(24, 24);
-            this.btnSeePassPanel.TabIndex = 28;
+            this.btnSeePassPanel.TabIndex = 106;
             this.btnSeePassPanel.UseVisualStyleBackColor = true;
             this.btnSeePassPanel.Click += new System.EventHandler(this.btnSeePassPanel_Click);
             // 
@@ -168,7 +168,7 @@ namespace SyncTPV.Views.Extras
             this.editDbNamePanel.Location = new System.Drawing.Point(24, 138);
             this.editDbNamePanel.Name = "editDbNamePanel";
             this.editDbNamePanel.Size = new System.Drawing.Size(234, 22);
-            this.editDbNamePanel.TabIndex = 27;
+            this.editDbNamePanel.TabIndex = 103;
             this.editDbNamePanel.Text = "adPanelROM";
             // 
             // textInfoDbNamePanel
@@ -192,7 +192,7 @@ namespace SyncTPV.Views.Extras
             this.editPassInstanciaPanel.Name = "editPassInstanciaPanel";
             this.editPassInstanciaPanel.PasswordChar = '*';
             this.editPassInstanciaPanel.Size = new System.Drawing.Size(204, 22);
-            this.editPassInstanciaPanel.TabIndex = 25;
+            this.editPassInstanciaPanel.TabIndex = 105;
             // 
             // textInfoPassSql
             // 
@@ -214,7 +214,7 @@ namespace SyncTPV.Views.Extras
             this.editUserInstanciaPanel.Location = new System.Drawing.Point(23, 185);
             this.editUserInstanciaPanel.Name = "editUserInstanciaPanel";
             this.editUserInstanciaPanel.Size = new System.Drawing.Size(234, 22);
-            this.editUserInstanciaPanel.TabIndex = 23;
+            this.editUserInstanciaPanel.TabIndex = 104;
             this.editUserInstanciaPanel.Text = "sa";
             // 
             // textInfoUsuarioSql
@@ -237,7 +237,7 @@ namespace SyncTPV.Views.Extras
             this.editNombreInstanciaPanel.Location = new System.Drawing.Point(23, 95);
             this.editNombreInstanciaPanel.Name = "editNombreInstanciaPanel";
             this.editNombreInstanciaPanel.Size = new System.Drawing.Size(234, 22);
-            this.editNombreInstanciaPanel.TabIndex = 21;
+            this.editNombreInstanciaPanel.TabIndex = 102;
             // 
             // textInfoInstancia
             // 
@@ -271,7 +271,7 @@ namespace SyncTPV.Views.Extras
             this.editIpServerPanel.Location = new System.Drawing.Point(23, 48);
             this.editIpServerPanel.Name = "editIpServerPanel";
             this.editIpServerPanel.Size = new System.Drawing.Size(234, 22);
-            this.editIpServerPanel.TabIndex = 18;
+            this.editIpServerPanel.TabIndex = 101;
             this.editIpServerPanel.Text = "127.0.0.1";
             // 
             // groupBoxComInstance
@@ -293,7 +293,7 @@ namespace SyncTPV.Views.Extras
             this.groupBoxComInstance.MinimumSize = new System.Drawing.Size(278, 239);
             this.groupBoxComInstance.Name = "groupBoxComInstance";
             this.groupBoxComInstance.Size = new System.Drawing.Size(278, 271);
-            this.groupBoxComInstance.TabIndex = 26;
+            this.groupBoxComInstance.TabIndex = 200;
             this.groupBoxComInstance.TabStop = false;
             this.groupBoxComInstance.Text = "Instancia SQLServer de Comercial";
             // 
@@ -307,7 +307,7 @@ namespace SyncTPV.Views.Extras
             this.btnSeePassCom.Location = new System.Drawing.Point(233, 228);
             this.btnSeePassCom.Name = "btnSeePassCom";
             this.btnSeePassCom.Size = new System.Drawing.Size(24, 24);
-            this.btnSeePassCom.TabIndex = 29;
+            this.btnSeePassCom.TabIndex = 206;
             this.btnSeePassCom.UseVisualStyleBackColor = true;
             this.btnSeePassCom.Click += new System.EventHandler(this.btnSeePassCom_Click);
             // 
@@ -320,7 +320,7 @@ namespace SyncTPV.Views.Extras
             this.editDbNameComercial.Location = new System.Drawing.Point(23, 138);
             this.editDbNameComercial.Name = "editDbNameComercial";
             this.editDbNameComercial.Size = new System.Drawing.Size(234, 22);
-            this.editDbNameComercial.TabIndex = 29;
+            this.editDbNameComercial.TabIndex = 203;
             this.editDbNameComercial.Text = "Nombre_BDatos_Comercial_01";
             this.editDbNameComercial.Enter += new System.EventHandler(this.editDbNameComercial_Enter);
             this.editDbNameComercial.Leave += new System.EventHandler(this.editDbNameComercial_Leave);
@@ -334,7 +334,7 @@ namespace SyncTPV.Views.Extras
             this.editPassInstanciaComercial.Name = "editPassInstanciaComercial";
             this.editPassInstanciaComercial.PasswordChar = '*';
             this.editPassInstanciaComercial.Size = new System.Drawing.Size(204, 22);
-            this.editPassInstanciaComercial.TabIndex = 25;
+            this.editPassInstanciaComercial.TabIndex = 205;
             // 
             // textInfoDbNameComercial
             // 
@@ -368,7 +368,7 @@ namespace SyncTPV.Views.Extras
             this.editUserInstanciaComercial.Location = new System.Drawing.Point(23, 185);
             this.editUserInstanciaComercial.Name = "editUserInstanciaComercial";
             this.editUserInstanciaComercial.Size = new System.Drawing.Size(234, 22);
-            this.editUserInstanciaComercial.TabIndex = 23;
+            this.editUserInstanciaComercial.TabIndex = 204;
             this.editUserInstanciaComercial.Text = "sa";
             // 
             // textInfoUserComercial
@@ -391,7 +391,7 @@ namespace SyncTPV.Views.Extras
             this.editNombreInstanciaComercial.Location = new System.Drawing.Point(23, 95);
             this.editNombreInstanciaComercial.Name = "editNombreInstanciaComercial";
             this.editNombreInstanciaComercial.Size = new System.Drawing.Size(234, 22);
-            this.editNombreInstanciaComercial.TabIndex = 21;
+            this.editNombreInstanciaComercial.TabIndex = 202;
             // 
             // textInfoInstanciaComercial
             // 
@@ -425,7 +425,7 @@ namespace SyncTPV.Views.Extras
             this.editIpServidorComercial.Location = new System.Drawing.Point(23, 48);
             this.editIpServidorComercial.Name = "editIpServidorComercial";
             this.editIpServidorComercial.Size = new System.Drawing.Size(234, 22);
-            this.editIpServidorComercial.TabIndex = 18;
+            this.editIpServidorComercial.TabIndex = 201;
             this.editIpServidorComercial.Text = "127.0.0.1";
             // 
             // FormAddField

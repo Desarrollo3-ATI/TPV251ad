@@ -360,6 +360,12 @@ namespace SyncTPV
             btnLogin.Enabled = false;
             validateCredentials();
             Cursor = Cursors.Default;
+            //editUsernameFrmIniciarSesion.Enabled = true;
+            //editPassFrmIniciarSesion.Enabled = true;
+            //btnConfiguracionInicial.Enabled = true;
+            //checkBoxRecordarLogin.Enabled = true;
+            //btnLogin.Enabled = true;
+            //btnLogin.Text = "Iniciar Sesión";
         }
 
         public async Task validateCredentials()
@@ -628,16 +634,23 @@ namespace SyncTPV
             {
                 FormMessage msj = new FormMessage("Usuario No Encontrado", description, 2);
                 msj.ShowDialog();
+                editUsernameFrmIniciarSesion.Enabled = true;
+                editPassFrmIniciarSesion.Enabled = true;
+                btnConfiguracionInicial.Enabled = true;
+                checkBoxRecordarLogin.Enabled = true;
+                btnLogin.Enabled = true;
+                btnLogin.Text = "Iniciar Sesión";
+                editPassFrmIniciarSesion.Focus();
                 editPassFrmIniciarSesion.Select();
             }
         }
 
         private void txtPass_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                btnLogin_Click(sender, e);
-            }
+            //if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            //{
+            //    btnLogin_Click(sender, e);
+            //}
         }
 
         private void linkLabelActivateLicenseFrmIniciarSesion_Click(object sender, EventArgs e)
@@ -649,10 +662,10 @@ namespace SyncTPV
 
         private void editUsernameFrmIniciarSesion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                btnLogin_Click(sender, e);
-            }
+            //if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            //{
+            //    btnLogin_Click(sender, e);
+            //}
         }
 
         private void checkBoxRecordarLogin_CheckedChanged(object sender, EventArgs e)
@@ -681,6 +694,25 @@ namespace SyncTPV
             } catch (Exception ex)
             {
                 SECUDOC.writeLog(ex.ToString());
+            }
+        }
+
+        private void editPassFrmIniciarSesion_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
+        }
+
+        private void editUsernameFrmIniciarSesion_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if(editPassFrmIniciarSesion.Text != "")
+                    btnLogin_Click(sender, e);
+                else
+                    editPassFrmIniciarSesion.Focus();
             }
         }
     }

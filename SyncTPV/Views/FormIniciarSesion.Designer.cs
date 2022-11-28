@@ -48,22 +48,24 @@
             // editUsernameFrmIniciarSesion
             // 
             this.editUsernameFrmIniciarSesion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.editUsernameFrmIniciarSesion.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUsernameFrmIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editUsernameFrmIniciarSesion.Location = new System.Drawing.Point(58, 173);
             this.editUsernameFrmIniciarSesion.Name = "editUsernameFrmIniciarSesion";
-            this.editUsernameFrmIniciarSesion.Size = new System.Drawing.Size(232, 22);
+            this.editUsernameFrmIniciarSesion.Size = new System.Drawing.Size(232, 21);
             this.editUsernameFrmIniciarSesion.TabIndex = 0;
             this.editUsernameFrmIniciarSesion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.editUsernameFrmIniciarSesion_KeyPress);
+            this.editUsernameFrmIniciarSesion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editUsernameFrmIniciarSesion_KeyUp);
             // 
             // editPassFrmIniciarSesion
             // 
-            this.editPassFrmIniciarSesion.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editPassFrmIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editPassFrmIniciarSesion.Location = new System.Drawing.Point(58, 213);
             this.editPassFrmIniciarSesion.Name = "editPassFrmIniciarSesion";
-            this.editPassFrmIniciarSesion.Size = new System.Drawing.Size(232, 22);
+            this.editPassFrmIniciarSesion.Size = new System.Drawing.Size(232, 21);
             this.editPassFrmIniciarSesion.TabIndex = 1;
             this.editPassFrmIniciarSesion.UseSystemPasswordChar = true;
             this.editPassFrmIniciarSesion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPass_KeyPress);
+            this.editPassFrmIniciarSesion.KeyUp += new System.Windows.Forms.KeyEventHandler(this.editPassFrmIniciarSesion_KeyUp);
             // 
             // btnConfiguracionInicial
             // 
@@ -112,10 +114,10 @@
             this.linkLabelActivateLicenseFrmIniciarSesion.ActiveLinkColor = System.Drawing.Color.Orange;
             this.linkLabelActivateLicenseFrmIniciarSesion.AutoSize = true;
             this.linkLabelActivateLicenseFrmIniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabelActivateLicenseFrmIniciarSesion.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelActivateLicenseFrmIniciarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelActivateLicenseFrmIniciarSesion.Location = new System.Drawing.Point(89, 325);
             this.linkLabelActivateLicenseFrmIniciarSesion.Name = "linkLabelActivateLicenseFrmIniciarSesion";
-            this.linkLabelActivateLicenseFrmIniciarSesion.Size = new System.Drawing.Size(135, 28);
+            this.linkLabelActivateLicenseFrmIniciarSesion.Size = new System.Drawing.Size(161, 30);
             this.linkLabelActivateLicenseFrmIniciarSesion.TabIndex = 4;
             this.linkLabelActivateLicenseFrmIniciarSesion.TabStop = true;
             this.linkLabelActivateLicenseFrmIniciarSesion.Text = "  Tienes una Synckey? \r\nClick aquí para activarla";
@@ -125,7 +127,7 @@
             // textVersionFrmLogin
             // 
             this.textVersionFrmLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textVersionFrmLogin.Font = new System.Drawing.Font("Roboto Black", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textVersionFrmLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textVersionFrmLogin.Location = new System.Drawing.Point(176, 369);
             this.textVersionFrmLogin.Name = "textVersionFrmLogin";
             this.textVersionFrmLogin.Size = new System.Drawing.Size(158, 23);
@@ -137,10 +139,10 @@
             // 
             this.checkBoxRecordarLogin.AutoSize = true;
             this.checkBoxRecordarLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxRecordarLogin.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxRecordarLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxRecordarLogin.Location = new System.Drawing.Point(92, 243);
             this.checkBoxRecordarLogin.Name = "checkBoxRecordarLogin";
-            this.checkBoxRecordarLogin.Size = new System.Drawing.Size(153, 17);
+            this.checkBoxRecordarLogin.Size = new System.Drawing.Size(148, 17);
             this.checkBoxRecordarLogin.TabIndex = 2;
             this.checkBoxRecordarLogin.Text = "Recordar Inicio de Sesión";
             this.checkBoxRecordarLogin.UseVisualStyleBackColor = true;
@@ -154,7 +156,7 @@
             this.btnLogin.FlatAppearance.BorderSize = 2;
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.Black;
             this.btnLogin.Location = new System.Drawing.Point(72, 276);
             this.btnLogin.Name = "btnLogin";
