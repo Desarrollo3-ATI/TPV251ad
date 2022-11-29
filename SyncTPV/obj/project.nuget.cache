@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EhAepI/XZ+xVNNvhgaoymwRPG+LYgcjp/O31F6BX+KECHBfx2XMFea1VWzePn13zb9S1uqtZj0ny9DbyVWtwoQ==",
+  "dgSpecHash": "8Nw7A+B6MXeDEZPs+h4TkWPHPMzboW+hp1WrwSKJeFfayMHOlcx3f4UhDjyoYbXCy1//9DjRh5pIUj6J+5gpRA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrador\\Documents\\Visual Studio 2010\\Projects\\TPV251ad\\SyncTPV\\SyncTPV.csproj",
+  "projectFilePath": "C:\\Users\\Administrador\\Documents\\Visual Studio 2010\\Projects\\SyncTPV\\SyncTPV\\SyncTPV.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrador\\.nuget\\packages\\answers\\1.5.0\\answers.1.5.0.nupkg.sha512",
     "C:\\Users\\Administrador\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",

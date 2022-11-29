@@ -32,8 +32,8 @@ namespace SyncTPV.Views
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPayCart));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelFirstSectionFrmPayCart = new System.Windows.Forms.Panel();
             this.panelVentaACredito = new System.Windows.Forms.Panel();
             this.checkBoxCreditoFrmPayCart = new System.Windows.Forms.CheckBox();
@@ -170,14 +170,14 @@ namespace SyncTPV.Views
             this.dataGridViewFcFrmPayCArt.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewFcFrmPayCArt.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridViewFcFrmPayCArt.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.MintCream;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFcFrmPayCArt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MintCream;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFcFrmPayCArt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewFcFrmPayCArt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFcFrmPayCArt.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDgvFc,
@@ -189,14 +189,14 @@ namespace SyncTPV.Views
             this.dataGridViewFcFrmPayCArt.MultiSelect = false;
             this.dataGridViewFcFrmPayCArt.Name = "dataGridViewFcFrmPayCArt";
             this.dataGridViewFcFrmPayCArt.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Honeydew;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFcFrmPayCArt.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Honeydew;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFcFrmPayCArt.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewFcFrmPayCArt.RowHeadersVisible = false;
             this.dataGridViewFcFrmPayCArt.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewFcFrmPayCArt.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
@@ -205,6 +205,7 @@ namespace SyncTPV.Views
             this.dataGridViewFcFrmPayCArt.Size = new System.Drawing.Size(535, 139);
             this.dataGridViewFcFrmPayCArt.TabIndex = 0;
             this.dataGridViewFcFrmPayCArt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFcFrmPayCArt_CellClick);
+            this.dataGridViewFcFrmPayCArt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFcFrmPayCArt_CellContentClick);
             this.dataGridViewFcFrmPayCArt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewFcFrmPayCArt_KeyDown);
             // 
             // idDgvFc
@@ -256,7 +257,7 @@ namespace SyncTPV.Views
             this.txtNombreAgente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombreAgente.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.txtNombreAgente.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreAgente.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreAgente.ForeColor = System.Drawing.Color.MediumBlue;
             this.txtNombreAgente.Location = new System.Drawing.Point(180, 185);
             this.txtNombreAgente.Name = "txtNombreAgente";

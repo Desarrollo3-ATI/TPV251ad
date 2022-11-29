@@ -213,6 +213,12 @@
     <Compile Include="FormItemDetails.designer.cs">
       <DependentUpon>FormItemDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmValidacionDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmValidacionDocumentos.designer.cs">
+      <DependentUpon>frmValidacionDocumentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Extras\FormSeleccionarCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -632,6 +638,9 @@
     <Compile Include="Views\Withdrawals\FrmTerminateWithdrawal.Designer.cs">
       <DependentUpon>FrmTerminateWithdrawal.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmValidacionDocumentos.resx">
+      <DependentUpon>frmValidacionDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Extras\FormSeleccionarCaja.resx">
       <DependentUpon>FormSeleccionarCaja.cs</DependentUpon>
     </EmbeddedResource>

@@ -442,3 +442,4 @@ C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\ob
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.csproj.CopyComplete
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.exe
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.FrmValidacionDocumentos.resources

@@ -590,16 +590,6 @@ namespace SyncTPV
             return response;
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void btnActualizarDatos_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCargaInicial_Click(object sender, EventArgs e)
         {
             if (serverModeLAN)

@@ -13,6 +13,8 @@ using System.Windows.Forms;
 using System.Windows.Threading;
 using Tulpep.NotificationWindow;
 using wsROMClase;
+using wsROMClases;
+using wsROMClases.Helpers;
 
 namespace SyncTPV.Views
 {
@@ -783,8 +785,15 @@ namespace SyncTPV.Views
                 textSubtotalFrmPayCart.Text = (dvm.total + dvm.descuento).ToString("C", CultureInfo.CurrentCulture) + " MXN";
                 textDescuentoFrmPayCart.Text = discountDocument.ToString("C", CultureInfo.CurrentCulture) + " MXN";
                 textTotalFrmPayCart.Text = dvm.total.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                if (checkBoxCreditoFrmPayCart.Checked)
+                {
+                    textCambioFrmPayCart.Text = 0.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                }
+                else
+                {
+                    textCambioFrmPayCart.Text = change.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                }
                 textPendienteFrmPayCart.Text = pending.ToString("C", CultureInfo.CurrentCulture) + " MXN";
-                textCambioFrmPayCart.Text = change.ToString("C", CultureInfo.CurrentCulture) + " MXN";
                 if (permissionPrepedido)
                 {
                     if (DocumentModel.isItDocumentFromAPrepedido(idDocument))
@@ -903,7 +912,16 @@ namespace SyncTPV.Views
             if (error != 1)
             {
                 dynamic sumsMap = FormVenta.getCurrentSumsFromDocument(idDocument);
-                FrmConfirmSale fcs = new FrmConfirmSale(sumsMap.total, FormasDeCobroDocumentoModel.getCambioOfTheDcoument(idDocument));
+                FrmConfirmSale fcs = null;
+                if (checkBoxCreditoFrmPayCart.Checked)
+                {
+                    fcs = new FrmConfirmSale(sumsMap.total, 0);
+
+                }
+                else
+                {
+                    fcs = new FrmConfirmSale(sumsMap.total, FormasDeCobroDocumentoModel.getCambioOfTheDcoument(idDocument));
+                }
                 fcs.StartPosition = FormStartPosition.CenterScreen;
                 fcs.ShowDialog();
                 formVenta.resetearTodosLosValores(true);
@@ -925,8 +943,18 @@ namespace SyncTPV.Views
                 if (valor >= 100 || method == 3)
                 {
                     dynamic sumsMap = FormVenta.getCurrentSumsFromDocument(idDocument);
-                    FrmConfirmSale fcs = new FrmConfirmSale(sumsMap.total, 
+                    FrmConfirmSale fcs = null;
+                    if (checkBoxCreditoFrmPayCart.Checked)
+                    {
+                        fcs = new FrmConfirmSale(sumsMap.total, 0);
+
+                    }
+                    else
+                    {
+                        fcs = new FrmConfirmSale(sumsMap.total,
                         FormasDeCobroDocumentoModel.getCambioOfTheDcoument(idDocument));
+                    }
+                   
                     fcs.StartPosition = FormStartPosition.CenterScreen;
                     fcs.ShowDialog();
                     formVenta.resetearTodosLosValores(true);
@@ -994,12 +1022,119 @@ namespace SyncTPV.Views
             this.Close();
         }
 
-        private void btnAceptarFrmPayCart_Click(object sender, EventArgs e)
+        private async void btnAceptarFrmPayCart_Click(object sender, EventArgs e)
         {
-            formWaiting = new FormWaiting(this, 0); //callTerminateDocumentTask
-            formWaiting.ShowDialog();
+            int cambia = 0;
+            bool pasa = false;
+            int FcActual = DocumentModel.getPaymentMethodForADocument(idDocument);
+            if (FcActual > 0)
+            {
+                cambia = 1;
+                pasa= true;
+            }
+            else
+            {
+                FrmValidacionDocumentos Validacion = new FrmValidacionDocumentos();
+                Validacion.ShowDialog();
+
+                if (Validacion.Acredito)
+                {
+                    checkBoxCreditoFrmPayCart.Checked = true;
+                    cambia = cambiarSoloFormaCobroDocumento(idDocument, 71, 2);
+                }
+            }
+
+            if (!pasa)
+            {
+                double importeTotal = 0;
+                double total_de_doc = DocumentModel.getTotalForADocument(idDocument);
+                int eliminadosFC = FormasDeCobroDocumentoModel.deleteAllFcOfADocument(idDocument);
+                foreach(DataGridViewRow dr in dataGridViewFcFrmPayCArt.Rows)
+                {
+                    int id = int.Parse(dr.Cells["idDgvFc"].Value.ToString());
+                    string nombre = dr.Cells["nameDgvFc"].Value.ToString();
+                    double importe = double.Parse(dr.Cells["amountDgvFc"].Value.ToString());
+                    importeTotal += importe;
+                    if (importe > 0)
+                    {
+                        Boolean validate = FormasDeCobroDocumentoModel.addNewFcDocument(idDocument, id, total_de_doc,
+                                             importe, 0, 0);
+                        if (!validate)
+                        {
+                            pasa = false;
+                        }
+                    }
+                }
+
+                bool recalculado = FormasDeCobroDocumentoModel.recalculoFormasCobroDocumento(idDocument);
+                importeTotal = MetodosGenerales.obtieneDosDecimales(importeTotal);
+                if (recalculado)
+                {
+                    int MaxForma = FormasDeCobroDocumentoModel.getFcWithHigherAmount(idDocument);
+                    cambiarSoloFormaCobroDocumento(idDocument, MaxForma, 4);
+                    if (cambia > 0)
+                    {
+                        panelGenerarFactura.Visible = false;
+                        if (importeTotal < total_de_doc)
+                        {
+                            pasa = true;
+                            bool reingreso = DocumentModel.updateDocumentAdvance(idDocument, importeTotal);
+                            cambia = cambiarSoloFormaCobroDocumento(idDocument, 71, 2);
+                            textCambioFrmPayCart.Text = 0.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                        }
+                        else
+                        {
+                            foreach (DataGridViewRow dr in dataGridViewFcFrmPayCArt.Rows)
+                            {
+                                dr.Cells["amountDgvFc"].Value = "0";
+                            }
+                                FormasDeCobroDocumentoModel.deleteAllFcOfADocument(idDocument);
+                            cambia = cambiarSoloFormaCobroDocumento(idDocument, 71, 2);
+                            textPendienteFrmPayCart.Text = total_de_doc.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                            textCambioFrmPayCart.Text = 0.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                            pasa = false;
+                        }
+                    }
+                    else
+                    {
+                        if (importeTotal >= total_de_doc)
+                        {
+                            bool reingreso = DocumentModel.updateDocumentAdvance(idDocument, total_de_doc);
+                            if (reingreso)
+                            {
+                                pasa = true;
+                                textCambioFrmPayCart.Text = total_de_doc.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                            }
+                            else
+                            {
+                                pasa = false;
+                            }
+                        }
+                        else
+                        {
+                            pasa = false;
+                        }
+                    }
+                }
+                else
+                {
+                    pasa = false;
+                }
+            }
+            
+            if (pasa)
+            {
+                formWaiting = new FormWaiting(this, 0); //callTerminateDocumentTask
+                formWaiting.ShowDialog();
+            }
         }
- 
+        public int cambiarSoloFormaCobroDocumento(int idDocument, int FCCredito, int tipoDocumento)
+        {
+            int editado = 0;
+            editado = DocumentModel.updateCreditFormCobroDocuments(idDocument, FCCredito, tipoDocumento);
+            return editado;
+        }
+
         public async Task callTerminateDocumentTask()
         {
             if (permissionPrepedido)
@@ -1243,8 +1378,17 @@ namespace SyncTPV.Views
                             PedidosEncabezadoModel.marcarPedidoComoListoONo(idPedido, 1);
                         }
                         dynamic sumsMap = FormVenta.getCurrentSumsFromDocument(idDocument);
-                        FrmConfirmSale fcs = new FrmConfirmSale(sumsMap.total, 
+                        FrmConfirmSale fcs = null;
+                        if (checkBoxCreditoFrmPayCart.Checked)
+                        {
+                            fcs = new FrmConfirmSale(sumsMap.total, 0);
+
+                        }
+                        else
+                        {
+                            fcs = new FrmConfirmSale(sumsMap.total,
                             FormasDeCobroDocumentoModel.getCambioOfTheDcoument(idDocument));
+                        }
                         fcs.StartPosition = FormStartPosition.CenterScreen;
                         fcs.ShowDialog();
                         formVenta.resetearTodosLosValores(true);
@@ -1676,6 +1820,11 @@ namespace SyncTPV.Views
                 formWaiting.ShowDialog();
                 //callTerminateDocumentTask();
             }
+        }
+
+        private void dataGridViewFcFrmPayCArt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void btnObservacionesFrmPayCart_KeyUp(object sender, KeyEventArgs e)

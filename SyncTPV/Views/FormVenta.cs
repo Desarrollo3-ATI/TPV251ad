@@ -15,6 +15,7 @@ using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 using Tulpep.NotificationWindow;
 using wsROMClase;
 using wsROMClases.Models.Commercial;
@@ -1665,10 +1666,13 @@ namespace SyncTPV
 
         private void BtnCobrar_Click(object sender, EventArgs e)
         {
+
             //panel4.BackColor = Color.FromArgb(255, 87, 34);
             cobrarCarritoTpv(idDocument);
             //panel4.BackColor = Color.Transparent;
         }
+
+        
 
         private async Task fillAllFieldsFromAMovement(ClsItemModel item, double captedUnits, bool barCode)
         {
