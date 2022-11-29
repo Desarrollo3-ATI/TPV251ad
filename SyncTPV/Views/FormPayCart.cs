@@ -14,6 +14,7 @@ using System.Windows.Threading;
 using Tulpep.NotificationWindow;
 using wsROMClase;
 using wsROMClases;
+using wsROMClases.Helpers;
 
 namespace SyncTPV.Views
 {
@@ -1039,7 +1040,7 @@ namespace SyncTPV.Views
                 if (Validacion.Acredito)
                 {
                     checkBoxCreditoFrmPayCart.Checked = true;
-                    cambia = cambiarSoloFormaCobroDocumento71(idDocument);
+                    cambia = cambiarSoloFormaCobroDocumento(idDocument, 71, 2);
                 }
             }
 
@@ -1050,24 +1051,74 @@ namespace SyncTPV.Views
                 int eliminadosFC = FormasDeCobroDocumentoModel.deleteAllFcOfADocument(idDocument);
                 foreach(DataGridViewRow dr in dataGridViewFcFrmPayCArt.Rows)
                 {
-                    var id = dr.Cells["idDgvFc"].Value;
-                    var nombre = dr.Cells["nameDgvFc"].Value;
-                    var importe = dr.Cells["amountDgvFc"].Value;
-                    importeTotal += double.Parse(importe.ToString());
-                    Boolean validate = true;//= FormasDeCobroDocumentoModel.addNewFcDocument(); aqui me quede
-                    
-                    if (!validate)
+                    int id = int.Parse(dr.Cells["idDgvFc"].Value.ToString());
+                    string nombre = dr.Cells["nameDgvFc"].Value.ToString();
+                    double importe = double.Parse(dr.Cells["amountDgvFc"].Value.ToString());
+                    importeTotal += importe;
+                    if (importe > 0)
                     {
-                        pasa = false;
+                        Boolean validate = FormasDeCobroDocumentoModel.addNewFcDocument(idDocument, id, total_de_doc,
+                                             importe, 0, 0);
+                        if (!validate)
+                        {
+                            pasa = false;
+                        }
                     }
                 }
 
-                //ingresa
-                //recalcula
-                //valida
-                if (cambia > 0)
+                bool recalculado = FormasDeCobroDocumentoModel.recalculoFormasCobroDocumento(idDocument);
+                importeTotal = MetodosGenerales.obtieneDosDecimales(importeTotal);
+                if (recalculado)
                 {
-
+                    int MaxForma = FormasDeCobroDocumentoModel.getFcWithHigherAmount(idDocument);
+                    cambiarSoloFormaCobroDocumento(idDocument, MaxForma, 4);
+                    if (cambia > 0)
+                    {
+                        panelGenerarFactura.Visible = false;
+                        if (importeTotal < total_de_doc)
+                        {
+                            pasa = true;
+                            bool reingreso = DocumentModel.updateDocumentAdvance(idDocument, importeTotal);
+                            cambia = cambiarSoloFormaCobroDocumento(idDocument, 71, 2);
+                            textCambioFrmPayCart.Text = 0.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                        }
+                        else
+                        {
+                            foreach (DataGridViewRow dr in dataGridViewFcFrmPayCArt.Rows)
+                            {
+                                dr.Cells["amountDgvFc"].Value = "0";
+                            }
+                                FormasDeCobroDocumentoModel.deleteAllFcOfADocument(idDocument);
+                            cambia = cambiarSoloFormaCobroDocumento(idDocument, 71, 2);
+                            textPendienteFrmPayCart.Text = total_de_doc.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                            textCambioFrmPayCart.Text = 0.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                            pasa = false;
+                        }
+                    }
+                    else
+                    {
+                        if (importeTotal >= total_de_doc)
+                        {
+                            bool reingreso = DocumentModel.updateDocumentAdvance(idDocument, total_de_doc);
+                            if (reingreso)
+                            {
+                                pasa = true;
+                                textCambioFrmPayCart.Text = total_de_doc.ToString("C", CultureInfo.CurrentCulture) + " MXN";
+                            }
+                            else
+                            {
+                                pasa = false;
+                            }
+                        }
+                        else
+                        {
+                            pasa = false;
+                        }
+                    }
+                }
+                else
+                {
+                    pasa = false;
                 }
             }
             
@@ -1077,13 +1128,10 @@ namespace SyncTPV.Views
                 formWaiting.ShowDialog();
             }
         }
-        public int cambiarSoloFormaCobroDocumento71(int idDocument)
+        public int cambiarSoloFormaCobroDocumento(int idDocument, int FCCredito, int tipoDocumento)
         {
             int editado = 0;
-            int FCCredito = 71;
-            int tipoDocumento = 2;
             editado = DocumentModel.updateCreditFormCobroDocuments(idDocument, FCCredito, tipoDocumento);
-            textCambioFrmPayCart.Text = 0.ToString("C", CultureInfo.CurrentCulture) + " MXN";
             return editado;
         }
 

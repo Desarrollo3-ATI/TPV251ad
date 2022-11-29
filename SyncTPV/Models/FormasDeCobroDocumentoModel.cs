@@ -301,10 +301,12 @@ namespace SyncTPV.Models
                 {
                     for(int x = 0; x< FormasCobroDoc.Count; x++)
                     {
-                        porpagar = porpagar - FormasCobroDoc[x].importe;
-                        if(porpagar < 0 && (x+1)  == FormasCobroDoc.Count)
+                        double aporpagar = porpagar - FormasCobroDoc[x].importe;
+                        decimal eporpagar =  decimal.Round((decimal) aporpagar, 2);
+                        porpagar = Convert.ToDouble(eporpagar);
+                        if (porpagar < 0 && (x+1)  == FormasCobroDoc.Count)
                         {
-                            FormasCobroDoc[x].cambio = Math.Abs(porpagar);
+                            FormasCobroDoc[x].cambio = MetodosGenerales.obtieneDosDecimales(Math.Abs(porpagar));
                             FormasCobroDoc[x].pendienteDoc = 0;
                         }
                         else
@@ -312,14 +314,14 @@ namespace SyncTPV.Models
                             if(porpagar < 0)
                             {
                                 
-                                FormasCobroDoc[x].cambio = Math.Abs(porpagar);
+                                FormasCobroDoc[x].cambio = MetodosGenerales.obtieneDosDecimales(Math.Abs(porpagar));
                                 FormasCobroDoc[x].pendienteDoc = 0;
                                 porpagar = 0;
                             }
                             else
                             {
                                 FormasCobroDoc[x].cambio = 0;
-                                FormasCobroDoc[x].pendienteDoc = porpagar;
+                                FormasCobroDoc[x].pendienteDoc = MetodosGenerales.obtieneDosDecimales(porpagar);
                             }
                         }
                         FormasCobroDoc[x].totalDoc = totalAPagar;
@@ -959,6 +961,7 @@ namespace SyncTPV.Models
                                             double amount, double change, double balance)
         {
             Boolean created = false;
+            change = MetodosGenerales.obtieneDosDecimales(change);
             var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
             db.Open();
             try
@@ -1099,6 +1102,7 @@ namespace SyncTPV.Models
             Boolean updated = false;
             var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
             db.Open();
+            change = MetodosGenerales.obtieneDosDecimales(change);
             try
             {
                 String query = "UPDATE " + LocalDatabase.TABLA_FORMA_COBRO_DOCUMENTO + " SET " + LocalDatabase.CAMPO_CAMBIO_FORMACOBRODOC + " = " + change + ", " +

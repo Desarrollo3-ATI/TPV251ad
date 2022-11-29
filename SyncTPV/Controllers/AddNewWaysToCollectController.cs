@@ -117,6 +117,7 @@ namespace SyncTPV.Controllers
                             if (pending > 0)
                             {
                                 double advance = totalDocument1 - pending;
+                                advance = MetodosGenerales.obtieneDosDecimales(advance);
                                 if (DocumentModel.updateDocumentAdvance(idDocument, advance))
                                 {
                                     response = validateResponse(cobrado);
@@ -124,6 +125,7 @@ namespace SyncTPV.Controllers
                             }
                             else
                             {
+                                totalDocument1 = MetodosGenerales.obtieneDosDecimales(totalDocument1);
                                 if (DocumentModel.updateDocumentAdvance(idDocument, totalDocument1))
                                 {
                                     response = validateResponse(cobrado);
