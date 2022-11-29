@@ -1464,7 +1464,7 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
         public static String CREAR_TABLA_LICENCIA = "CREATE TABLE IF NOT EXISTS " +
             TABLA_LICENCIA + " (" + CAMPO_ID_LICENCIA + " INTEGER PRIMARY KEY, " +
             CAMPO_CODIGO_DE_SITIO_LICENCIA + " TEXT, " + CAMPO_SYNCKEY_LICENCIA + " TEXT, "
-            + CAMPO_FECHA_FIN_LICENCIA + " TEXT, " + CAMPO_X_LICENCIA + " TEXT, " + CAMPO_TIPOLIC_LICENCA + " INTEGER DEFAULT 1," + CAMPO_IDE_LICENCIA + " INTEGER DEFAULT 0)";
+            + CAMPO_FECHA_FIN_LICENCIA + " TEXT, " + CAMPO_X_LICENCIA + " TEXT, " + CAMPO_TIPOLIC_LICENCA + " INTEGER DEFAULT 2," + CAMPO_IDE_LICENCIA + " INTEGER DEFAULT 0)";
 
         public static void validateAndCreateNewFieldsInDatosLicencia(SQLiteConnection db)
         {
