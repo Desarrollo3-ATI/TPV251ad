@@ -614,7 +614,7 @@ namespace SyncTPV.Models
                 fecha = BajoNivel.Encriptar(fecha);
                 conn.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
                 conn.Open();
-                String query = "INSERT OR REPLACE INTO " + LocalDatabase.TABLA_LICENCIA + " VALUES (1, @siteCode, @synckey, @fecha, @x, @idE, @tipoLic); " +
+                String query = "INSERT OR REPLACE INTO " + LocalDatabase.TABLA_LICENCIA + " VALUES (1, @siteCode, @synckey, @fecha, @x, @tipoLic, @idE); " +
                     "SELECT last_insert_rowid();";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                 {
@@ -622,8 +622,8 @@ namespace SyncTPV.Models
                     cmd.Parameters.AddWithValue("@synckey", synckey);
                     cmd.Parameters.AddWithValue("@fecha", fecha);
                     cmd.Parameters.AddWithValue("@x", "x");
-                    cmd.Parameters.AddWithValue("@idE", idE);
                     cmd.Parameters.AddWithValue("@tipoLic", tipoLic);
+                    cmd.Parameters.AddWithValue("@idE", idE);
                     int records = cmd.ExecuteNonQuery();
                     if (records > 0)
                         saved = true;
