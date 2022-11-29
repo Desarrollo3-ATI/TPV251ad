@@ -2546,7 +2546,188 @@ Apertura de caja Realizada: 28/11/2022 05:33:54 p. m. Respaldos detectados:81
 Log: 05:47:04 p. m. lunes, 28 de noviembre de 2022
 2023-05-16 11:41:50 - 2022-11-28 23:47:06
 -------------------------------
-Log: 11:57:51 a. m. martes, 29 de noviembre de 2022
+Log: 11:48:37 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:48:37
+-------------------------------
+Log: 11:48:51 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:48:52
+-------------------------------
+Log: 11:48:52 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:48:53
+-------------------------------
+Log: 11:51:24 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 11:51:27 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:51:28
+-------------------------------
+Log: 11:52:07 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:52:08
+-------------------------------
+Log: 11:52:08 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:52:09
+-------------------------------
+Log: 11:52:46 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 11:52:48 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:52:49
+-------------------------------
+Log: 11:52:57 a. m. martes, 29 de noviembre de 2022
+System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.CajaController.<>c__DisplayClass0_0.<<cajasExistAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\CajaController.cs:línea 28
+-------------------------------
+Log: 11:52:57 a. m. martes, 29 de noviembre de 2022
+Exception: System.ArgumentNullException: El valor no puede ser nulo.
+Nombre del parámetro: baseUrl
+   en RestSharp.Ensure.NotEmptyString(Object value, String name)
+   en RestSharp.RestClient..ctor(String baseUrl)
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\UsersController.cs:línea 147
+-------------------------------
+Log: 11:52:57 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 11:54:08 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:54:09
+-------------------------------
+Log: 11:54:10 a. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 17:54:11
+-------------------------------
+Log: 11:54:16 a. m. martes, 29 de noviembre de 2022
+Apertura de caja Realizada: 29/11/2022 11:54:16 a. m. Respaldos detectados:82
+-------------------------------
+Log: 12:05:32 p. m. martes, 29 de noviembre de 2022
+System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'System.Dynamic.ExpandoObject' no contiene una definición para 'valor'.
+   en CallSite.Target(Closure , CallSite , Object )
+   en System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   en SyncTPV.Views.FormPayCart.<callTerminateDocumentTask>d__39.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPayCart.cs:línea 1253
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Views.FormWaiting.<FrmWaiting_Load>d__64.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormWaiting.cs:línea 317
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.Views.FormPayCart.<btnAceptarFrmPayCart_Click>d__37.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPayCart.cs:línea 1128
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormVenta.cobrarCarritoTpv(Int32 idDocumento) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1513
+   en SyncTPV.FormVenta.BtnCobrar_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1671
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.<validateCotmosActivatedToVentaProcess>d__79.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 1052
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Views.FormWaiting.<FrmWaiting_Load>d__64.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormWaiting.cs:línea 392
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.btnVenta_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 751
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormIniciarSesion.FrmIniciarSesion_FormClosed(Object sender, FormClosedEventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormIniciarSesion.cs:línea 688
+-------------------------------
+Log: 12:05:33 p. m. martes, 29 de noviembre de 2022
 Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
 Nombre del objeto: 'FormIniciarSesion'.
    en System.Windows.Forms.Control.CreateHandle()
@@ -2558,100 +2739,32 @@ Nombre del objeto: 'FormIniciarSesion'.
    en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
    en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
    en System.Windows.Forms.Application.Run(Form mainForm)
-   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
 -------------------------------
-Log: 11:58:24 a. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 17:58:22
+Log: 12:06:46 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:06:47
 -------------------------------
-Log: 11:58:28 a. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 17:58:27
+Log: 12:07:11 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:07:12
 -------------------------------
-Log: 11:58:30 a. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 17:58:29
+Log: 12:07:12 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:07:13
 -------------------------------
-Log: 12:03:25 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 18:03:24
+Log: 12:22:38 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:22:39
 -------------------------------
-Log: 12:03:30 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 18:03:28
+Log: 12:22:44 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:22:45
 -------------------------------
-Log: 12:03:31 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 18:03:30
+Log: 12:22:45 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:22:46
 -------------------------------
-Log: 12:06:05 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 18:06:04
+Log: 12:45:28 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:45:28
 -------------------------------
-Log: 12:08:11 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 18:08:09
+Log: 12:45:35 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:45:36
 -------------------------------
-Log: 12:08:12 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 18:08:11
--------------------------------
-Log: 01:37:36 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:37:34
--------------------------------
-Log: 01:42:34 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:42:32
--------------------------------
-Log: 01:42:36 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:42:34
--------------------------------
-Log: 01:47:55 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:47:54
--------------------------------
-Log: 01:48:05 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:48:03
--------------------------------
-Log: 01:48:07 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:48:05
--------------------------------
-Log: 01:48:47 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:48:46
--------------------------------
-Log: 01:48:51 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:48:50
--------------------------------
-Log: 01:48:53 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:48:52
--------------------------------
-Log: 01:51:10 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:51:08
--------------------------------
-Log: 01:51:26 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:51:24
--------------------------------
-Log: 01:51:28 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 19:51:26
--------------------------------
-Log: 02:24:50 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 20:24:48
--------------------------------
-Log: 02:25:38 p. m. martes, 29 de noviembre de 2022
-Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
-Nombre del objeto: 'FormIniciarSesion'.
-   en System.Windows.Forms.Control.CreateHandle()
-   en System.Windows.Forms.Form.CreateHandle()
-   en System.Windows.Forms.Control.get_Handle()
-   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
-   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
-   en System.Windows.Forms.Control.set_Visible(Boolean value)
-   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
-   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
-   en System.Windows.Forms.Application.Run(Form mainForm)
-   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\Program.cs:línea 25
--------------------------------
-Log: 02:26:08 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 
--------------------------------
-Log: 02:26:11 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 20:26:09
--------------------------------
-Log: 02:26:33 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 20:26:31
--------------------------------
-Log: 02:26:34 p. m. martes, 29 de noviembre de 2022
-2022-12-31 23:59:59 - 2022-11-29 20:26:33
--------------------------------
-Log: 02:29:08 p. m. martes, 29 de noviembre de 2022
-Apertura de caja Realizada: 29/11/2022 02:29:08 p. m. Respaldos detectados:82
+Log: 12:45:37 p. m. martes, 29 de noviembre de 2022
+2023-05-16 11:41:50 - 2022-11-29 18:45:37
 -------------------------------
