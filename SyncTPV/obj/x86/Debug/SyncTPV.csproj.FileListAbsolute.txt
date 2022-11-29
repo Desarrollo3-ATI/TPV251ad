@@ -330,6 +330,7 @@ C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.csproj.CopyComplete
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.exe
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.pdb
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.FrmValidacionDocumentos.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\bin\x86\Debug\app.config
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\bin\x86\Debug\SyncTPV.exe.config
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\bin\x86\Debug\SyncTPV.exe
@@ -378,6 +379,7 @@ C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\bi
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.csproj.AssemblyReference.cache
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.csproj.SuggestedBindingRedirects.cache
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.exe.config
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.FrmValidacionDocumentos.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.Views.Extras.FormSeleccionarCaja.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.FormIniciarSesion.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.FormMessage.resources
@@ -442,4 +444,3 @@ C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\ob
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.csproj.CopyComplete
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.exe
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\TPV251ad\SyncTPV\obj\x86\Debug\SyncTPV.pdb
-C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.FrmValidacionDocumentos.resources

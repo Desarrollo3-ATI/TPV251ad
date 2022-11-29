@@ -470,6 +470,12 @@ namespace SyncTPV
                     string auxLinea = linea.ToString();
                     if (printer == "Microsoft XPS Document Writer")
                     {
+                        //string encriptado = AdminDll.BajoNivel.Encriptar(auxLinea);
+                        //string desencriptado = AdminDll.BajoNivel.DesEncriptarAES(encriptado);
+                        //if (auxLinea == desencriptado)
+                        //{
+                        //    string GuardarEnDbEncriptado = "se puede obtener de la BD y así poder reimprimir los tickets...";
+                        //}
                         auxLinea= auxLinea.Replace("\u001bE\u0001", "").Replace("\u001bE\0", "").Replace("\u001bm", "").Replace("\u001bd\u0001", "").Replace("\u001bp0ᐔ", "");
                     }
                     RawPrinterHelper.SendStringToPrinter(printer, auxLinea);//Imprime texto

@@ -1887,6 +1887,59 @@ namespace SyncTPV.Controllers
             return created;
         }
 
+        public static bool CreatePdfTicketTPV(String rutaArchivo, String TextoTicket)
+        {
+            bool created = false;
+            Document document = new Document(PageSize.LETTER, 30, 30, 9, 1);
+            float dimension = 556f;
+            string sourceFile = Application.StartupPath + @"\Temp.pdf";
+            string destinationFile = rutaArchivo;
+            PdfWriter.GetInstance(document, new FileStream(sourceFile, FileMode.Create));
+            document.Open();
+
+            //Agrega una tabla (espacio en blanco)
+            PdfPTable TablaEspacio = new PdfPTable(1);
+            TablaEspacio.TotalWidth = dimension;
+            TablaEspacio.LockedWidth = true;
+            PdfPCell CeldaEspacio = new PdfPCell(new Phrase(" ", Fuente_Espacio_2));
+            CeldaEspacio.Border = Bordes_Ninguno;
+            TablaEspacio.AddCell(CeldaEspacio);
+
+            PdfPCell CeldaImprimeTexto;
+
+            //Comienza llenado de archivo
+            PdfPTable TablaEncabezado = new PdfPTable(1);
+            TablaEncabezado.TotalWidth = dimension;
+            TablaEncabezado.LockedWidth = true;
+
+            CeldaImprimeTexto = new PdfPCell(new Phrase(TextoTicket, Fuente_Arial_Azul_Bold_12));
+            CeldaImprimeTexto.Colspan = 1;
+            CeldaImprimeTexto.Border = Bordes_Ninguno;
+            CeldaImprimeTexto.HorizontalAlignment = Element.ALIGN_LEFT;
+            TablaEncabezado.AddCell(CeldaImprimeTexto);
+
+            //Agrega las tablas con la información al documento.
+            document.Add(TablaEncabezado);
+
+            document.Close();
+            try
+            {
+                if (File.Exists(destinationFile))
+                {
+                    File.Delete(destinationFile);
+                }
+                File.Move(sourceFile, destinationFile);
+                created = true;
+            }
+            catch (Exception ex)
+            {
+                //MensajeError = ex.Message;
+                SECUDOC.writeLog("-Crear PDF de TicketTPV-");
+                SECUDOC.writeLog(ex.ToString());
+            }
+            return created;
+        }
+
         public static async Task<bool> crearPdfEgresosIngresos(String nombreEmpresa, String rutaArchivo, bool entry,
             int idUser, String startDate, String endDate, int lastId, int LIMIT)
         {

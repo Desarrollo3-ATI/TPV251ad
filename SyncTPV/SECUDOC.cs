@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SyncTPV.Controllers;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,12 +58,14 @@ namespace SyncTPV
                 string aux = "(" + contador + ")";
                 nombreRespaldoTicket = auxNombre + aux;
             }
-            nombreRespaldoTicket = rutaRespaldoTicket + nombreRespaldoTicket + ".txt";
+            nombreRespaldoTicket = rutaRespaldoTicket + nombreRespaldoTicket;
             try
             {
-                //crea archivo de Ticket
                 mensaje = mensaje.Replace("\u001bE\u0001", "").Replace("\u001bE\0", "").Replace("\u001bm", "").Replace("\u001bd\u0001", "").Replace("\u001bp0ᐔ", "");
-                using (StreamWriter w = File.AppendText(nombreRespaldoTicket))
+                //crea archivo de Ticket PDF
+                ClsPdfMethods.CreatePdfTicketTPV(nombreRespaldoTicket + ".pdf", mensaje);
+                //crea archivo de Ticket
+                using (StreamWriter w = File.AppendText(nombreRespaldoTicket + ".txt"))
                 {
                     LogTicketTPV(mensaje, w);
                 }

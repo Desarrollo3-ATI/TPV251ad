@@ -106,7 +106,7 @@ namespace SyncTPV.Views.AperturaTurno
                 {
                     SECUDOC.writeLog("No se encontraron respaldos " + DateTime.Now.ToString());
                 }
-                //Elimina archivos antiguos de respaldo de Tickets
+                //Elimina archivos antiguos de respaldo de Tickets (TXT y PDF)
                 Ruta = (AdminDll.General.RutaInicial + "\\TicketsTPV\\").Replace("\\", "/");
                 Archivos = Directory.GetFiles(Ruta, "*.txt").OrderBy(d => new FileInfo(d).CreationTime).ToArray();
                 //SECUDOC.writeLog("Apertura de caja Realizada: " + DateTime.Now.ToString() + " Respaldos detectados:" + Archivos.Length);
@@ -121,6 +121,8 @@ namespace SyncTPV.Views.AperturaTurno
                         for (int i = 0; i < elementosAEliminar; i++)
                         {
                             File.Delete(Archivos[i]);
+                            string nombrePDF = Archivos[i].Replace(".txt", ".pdf");
+                            if (File.Exists(nombrePDF)) File.Delete(nombrePDF);
                         }
                     }
                 }
