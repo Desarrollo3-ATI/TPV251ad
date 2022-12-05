@@ -16,6 +16,7 @@ namespace SyncTPV
         public static string rutaRegistro { get; } = "Software\\Syncs\\SyncTPV\\SCS";
         public static string nombreSync { get; } = "SYNCTPV";
 
+
         public static async Task<ExpandoObject> llenarDatosEnRegedit(DateTime fechaActual, String codigoSitio, String fechaActivacion, String fechaFin,
             String synckey, int tipoLic)
         {

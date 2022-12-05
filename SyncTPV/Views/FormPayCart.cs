@@ -6,12 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Dynamic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using Tulpep.NotificationWindow;
+using Windows.Networking.NetworkOperators;
 using wsROMClase;
 using wsROMClases;
 using wsROMClases.Helpers;
@@ -1027,7 +1029,8 @@ namespace SyncTPV.Views
             int cambia = 0;
             bool pasa = false;
             int FcActual = DocumentModel.getPaymentMethodForADocument(idDocument);
-            if (FcActual > 0)
+            int TypeActual = DocumentModel.getDocumentType(idDocument);
+            if ((FcActual > 0 || TypeActual == 1 || TypeActual == 3) && TypeActual > 0)
             {
                 cambia = 1;
                 pasa= true;
@@ -1494,10 +1497,25 @@ namespace SyncTPV.Views
                                     idDoclist.Add(idDocument);
                                     enviarDocDirectamenteAlWs(idDocument + "-" + 0, 1, 0, 0, idDoclist);
                                 }
-                            } 
+                            }
                             else
                             {
                                 validateSendDocumentsResponse(1, 100, "", 3, idDocument + "", null, 0);
+                            }
+
+                            
+                            try
+                            {
+                                String Ref = DocumentModel.getFolioVentaForADocument(idDocument);
+                                int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
+                                TicketsModel enviarTicket = TicketsModel.getTickets(idsTicket);
+                                SendTicketsController aw = new SendTicketsController();
+                                dynamic responseT = new ExpandoObject();
+                                responseT = await aw.sendTicketsToWs(enviarTicket);
+                            }
+                            catch(Exception e)
+                            {
+                                SECUDOC.writeLog(e.ToString());
                             }
                         }
                     }

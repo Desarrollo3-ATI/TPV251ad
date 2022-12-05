@@ -525,6 +525,7 @@ namespace SyncTPV.Controllers.Downloads
                 RetiroModel.deleteAllRetiros();
                 MontoIngresoModel.deleteAllMontoIngreso();
                 IngresoModel.deleteAllIngresos();
+                TicketsModel.deleteAllTickets();
                 response = 1;
             });
             return response;
@@ -870,6 +871,7 @@ namespace SyncTPV.Controllers.Downloads
                                                                                             FormasDeCobroDocumentoModel.deleteAllFormasDeCobroDocumento();
                                                                                             MontoRetiroModel.deleteAllMontoRetiros();
                                                                                             RetiroModel.deleteAllRetiros();
+                                                                                            TicketsModel.deleteAllTickets();
                                                                                         }
                                                                                         else if (downloadType == UPDATE_DATA)
                                                                                         {

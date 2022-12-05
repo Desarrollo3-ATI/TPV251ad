@@ -1,0 +1,52 @@
+COMEDORES Y SERVICIOS INDUSTRIALES CAMSA
+                   A
+                 Venta
+Colegio Miraflores 1827 Colonia Campo Be
+    llo Etapa I, II, III, IV, V y VI
+            RFC:CSI220411TM6
+            EXPED:Chihuahua
+                    
+Folio: A6C1221205125956
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-05 13:00:02
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 (Ninguno) coca-cola
+COD1    $418.76  0% $0.00  $418.76MXN
+                    
+                    
+Neto :                       $361.00 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                   $361.00 MXN
+I.V.A. :                      $57.76 MXN
+                    
+Total :                      $418.76 MXN
+Efectivo                     $418.76 MXN
+Cambio :                       $0.00 MXN
+CUATROCIENTOS DIECIOCHO PESOS 76/100 M.N
+                   .
+                    
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 1
+Usted Ahorro: $0.00
+                    
+      Gracias por su preferencia!
+                    
+          * * * Original * * *
+05/12/2022 01:00:02 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

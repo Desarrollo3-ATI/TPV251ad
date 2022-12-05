@@ -53,6 +53,7 @@ namespace SyncTPV
             btnImprimir.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.printer_black,40,40);
             btnEditar.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.edit_black, 40,40);
             btnFactura.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.pdf_white, 40, 40);
+            btnimprimirpuro.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.printer_white, 40, 40);
             movementsList = new List<MovimientosModel>();
             movementsCreditList = new List<PedidoDetalleModel>();
             this.cotmosActive = cotmosActive;
@@ -71,6 +72,7 @@ namespace SyncTPV
             btnImprimir.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.printer_black, 40, 40);
             btnEditar.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.edit_black, 40, 40);
             btnFactura.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.pdf_white, 40, 40);
+            btnimprimirpuro.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.printer_white, 40, 40);
             movementsList = new List<MovimientosModel>();
             movementsCreditList = new List<PedidoDetalleModel>();
         }
@@ -844,6 +846,20 @@ namespace SyncTPV
             String textCopia = PrinterModel.getTextoCopia();
             clsTicket ticket = new clsTicket();
             ticket.CrearTicket(idDocument, false, permissionPrepedido, documentType, textCopia, serverModeLAN);
+        }
+
+        private void btnimprimirpuro_Click(object sender, EventArgs e)
+        {
+            string printer = "";
+            PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+            if (pm != null)
+            {
+                printer = pm.nombre;
+                String referencia = editFolioDocumento.Text;
+                String auxLinea = DatosTicketModel.getticketrespaldo(referencia);
+                auxLinea = auxLinea.Replace(">.<", "\u001b").Replace(">u<", "\u0001").Replace(">o<", "\0");
+                RawPrinterHelper.SendStringToPrinter(printer, auxLinea, true);
+            }
         }
 
         private async Task fillDataGridPedidos()

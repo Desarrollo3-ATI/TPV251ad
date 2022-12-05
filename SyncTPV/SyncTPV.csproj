@@ -128,8 +128,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="wsROMClases, Version=5.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="wsROMClases">
       <HintPath>..\..\wsROMClases\wsROMClases\bin\Debug\wsROMClases.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -142,6 +141,7 @@
     <Compile Include="Controllers\CajaController.cs" />
     <Compile Include="Controllers\CarritoRomTaskController.cs" />
     <Compile Include="Controllers\ChangeSaleTypeController.cs" />
+    <Compile Include="Controllers\SendTicketsController.cs" />
     <Compile Include="Controllers\ClsBeneficiarioController.cs" />
     <Compile Include="Controllers\ClsChangeDocumentTypeController.cs" />
     <Compile Include="Controllers\CiudadesController.cs" />
@@ -219,6 +219,7 @@
     <Compile Include="frmValidacionDocumentos.designer.cs">
       <DependentUpon>frmValidacionDocumentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\TicketsModel.cs" />
     <Compile Include="Views\Extras\FormSeleccionarCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,6 +448,12 @@
     </Compile>
     <Compile Include="Views\Extras\FormImagen.Designer.cs">
       <DependentUpon>FormImagen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmReimpresionTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmReimpresionTickets.Designer.cs">
+      <DependentUpon>FrmReimpresionTickets.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmDownloads.cs">
       <SubType>Form</SubType>
@@ -707,6 +714,9 @@
     <EmbeddedResource Include="Views\Extras\FormImagen.resx">
       <DependentUpon>FormImagen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmReimpresionTickets.resx">
+      <DependentUpon>FrmReimpresionTickets.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmDownloads.resx">
       <DependentUpon>FrmDownloads.cs</DependentUpon>
     </EmbeddedResource>
@@ -853,6 +863,7 @@
     <None Include="Resources\articulos_img.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\printer_white.png" />
     <None Include="Resources\btn_aceptar_presionado_2.png" />
     <None Include="Resources\btn_cancelar_normal_2.png" />
     <None Include="Resources\btn_aceptar_normal_2.png" />

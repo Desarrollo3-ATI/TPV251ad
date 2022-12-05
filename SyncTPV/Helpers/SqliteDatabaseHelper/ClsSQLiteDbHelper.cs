@@ -212,6 +212,9 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
                 //RegimenFiscal
                 cmd.CommandText = LocalDatabase.CREAR_TABLA_REGIMEN_FISCAL;
                 cmd.ExecuteNonQuery();
+                //respaldo de tickets
+                cmd.CommandText = LocalDatabase.CREAR_TABLA_RESPALDOTICKETS;
+                cmd.ExecuteNonQuery();
             } catch (SQLiteException e)
             {
                 SECUDOC.writeLog(e.ToString());

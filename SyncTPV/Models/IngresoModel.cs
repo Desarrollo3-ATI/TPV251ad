@@ -255,6 +255,7 @@ namespace SyncTPV.Models
             return ingresosList;
         }
 
+        
         public static List<int> getAllIdsEntriesNotSends()
         {
             List<int> ingresosList = null;

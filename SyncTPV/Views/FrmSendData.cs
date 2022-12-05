@@ -100,6 +100,29 @@ namespace SyncTPV.Views
             }
         }
 
+        /*public async Task sendAndGetTicket(bool banderaFecha, String Fecha, int idAgente, String referencia, String tipo)
+        {
+            try
+            {
+                bool serverModeLAN = ConfiguracionModel.isLANPermissionActivated();
+                SendDataService sds = new SendDataService();
+                var response = await sds.obtenerTicketsDelWs(
+                    banderaFecha, Fecha, idAgente, referencia, tipo
+                );
+            }
+            catch (Exception e)
+            {
+                SECUDOC.writeLog(e.ToString());
+                if (formWaiting != null)
+                {
+                    formWaiting.Dispose();
+                    formWaiting.Close();
+                }
+                FormMessage formMessage = new FormMessage("Envío de Datos", e.Message +
+                    " Método: " + "", 3);
+                formMessage.ShowDialog();
+            }
+        }*/
         private async Task validateResponseSendData(dynamic response)
         {
             if (formWaiting != null)
@@ -171,7 +194,7 @@ namespace SyncTPV.Views
                             textDescription.Text = "" + description;
                             textDescription.ForeColor = Color.Blue;
                         }
-                        if (valor < 100 && FormPrincipal.methodSend < 7)
+                        if (valor < 100 && FormPrincipal.methodSend < 8)
                         {
                             await sendAllData(FormPrincipal.methodSend, FormPrincipal.envioDeDatos, peticiones, idDocumento);
                             if (formWaiting != null)
@@ -346,6 +369,18 @@ namespace SyncTPV.Views
                 else
                 {
                     datosPendientesDeEnviar += retirosNotSent + " Cortes de caja";
+                }
+            }
+            int ticketsNotSent =  DatosTicketModel.getTheTotalNumberOfTicketsNotSentToTheServer();
+            if (ticketsNotSent > 0)
+            {
+                if (ticketsNotSent == 1)
+                {
+                    datosPendientesDeEnviar += ticketsNotSent + " tickets";
+                }
+                else
+                {
+                    datosPendientesDeEnviar += ticketsNotSent + " tickets";
                 }
             }
             return datosPendientesDeEnviar;

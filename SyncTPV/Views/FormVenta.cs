@@ -954,6 +954,7 @@ namespace SyncTPV
             {
                 FormMessage fm = new FormMessage("Tipos De Documentos No Encontrados", "Necesitas tener permisos para realizar diferentes tipos de Documento", 2);
                 fm.ShowDialog();
+                this.Close();
             } else
             {
                 if (documentType == DocumentModel.TIPO_VENTA || documentType == DocumentModel.TIPO_REMISION)

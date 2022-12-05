@@ -401,6 +401,7 @@ C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.Views.Extras.FormAddField.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.Views.Extras.FormConfigTickets.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.Views.Extras.FormImagen.resources
+C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.Views.FrmReimpresionTickets.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.Views.FrmDownloads.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.FormMovimientos.resources
 C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\obj\x86\Debug\SyncTPV.frmGuardar.resources

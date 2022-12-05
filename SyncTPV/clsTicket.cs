@@ -470,13 +470,36 @@ namespace SyncTPV
                     string auxLinea = linea.ToString();
                     if (printer == "Microsoft XPS Document Writer")
                     {
-                        //string encriptado = AdminDll.BajoNivel.Encriptar(auxLinea);
-                        //string desencriptado = AdminDll.BajoNivel.DesEncriptarAES(encriptado);
-                        //if (auxLinea == desencriptado)
-                        //{
-                        //    string GuardarEnDbEncriptado = "se puede obtener de la BD y así poder reimprimir los tickets...";
-                        //}
-                        auxLinea= auxLinea.Replace("\u001bE\u0001", "").Replace("\u001bE\0", "").Replace("\u001bm", "").Replace("\u001bd\u0001", "").Replace("\u001bp0ᐔ", "");
+                        string encriptado = AdminDll.BajoNivel.Encriptar(auxLinea);
+                        string desencriptado = AdminDll.BajoNivel.DesEncriptarAES(encriptado);
+                        if (auxLinea == desencriptado)
+                        {
+                            string GuardarEnDbEncriptado = "se puede obtener de la BD y así poder reimprimir los tickets...";
+                        }
+                        auxLinea = auxLinea.Replace("\u001bE\u0001", "").Replace("\u001bE\0", "").Replace("\u001bm", "").Replace("\u001bd\u0001", "").Replace("\u001bp0ᐔ", "");
+                    }
+                    String ticketsrespaldos = auxLinea.Replace("\u001b", ">.<").Replace("\u0001", ">u<").Replace("\0", ">o<");
+                    String validar = DatosTicketModel.getticketrespaldo(claveTicketTPV);
+                    if (validar.Equals(""))
+                    {
+                        String tiponew = "";
+                        if(claveTicketTPV == "")
+                        {
+                         tiponew = tipoTicketTPV + "-" + DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                        }
+                        else
+                        {
+                            tiponew = claveTicketTPV;
+                        }
+                        if (tipoTicketTPV.Equals("CAJON-ABRIR"))
+                        {
+                            ticketsrespaldos = "Cajon abierto por el agente "+ ClsRegeditController.getIdUserInTurn() + ticketsrespaldos.ToString(); 
+                        }
+                        int valores = DatosTicketModel.putticketrespaldo(tiponew, ticketsrespaldos, tipoTicketTPV);
+                        if (valores == 0)
+                        {
+                            MessageBox.Show("no se guardo el ticket local");
+                        }
                     }
                     RawPrinterHelper.SendStringToPrinter(printer, auxLinea);//Imprime texto
                     if(tipoTicketTPV == "")
@@ -2310,11 +2333,15 @@ namespace SyncTPV
             return bSuccess;
         }
 
-        public static bool SendStringToPrinter(string szPrinterName, string szString)
+        public static bool SendStringToPrinter(string szPrinterName, string szString, bool ReImpresion = false)
         {
             bool response = false;
             try
             {
+                if (ReImpresion)
+                {
+                    szString = szString.Replace("* * *\r\n", "* * *\r\nLeyenda por reimpresión del server\r\n");
+                }
                 // How many characters are in the string?
                 Int32 dwCount = szString.Length;
                 // Assume that the printer is expecting ANSI text, and then convert

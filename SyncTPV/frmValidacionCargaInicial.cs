@@ -171,6 +171,18 @@ namespace SyncTPV
                     datosPendientesDeEnviar += retirosNotSent + " Cortes de caja";
                 }
             }
+            int ticketsNotSent = DatosTicketModel.getTheTotalNumberOfTicketsNotSentToTheServer();
+            if (ticketsNotSent > 0)
+            {
+                if (ticketsNotSent == 1)
+                {
+                    datosPendientesDeEnviar += ticketsNotSent + " tickets";
+                }
+                else
+                {
+                    datosPendientesDeEnviar += ticketsNotSent + " tickets";
+                }
+            }
             return datosPendientesDeEnviar;
         }
 

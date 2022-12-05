@@ -8,6 +8,7 @@ using System.Data;
 using System.Dynamic;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using System.Windows;
 using wsROMClases;
 using wsROMClases.Models;
 using wsROMClases.Models.Panel;
@@ -181,7 +182,26 @@ namespace SyncTPV.Controllers
                             idDocumento = responseIngresos.idDocumento;
                         }
                     }
-                    else if (method >= 7)
+                    else if(method == 7)
+                    {
+                        if (serverModeLAN)
+                        {
+                            //para lan
+
+                        }
+                        else
+                        {
+                            //para web service
+                        }
+                        dynamic responseIngresos = await enviarTicketsAPI(method, envioDeDatos, peticiones);
+                        value = responseIngresos.value;
+                        description = responseIngresos.description;
+                        method = responseIngresos.method;
+                        envioDeDatos = responseIngresos.envioDeDatos;
+                        peticiones = responseIngresos.peticiones;
+                        idDocumento = responseIngresos.idDocumento;
+                    }
+                    else if (method >= 8)
                     {
                         value = 100;
                         description = "Proceso Finalizado";
@@ -329,6 +349,67 @@ namespace SyncTPV.Controllers
         {
             public int valor { get; set; }
             public String descripcion { get; set; }
+        }
+
+        public async Task<ExpandoObject> obtenerTicketsDelWs(
+            bool banderaFecha,String Fecha, String FechaMax, int idAgente, String referencia, String tipo, int limite
+            )
+        { 
+            dynamic response = new ExpandoObject();
+            await Task.Run(() => {
+                try
+                {
+                    String errorMessage = "";
+                    int itemsToEvaluate = 0;
+                    int correctResponse = 0;
+                    String url = ConfiguracionModel.getLinkWs();
+                    url = url.Replace(" ", "%20");
+                    var client = new RestClient(url);
+                    // client.Authenticator = new HttpBasicAuthenticator(username, password);
+                    var request = new RestRequest("/filtrarTicketsWS", Method.Post);
+                    request.AddJsonBody(new
+                    {
+                        banderaFecha = banderaFecha,
+                        fecha = Fecha,
+                        fechamax = FechaMax,
+                        idAgente = idAgente,
+                        referencia = referencia,
+                        tipo = tipo,
+                        limite = limite
+                    });
+                    var responseHeader = client.ExecuteAsync(request);
+                    if (responseHeader.Result.ResponseStatus == ResponseStatus.Completed)
+                    {
+                        var jsonResp = JsonConvert.DeserializeObject<dynamic>(responseHeader.Result.Content);
+                        dynamic routesResponse = (dynamic)jsonResp;
+                        response.respuesta = routesResponse.respuesta;
+                    }
+                    else if (responseHeader.Result.ResponseStatus == ResponseStatus.Error)
+                    {
+                        response.respuesta = null;
+                        if (responseHeader.Result.ErrorMessage.Equals("Unable to connect to the remote server"))
+                        {
+                            correctResponse = 404;
+                            errorMessage = "Tiempo Excedido! " + responseHeader.Result.ErrorMessage;
+                        }
+                        else
+                        {
+                            correctResponse = 500;
+                            errorMessage = "Tiempo Excedido! " + responseHeader.Result.ErrorMessage;
+                        }
+                    }
+                    response.value = correctResponse;
+                    response.description = errorMessage;
+                }
+                catch (Exception e)
+                {
+                    SECUDOC.writeLog(e.ToString());
+                    response.value = -1;
+                    response.description = "Exception: " + e.ToString();
+                    response.respuesta = null;
+                }
+            });
+            return response;
         }
 
         private static async Task<ExpandoObject> enviarClienteAlWs(int idClienteLocal, String nombreUsuario, String nombreCliente,
@@ -2260,21 +2341,21 @@ namespace SyncTPV.Controllers
                         {
                             SendIngresoController sim = new SendIngresoController();
                             dynamic resp = await sim.handleActionSendIngresosAPI(idIngreso);
-                            if (resp.value == 100)
+                            if (resp.value == 100 || resp.value == 99)
                             {
                                 count++;
                             }
                         }
                         if (idsIngresos.Count == count)
                         {
-                            value = 100;
+                            value = 99;
                             description = "Proceso Finalizado";
                             method = 7;
                             idDocumento = "";
                         }
                         else
                         {
-                            value = 100;
+                            value = 99;
                             description = "Proceso Finalizado";
                             method = 7;
                             idDocumento = "";
@@ -2282,7 +2363,7 @@ namespace SyncTPV.Controllers
                     }
                     else
                     {
-                        value = 100;
+                        value = 99;
                         description = "Todos los registros enviados!";
                         method = 7;
                         idDocumento = "";
@@ -2305,6 +2386,72 @@ namespace SyncTPV.Controllers
                     response.idDocumento = idDocumento;
                 }
             });            
+            return response;
+        }
+
+        private async Task<ExpandoObject> enviarTicketsAPI(int method, int envioDeDatos, int peticiones)
+        {
+            dynamic response = new ExpandoObject();
+            await Task.Run(async () =>
+            {
+                int value = 0;
+                String description = "";
+                String idDocumento = "";
+                try
+                {
+                    List<int> idsTickets = TicketsModel.getAllIdsTicketsNotSends();
+                    if (idsTickets != null && idsTickets.Count > 0)
+                    {
+                        int count = 0;
+                        foreach (int idsTicket in idsTickets)
+                        {
+                            SendTicketsController sim = new SendTicketsController();
+                            dynamic resp = await sim.handleActionSendIngresosAPI(idsTicket);
+                            if (resp.value == 100)
+                            {
+                                count++;
+                            }
+                        }
+                        if (idsTickets.Count == count)
+                        {
+                            value = 100;
+                            description = "Proceso Finalizado";
+                            method = 8;
+                            idDocumento = "";
+                        }
+                        else
+                        {
+                            value = 100;
+                            description = "Proceso Finalizado";
+                            method = 8;
+                            idDocumento = "";
+                        }
+                    }
+                    else
+                    {
+                        value = 100;
+                        description = "Todos los registros enviados!";
+                        method = 8;
+                        idDocumento = "";
+                    }
+                }
+                catch (Exception e)
+                {
+                    SECUDOC.writeLog(e.ToString());
+                    value = -1;
+                    description = e.Message + ", Enviando Tickets!";
+                    method = 8;
+                }
+                finally
+                {
+                    response.value = value;
+                    response.description = description;
+                    response.method = method;
+                    response.envioDeDatos = envioDeDatos;
+                    response.peticiones = peticiones;
+                    response.idDocumento = idDocumento;
+                }
+            });
             return response;
         }
 

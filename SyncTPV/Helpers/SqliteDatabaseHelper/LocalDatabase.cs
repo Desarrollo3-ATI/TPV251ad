@@ -720,6 +720,27 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
             }
         }
 
+        public const String TABLA_RESPALDOTICKETS = "RespTickets";
+        public const String CAMPO_ID_RESPALDOTICKETS = "id";
+        public const String CAMPO_REFERENCIA_RESPALDOTICKETS = "referencia";
+        public const String CAMPO_DATOS_RESPALDOTICKETS = "datos";
+        public const String CAMPO_IDAGENTE_RESPALDOTICKETS = "idAgente";
+        public const String CAMPO_TIPODOCUMENTO_RESPALDOTICKETS = "tipoDocumento";
+        public const String CAMPO_FECHA_RESPALDOTICKETS = "fecha";
+        public const String CAMPO_IDWS_RESPALDOTICKETS = "idPanel";
+        public const String CAMPO_ESTATUS_RESPALDOTICKETS = "estatus";
+        public static String CREAR_TABLA_RESPALDOTICKETS = "CREATE TABLE IF NOT EXISTS " +
+        "" + TABLA_RESPALDOTICKETS + "("+ CAMPO_ID_RESPALDOTICKETS + " INTEGER PRIMARY KEY, "+ 
+           "" + CAMPO_REFERENCIA_RESPALDOTICKETS + " TEXT, " +
+            "" + CAMPO_DATOS_RESPALDOTICKETS + " TEXT, " +
+            "" + CAMPO_IDAGENTE_RESPALDOTICKETS + " INTEGER, " +
+            "" + CAMPO_TIPODOCUMENTO_RESPALDOTICKETS + " TEXT, " + 
+            "" + CAMPO_FECHA_RESPALDOTICKETS + " TEXT, " + 
+            "" + CAMPO_IDWS_RESPALDOTICKETS + " INTEGER DEFAULT 0, " +
+            "" + CAMPO_ESTATUS_RESPALDOTICKETS + " INTEGER DEFAULT 0" +
+            ")";
+
+
         public const String TABLA_CXC = "CuentasXcobrar";
         public const String CAMPO_ID_CXC = "id";
         public const String CAMPO_CLIENTE_ID_CXC = "CLIENTE_ID";

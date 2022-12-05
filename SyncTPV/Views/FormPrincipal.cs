@@ -1,5 +1,6 @@
 ﻿using AdminDll;
 using DbStructure;
+using iTextSharp.text;
 using Newtonsoft.Json.Linq;
 using SyncTPV.Controllers;
 using SyncTPV.Controllers.Downloads;
@@ -208,6 +209,7 @@ namespace SyncTPV
                 btnArticulos.FlatAppearance.BorderSize = 1;
                 btnCorteDeCaja.Visible = false;
                 btnIngresos.Visible = false;
+                btnReimpresionTickets.Visible = false;
                 btnReportsFrmPrincipal.Text = "Reporte de \nEntregas (F6)";
                 btnReportsFrmPrincipal.Location = new Point(3, btnArticulos.Location.Y + 105);
                 btnReportsFrmPrincipal.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.reportes_blanco, 35, 35);
@@ -271,6 +273,11 @@ namespace SyncTPV
                 btnReportsFrmPrincipal.Location = new Point(3, 399);
                 btnReportsFrmPrincipal.Visible = true;
                 btnReportsFrmPrincipal.Text = "Reporte de \nCaja (F6)";
+                btnReimpresionTickets.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.printer_white, 35, 35);
+                btnReimpresionTickets.Height = 60;
+                btnReimpresionTickets.Location = new Point(3, 465);
+                btnReimpresionTickets.Visible = true;
+                btnReimpresionTickets.Text = "Resumen de \nTickets";
                 actualizarDatosToolStripMenuItem.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.update_data_black, 20, 20);
                 sendDataToolStripMenuItem.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.upload, 20, 20);
                 descargasToolStripMenuItem.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.download, 20, 20);
@@ -1735,6 +1742,18 @@ namespace SyncTPV
                         reponse += retirosNotSent + " Cortes de caja";
                     }
                 }
+                int ticketsNotSent = DatosTicketModel.getTheTotalNumberOfTicketsNotSentToTheServer();
+                if (ticketsNotSent > 0)
+                {
+                    if (ticketsNotSent == 1)
+                    {
+                        reponse += ticketsNotSent + " tickets";
+                    }
+                    else
+                    {
+                        reponse += ticketsNotSent + " tickets";
+                    }
+                }
             });
             return reponse;
         }
@@ -1767,6 +1786,30 @@ namespace SyncTPV
             else
             {
                 toolTip1.SetToolTip(editBoxUltimaApertura, "No aplica");
+            }
+        }
+
+        private void btnReimpresionTickets_Click(object sender, EventArgs e)
+        {
+            FormPasswordConfirmation fpc = new FormPasswordConfirmation("Autorización del Supervisor", "Ingresar Contraseña");
+            fpc.StartPosition = FormStartPosition.CenterScreen;
+            fpc.ShowDialog();
+            if (FormPasswordConfirmation.permissionGranted)
+            {
+                PrinterModel pm = PrinterModel.getallDataFromAPrinter();
+                if (pm != null)
+                {
+
+                    FrmReimpresionTickets frmTickets = new FrmReimpresionTickets();
+                    frmTickets.ShowDialog();
+                }
+                else
+                {
+                    String description = "Asegurate de actualizar la información de la impresora en la " +
+                        "Configuración";
+                    MessageBox.Show(description);
+
+                }
             }
         }
 

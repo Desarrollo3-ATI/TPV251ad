@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMovimientos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.pnlLeft = new System.Windows.Forms.Panel();
+            this.btnimprimirpuro = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -85,6 +86,7 @@
             // 
             // pnlLeft
             // 
+            this.pnlLeft.Controls.Add(this.btnimprimirpuro);
             this.pnlLeft.Controls.Add(this.btnImprimir);
             this.pnlLeft.Controls.Add(this.btnEditar);
             this.pnlLeft.Controls.Add(this.btnCancelar);
@@ -98,6 +100,24 @@
             this.pnlLeft.Size = new System.Drawing.Size(1064, 543);
             this.pnlLeft.TabIndex = 20;
             // 
+            // btnimprimirpuro
+            // 
+            this.btnimprimirpuro.BackColor = System.Drawing.Color.Coral;
+            this.btnimprimirpuro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnimprimirpuro.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.btnimprimirpuro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnimprimirpuro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnimprimirpuro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnimprimirpuro.ForeColor = System.Drawing.Color.White;
+            this.btnimprimirpuro.Location = new System.Drawing.Point(344, 3);
+            this.btnimprimirpuro.Name = "btnimprimirpuro";
+            this.btnimprimirpuro.Size = new System.Drawing.Size(83, 68);
+            this.btnimprimirpuro.TabIndex = 9;
+            this.btnimprimirpuro.Text = "Imprimir";
+            this.btnimprimirpuro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnimprimirpuro.UseVisualStyleBackColor = false;
+            this.btnimprimirpuro.Click += new System.EventHandler(this.btnimprimirpuro_Click);
+            // 
             // btnImprimir
             // 
             this.btnImprimir.BackColor = System.Drawing.Color.Coral;
@@ -105,14 +125,14 @@
             this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
             this.btnImprimir.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnImprimir.Location = new System.Drawing.Point(165, 3);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(75, 68);
+            this.btnImprimir.Size = new System.Drawing.Size(87, 68);
             this.btnImprimir.TabIndex = 8;
-            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.Text = "Reimprimir";
             this.btnImprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
@@ -124,7 +144,7 @@
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEditar.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEditar.Location = new System.Drawing.Point(84, 3);
@@ -143,7 +163,7 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancelar.Location = new System.Drawing.Point(986, 3);
@@ -162,9 +182,9 @@
             this.btnFactura.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnFactura.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFactura.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFactura.ForeColor = System.Drawing.Color.White;
-            this.btnFactura.Location = new System.Drawing.Point(246, 3);
+            this.btnFactura.Location = new System.Drawing.Point(256, 3);
             this.btnFactura.Name = "btnFactura";
             this.btnFactura.Size = new System.Drawing.Size(83, 68);
             this.btnFactura.TabIndex = 5;
@@ -217,7 +237,7 @@
             // textTotalDocumento
             // 
             this.textTotalDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTotalDocumento.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalDocumento.Location = new System.Drawing.Point(847, 8);
             this.textTotalDocumento.Name = "textTotalDocumento";
             this.textTotalDocumento.Size = new System.Drawing.Size(190, 22);
@@ -228,7 +248,7 @@
             // textDescuentoDocumento
             // 
             this.textDescuentoDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textDescuentoDocumento.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDescuentoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDescuentoDocumento.Location = new System.Drawing.Point(648, 8);
             this.textDescuentoDocumento.Name = "textDescuentoDocumento";
             this.textDescuentoDocumento.Size = new System.Drawing.Size(193, 22);
@@ -239,7 +259,7 @@
             // textSubtotalDocumento
             // 
             this.textSubtotalDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.textSubtotalDocumento.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textSubtotalDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSubtotalDocumento.Location = new System.Drawing.Point(443, 8);
             this.textSubtotalDocumento.Name = "textSubtotalDocumento";
             this.textSubtotalDocumento.Size = new System.Drawing.Size(199, 22);
@@ -250,30 +270,30 @@
             // editDescuentoDocumento
             // 
             this.editDescuentoDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.editDescuentoDocumento.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editDescuentoDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editDescuentoDocumento.Location = new System.Drawing.Point(648, 33);
             this.editDescuentoDocumento.Name = "editDescuentoDocumento";
-            this.editDescuentoDocumento.Size = new System.Drawing.Size(193, 22);
+            this.editDescuentoDocumento.Size = new System.Drawing.Size(193, 21);
             this.editDescuentoDocumento.TabIndex = 2;
             this.editDescuentoDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // editSubtotalDocumento
             // 
             this.editSubtotalDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.editSubtotalDocumento.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editSubtotalDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editSubtotalDocumento.Location = new System.Drawing.Point(443, 33);
             this.editSubtotalDocumento.Name = "editSubtotalDocumento";
-            this.editSubtotalDocumento.Size = new System.Drawing.Size(199, 22);
+            this.editSubtotalDocumento.Size = new System.Drawing.Size(199, 21);
             this.editSubtotalDocumento.TabIndex = 1;
             this.editSubtotalDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // editTotalDocumento
             // 
             this.editTotalDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.editTotalDocumento.Font = new System.Drawing.Font("Roboto Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editTotalDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editTotalDocumento.Location = new System.Drawing.Point(847, 33);
             this.editTotalDocumento.Name = "editTotalDocumento";
-            this.editTotalDocumento.Size = new System.Drawing.Size(190, 22);
+            this.editTotalDocumento.Size = new System.Drawing.Size(190, 21);
             this.editTotalDocumento.TabIndex = 0;
             this.editTotalDocumento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -281,7 +301,7 @@
             // 
             this.textTotalMovmientos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textTotalMovmientos.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textTotalMovmientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textTotalMovmientos.Location = new System.Drawing.Point(12, 0);
             this.textTotalMovmientos.Name = "textTotalMovmientos";
             this.textTotalMovmientos.Size = new System.Drawing.Size(1040, 23);
@@ -312,14 +332,14 @@
             this.dataGridMovs.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridMovs.BackgroundColor = System.Drawing.Color.Azure;
             this.dataGridMovs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Coral;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridMovs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Coral;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridMovs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridMovs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridMovs.ColumnHeadersVisible = false;
             this.dataGridMovs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -332,14 +352,14 @@
             this.discountMovDoc,
             this.totalMovDoc,
             this.observationDgv});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridMovs.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridMovs.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridMovs.EnableHeadersVisualStyles = false;
             this.dataGridMovs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.dataGridMovs.Location = new System.Drawing.Point(12, 26);
@@ -347,17 +367,17 @@
             this.dataGridMovs.Name = "dataGridMovs";
             this.dataGridMovs.ReadOnly = true;
             this.dataGridMovs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Crimson;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridMovs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 10F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridMovs.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridMovs.RowHeadersVisible = false;
             this.dataGridMovs.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridMovs.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridMovs.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridMovs.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(2);
             this.dataGridMovs.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridMovs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -434,17 +454,17 @@
             // 
             // editFolioDocumento
             // 
-            this.editFolioDocumento.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editFolioDocumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editFolioDocumento.Location = new System.Drawing.Point(12, 62);
             this.editFolioDocumento.Name = "editFolioDocumento";
-            this.editFolioDocumento.Size = new System.Drawing.Size(240, 23);
+            this.editFolioDocumento.Size = new System.Drawing.Size(240, 22);
             this.editFolioDocumento.TabIndex = 4;
             this.editFolioDocumento.Text = "Folio";
             // 
             // textStatus
             // 
             this.textStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textStatus.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textStatus.Location = new System.Drawing.Point(845, 4);
             this.textStatus.Name = "textStatus";
             this.textStatus.Size = new System.Drawing.Size(216, 23);
@@ -465,7 +485,7 @@
             // editObservationDoc
             // 
             this.editObservationDoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.editObservationDoc.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editObservationDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editObservationDoc.Location = new System.Drawing.Point(768, 64);
             this.editObservationDoc.Multiline = true;
             this.editObservationDoc.Name = "editObservationDoc";
@@ -474,10 +494,10 @@
             // 
             // editCliente
             // 
-            this.editCliente.Font = new System.Drawing.Font("Roboto Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCliente.Location = new System.Drawing.Point(12, 14);
             this.editCliente.Name = "editCliente";
-            this.editCliente.Size = new System.Drawing.Size(354, 23);
+            this.editCliente.Size = new System.Drawing.Size(354, 22);
             this.editCliente.TabIndex = 0;
             // 
             // btnClose
@@ -487,7 +507,7 @@
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::SyncTPV.Properties.Resources.close;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -505,7 +525,7 @@
             this.textDatosDocumentoMovimientosDocs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textDatosDocumentoMovimientosDocs.BackColor = System.Drawing.Color.Coral;
-            this.textDatosDocumentoMovimientosDocs.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDatosDocumentoMovimientosDocs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDatosDocumentoMovimientosDocs.ForeColor = System.Drawing.Color.White;
             this.textDatosDocumentoMovimientosDocs.Location = new System.Drawing.Point(0, 0);
             this.textDatosDocumentoMovimientosDocs.Name = "textDatosDocumentoMovimientosDocs";
@@ -576,5 +596,6 @@
         private System.Windows.Forms.TextBox editDescuentoDocumento;
         private System.Windows.Forms.TextBox editSubtotalDocumento;
         private System.Windows.Forms.TextBox editTotalDocumento;
+        private System.Windows.Forms.Button btnimprimirpuro;
     }
 }

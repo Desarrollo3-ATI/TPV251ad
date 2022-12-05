@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.backgroundCargaInicial = new System.ComponentModel.BackgroundWorker();
             this.pbCargaInicialFrmPrincipal = new System.Windows.Forms.ProgressBar();
@@ -71,6 +71,7 @@
             this.maxDgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descuentoDgv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnReimpresionTickets = new System.Windows.Forms.Button();
             this.btnIngresos = new System.Windows.Forms.Button();
             this.btnTaras = new System.Windows.Forms.Button();
             this.btnReportsFrmPrincipal = new System.Windows.Forms.Button();
@@ -429,6 +430,7 @@
             // dataGridViewPromotionsFrmPincipal
             // 
             this.dataGridViewPromotionsFrmPincipal.AllowUserToAddRows = false;
+            this.dataGridViewPromotionsFrmPincipal.AllowUserToDeleteRows = false;
             this.dataGridViewPromotionsFrmPincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -436,14 +438,14 @@
             this.dataGridViewPromotionsFrmPincipal.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewPromotionsFrmPincipal.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.dataGridViewPromotionsFrmPincipal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Moccasin;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPromotionsFrmPincipal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Moccasin;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPromotionsFrmPincipal.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewPromotionsFrmPincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPromotionsFrmPincipal.ColumnHeadersVisible = false;
             this.dataGridViewPromotionsFrmPincipal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -459,15 +461,15 @@
             this.dataGridViewPromotionsFrmPincipal.Name = "dataGridViewPromotionsFrmPincipal";
             this.dataGridViewPromotionsFrmPincipal.ReadOnly = true;
             this.dataGridViewPromotionsFrmPincipal.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FloralWhite;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.MediumBlue;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPromotionsFrmPincipal.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FloralWhite;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MediumBlue;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPromotionsFrmPincipal.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewPromotionsFrmPincipal.RowHeadersVisible = false;
             this.dataGridViewPromotionsFrmPincipal.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewPromotionsFrmPincipal.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FloralWhite;
@@ -529,6 +531,7 @@
             this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelMenu.BackColor = System.Drawing.Color.Black;
+            this.panelMenu.Controls.Add(this.btnReimpresionTickets);
             this.panelMenu.Controls.Add(this.btnIngresos);
             this.panelMenu.Controls.Add(this.btnTaras);
             this.panelMenu.Controls.Add(this.btnReportsFrmPrincipal);
@@ -541,6 +544,26 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(210, 663);
             this.panelMenu.TabIndex = 18;
+            // 
+            // btnReimpresionTickets
+            // 
+            this.btnReimpresionTickets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReimpresionTickets.BackColor = System.Drawing.Color.Black;
+            this.btnReimpresionTickets.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReimpresionTickets.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnReimpresionTickets.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnReimpresionTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReimpresionTickets.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReimpresionTickets.ForeColor = System.Drawing.Color.White;
+            this.btnReimpresionTickets.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReimpresionTickets.Location = new System.Drawing.Point(3, 531);
+            this.btnReimpresionTickets.Name = "btnReimpresionTickets";
+            this.btnReimpresionTickets.Size = new System.Drawing.Size(201, 60);
+            this.btnReimpresionTickets.TabIndex = 9;
+            this.btnReimpresionTickets.Text = "Resumen de tickets";
+            this.btnReimpresionTickets.UseVisualStyleBackColor = false;
+            this.btnReimpresionTickets.Click += new System.EventHandler(this.btnReimpresionTickets_Click);
             // 
             // btnIngresos
             // 
@@ -861,5 +884,6 @@
         private System.Windows.Forms.TextBox editBoxUltimaApertura;
         private System.Windows.Forms.Label labelApertura;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnReimpresionTickets;
     }
 }

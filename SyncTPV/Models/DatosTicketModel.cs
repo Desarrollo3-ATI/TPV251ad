@@ -1,4 +1,5 @@
-﻿using SyncTPV.Helpers.SqliteDatabaseHelper;
+﻿using SyncTPV.Controllers;
+using SyncTPV.Helpers.SqliteDatabaseHelper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -152,6 +153,43 @@ namespace SyncTPV
                     db.Close();
             }
             return lastId;
+        }
+
+        public static int getTheTotalNumberOfTicketsNotSentToTheServer()
+        {
+            int total = 0;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            db.Open();
+            try
+            {
+                String query = "SELECT COUNT(" + LocalDatabase.CAMPO_ID_RESPALDOTICKETS + ") FROM " + LocalDatabase.TABLA_RESPALDOTICKETS + " " +
+                        " WHERE " + LocalDatabase.CAMPO_IDWS_RESPALDOTICKETS + " = " + 0;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                total = reader.GetInt32(0);
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return total;
         }
 
         public static DatosTicketModel getAllData()
@@ -319,6 +357,76 @@ namespace SyncTPV
             return name;
         }
 
+        public static String getticketrespaldo(String referencia)
+        {
+            String name = "";
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                String query = "SELECT "+LocalDatabase.CAMPO_DATOS_RESPALDOTICKETS+" FROM "+LocalDatabase.TABLA_RESPALDOTICKETS+
+                    " WHERE " + LocalDatabase.CAMPO_REFERENCIA_RESPALDOTICKETS + " = '" + referencia + "'";
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                if (reader.GetValue(0) != DBNull.Value)
+                                    name = reader.GetValue(0).ToString().Trim();
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return name;
+        }
+
+        public static int putticketrespaldo(String referencia,String datos, String tipoDocumento)
+        {
+            int valores = 0;
+
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                String query = "INSERT INTO "+LocalDatabase.TABLA_RESPALDOTICKETS+" ("+LocalDatabase.CAMPO_REFERENCIA_RESPALDOTICKETS
+                    +", "+LocalDatabase.CAMPO_DATOS_RESPALDOTICKETS+","+ LocalDatabase.CAMPO_IDAGENTE_RESPALDOTICKETS+","+
+                    LocalDatabase.CAMPO_TIPODOCUMENTO_RESPALDOTICKETS+ ", "+ LocalDatabase.CAMPO_FECHA_RESPALDOTICKETS + ") values ('" + referencia 
+                    + "', '"+ datos + "',"+ ClsRegeditController.getIdUserInTurn() +", '"+ tipoDocumento +"', '"+
+                    MetodosGenerales.getCurrentDateAndHour() + "')";
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    int val = command.ExecuteNonQuery();
+                    valores = val;
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return valores;
+        }
         public static bool sellOnlyWithStock()
         {
             bool yes = false;
