@@ -331,6 +331,7 @@ namespace SyncTPV.Views
             // 
             // FrmReimpresionTickets
             // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Coral;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -352,7 +353,10 @@ namespace SyncTPV.Views
             this.Controls.Add(this.btnBuscarReportes);
             this.Controls.Add(this.gridTickets);
             this.Controls.Add(this.FechaMaxima);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmReimpresionTickets";
             this.Text = "Historial de Tickets (Servidor)";
             this.Load += new System.EventHandler(this.FrmConfirmation_Load_1);

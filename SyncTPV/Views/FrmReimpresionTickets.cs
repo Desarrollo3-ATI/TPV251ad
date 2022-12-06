@@ -22,6 +22,7 @@ namespace SyncTPV.Views
         private static int idAgente = 0, limite = 1000;
         private static String tipoDocumento = "Todos";
         private static bool usarfecha = false;
+        private static bool serverModeLAN = false;
         public FrmReimpresionTickets()
         {
             InitializeComponent();
@@ -110,6 +111,7 @@ namespace SyncTPV.Views
         }
         private async void FrmConfirmation_Load_1(object sender, EventArgs e)
         {
+            serverModeLAN = ConfiguracionModel.isLANPermissionActivated();
             confirmation = true;
             chckUsarFecha.Checked = true;
             FechaMaxima.Text = MetodosGenerales.getCurrentDateAndHour();
@@ -231,53 +233,60 @@ namespace SyncTPV.Views
 
         private async void btnBuscarReportes_Click(object sender, EventArgs e)
         {
-            fecha = (FechaTickets.Value).ToString("yyyy-MM-dd");
-            fechamax = (FechaMaxima.Value).ToString("yyyy-MM-dd");
-            referencia = comboReferencia.Text;
-            limite = int.Parse(comboLimite.Text.ToString());
-            SendDataService sds = new SendDataService();
-            dynamic response = await sds.obtenerTicketsDelWs(
-                usarfecha, fecha,fechamax, idAgente, referencia, tipoDocumento, limite
-            );
-            //gridTickets.DataSource = response;
-            try
+            if (serverModeLAN)
             {
-                gridTickets.Rows.Clear();
-                if (response.respuesta != null)
-                {
-                    dynamic respuesta = response.respuesta;
-                    ActualizarTotal(respuesta.Count);
-                    for (int i = 0; i < respuesta.Count; i++)
-                    {
-                        gridTickets.Rows.Add();
-                        gridTickets.Rows[i].Cells["GridId"].Value = (i+1).ToString();
-                        gridTickets.Rows[i].Cells["GridReferencia"].Value = respuesta[i].referencia;
-                        String nombreAgente = UserModel.getNameUser((int) respuesta[i].idAgente);
-                        gridTickets.Rows[i].Cells["GridAgente"].Value = nombreAgente;
-                        gridTickets.Rows[i].Cells["GridTipo"].Value = respuesta[i].tipoDocumento;
-                        gridTickets.Rows[i].Cells["GridFecha"].Value = respuesta[i].fecha;
-                        if(((int)respuesta[i].estatus) == 0)
-                        {
-                            gridTickets.Rows[i].Cells["GridEstatus"].Value = "Activo";
-                        }
-                        else
-                        {
-                            gridTickets.Rows[i].Cells["GridEstatus"].Value = "No activo";
-                        }
-                        gridTickets.Rows[i].Cells["GridImprimir"].Value = "Imprimir".ToString();
-                        gridTickets.Rows[i].Cells["GridTicket"].Value = respuesta[i].datos;
-                    }
-                    gridTickets.PerformLayout();
-                }
-                else
-                {
-                    ActualizarTotal(0);
-                    MessageBox.Show("No hay datos cargados");
-                }
+                MessageBox.Show("Este módulo es requerido el uso de WebService");
             }
-            catch(Exception es)
+            else
             {
-                SECUDOC.writeLog(es.ToString());
+                fecha = (FechaTickets.Value).ToString("yyyy-MM-dd");
+                fechamax = (FechaMaxima.Value).ToString("yyyy-MM-dd");
+                referencia = comboReferencia.Text;
+                limite = int.Parse(comboLimite.Text.ToString());
+                SendDataService sds = new SendDataService();
+                dynamic response = await sds.obtenerTicketsDelWs(
+                    usarfecha, fecha, fechamax, idAgente, referencia, tipoDocumento, limite
+                );
+                //gridTickets.DataSource = response;
+                try
+                {
+                    gridTickets.Rows.Clear();
+                    if (response.respuesta != null)
+                    {
+                        dynamic respuesta = response.respuesta;
+                        ActualizarTotal(respuesta.Count);
+                        for (int i = 0; i < respuesta.Count; i++)
+                        {
+                            gridTickets.Rows.Add();
+                            gridTickets.Rows[i].Cells["GridId"].Value = (i + 1).ToString();
+                            gridTickets.Rows[i].Cells["GridReferencia"].Value = respuesta[i].referencia;
+                            String nombreAgente = UserModel.getNameUser((int)respuesta[i].idAgente);
+                            gridTickets.Rows[i].Cells["GridAgente"].Value = nombreAgente;
+                            gridTickets.Rows[i].Cells["GridTipo"].Value = respuesta[i].tipoDocumento;
+                            gridTickets.Rows[i].Cells["GridFecha"].Value = respuesta[i].fecha;
+                            if (((int)respuesta[i].estatus) == 0)
+                            {
+                                gridTickets.Rows[i].Cells["GridEstatus"].Value = "Activo";
+                            }
+                            else
+                            {
+                                gridTickets.Rows[i].Cells["GridEstatus"].Value = "No activo";
+                            }
+                            gridTickets.Rows[i].Cells["GridImprimir"].Value = "Imprimir".ToString();
+                            gridTickets.Rows[i].Cells["GridTicket"].Value = respuesta[i].datos;
+                        }
+                        gridTickets.PerformLayout();
+                    }
+                    else
+                    {
+                        ActualizarTotal(0);
+                        MessageBox.Show("No hay datos cargados");
+                    }
+                }
+                catch (Exception es)
+                {
+                    SECUDOC.writeLog(es.ToString());
+                }
             }
             //MessageBox.Show("id "+idAgente+" fecha "+fecha+" tipo "+tipoDocumento+" referencia "+referencia+".");
         }

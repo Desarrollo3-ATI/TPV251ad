@@ -5566,3 +5566,174 @@ Nombre del objeto: 'FormIniciarSesion'.
 Log: 05:23:41 p. m. lunes, 5 de diciembre de 2022
 2023-05-16 11:41:50 - 2022-12-05 23:23:40
 -------------------------------
+Log: 05:59:58 p. m. lunes, 5 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-05 23:59:56
+-------------------------------
+Log: 06:00:11 p. m. lunes, 5 de diciembre de 2022
+Exception: System.Net.Http.HttpRequestException: Error al enviar la solicitud. ---> System.Net.WebException: No es posible conectar con el servidor remoto ---> System.Net.Sockets.SocketException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:56820
+   en System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   en System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   en System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   en System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   en RestSharp.RestClientExtensions.<PostAsync>d__18.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\UsersController.cs:línea 155
+-------------------------------
+Log: 06:00:11 p. m. lunes, 5 de diciembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 06:00:13 p. m. lunes, 5 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 00:00:12
+-------------------------------
+Log: 06:00:48 p. m. lunes, 5 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 00:00:47
+-------------------------------
+Log: 06:01:06 p. m. lunes, 5 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 08:23:21 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 14:23:21
+-------------------------------
+Log: 08:23:38 a. m. martes, 6 de diciembre de 2022
+Exception: System.Net.Http.HttpRequestException: Error al enviar la solicitud. ---> System.Net.WebException: No es posible conectar con el servidor remoto ---> System.Net.Sockets.SocketException: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión 127.0.0.1:56820
+   en System.Net.Sockets.Socket.InternalEndConnect(IAsyncResult asyncResult)
+   en System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   en System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Net.HttpWebRequest.EndGetRequestStream(IAsyncResult asyncResult, TransportContext& context)
+   en System.Net.Http.HttpClientHandler.GetRequestStreamCallback(IAsyncResult ar)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en RestSharp.ResponseThrowExtension.ThrowIfError(RestResponse response)
+   en RestSharp.RestClientExtensions.<PostAsync>d__18.MoveNext()
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   en SyncTPV.Controllers.UsersController.<>c__DisplayClass2_0.<<userLoginServerAPI>b__0>d.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\UsersController.cs:línea 155
+-------------------------------
+Log: 08:23:39 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 08:23:40 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 14:23:40
+-------------------------------
+Log: 08:26:32 a. m. martes, 6 de diciembre de 2022
+Apertura de caja Realizada: 06/12/2022 08:26:32 a. m. Respaldos detectados:90
+-------------------------------
+Log: 08:34:02 a. m. martes, 6 de diciembre de 2022
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 'System.Dynamic.ExpandoObject' no contiene una definición para 'respuesta'.
+   en CallSite.Target(Closure , CallSite , Object )
+   en System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   en CallSite.Target(Closure , CallSite , Object )
+   en SyncTPV.Views.FrmReimpresionTickets.<btnBuscarReportes_Click>d__22.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FrmReimpresionTickets.cs:línea 246
+-------------------------------
+Log: 08:36:59 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 14:36:59
+-------------------------------
+Log: 08:37:07 a. m. martes, 6 de diciembre de 2022
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   en Newtonsoft.Json.JsonTextReader.ParseValue()
+   en Newtonsoft.Json.JsonTextReader.Read()
+   en Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   en Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   en Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   en Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   en Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   en SyncTPV.Controllers.ConfigurationWsController.<>c__DisplayClass0_0.<doPingWs>b__0() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\ConfigurationWsController.cs:línea 32
+-------------------------------
+Log: 08:37:29 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 14:37:29
+-------------------------------
+Log: 08:37:31 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 14:37:31
+-------------------------------
+Log: 08:47:30 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 14:47:30
+-------------------------------
+Log: 08:47:36 a. m. martes, 6 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 08:56:03 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 14:56:03
+-------------------------------
+Log: 09:20:35 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 15:20:34
+-------------------------------
+Log: 09:20:36 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 15:20:36
+-------------------------------
+Log: 10:11:12 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:11:12
+-------------------------------
+Log: 10:11:34 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:11:34
+-------------------------------
+Log: 10:11:36 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:11:36
+-------------------------------
+Log: 10:14:07 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:14:07
+-------------------------------
+Log: 10:14:56 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:14:56
+-------------------------------
+Log: 10:14:57 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:14:57
+-------------------------------
+Log: 10:24:55 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:24:55
+-------------------------------
+Log: 10:25:14 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:25:14
+-------------------------------
+Log: 10:25:16 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:25:16
+-------------------------------
+Log: 10:28:02 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:28:02
+-------------------------------
+Log: 10:28:07 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:28:07
+-------------------------------
+Log: 10:28:09 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:28:09
+-------------------------------
+Log: 10:29:23 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:29:23
+-------------------------------
+Log: 10:29:31 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:29:31
+-------------------------------
+Log: 10:29:32 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:29:32
+-------------------------------
