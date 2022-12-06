@@ -187,25 +187,31 @@ namespace SyncTPV.Controllers
                         if (serverModeLAN)
                         {
                             //para lan
-
+                            List<int> ticketslistid = TicketsModel.getAllIdsTicketsNotSends();
+                            for (int x = 0; x<ticketslistid.Count;x++)
+                            {
+                                TicketsModel.actualizarIdServer(ticketslistid[x], -1);
+                            }
+                            value = 100;
+                            description = "Procesos Finalizados";
+                            method = 8;
                         }
                         else
                         {
-                            //para web service
+                            dynamic responseIngresos = await enviarTicketsAPI(method, envioDeDatos, peticiones);
+                            value = responseIngresos.value;
+                            description = responseIngresos.description;
+                            method = responseIngresos.method;
+                            envioDeDatos = responseIngresos.envioDeDatos;
+                            peticiones = responseIngresos.peticiones;
+                            idDocumento = responseIngresos.idDocumento;
                         }
-                        dynamic responseIngresos = await enviarTicketsAPI(method, envioDeDatos, peticiones);
-                        value = responseIngresos.value;
-                        description = responseIngresos.description;
-                        method = responseIngresos.method;
-                        envioDeDatos = responseIngresos.envioDeDatos;
-                        peticiones = responseIngresos.peticiones;
-                        idDocumento = responseIngresos.idDocumento;
                     }
                     else if (method >= 8)
                     {
                         value = 100;
                         description = "Proceso Finalizado";
-                        method = 6;
+                        method = 9;
                         idDocumento = "";
                     }
 
@@ -2145,7 +2151,7 @@ namespace SyncTPV.Controllers
                     }
                     else
                     {
-                        response.value = 100;
+                        response.value = 95;
                         response.description = "Proceso Finalizado";
                         response.method = 6;
                         response.envioDeDatos = envioDeDatos;
@@ -2155,7 +2161,7 @@ namespace SyncTPV.Controllers
                 }
                 else
                 {
-                    response.value = 100;
+                    response.value = 95;
                     response.description = "Proceso Finalizado";
                     response.method = 6;
                     response.envioDeDatos = envioDeDatos;
@@ -2291,7 +2297,7 @@ namespace SyncTPV.Controllers
                             RetiroModel.updateServerIdInAWithdrawal(idRetiroApp, idRetiroServer);
                             MontoRetiroModel.updateSentFieldOfWithdrawalAmounts(idRetiroApp);
                         }
-                        response.value = 100;
+                        response.value = 95;
                         response.description = "Proceso Finalizado";
                         response.method = 6;
                         response.envioDeDatos = envioDeDatos;
@@ -2300,7 +2306,7 @@ namespace SyncTPV.Controllers
                     }
                     else
                     {
-                        response.value = 100;
+                        response.value = 95;
                         response.description = "Respuesta Incorrecta!";
                         response.method = method;
                         response.envioDeDatos = envioDeDatos;
@@ -2468,14 +2474,14 @@ namespace SyncTPV.Controllers
                     {
                         SendIngresoController sim = new SendIngresoController();
                         dynamic resp = await sim.handleActionSendIngresoLAN(idIngreso);
-                        if (resp.value == 100)
+                        if (resp.value == 95)
                         {
                             count++;
                         }
                     }
                     if (idsIngresos.Count == count)
                     {
-                        response.value = 100;
+                        response.value = 95;
                         response.description = "Proceso Finalizado";
                         response.method = 7;
                         response.envioDeDatos = envioDeDatos;
@@ -2484,7 +2490,7 @@ namespace SyncTPV.Controllers
                     }
                     else
                     {
-                        response.value = 100;
+                        response.value = 95;
                         response.description = "Proceso Finalizado";
                         response.method = 7;
                         response.envioDeDatos = envioDeDatos;
@@ -2494,7 +2500,7 @@ namespace SyncTPV.Controllers
                 }
                 else
                 {
-                    response.value = 100;
+                    response.value = 95;
                     response.description = "Todos los registros enviados!";
                     response.method = 7;
                     response.envioDeDatos = envioDeDatos;

@@ -150,14 +150,14 @@ namespace SyncTPV.Controllers
                     }
                     else
                     {
-                        response.value = 100;
+                        response.value = 95;
                         response.description = "Proceso Finalizado";
                         response.peticiones = 0;
                     }
                 }
                 else
                 {
-                    response.value = 100;
+                    response.value = 95;
                     response.description = "Proceso Finalizado";
                     response.peticiones = 0;
                 }
@@ -260,14 +260,14 @@ namespace SyncTPV.Controllers
                             IngresoModel.updateServerIdInAnEntry(idIngresoApp, idIngresoServer);
                             MontoIngresoModel.updateSentFieldOfEntryAmounts(idIngresoApp);
                         }
-                        response.value = 100;
+                        response.value = 95;
                         response.description = "Proceso Finalizado";
                         response.peticion = 0;
                         correctResponse = 1;
                     }
                     else
                     {
-                        response.value = 100;
+                        response.value = 95;
                         response.description = "Respuesta Incorrecta!";
                         response.peticion = 0;
                     }

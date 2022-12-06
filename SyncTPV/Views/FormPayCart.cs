@@ -1455,6 +1455,28 @@ namespace SyncTPV.Views
                                 idDoclist.Add(idDocument);
                                 enviarDocDirectamenteAlWs(idDocument + "-" + 0, 1, 0, 0, idDoclist);
                             }
+                            if (serverModeLAN)
+                            {
+                                String Ref = DocumentModel.getFolioVentaForADocument(idDocument);
+                                int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
+                                TicketsModel.actualizarIdServer(idsTicket, -1);
+                            }
+                            else
+                            {
+                                try
+                                {
+                                    String Ref = DocumentModel.getFolioVentaForADocument(idDocument);
+                                    int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
+                                    TicketsModel enviarTicket = TicketsModel.getTickets(idsTicket);
+                                    SendTicketsController aw = new SendTicketsController();
+                                    dynamic responseT = new ExpandoObject();
+                                    responseT = await aw.sendTicketsToWs(enviarTicket);
+                                }
+                                catch (Exception e)
+                                {
+                                    SECUDOC.writeLog(e.ToString());
+                                }
+                            }
                         } else
                         {
                             if (webActive)
@@ -1503,19 +1525,28 @@ namespace SyncTPV.Views
                                 validateSendDocumentsResponse(1, 100, "", 3, idDocument + "", null, 0);
                             }
 
-                            
-                            try
+
+                            if (serverModeLAN)
                             {
                                 String Ref = DocumentModel.getFolioVentaForADocument(idDocument);
                                 int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
-                                TicketsModel enviarTicket = TicketsModel.getTickets(idsTicket);
-                                SendTicketsController aw = new SendTicketsController();
-                                dynamic responseT = new ExpandoObject();
-                                responseT = await aw.sendTicketsToWs(enviarTicket);
+                                TicketsModel.actualizarIdServer(idsTicket, -1);
                             }
-                            catch(Exception e)
+                            else
                             {
-                                SECUDOC.writeLog(e.ToString());
+                                try
+                                {
+                                    String Ref = DocumentModel.getFolioVentaForADocument(idDocument);
+                                    int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
+                                    TicketsModel enviarTicket = TicketsModel.getTickets(idsTicket);
+                                    SendTicketsController aw = new SendTicketsController();
+                                    dynamic responseT = new ExpandoObject();
+                                    responseT = await aw.sendTicketsToWs(enviarTicket);
+                                }
+                                catch(Exception e)
+                                {
+                                    SECUDOC.writeLog(e.ToString());
+                                }
                             }
                         }
                     }

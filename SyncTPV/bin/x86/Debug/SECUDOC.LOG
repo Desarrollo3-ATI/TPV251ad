@@ -5737,3 +5737,90 @@ Nombre del objeto: 'FormIniciarSesion'.
 Log: 10:29:32 a. m. martes, 6 de diciembre de 2022
 2023-05-16 11:41:50 - 2022-12-06 16:29:32
 -------------------------------
+Log: 10:41:35 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:41:35
+-------------------------------
+Log: 10:41:43 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:41:43
+-------------------------------
+Log: 10:41:44 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:41:44
+-------------------------------
+Log: 10:42:21 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:42:21
+-------------------------------
+Log: 10:42:28 a. m. martes, 6 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 10:42:43 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:42:42
+-------------------------------
+Log: 10:42:50 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:42:50
+-------------------------------
+Log: 10:42:51 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:42:51
+-------------------------------
+Log: 10:54:37 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:54:37
+-------------------------------
+Log: 10:55:00 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:55:00
+-------------------------------
+Log: 10:55:01 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 16:55:01
+-------------------------------
+Log: 11:14:47 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:14:47
+-------------------------------
+Log: 11:15:36 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:15:35
+-------------------------------
+Log: 11:15:37 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:15:37
+-------------------------------
+Log: 11:18:00 a. m. martes, 6 de diciembre de 2022
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en SyncTPV.Views.FrmSendData.<sendAllData>d__8.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FrmSendData.cs:línea 87
+-------------------------------
+Log: 11:34:08 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:34:08
+-------------------------------
+Log: 11:34:54 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:34:54
+-------------------------------
+Log: 11:36:06 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:36:06
+-------------------------------
+Log: 11:36:07 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:36:07
+-------------------------------
+Log: 11:53:42 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:53:42
+-------------------------------
+Log: 11:53:48 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:53:48
+-------------------------------
+Log: 11:53:50 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:53:50
+-------------------------------
+Log: 11:57:52 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:57:51
+-------------------------------
+Log: 11:57:58 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:57:58
+-------------------------------
+Log: 11:57:59 a. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 17:57:59
+-------------------------------
