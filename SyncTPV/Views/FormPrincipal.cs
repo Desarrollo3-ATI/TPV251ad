@@ -209,7 +209,10 @@ namespace SyncTPV
                 btnArticulos.FlatAppearance.BorderSize = 1;
                 btnCorteDeCaja.Visible = false;
                 btnIngresos.Visible = false;
-                btnReimpresionTickets.Visible = false;
+                if (serverModeLAN)
+                { 
+                    btnReimpresionTickets.Visible = false;
+                }
                 btnReportsFrmPrincipal.Text = "Reporte de \nEntregas (F6)";
                 btnReportsFrmPrincipal.Location = new Point(3, btnArticulos.Location.Y + 105);
                 btnReportsFrmPrincipal.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.reportes_blanco, 35, 35);
@@ -276,7 +279,10 @@ namespace SyncTPV
                 btnReimpresionTickets.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.printer_white, 35, 35);
                 btnReimpresionTickets.Height = 60;
                 btnReimpresionTickets.Location = new Point(3, 465);
-                btnReimpresionTickets.Visible = true;
+                if (serverModeLAN)
+                {
+                    btnReimpresionTickets.Visible = false;
+                }
                 btnReimpresionTickets.Text = "Resumen de \nTickets";
                 actualizarDatosToolStripMenuItem.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.update_data_black, 20, 20);
                 sendDataToolStripMenuItem.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.upload, 20, 20);
