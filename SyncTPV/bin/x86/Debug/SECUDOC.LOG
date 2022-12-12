@@ -5845,3 +5845,109 @@ System.NullReferenceException: Referencia a objeto no establecida como instancia
 Log: 01:04:42 p. m. martes, 6 de diciembre de 2022
 2023-05-16 11:41:50 - 2022-12-06 19:04:42
 -------------------------------
+Log: 01:11:32 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:11:32
+-------------------------------
+Log: 01:12:30 p. m. martes, 6 de diciembre de 2022
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   en Newtonsoft.Json.JsonTextReader.ParseValue()
+   en Newtonsoft.Json.JsonTextReader.Read()
+   en Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   en Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   en Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   en Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   en Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   en SyncTPV.Controllers.ConfigurationWsController.<>c__DisplayClass0_0.<doPingWs>b__0() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\ConfigurationWsController.cs:línea 32
+-------------------------------
+Log: 01:13:47 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:13:47
+-------------------------------
+Log: 01:13:48 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:13:48
+-------------------------------
+Log: 01:14:01 p. m. martes, 6 de diciembre de 2022
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en SyncTPV.Controllers.SendDataService.<>c__DisplayClass10_0.<obtenerTicketsDelWs>b__0() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 396
+-------------------------------
+Log: 01:14:07 p. m. martes, 6 de diciembre de 2022
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en SyncTPV.Controllers.SendDataService.<>c__DisplayClass10_0.<obtenerTicketsDelWs>b__0() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Controllers\SendDataService.cs:línea 396
+-------------------------------
+Log: 01:21:50 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:21:49
+-------------------------------
+Log: 01:21:59 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:21:59
+-------------------------------
+Log: 01:22:01 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:22:01
+-------------------------------
+Log: 01:23:10 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:23:10
+-------------------------------
+Log: 01:23:42 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:23:41
+-------------------------------
+Log: 01:23:43 p. m. martes, 6 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-06 19:23:43
+-------------------------------
+Log: 01:31:56 p. m. miércoles, 7 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-07 19:31:57
+-------------------------------
+Log: 01:33:31 p. m. miércoles, 7 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-07 19:33:33
+-------------------------------
+Log: 01:33:33 p. m. miércoles, 7 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-07 19:33:35
+-------------------------------
+Log: 01:37:32 p. m. miércoles, 7 de diciembre de 2022
+Apertura de caja Realizada: 07/12/2022 01:37:32 p. m. Respaldos detectados:91
+-------------------------------
+Log: 09:51:16 a. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 15:51:15
+-------------------------------
+Log: 10:06:53 a. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 16:06:52
+-------------------------------
+Log: 10:06:54 a. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 16:06:54
+-------------------------------
+Log: 10:10:42 a. m. lunes, 12 de diciembre de 2022
+Apertura de caja Realizada: 12/12/2022 10:10:42 a. m. Respaldos detectados:92
+-------------------------------
+Log: 10:18:13 a. m. lunes, 12 de diciembre de 2022
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+near "WHERE": syntax error
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader()
+   en SyncTPV.Models.PedidosEncabezadoModel.getIntValueWithParameters(String query, String parameterName1, String parameterValue1, String parameterName2, String parameterValue2) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\PedidosEncabezadoModel.cs:línea 747
+-------------------------------
+Log: 10:23:27 a. m. lunes, 12 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2101
+   en SyncTPV.clsTicket.<TraerFormasPago>d__40.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1840
+-------------------------------
+Log: 10:27:33 a. m. lunes, 12 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2101
+   en SyncTPV.clsTicket.<TraerFormasPago>d__40.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1840
+-------------------------------
+Log: 10:46:29 a. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 16:46:28
+-------------------------------
+Log: 10:47:07 a. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 16:47:06
+-------------------------------
+Log: 10:47:08 a. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 16:47:08
+-------------------------------

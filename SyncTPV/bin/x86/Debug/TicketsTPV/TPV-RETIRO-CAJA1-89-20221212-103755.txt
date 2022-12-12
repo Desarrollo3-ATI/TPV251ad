@@ -1,0 +1,29 @@
+      ATI Pruebas sucursal tuxtla
+             Corte de Caja
+                 tuxtla
+           RFC:XAXX010101000
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-12 10:37:55
+                    
+            Retiro Número: 1
+              Retiro final
+zictcian
+      * * * Montos Retirados * * *
+Efectivo                    $1470.00 MXN
+         ---------------------
+           Total Retirado: $1,470.00 MXN
+                    
+                    
+              Firma Cajero
+                    
+           _________________
+                    
+                    
+                    
+                    
+
+
+
+----------------------------------------
