@@ -1,0 +1,48 @@
+      ATI Pruebas sucursal tuxtla
+                 Venta
+                 tuxtla
+           RFC:XAXX010101000
+                    
+Folio: A6C1221221152755
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-21 15:28:09
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 (Ninguno) otro scanner
+SCAN2PRODUCT    $116.00  0% $0.00  $116.00MXN
+                    
+                    
+Neto :                       $100.00 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                   $100.00 MXN
+I.V.A. :                      $16.00 MXN
+                    
+Total :                      $116.00 MXN
+Cambio :                       $0.00 MXN
+      CIENTO DIECISEIS PESOS M.N.
+                    
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 1
+Usted Ahorro: $0.00
+                    
+Gracias por compar, vuelva pronto y comp
+                re mas!
+                    
+          * * * Original * * *
+21/12/2022 03:28:09 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

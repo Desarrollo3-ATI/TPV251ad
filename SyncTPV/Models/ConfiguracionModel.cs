@@ -29,6 +29,7 @@ namespace SyncTPV.Models
         public int webActivate { get; set; }
         public int cotmos { get; set; }
         public String codigoCajaPadre { get; set; }
+        public String ventaRapida { get; set; }
 
         public static ExpandoObject saveLinkWs(String linkWs)
         {
@@ -618,6 +619,44 @@ namespace SyncTPV.Models
                             {
                                 if (reader.GetInt32(0) == 1)
                                     activated = true;
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return activated;
+        }
+
+        public static int validateVentarapidaActivated()
+        {
+            int activated = 1;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            db.Open();
+            try
+            {
+                String query = "SELECT " + LocalDatabase.CAMPO_VENTARAPIDA_CONFIG + " FROM " + LocalDatabase.TABLA_CONFIGURACION +
+                        " WHERE " + LocalDatabase.CAMPO_ID_CONFIGURACION + " = " + 1;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                               
+                                    activated = reader.GetInt32(0);
                             }
                         }
                         if (reader != null && !reader.IsClosed)

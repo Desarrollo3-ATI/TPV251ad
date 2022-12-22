@@ -20,6 +20,29 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
             CAMPO_USERID_APERTURATURNO + " INTEGER DEFAULT 0, " + CAMPO_IMPORTE_APERTURATURNO + " NUMERIC DEFAULT 0, " + CAMPO_FECHAHORA_APERTURATURNO + " TEXT, " +
             CAMPO_CREATEDAT_APERTURATURNO + " TEXT, " + CAMPO_STATUS_APERTURATURNO + " INTEGER DEFAULT 0, " + CAMPO_SERVERID_APERTURATURNO + " INTEGER DEFAULT 0)";
 
+        public const String TABLA_CONCEPTOS = "configConceptos";
+        public const String CAMPO_ID_CONCEPTOS = "id";
+        public const String CAMPO_WSID_CONCEPTOS = "ws_id";
+        public const String CAMPO_CONCEPTOPORRUTA_CONCEPTOS = "conceptoPorRuta";//tipoConcepto = 8
+        public const String CAMPO_RUTACAJA_CONCEPTOS = "rutaCaja";
+        public const String CAMPO_COIDGO_CONCEPTOS = "codigoConcepto";
+
+        public const String CREAR_TABLA_CONCEPTOS = "CREATE TABLE IF NOT EXISTS " + TABLA_CONCEPTOS + " (" + CAMPO_ID_CONCEPTOS + " INTEGER PRIMARY KEY, " +
+            CAMPO_WSID_CONCEPTOS + " INTEGER DEFAULT 0, " + CAMPO_CONCEPTOPORRUTA_CONCEPTOS + " NUMERIC DEFAULT 0, " + CAMPO_RUTACAJA_CONCEPTOS + " INTEGER DEFAULT 0, " +
+            CAMPO_SERVERID_APERTURATURNO + " TEXT)";
+
+        public const String TABLA_IMPUESTOSCONCEPTOS = "impuestosConceptos";
+        public const String CAMPO_ID_IMPUESTOSCONCEPTOS = "id";
+        public const String CAMPO_IDCONCEPTO_IMPUESTOSCONCEPTOS = "idConcepto";
+        public const String CAMPO_CUSAIMPUESTO_IMPUESTOSCONCEPTOS = "CUSAIMPUESTO";//tipoConcepto = 8
+        public const String CAMPO_CUSAPORCENTAJEIMPUESTO_IMPUESTOSCONCEPTOS = "CUSAPORCENTAJEIMPUESTO";
+        public const String CAMPO_CIDFORMULAPORCIMPUESTO_IMPUESTOSCONCEPTOS = "CIDFORMULAPORCIMPUESTO";
+        public const String CAMPO_CIDFORMULAIMPUESTO_IMPUESTOSCONCEPTOS = "CIDFORMULAIMPUESTO";
+
+        public const String CREAR_TABLA_IMPUESTOSCONCEPTOS = "CREATE TABLE IF NOT EXISTS " + TABLA_IMPUESTOSCONCEPTOS + " (" + CAMPO_ID_IMPUESTOSCONCEPTOS + " INTEGER PRIMARY KEY, " +
+            CAMPO_IDCONCEPTO_IMPUESTOSCONCEPTOS + " INTEGER DEFAULT 0, " + CAMPO_CUSAIMPUESTO_IMPUESTOSCONCEPTOS + " NUMERIC DEFAULT 0, " + CAMPO_CUSAPORCENTAJEIMPUESTO_IMPUESTOSCONCEPTOS + " INTEGER DEFAULT 0, " +
+            CAMPO_CIDFORMULAPORCIMPUESTO_IMPUESTOSCONCEPTOS + " INTEGER DEFAULT 0, "+ CAMPO_CIDFORMULAIMPUESTO_IMPUESTOSCONCEPTOS + " INTEGER DEFAULT 0 " + ")";
+
         public const String TABLA_CONFIGURACION = "configuracion";
         public const String CAMPO_ID_CONFIGURACION = "id";
         public const String CAMPO_VALOR_CONFIGURACION = "valor";
@@ -39,6 +62,7 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
         public const String CAMPO_WEBACTIVE_CONFIG = "webActive";
         public const String CAMPO_COTMOS_CONFIG = "cotmos";
         public const String CAMPO_CAJAPADRE_CONFIG = "codigoCajaPadre";
+        public const String CAMPO_VENTARAPIDA_CONFIG = "ventaRapida";
 
         public static String CREAR_TABLA_CONFIGURACION = "CREATE TABLE IF NOT EXISTS " + TABLA_CONFIGURACION + " (" + CAMPO_ID_CONFIGURACION + " INTEGER PRIMARY KEY, " +
             CAMPO_VALOR_CONFIGURACION + " VARCHAR(200), " + CAMPO_MODODEBUG_CONFIGURACION + " INTEGER DEFAULT 1, " + CAMPO_SMS_CONFIG + " INTEGER DEFAULT 1, " +
@@ -48,7 +72,8 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
             CAMPO_SERVERID_CONFIG + " INT NOT NULL DEFAULT 0, " + CAMPO_ENTERPRISEID_CONFIG + " INT NOT NULL DEFAULT 0, " +
             CAMPO_USEFICALFIELD_CONFIG + " INT NOT NULL DEFAULT 0, " + CAMPO_CERRARCOM_CONFIG + " INT NOT NULL DEFAULT 0, " +
             CAMPO_FISCALITEMFIELD_CONFIG+" INT NOT NULL DEFAULT 6, "+CAMPO_WEBACTIVE_CONFIG+" INT NOT NULL DEFAULT 1, " +
-            CAMPO_COTMOS_CONFIG+" INT NOT NULL DEFAULT 0, "+CAMPO_CAJAPADRE_CONFIG+" TEXT NOT NULL DEFAULT '')";
+            CAMPO_COTMOS_CONFIG+" INT NOT NULL DEFAULT 0, "+CAMPO_CAJAPADRE_CONFIG+" TEXT NOT NULL DEFAULT ''," +
+            CAMPO_VENTARAPIDA_CONFIG + " INT NOT NULL DEFAULT 1)";
 
         public static void validateAndCreateNewFieldsInConfiguration(SQLiteConnection db)
         {
@@ -133,6 +158,13 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
                         SQLiteCommand cmd = new SQLiteCommand(db);
                         cmd.CommandText = "ALTER TABLE " + TABLA_CONFIGURACION + " ADD " + CAMPO_CAJAPADRE_CONFIG
                             + " TEXT NOT NULL DEFAULT ''";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (campos == 18)
+                    {
+                        SQLiteCommand cmd = new SQLiteCommand(db);
+                        cmd.CommandText = "ALTER TABLE " + TABLA_CONFIGURACION + " ADD " + CAMPO_VENTARAPIDA_CONFIG
+                            + " INT NOT NULL DEFAULT 1";
                         cmd.ExecuteNonQuery();
                     }
                     if (reader != null && !reader.IsClosed)

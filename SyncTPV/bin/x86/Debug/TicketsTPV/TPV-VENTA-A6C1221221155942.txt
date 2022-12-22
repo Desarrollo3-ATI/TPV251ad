@@ -1,0 +1,50 @@
+      ATI Pruebas sucursal tuxtla
+                 Venta
+                 tuxtla
+           RFC:XAXX010101000
+                    
+Folio: A6C1221221155942
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-21 15:59:49
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+111 (Ninguno) Vino
+PRUEBA0003    $58.00  0% $0.00  $6,438.00MXN
+                    
+                    
+Neto :                     $5,550.00 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                 $5,550.00 MXN
+I.V.A. :                     $888.00 MXN
+                    
+Total :                    $6,438.00 MXN
+Tarjeta de crédito         $6,438.00 MXN
+Cambio :                       $0.00 MXN
+SEIS MIL CUATROCIENTOS TREINTA Y OCHO PE
+                SOS M.N.
+                    
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 111
+Usted Ahorro: $0.00
+                    
+Gracias por compar, vuelva pronto y comp
+                re mas!
+                    
+          * * * Original * * *
+21/12/2022 03:59:49 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

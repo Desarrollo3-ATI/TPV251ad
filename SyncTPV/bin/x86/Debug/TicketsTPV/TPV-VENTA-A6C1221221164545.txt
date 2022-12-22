@@ -1,0 +1,46 @@
+      ATI Pruebas sucursal tuxtla
+                 Venta
+                 tuxtla
+           RFC:XAXX010101000
+                    
+Folio: A6C1221221164545
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-21 16:46:06
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 (Ninguno) galletas
+PRUEBA0005    $81.20  0% $0.00  $81.20MXN
+                    
+                    
+Neto :                        $70.00 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                    $70.00 MXN
+I.V.A. :                      $11.20 MXN
+                    
+Total :                       $81.20 MXN
+Cambio :                       $0.00 MXN
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 1
+Usted Ahorro: $0.00
+                    
+Gracias por compar, vuelva pronto y comp
+                re mas!
+                    
+          * * * Original * * *
+21/12/2022 04:46:06 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

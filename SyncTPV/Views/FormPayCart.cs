@@ -5,6 +5,7 @@ using SyncTPV.Views.Mostrador;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Dynamic;
 using System.Globalization;
@@ -1028,22 +1029,37 @@ namespace SyncTPV.Views
         {
             int cambia = 0;
             bool pasa = false;
+            double totalDocA = DocumentModel.getTotalForADocument(idDocument);
             int FcActual = DocumentModel.getPaymentMethodForADocument(idDocument);
+            List < FormasDeCobroDocumentoModel > formasC = FormasDeCobroDocumentoModel.getAllDataFromTheFirstFcIdDoc(idDocument);
             int TypeActual = DocumentModel.getDocumentType(idDocument);
-            if ((FcActual > 0 || TypeActual == 1 || TypeActual == 3) && TypeActual > 0)
+            FormasDeCobroDocumentoModel.recalculoFormasCobroDocumento(idDocument);
+            double total = FormasDeCobroDocumentoModel.getCalculoFinalDocumentOFormasCobro(idDocument);
+            //MessageBox.Show((FcActual > 0 || (TypeActual == 1 || TypeActual == 3 || TypeActual == 51)) + "<-"+ (TypeActual > 0) +"<-"+ (formasC != null || ((TypeActual == 1 || TypeActual == 3 || TypeActual == 51)) || (((total) > (totalDocA - 1)) && (TypeActual == 4 || TypeActual == 5))));
+            if (((FcActual > 0 || (TypeActual == 1 || TypeActual == 3 || TypeActual == 51)) || ((formasC != null) || ((TypeActual == 1 || TypeActual == 3 || TypeActual == 51)) || (((total) > (totalDocA - 1)) && (TypeActual == 4 || TypeActual == 5)))) && (TypeActual > 0) )
             {
                 cambia = 1;
                 pasa= true;
             }
             else
-            {
-                FrmValidacionDocumentos Validacion = new FrmValidacionDocumentos();
-                Validacion.ShowDialog();
-
-                if (Validacion.Acredito)
                 {
-                    checkBoxCreditoFrmPayCart.Checked = true;
-                    cambia = cambiarSoloFormaCobroDocumento(idDocument, 71, 2);
+                dynamic permisoVC = UserModel.doYouHavePermissionToSellCredit();
+                if (1 == permisoVC.value)
+                {
+                    FrmValidacionDocumentos Validacion = new FrmValidacionDocumentos();
+                    Validacion.ShowDialog();
+
+                    if (Validacion.Acredito)
+                    {
+                    
+                            checkBoxCreditoFrmPayCart.Checked = true;
+                            cambia = cambiarSoloFormaCobroDocumento(idDocument, 71, 2);
+                    
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No tienes permisos para generar ventas a credito, valida tus formas de cobro ingresadas");
                 }
             }
 
@@ -1124,12 +1140,88 @@ namespace SyncTPV.Views
                     pasa = false;
                 }
             }
-            
+            //validar recalculo de formas cobro / total tipo doc
+
             if (pasa)
             {
-                formWaiting = new FormWaiting(this, 0); //callTerminateDocumentTask
-                formWaiting.ShowDialog();
+                FormasDeCobroDocumentoModel.recalculoFormasCobroDocumento(idDocument);
+                double totalF = FormasDeCobroDocumentoModel.getCalculoFinalDocumentOFormasCobro(idDocument);
+                int FcActualF = DocumentModel.getPaymentMethodForADocument(idDocument);
+                    List<FormasDeCobroDocumentoModel> formasCF = FormasDeCobroDocumentoModel.getAllDataFromTheFirstFcIdDoc(idDocument);
+                    int TypeActualF = DocumentModel.getDocumentType(idDocument);
+                double totalDoc = DocumentModel.getTotalForADocument(idDocument);//formas de cobro cuando no se necesite
+                if (((FcActual > 0 || (TypeActual == 1 || TypeActual == 3 || TypeActual == 51)) || ((formasC != null) || ((TypeActual == 1 || TypeActual == 3 || TypeActual == 51)) || (((total) > (totalDocA - 1)) && (TypeActual == 4 || TypeActual == 5)))) && (TypeActual > 0))
+                {
+                    formWaiting = new FormWaiting(this, 0); //callTerminateDocumentTask
+                    formWaiting.ShowDialog();
+                }
+                else
+                {
+                        
+                    var db = new SQLiteConnection();
+                    try
+                    {
+                        db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                        db.Open();
+                            FormasDeCobroDocumentoModel.deleteAllFcOfADocumentDb(db, idDocument);
+                        db.Close();
+                    }
+                    catch
+                    {
+                        if (db != null && db.State == ConnectionState.Open)
+                            db.Close();
+                    }
+                    finally
+                    {
+                        MessageBox.Show("Error de procesador, al tratar de finalizar el documento, valide su información");
+                        int cambiado = cambiarSoloFormaCobroDocumento(idDocument, 0, 0);
+                        bool cambiarT = DocumentModel.updateDocumentAdvance(idDocument, 0);
+                        if (cambiado < 1 || !cambiarT)
+                        {
+                            MessageBox.Show("Pause el documento y reinicie el equipo, equipo muy saturado");
+                        }
+                        this.Close();
+                    }
+                }
             }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private Boolean completarDocumentoConTotales(int idDocumento)
+        {
+            dynamic sumsMap = getCurrentSumsFromDocument(idDocumento);
+            return DocumentModel.updateInformationToCobrarDocumentTpv(sumsMap.descuento, sumsMap.total, 0, idDocumento);
+        }
+
+        public static ExpandoObject getCurrentSumsFromDocument(int idDocumento)
+        {
+            dynamic sumsMap = new ExpandoObject();
+            String sumas = MovimientosModel.obtenerSumaDeSubDescYTotalDeMovimientosDeUndocumento(idDocumento);
+            if (!sumas.Equals(""))
+            {
+                String[] parts = sumas.Split(new Char[] { '-' });
+                String subtotal = parts[0];
+                subtotal = subtotal.Replace(",", "");
+                if (subtotal.Equals(""))
+                    subtotal = "0";
+                sumsMap.subtotal = Convert.ToDouble(subtotal);
+                String descuento = parts[1];
+                descuento = descuento.Replace(",", "");
+                sumsMap.descuento = Convert.ToDouble(descuento);
+                String total = parts[2];
+                total = total.Replace(",", "");
+                sumsMap.total = Convert.ToDouble(total);
+            }
+            else
+            {
+                sumsMap.subtotal = 0.0;
+                sumsMap.descuento = 0.0;
+                sumsMap.total = 0.0;
+            }
+            return sumsMap;
         }
         public int cambiarSoloFormaCobroDocumento(int idDocument, int FCCredito, int tipoDocumento)
         {

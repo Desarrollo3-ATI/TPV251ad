@@ -1,0 +1,33 @@
+                    
+                    
+COMEDORES Y SERVICIOS INDUSTRIALES CAMSA
+                   A
+                 Prueba
+Colegio Miraflores 1827 Colonia Campo Be
+    llo Etapa I, II, III, IV, V y VI
+            RFC:CSI220411TM6
+            EXPED:Chihuahua
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-13 08:16:08
+                    
+          Impresion de Prueba
+                    
+           Modo LAN Activado
+          Numero de copias: 1
+       Leyenda Original: Original
+          Leyenda Copia: Copia
+                    
+      Gracias por su preferencia!
+       13/12/2022 08:16:08 a. m.
+                    
+                    
+                    
+                    
+                    
+                    
+
+
+
+----------------------------------------

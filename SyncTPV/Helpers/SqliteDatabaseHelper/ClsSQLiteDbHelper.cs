@@ -206,6 +206,10 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = LocalDatabase.CREATE_TABLE_SINGLEWEIGHT;
                 cmd.ExecuteNonQuery();
+                cmd.CommandText = LocalDatabase.CREAR_TABLA_CONCEPTOS;
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = LocalDatabase.CREAR_TABLA_IMPUESTOSCONCEPTOS;
+                cmd.ExecuteNonQuery();
                 //UsoCFDI
                 cmd.CommandText = LocalDatabase.CREAR_TABLA_USO_CFDI;
                 cmd.ExecuteNonQuery();

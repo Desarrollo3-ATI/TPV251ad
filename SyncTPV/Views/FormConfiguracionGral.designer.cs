@@ -70,6 +70,7 @@
             this.checkBoxUsoWeb = new System.Windows.Forms.CheckBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnGuardar = new SyncTPV.RoundedButton();
+            this.checkBoxVentaRapida = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panelLeyendas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).BeginInit();
@@ -93,7 +94,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbImpresoras);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(28, 99);
+            this.groupBox1.Location = new System.Drawing.Point(28, 81);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(623, 159);
             this.groupBox1.TabIndex = 0;
@@ -295,7 +296,7 @@
             this.groupBoxScalePermission.Controls.Add(this.pictureBox1);
             this.groupBoxScalePermission.Controls.Add(this.label3);
             this.groupBoxScalePermission.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxScalePermission.Location = new System.Drawing.Point(28, 264);
+            this.groupBoxScalePermission.Location = new System.Drawing.Point(28, 246);
             this.groupBoxScalePermission.Name = "groupBoxScalePermission";
             this.groupBoxScalePermission.Size = new System.Drawing.Size(623, 183);
             this.groupBoxScalePermission.TabIndex = 47;
@@ -516,7 +517,7 @@
             this.editFiscalItemField.BackColor = System.Drawing.Color.LightBlue;
             this.editFiscalItemField.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.editFiscalItemField.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editFiscalItemField.Location = new System.Drawing.Point(12, 453);
+            this.editFiscalItemField.Location = new System.Drawing.Point(12, 435);
             this.editFiscalItemField.Name = "editFiscalItemField";
             this.editFiscalItemField.ReadOnly = true;
             this.editFiscalItemField.Size = new System.Drawing.Size(233, 14);
@@ -597,6 +598,19 @@
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             this.btnGuardar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnGuardar_KeyUp);
             // 
+            // checkBoxVentaRapida
+            // 
+            this.checkBoxVentaRapida.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.checkBoxVentaRapida.AutoSize = true;
+            this.checkBoxVentaRapida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxVentaRapida.Location = new System.Drawing.Point(12, 456);
+            this.checkBoxVentaRapida.Name = "checkBoxVentaRapida";
+            this.checkBoxVentaRapida.Size = new System.Drawing.Size(312, 19);
+            this.checkBoxVentaRapida.TabIndex = 51;
+            this.checkBoxVentaRapida.Text = "Ventas Rapidas (bloqueo de teclas de venta)";
+            this.checkBoxVentaRapida.UseVisualStyleBackColor = true;
+            this.checkBoxVentaRapida.CheckedChanged += new System.EventHandler(this.checkBoxVentaRapida_CheckedChanged);
+            // 
             // FormConfiguracionGral
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -604,6 +618,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(678, 509);
+            this.Controls.Add(this.checkBoxVentaRapida);
             this.Controls.Add(this.panelToolbar);
             this.Controls.Add(this.editFiscalItemField);
             this.Controls.Add(this.checkBoxFiscales);
@@ -673,5 +688,6 @@
         private System.Windows.Forms.Panel panelToolbar;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.CheckBox checkBoxUsoWeb;
+        private System.Windows.Forms.CheckBox checkBoxVentaRapida;
     }
 }

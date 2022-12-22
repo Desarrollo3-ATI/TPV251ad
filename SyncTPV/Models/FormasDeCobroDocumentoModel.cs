@@ -204,7 +204,42 @@ namespace SyncTPV.Models
             }
             return resp;
         }
-        
+
+        public static double getCalculoFinalDocumentOFormasCobro(int documentoId)
+        {
+            double resp = 0;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            db.Open();
+            try
+            {
+                String query = "SELECT * FROM " + LocalDatabase.TABLA_FORMA_COBRO_DOCUMENTO + " WHERE " + LocalDatabase.CAMPO_DOCID_FORMACOBRODOC +
+                        " = " + documentoId;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                resp = resp+Convert.ToDouble(reader[LocalDatabase.CAMPO_IMPORTE_FORMACOBRODOC].ToString().Trim());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return resp;
+        }
+
         public static bool recalculoFormasCobroDocumento(int documentoId)
         {
             bool recalculado = true;

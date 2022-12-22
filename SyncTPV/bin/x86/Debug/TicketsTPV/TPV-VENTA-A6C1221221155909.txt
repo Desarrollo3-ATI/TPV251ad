@@ -1,0 +1,49 @@
+      ATI Pruebas sucursal tuxtla
+                 Venta
+                 tuxtla
+           RFC:XAXX010101000
+                    
+Folio: A6C1221221155909
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-21 15:59:15
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 (Ninguno) totopos
+COD3    $146.16  0% $0.00  $146.16MXN
+                    
+                    
+Neto :                       $126.00 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                   $126.00 MXN
+I.V.A. :                      $20.16 MXN
+                    
+Total :                      $146.16 MXN
+Transferencia elec           $146.16 MXN
+Cambio :                       $0.00 MXN
+CIENTO CUARENTA Y SEIS PESOS 16/100 M.N.
+                    
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 1
+Usted Ahorro: $0.00
+                    
+Gracias por compar, vuelva pronto y comp
+                re mas!
+                    
+          * * * Original * * *
+21/12/2022 03:59:15 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

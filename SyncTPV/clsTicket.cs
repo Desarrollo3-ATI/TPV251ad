@@ -1,14 +1,17 @@
-﻿using SyncTPV.Controllers;
+﻿using Org.BouncyCastle.Crypto;
+using SyncTPV.Controllers;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Dynamic;
 using System.Globalization;
 using System.Linq;
 //Librerias a usar para poder imprimir el ticket
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -1336,7 +1339,7 @@ namespace SyncTPV
         }
 
         public async Task createAndPrintReporteCajaTicket(bool serverModeLAN, bool showDocs, bool showCredits, bool showPagos, bool showIngresos,
-            bool showRetiros)
+            bool showRetiros,bool showDevoluciones, bool showDetallesDevoluciones, bool showFormasCobroDevoluciones)
         {
             DatosTicketModel dtm = DatosTicketModel.getAllData();
             if (dtm == null)
@@ -1356,7 +1359,7 @@ namespace SyncTPV
             TextoCentro("* * * Importe de Apertura * * *");
             double totalDeApertura = AperturaTurnoModel.getImporteDeAperturaActual();
             TextoDerecha("Total Ingresado: " + totalDeApertura.ToString("C") + " MXN");
-            double totalVendido = 0, totalRetirado = 0, totalIngresado = 0, faltante = 0;
+            double totalVendido = 0, totalRetirado = 0, totalDevuelto = 0, totalIngresado = 0, faltante = 0;
             TextoCentro("* * * Totales por Formas de Cobro * * *");
             TextoCentro("");
             String totalsByFc = await getTotalsByFc();
@@ -1408,6 +1411,62 @@ namespace SyncTPV
                     totalRetirado += total;
                 }
             }
+            //aqui las devoluciones
+            try
+            {
+                List<DocumentModel> devoluciones = await getAllDevolucionesList();
+                List<dynamic> devolucionCalculate = new List<dynamic>();
+            if (devoluciones != null)
+            {
+                    if (showDetallesDevoluciones)
+                    TextoCentro("* * * Devoluciones * * *");
+                    String Ids = "";
+                    int i = 0;
+                    foreach (var dev in devoluciones)
+                    {
+                        double total = DocumentModel.getTotalForADocumentWithContext(dev.id);
+                        if (showDetallesDevoluciones)
+                        {
+                            TextoIzquierda(await sustituirAcentos(dev.nombreu));
+                            TextoExtremos("Folio " + dev.fventa, " " + total.ToString("C") + " MXN");
+                        }
+                        //id formas de cobro documentos type 4
+                        if ((i + 1) == devoluciones.Count)
+                        {
+                            Ids = Ids + dev.id;
+                        }
+                        else
+                        {
+                            Ids = Ids + dev.id + ",";
+                        }
+                        i++;
+                    }
+
+                    if (showFormasCobroDevoluciones) { 
+                        TextoCentro("");
+                        TextoCentro("* * Formas Cobro Devolución * *");
+                    }
+                    double totalcalculandoDevuelto = 0;
+                    devolucionCalculate = getAllDevolucionesTotalChangeList(Ids);
+                    if (devolucionCalculate != null)
+                    {
+                        for(int j = 0; j < devolucionCalculate.Count; j++)
+                        {
+                            double totalDActual = (devolucionCalculate[j].total - devolucionCalculate[j].change);
+                            if (showFormasCobroDevoluciones)
+                            {
+                                TextoExtremos(devolucionCalculate[j].idC + " " + devolucionCalculate[j].nombre, " " + totalDActual.ToString("C") + " MXN");
+                            }
+                            totalcalculandoDevuelto = totalcalculandoDevuelto + totalDActual;
+                        }
+                    }
+                    totalDevuelto = totalcalculandoDevuelto;
+                
+            }
+            }catch(Exception e)
+            {
+                SECUDOC.writeLog("Error calculo devoluciones");
+            }
             //faltante = totalVendido - totalRetirado;
             double totalEnCaja = 0;
             TextoCentro("* * Totales Netos * *");
@@ -1419,8 +1478,9 @@ namespace SyncTPV
             TextoDerecha("Total Vendido y Abonado: " + totalVendido.ToString("C") + " MXN");
             TextoDerecha("Total Cobrado: " + totalCobrado.ToString("C") + " MXN");
             TextoDerecha("Total en Ingresos: " + totalIngresado.ToString("C") + " MXN");
+            if (totalDevuelto > 0) TextoDerecha("Total de devoluciones: " + totalDevuelto.ToString("C") + " MXN");
             TextoCentro("");
-            totalEnCaja = totalDeApertura + totalVendido + totalCobrado + totalIngresado;
+            totalEnCaja = totalDeApertura + totalVendido + totalCobrado + totalIngresado - totalDevuelto;
             TextoDerecha("Total En Caja: " + totalEnCaja.ToString("C") + " MXN");
             TextoCentro("");
             TextoDerecha("Total Retirado: " + totalRetirado.ToString("C") + " MXN");
@@ -1726,6 +1786,35 @@ namespace SyncTPV
                 retirosList = RetiroModel.getAllWithdrawals(query);
             });
             return retirosList;
+        }
+
+        private async Task<List<DocumentModel>> getAllDevolucionesList()
+        {
+            List<DocumentModel> retirosList = null;
+            double[] listaD = { 0, 0};
+            await Task.Run(async () =>
+            {
+                String query = "SELECT * FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA+" WHERE "+
+                LocalDatabase.CAMPO_TIPODOCUMENTO_DOC+ " = 5";
+                retirosList = DocumentModel.getAllDocuments(query);
+            });
+            return retirosList;
+        }
+
+        private List<dynamic> getAllDevolucionesTotalChangeList(String Ids)
+        {
+            List<dynamic> listaD = new List<dynamic>();
+            
+            if (!Ids.Equals(""))
+            {
+                String query = "select " + LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC + " ,sum(" + LocalDatabase.CAMPO_IMPORTE_FORMACOBRODOC + ") as importe, sum(" + LocalDatabase.CAMPO_CAMBIO_FORMACOBRODOC + ") as cambio ,"
+                + LocalDatabase.CAMPO_NOMBRE_FORMASCOBRO + " from " + LocalDatabase.TABLA_FORMA_COBRO_DOCUMENTO + " INNER JOIN " + LocalDatabase.TABLA_FORMASCOBRO +
+                " on FormaCobroDocumento.forma_cobro_id_abono = FormasDeCobro.FORMA_COBRO_CC_ID" + " WHERE " +
+                LocalDatabase.CAMPO_DOCID_FORMACOBRODOC + " in ("+Ids+ ") GROUP by FormaCobroDocumento.forma_cobro_id_abono";
+                listaD = DocumentModel.CalculateAllTotalANDChanfge(query);
+            }
+ 
+            return listaD;
         }
 
         private async Task<List<IngresoModel>> getAllIngresosRepCaja()

@@ -1,0 +1,356 @@
+COMEDORES Y SERVICIOS INDUSTRIALES CAMSA
+                   A
+                    
+Colegio Miraflores 1827 Colonia Campo Be
+    llo Etapa I, II, III, IV, V y VI
+            RFC:CSI220411TM6
+            EXPED:Chihuahua
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-13 08:16:18
+                    
+            Reporte de Caja
+                    
+    * * * Importe de Apertura * * *
+          Total Ingresado: $2,000.00 MXN
+* * * Totales por Formas de Cobro * * *
+                    
+> 1 Efectivo = $10180.7 MXN
+> 28 Tarjeta de debito = $1676 MXN
+                     -------------------
+                    Total: $ 11856.7 MXN
+                    
+                                        
+                    
+   * Documentos por Formas de Cobros *
+                    
+> 1 Efectivo
+Folio #A3C1221212072253 
+                       Total: $46.00 MXN
+Folio #A3C1221212072329 
+                       Total: $20.00 MXN
+Folio #A3C1221212072355 
+                       Total: $53.00 MXN
+Folio #A3C1221212072425 
+                       Total: $15.00 MXN
+Folio #A3C1221212072505 
+                       Total: $56.00 MXN
+Folio #A3C1221212072548 
+                       Total: $23.00 MXN
+Folio #A3C1221212072621 
+                       Total: $41.00 MXN
+Folio #A3C1221212072705 
+                       Total: $31.00 MXN
+Folio #A3C1221212072818 
+                       Total: $25.00 MXN
+Folio #A3C1221212072856 
+                        Total: $8.00 MXN
+Folio #A3C1221212072911 
+                       Total: $23.00 MXN
+Folio #A3C1221212072934 
+                       Total: $18.00 MXN
+Folio #A3C1221212073005 
+                       Total: $18.00 MXN
+Folio #A3C1221212073037 
+                       Total: $36.00 MXN
+Folio #A3C1221212073123 
+                       Total: $25.00 MXN
+Folio #A3C1221212073206 
+                       Total: $18.00 MXN
+Folio #A3C1221212073245 
+                       Total: $20.00 MXN
+Folio #A3C1221212073313 
+                        Total: $8.00 MXN
+Folio #A3C1221212073412 
+                       Total: $38.00 MXN
+Folio #A3C1221212073530 
+                       Total: $13.00 MXN
+Folio #A3C1221212073641 
+                        Total: $5.00 MXN
+Folio #A3C1221212073713 
+                       Total: $48.00 MXN
+Folio #A3C1221212073813 
+                       Total: $40.00 MXN
+Folio #A3C1221212073839 
+                       Total: $16.00 MXN
+Folio #A3C1221212074055 
+                        Total: $5.00 MXN
+Folio #A3C1221212074334 
+                        Total: $8.00 MXN
+Folio #A3C1221212074403 
+                       Total: $33.00 MXN
+Folio #A3C1221212074456 
+                       Total: $25.00 MXN
+Folio #A3C1221212074620 
+                       Total: $40.00 MXN
+Folio #A3C1221212074654 
+                        Total: $8.00 MXN
+Folio #A3C1221212074732 
+                       Total: $16.00 MXN
+Folio #A3C1221212074752 
+                       Total: $30.00 MXN
+Folio #A3C1221212074827 
+                       Total: $43.00 MXN
+Folio #A3C1221212074949 
+                       Total: $10.00 MXN
+Folio #A3C1221212075113 
+                       Total: $10.00 MXN
+Folio #A3C1221212075344 
+                        Total: $1.00 MXN
+Folio #A3C1221212075503 
+                       Total: $20.00 MXN
+Folio #A3C1221212075643 
+                       Total: $18.00 MXN
+Folio #A3C1221212075724 
+                       Total: $28.00 MXN
+Folio #A3C1221212075804 
+                       Total: $41.00 MXN
+Folio #A3C1221212080107 
+                       Total: $51.00 MXN
+Folio #A3C1221212080234 
+                       Total: $89.00 MXN
+Folio #A3C1221212080513 
+                       Total: $40.00 MXN
+Folio #A3C1221212080557 
+                       Total: $25.00 MXN
+Folio #A3C1221212080700 
+                       Total: $46.00 MXN
+Folio #A3C1221212080804 
+                       Total: $40.00 MXN
+Folio #A3C1221212080835 
+                       Total: $26.00 MXN
+Folio #A3C1221212080948 
+                        Total: $1.00 MXN
+Folio #A3C1221212081024 
+                       Total: $43.00 MXN
+Folio #A3C1221212081104 
+                       Total: $20.00 MXN
+Folio #A3C1221212081837 
+                       Total: $40.00 MXN
+Folio #A3C1221212082120 
+                       Total: $58.00 MXN
+Folio #A3C1221212082733 
+                       Total: $10.00 MXN
+Folio #A3C1221212085845 
+                       Total: $10.00 MXN
+Folio #A3C1221212090350 
+                        Total: $5.00 MXN
+Folio #A3C1221212091257 
+                       Total: $68.00 MXN
+Folio #A3C1221212092501 
+                       Total: $16.00 MXN
+Folio #A3C1221212092605 
+                       Total: $15.00 MXN
+Folio #A3C1221212092745 
+                      Total: $109.00 MXN
+Folio #A3C1221212093202 
+                        Total: $5.00 MXN
+Folio #A3C1221212093300 
+                       Total: $43.00 MXN
+Folio #A3C1221212093507 
+                       Total: $30.00 MXN
+Folio #A3C1221212093708 
+                      Total: $143.00 MXN
+Folio #A3C1221212094245 
+                       Total: $45.00 MXN
+Folio #A3C1221212095025 
+                       Total: $23.00 MXN
+Folio #A3C1221212095102 
+                       Total: $60.00 MXN
+Folio #A3C1221212095149 
+                       Total: $98.00 MXN
+Folio #A3C1221212095356 
+                       Total: $98.00 MXN
+Folio #A3C1221212095849 
+                      Total: $153.00 MXN
+Folio #A3C1221212100556 
+                       Total: $35.00 MXN
+Folio #A3C1221212100653 
+                      Total: $106.00 MXN
+Folio #A3C1221212101213 
+                       Total: $10.00 MXN
+Folio #A3C1221212101439 
+                       Total: $64.00 MXN
+Folio #A3C1221212101733 
+                       Total: $15.00 MXN
+Folio #A3C1221212101816 
+                      Total: $101.00 MXN
+Folio #A3C1221212102031 
+                      Total: $105.00 MXN
+Folio #A3C1221212102336 
+                       Total: $72.00 MXN
+Folio #A3C1221212102428 
+                       Total: $48.00 MXN
+Folio #A3C1221212102527 
+                       Total: $75.00 MXN
+Folio #A3C1221212102746 
+                       Total: $56.00 MXN
+Folio #A3C1221212103105 
+                       Total: $23.00 MXN
+Folio #A3C1221212103320 
+                       Total: $16.00 MXN
+Folio #A3C1221212103443 
+                       Total: $49.00 MXN
+Folio #A3C1221212103554 
+                       Total: $50.00 MXN
+Folio #A3C1221212103606 
+                       Total: $40.00 MXN
+Folio #A3C1221212103641 
+                        Total: $5.00 MXN
+Folio #A3C1221212103700 
+                       Total: $36.00 MXN
+Folio #A3C1221212103743 
+                       Total: $23.00 MXN
+Folio #A3C1221212103805 
+                       Total: $23.00 MXN
+Folio #A3C1221212103857 
+                       Total: $63.00 MXN
+Folio #A3C1221212103929 
+                       Total: $84.00 MXN
+Folio #A3C1221212104124 
+                       Total: $66.00 MXN
+Folio #A3C1221212104217 
+                       Total: $66.00 MXN
+Folio #A3C1221212132306 
+                       Total: $35.00 MXN
+Folio #A3C1221212133609 
+                       Total: $25.00 MXN
+Folio #A3C1221212135016 
+                       Total: $47.00 MXN
+Folio #A3C1221212135159 
+                       Total: $40.00 MXN
+Folio #A3C1221212135244 
+                       Total: $47.00 MXN
+Folio #A3C1221212135321 
+                       Total: $32.00 MXN
+Folio #A3C1221212135400 
+                       Total: $32.00 MXN
+Folio #A3C1221212135421 
+                       Total: $32.00 MXN
+Folio #A3C1221212135453 
+                       Total: $32.00 MXN
+Folio #A3C1221212135532 
+                       Total: $32.00 MXN
+Folio #A3C1221212135940 
+                       Total: $13.00 MXN
+Folio #A3C1221212140221 
+                       Total: $55.00 MXN
+Folio #A3C1221212140315 
+                       Total: $32.00 MXN
+Folio #A3C1221212140526 
+                       Total: $47.00 MXN
+Folio #A3C1221212140612 
+                       Total: $25.00 MXN
+Folio #A3C1221212140653 
+                       Total: $32.00 MXN
+Folio #A3C1221212140824 
+                       Total: $25.00 MXN
+Folio #A3C1221212140843 
+                       Total: $29.00 MXN
+Folio #A3C1221212141203 
+                       Total: $32.00 MXN
+Folio #A3C1221212141247 
+                       Total: $15.00 MXN
+Folio #A3C1221212141309 
+                       Total: $13.00 MXN
+Folio #A3C1221212141335 
+                       Total: $15.00 MXN
+Folio #A3C1221212141400 
+                       Total: $15.00 MXN
+Folio #A3C1221212141609 
+                       Total: $67.00 MXN
+Folio #A3C1221212142315 
+                      Total: $713.93 MXN
+Folio #A3C1221212142954 
+                      Total: $390.00 MXN
+Folio #A3C1221212143352 
+                      Total: $304.00 MXN
+Folio #A3C1221212143828 
+                      Total: $183.01 MXN
+Folio #A3C1221212144338 
+                    Total: $2,845.30 MXN
+Folio #A3C1221212144714 
+                    Total: $2,816.39 MXN
+           Suma Efectivo: $11,642.63 MXN
+> 28 Tarjeta de débito
+Folio #A3C1221212072743 
+                       Total: $23.00 MXN
+Folio #A3C1221212073452 
+                       Total: $38.00 MXN
+Folio #A3C1221212074908 
+                       Total: $40.00 MXN
+Folio #A3C1221212080623 
+                       Total: $33.00 MXN
+Folio #A3C1221212081339 
+                       Total: $76.00 MXN
+Folio #A3C1221212082006 
+                       Total: $20.00 MXN
+Folio #A3C1221212083053 
+                       Total: $10.00 MXN
+Folio #A3C1221212083216 
+                      Total: $114.00 MXN
+Folio #A3C1221212083838 
+                       Total: $88.00 MXN
+Folio #A3C1221212084455 
+                       Total: $40.00 MXN
+Folio #A3C1221212085525 
+                       Total: $80.00 MXN
+Folio #A3C1221212090946 
+                       Total: $51.00 MXN
+Folio #A3C1221212091532 
+                       Total: $25.00 MXN
+Folio #A3C1221212093003 
+                       Total: $70.00 MXN
+Folio #A3C1221212093117 
+                       Total: $43.00 MXN
+Folio #A3C1221212100220 
+                       Total: $13.00 MXN
+Folio #A3C1221212100912 
+                       Total: $75.00 MXN
+Folio #A3C1221212135616 
+                       Total: $25.00 MXN
+Folio #A3C1221212135724 
+                       Total: $32.00 MXN
+Folio #A3C1221212141510 
+                       Total: $32.00 MXN
+     Suma Tarjeta de débito: $928.00 MXN
+                                        
+          * * * Creditos * * *
+       * * Pagos de Clientes * *
+          * * * Retiros * * *
+CORTE
+Retiro1                   $10,750.00 MXN
+TARJETA
+Retiro2                    $1,676.00 MXN
+FONDO
+Retiro3                    $2,000.00 MXN
+         * * Totales Netos * *
+                    
+                 Total a Crédito: $0 MXN
+                    
+      Importe de Apertura: $2,000.00 MXN
+ Total Vendido y Abonado: $12,570.63 MXN
+                Total Cobrado: $0.00 MXN
+            Total en Ingresos: $0.00 MXN
+                    
+           Total En Caja: $14,570.63 MXN
+                    
+          Total Retirado: $14,426.00 MXN
+                    
+      ----------------------------
+                   Faltante: $144.63 MXN
+                    
+       13/12/2022 08:16:18 a. m.
+            Firma Del Cajero
+                    
+                    
+       __________________________
+                    
+                    
+                    
+                    
+
+
+
+----------------------------------------

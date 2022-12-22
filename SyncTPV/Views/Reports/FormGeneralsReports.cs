@@ -95,11 +95,11 @@ namespace SyncTPV.Views.Reports
             comboBoxSelectEI.Items.Add("Retiros");
             comboBoxSelectEI.Items.Add("Ingresos");
             totalDeApertura = AperturaTurnoModel.getImporteDeAperturaActual();
-            editImporteApertura.Text = "Importe de Apertura: "+totalDeApertura.ToString("C") + " MXN";
+            editImporteApertura.Text = "Importe de Apertura: " + totalDeApertura.ToString("C") + " MXN";
             //checkBoxTipoDeBusqueda.Visible = false;
             string cargaInicial = "";
             if (cargaInicial == "" || cargaInicial == null) { }
-            else { 
+            else {
                 dateTimePickerStart.Value = Convert.ToDateTime(cargaInicial);
             }
             validarPermisoPrepedido();
@@ -140,7 +140,7 @@ namespace SyncTPV.Views.Reports
                 fillDataGridRetiradoReporteCaja();
                 fillTotaltesRetiros();
             }
-            else { 
+            else {
                 egresosTurnoListActivated = false;
                 resetVariablesEIDelTurno(0);
                 fillDataGridIngresosReporteCaja();
@@ -208,6 +208,7 @@ namespace SyncTPV.Views.Reports
         private void tabControlReportes_SelectedIndexChanged(object sender, EventArgs e)
         {
             chckBDlocal.Visible = false;
+            btnGenerarReporteItems.Visible = false;
             String newLimite = "";
             newLimite = ComboBoxLimite.Text;
             int reallimit = 30;
@@ -220,7 +221,7 @@ namespace SyncTPV.Views.Reports
                     {
                         reallimit = 30;
                     }
-                }catch(Exception ee)
+                } catch (Exception ee)
                 {
                     reallimit = 30;
                 }
@@ -272,7 +273,7 @@ namespace SyncTPV.Views.Reports
                             reporteCajaActivated = 0;
                         }
                         logicToGetAnbdChargeWithdrawals(searchWordPrepedidos);
-                        
+
                         break;
                     }
                 case 2:
@@ -290,6 +291,25 @@ namespace SyncTPV.Views.Reports
                         tabControlReportes.Height = (tabControlReportes.Height + 45);
                         totalVendidoYCobrado = 0;
                         logicToGetAnbdChargeCash();
+                        break;
+                    }
+                case 3:
+                    {
+                        btnGenerarReporteItems.Visible = true;
+                        resetVariablesEIDelTurno(0);
+                        resetVariablesCreditosDelTurno(0);
+                        resetearValoresDocumentos(0);
+                        resetearValoresEIAnteriores(0);
+                        comboBoxSelectUser.Enabled = false;
+                        dateTimePickerStart.Enabled = false;
+                        dateTimePickerEnd.Enabled = false;
+                        reporteCajaActivated = 1;
+                        panelFilters.Height = panelFilters.Height - 58;
+                        tabControlReportes.Location = new Point(0, 4);
+                        tabControlReportes.Height = (tabControlReportes.Height + 45);
+                        totalVendidoYCobrado = 0;
+                        fillDataGridVentaItemsReporteCaja();
+                        fillDataGridDevolucionesItemsReporteCaja();
                         break;
                     }
             }
@@ -322,9 +342,9 @@ namespace SyncTPV.Views.Reports
             Cursor.Current = Cursors.WaitCursor;
             showOrHideDateAndUsers(true);
             dynamic documentosLocal = new ExpandoObject();
-            String horaInicio = HoraInicial+":"+MinutosInicial+":"+SegundosInicial;
-            String horaFin = HoraFinal+":"+MinutosFinal+":"+SegundosFinal;
-            documentosLocal = fillDataGridDocumentsDBLocal(FechaInicial,FechaFinal,horaInicio, horaFin);
+            String horaInicio = HoraInicial + ":" + MinutosInicial + ":" + SegundosInicial;
+            String horaFin = HoraFinal + ":" + MinutosFinal + ":" + SegundosFinal;
+            documentosLocal = fillDataGridDocumentsDBLocal(FechaInicial, FechaFinal, horaInicio, horaFin);
             dataGridViewDocumentosAnteriores.Rows.Clear();
             if (documentosLocal.value == -1)
             {
@@ -332,7 +352,7 @@ namespace SyncTPV.Views.Reports
             }
             else
             {
-                if(documentosLocal.value == 0)
+                if (documentosLocal.value == 0)
                 {
                     imgSinDatosDocumentosAnteriores.Visible = true;
                 }
@@ -392,7 +412,7 @@ namespace SyncTPV.Views.Reports
             {
                 if (lastIdDocumentosAnteriores == 0)
                     resetearValoresDocumentos(0);
-                await callDownloadDocumentsProcess(userId, FechaInicial + " "+horaInicio, FechaFinal + " "+horaFin, lastIdDocumentosAnteriores);
+                await callDownloadDocumentsProcess(userId, FechaInicial + " " + horaInicio, FechaFinal + " " + horaFin, lastIdDocumentosAnteriores);
             } else if (information == GetDataService.GET_WITHDRAWAL)
             {
                 if (lastIdEIAnteriores == 0)
@@ -401,7 +421,7 @@ namespace SyncTPV.Views.Reports
                     resetVariablesEIDelTurno(0);
                 }
                 await callDownloadWithdrawalsProcess(userId, FechaInicial + " " + horaInicio, FechaFinal + " " + horaFin, lastIdEIAnteriores);
-                
+
             }
         }
 
@@ -413,7 +433,7 @@ namespace SyncTPV.Views.Reports
             fw.StartPosition = FormStartPosition.CenterScreen;
             fw.ShowDialog();*/
 
-            
+
             await fillDataGridCreditosReporteCaja();
             await fillDataGridVentasReporteCaja();
             await fillDataGridRetiradoReporteCaja();
@@ -525,16 +545,16 @@ namespace SyncTPV.Views.Reports
         private async Task callDownloadWithdrawalsProcess(int idUser, String startDate, String endDate, int lastId)
         {
             dynamic respuesta = new ExpandoObject();
-            
-                GetDataService gds = new GetDataService();
-                if (ConfiguracionModel.isLANPermissionActivated())
-                    respuesta = await gds.downloadAllWithdrawalsLAN(idUser, startDate, endDate, lastId, LIMIT);
-                else respuesta = await gds.downloadAllWithdrawals(idUser, startDate, endDate, lastId, LIMIT);
+
+            GetDataService gds = new GetDataService();
+            if (ConfiguracionModel.isLANPermissionActivated())
+                respuesta = await gds.downloadAllWithdrawalsLAN(idUser, startDate, endDate, lastId, LIMIT);
+            else respuesta = await gds.downloadAllWithdrawals(idUser, startDate, endDate, lastId, LIMIT);
             validateDownloadDocumentsResponse(respuesta);
-            
+
         }
 
-        
+
         private async Task validateDownloadDocumentsResponse(dynamic respuesta)
         {
             Cursor.Current = Cursors.WaitCursor;
@@ -608,7 +628,7 @@ namespace SyncTPV.Views.Reports
                             FormMessage formMessage = new FormMessage("Exception", description, 2);
                             formMessage.ShowDialog();
                         }
-                    } 
+                    }
                 }
             }
             Cursor.Current = Cursors.Default;
@@ -616,7 +636,7 @@ namespace SyncTPV.Views.Reports
 
         private void comboHoraInicio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            HoraInicial =  (comboHoraInicio.Text).ToString();
+            HoraInicial = (comboHoraInicio.Text).ToString();
         }
 
         private void comboMinutosInicio_SelectedIndexChanged(object sender, EventArgs e)
@@ -710,18 +730,18 @@ namespace SyncTPV.Views.Reports
             else BDlocal = false;
         }
 
-        public static dynamic fillDataGridDocumentsDBLocal(String FechaInicial,String FechaFinal,String horainicio, String horafin)
+        public static dynamic fillDataGridDocumentsDBLocal(String FechaInicial, String FechaFinal, String horainicio, String horafin)
         {
-            
+
             dynamic respuesta = new ExpandoObject();
             List<dynamic> Documentos = null;
             try
             {
-                String query = "select * from Documentos inner join FormasDeCobro on Documentos.FORMA_COBRO_ID = FormasDeCobro.FORMA_COBRO_CC_ID Where " + LocalDatabase.CAMPO_FECHAHORAMOV_DOC+ " BETWEEN '"+
-                    FechaInicial+" "+horainicio+"' AND '"+FechaFinal+" "+horafin+"' AND "+LocalDatabase.CAMPO_USUARIOID_DOC + " = "+userId+" " +
-                    "And "+LocalDatabase.CAMPO_PAUSAR_DOC+"= 0 AND "+
-                    LocalDatabase.CAMPO_CANCELADO_DOC+"=0 order by id desc";
-                
+                String query = "select * from Documentos inner join FormasDeCobro on Documentos.FORMA_COBRO_ID = FormasDeCobro.FORMA_COBRO_CC_ID Where " + LocalDatabase.CAMPO_FECHAHORAMOV_DOC + " BETWEEN '" +
+                    FechaInicial + " " + horainicio + "' AND '" + FechaFinal + " " + horafin + "' AND " + LocalDatabase.CAMPO_USUARIOID_DOC + " = " + userId + " " +
+                    "And " + LocalDatabase.CAMPO_PAUSAR_DOC + "= 0 AND " +
+                    LocalDatabase.CAMPO_CANCELADO_DOC + "=0 order by id desc";
+
                 Documentos = DocumentModel.getReporteDeDocumentos(query);
                 if (Documentos != null)
                 {
@@ -735,7 +755,7 @@ namespace SyncTPV.Views.Reports
                 }
                 respuesta.documentos = Documentos;
             }
-            catch(Exception e){
+            catch (Exception e) {
                 respuesta.value = -1;
                 respuesta.description = e.ToString();
                 respuesta.documentos = null;
@@ -835,7 +855,7 @@ namespace SyncTPV.Views.Reports
                             }
                         }
                         cambioInfo += "Cambio " + cambio.ToString("C") + " MXN";
-                        dataGridViewDocumentosAnteriores.Rows[n].Cells[6].Value = fcDocs +"\r\n"+ cambioInfo;
+                        dataGridViewDocumentosAnteriores.Rows[n].Cells[6].Value = fcDocs + "\r\n" + cambioInfo;
                         dataGridViewDocumentosAnteriores.Rows[n].Cells[7].Value = "" + documentosAnterioresListTemp[i].anticipo.ToString("C") + " MXN";
                         dataGridViewDocumentosAnteriores.Rows[n].Cells[8].Value = "" + documentosAnterioresListTemp[i].total.ToString("C") + " MXN";
                     }
@@ -942,26 +962,26 @@ namespace SyncTPV.Views.Reports
             gridScrollBarsEIAnteriores = dataGridViewEIAnteriores.ScrollBars;
             lastLoadingEIAnteriores = DateTime.Now;
             //if (call == 0)
-                //egresosTurnoListTemp = await getAllWithdrawals();
+            //egresosTurnoListTemp = await getAllWithdrawals();
             if (egresosListTemp != null && egresosListTemp.Count > 0)
             {
                 progressEIAnteriores += egresosListTemp.Count;
                 egresosList.AddRange(egresosListTemp);
-                if(LIMIT == 0)
+                if (LIMIT == 0)
                 {
                     for (int i = 0; i < egresosListTemp.Count; i++)
                     {
-                            int n = dataGridViewEIAnteriores.Rows.Add();
-                            dataGridViewEIAnteriores.Rows[n].Cells[0].Value = egresosListTemp[i].id + "";
-                            dataGridViewEIAnteriores.Rows[n].Cells[1].Value = egresosListTemp[i].number + "";
-                            dataGridViewEIAnteriores.Rows[n].Cells[2].Value = egresosListTemp[i].concept + "";
-                            dataGridViewEIAnteriores.Rows[n].Cells[3].Value = egresosListTemp[i].description + "";
-                            dataGridViewEIAnteriores.Rows[n].Cells[4].Value = egresosListTemp[i].fechaHora + "";
-                            dataGridViewEIAnteriores.Rows[n].Cells[5].Value = "0";
-                            dataGridViewEIAnteriores.Columns[5].Visible = false;
-                            dataGridViewEIAnteriores.Rows[n].Cells[6].Value = "0";
-                            dataGridViewEIAnteriores.Columns[6].Visible = false;
-                        
+                        int n = dataGridViewEIAnteriores.Rows.Add();
+                        dataGridViewEIAnteriores.Rows[n].Cells[0].Value = egresosListTemp[i].id + "";
+                        dataGridViewEIAnteriores.Rows[n].Cells[1].Value = egresosListTemp[i].number + "";
+                        dataGridViewEIAnteriores.Rows[n].Cells[2].Value = egresosListTemp[i].concept + "";
+                        dataGridViewEIAnteriores.Rows[n].Cells[3].Value = egresosListTemp[i].description + "";
+                        dataGridViewEIAnteriores.Rows[n].Cells[4].Value = egresosListTemp[i].fechaHora + "";
+                        dataGridViewEIAnteriores.Rows[n].Cells[5].Value = "0";
+                        dataGridViewEIAnteriores.Columns[5].Visible = false;
+                        dataGridViewEIAnteriores.Rows[n].Cells[6].Value = "0";
+                        dataGridViewEIAnteriores.Columns[6].Visible = false;
+
                     }
                 }
                 else
@@ -983,13 +1003,13 @@ namespace SyncTPV.Views.Reports
                         }
                     }
                 }
-                
+
                 dataGridViewEIAnteriores.PerformLayout();
                 egresosListTemp.Clear();
                 lastIdEIAnteriores = Convert.ToInt32(egresosList[egresosList.Count - 1].id);
                 btnReportePdfEI.Enabled = true;
                 imgSinDatosEIAnteriores.Visible = false;
-            } else{
+            } else {
                 if (progressEIAnteriores == 0)
                     imgSinDatosEIAnteriores.Visible = true;
             }
@@ -1016,8 +1036,8 @@ namespace SyncTPV.Views.Reports
                     queryEIAnterioresTemp = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS + " WHERE " +
                     LocalDatabase.CAMPO_FECHAHORA_RETIRO + " BETWEEN '" + FechaInicial + " 00:00:00' AND '" +
                     FechaFinal + " 23:59:59' AND " + LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + userId +
-                    " AND "+LocalDatabase.CAMPO_ID_RETIRO+" > "+lastIdEIAnteriores+" ORDER BY "+
-                    LocalDatabase.CAMPO_ID_RETIRO+" ASC LIMIT "+LIMIT;
+                    " AND " + LocalDatabase.CAMPO_ID_RETIRO + " > " + lastIdEIAnteriores + " ORDER BY " +
+                    LocalDatabase.CAMPO_ID_RETIRO + " ASC LIMIT " + LIMIT;
                     queryTotalesEIAnteriores = "SELECT COUNT(*) FROM " + LocalDatabase.TABLA_RETIROS + " WHERE " +
                     LocalDatabase.CAMPO_FECHAHORA_RETIRO + " BETWEEN '" + FechaInicial + " 00:00:00' AND '" +
                     FechaFinal + " 23:59:59' AND " + LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + userId;
@@ -1101,7 +1121,7 @@ namespace SyncTPV.Views.Reports
                 frmWaiting.Close();
                 frmWaiting.Dispose();
             }
-            FormMessage formMessage = new FormMessage("Documento Generado", "El documento PDF fue generado correctamente!\r\n"+
+            FormMessage formMessage = new FormMessage("Documento Generado", "El documento PDF fue generado correctamente!\r\n" +
                 filePath, 1);
             formMessage.ShowDialog();
         }
@@ -1157,20 +1177,20 @@ namespace SyncTPV.Views.Reports
             if (BDlocal)
             {
                 await cpdfm.createPdfDocumentsBDLOCAL(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
-                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores,horaInicio,horaFin);
+                FechaInicial, FechaFinal, 0, totalDocumentosAnteriores, horaInicio, horaFin);
             }
             else
             {
                 await cpdfm.createPdfDocuments(enterpriseName, filePath, nameReport, userId, permissionPrepedido,
                 FechaInicial, FechaFinal, 0, totalDocumentosAnteriores, horaInicio, horaFin);
             }
-            
+
             if (frmWaiting != null)
             {
                 frmWaiting.Close();
                 frmWaiting.Dispose();
             }
-            FormMessage formMessage = new FormMessage("Documento Generado", "El documento PDF fue generado correctamente!\r\n"+
+            FormMessage formMessage = new FormMessage("Documento Generado", "El documento PDF fue generado correctamente!\r\n" +
                 filePath, 1);
             formMessage.ShowDialog();
             Cursor.Current = Cursors.Default;
@@ -1231,6 +1251,69 @@ namespace SyncTPV.Views.Reports
             //imgEndDate.Visible = state;
             dateTimePickerEnd.Visible = state;
             Cursor.Current = Cursors.Default;
+        }
+        private async Task fillDataGridVentaItemsReporteCaja()
+        {
+            gridScrollBarsCreditosDelTurno = dataGridVentasItems.ScrollBars;
+            lastLoadingCreditosDelTurno = DateTime.Now;
+            String query = "SELECT M.ARTICULO_ID,M.CLAVE_ART,I.name , sum(M.unidades_capturadas) as unidades, " +
+                "sum(M.total) as totalM "+
+                "FROM Documentos D INNER join "+
+                "Movimientos M on D.id = M.DOCTO_ID_PEDIDO "+
+                "LEFT join Item I on M.CLAVE_ART = I.code " +
+                "WHERE D.TIPO_DOCUMENTO = 4 AND D.pausa = 0 AND D.cancelado = 0 "+
+                "GROUP by M.CLAVE_ART ORDER by M.ARTICULO_ID";
+            List<dynamic> creditosDelTurnoListTemp = DocumentModel.OptenerReporteItemsVenta(query);
+            if (creditosDelTurnoListTemp != null)
+            {
+                for (int i = 0; i < creditosDelTurnoListTemp.Count; i++)
+                {
+                    int n = dataGridVentasItems.Rows.Add();
+                    dataGridVentasItems.Rows[n].Cells[0].Value = (i+1)+ "";
+                    dataGridVentasItems.Rows[n].Cells[1].Value = creditosDelTurnoListTemp[i].ARTICULO_ID;
+                    dataGridVentasItems.Rows[n].Cells[2].Value = creditosDelTurnoListTemp[i].CLAVE_ART;
+                    dataGridVentasItems.Rows[n].Cells[3].Value = creditosDelTurnoListTemp[i].name;
+                    dataGridVentasItems.Rows[n].Cells[4].Value = creditosDelTurnoListTemp[i].unidades;
+                    dataGridVentasItems.Rows[n].Cells[5].Value = creditosDelTurnoListTemp[i].totalM;
+                }
+                dataGridVentasItems.PerformLayout();
+                creditosDelTurnoListTemp.Clear();
+                lastIdCreditsTurno = Convert.ToInt32(creditosDelTurnoList[creditosDelTurnoList.Count - 1].id);
+            }
+            dataGridViewCreditsTurno.PerformLayout();
+            //imgSinDatosCreditosDelTurno.Visible = false;
+        }
+
+        private async Task fillDataGridDevolucionesItemsReporteCaja()
+        {
+            gridScrollBarsCreditosDelTurno = dataGridDevolucionesItems.ScrollBars;
+            lastLoadingCreditosDelTurno = DateTime.Now;
+            String query = "SELECT M.ARTICULO_ID,M.CLAVE_ART,I.name , sum(M.unidades_capturadas) as unidades, " +
+                "sum(M.total) as totalM " +
+                "FROM Documentos D INNER join " +
+                "Movimientos M on D.id = M.DOCTO_ID_PEDIDO " +
+                "LEFT join Item I on M.CLAVE_ART = I.code " +
+                "WHERE D.TIPO_DOCUMENTO = 5 AND D.pausa = 0 AND D.cancelado = 0 " +
+                "GROUP by M.CLAVE_ART ORDER by M.ARTICULO_ID";
+            List<dynamic> creditosDelTurnoListTemp = DocumentModel.OptenerReporteItemsVenta(query);
+            if (creditosDelTurnoListTemp != null)
+            {
+                for (int i = 0; i < creditosDelTurnoListTemp.Count; i++)
+                {
+                    int n = dataGridDevolucionesItems.Rows.Add();
+                    dataGridDevolucionesItems.Rows[n].Cells[0].Value = (i + 1) + "";
+                    dataGridDevolucionesItems.Rows[n].Cells[1].Value = creditosDelTurnoListTemp[i].ARTICULO_ID;
+                    dataGridDevolucionesItems.Rows[n].Cells[2].Value = creditosDelTurnoListTemp[i].CLAVE_ART;
+                    dataGridDevolucionesItems.Rows[n].Cells[3].Value = creditosDelTurnoListTemp[i].name;
+                    dataGridDevolucionesItems.Rows[n].Cells[4].Value = creditosDelTurnoListTemp[i].unidades;
+                    dataGridDevolucionesItems.Rows[n].Cells[5].Value = creditosDelTurnoListTemp[i].totalM;
+                }
+                dataGridDevolucionesItems.PerformLayout();
+                creditosDelTurnoListTemp.Clear();
+                lastIdCreditsTurno = Convert.ToInt32(creditosDelTurnoList[creditosDelTurnoList.Count - 1].id);
+            }
+            dataGridViewCreditsTurno.PerformLayout();
+            //imgSinDatosCreditosDelTurno.Visible = false;
         }
 
         private async Task fillDataGridCreditosReporteCaja()
@@ -1505,15 +1588,15 @@ namespace SyncTPV.Views.Reports
             List<RetiroModel> retirosList = null;
             await Task.Run(async () =>
             {
-                
-                    queryEITurno = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS +
-                    //+ " WHERE " +
-                    //LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn()+
-                    //" AND " + LocalDatabase.CAMPO_ID_RETIRO+" > "+lastIdEITurno+
-                    " ORDER BY " + LocalDatabase.CAMPO_ID_RETIRO+" ASC ";
-                    queryTotalEITurno = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS;
-                    //+ " WHERE " +LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn();
-                
+
+                queryEITurno = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS +
+                //+ " WHERE " +
+                //LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn()+
+                //" AND " + LocalDatabase.CAMPO_ID_RETIRO+" > "+lastIdEITurno+
+                " ORDER BY " + LocalDatabase.CAMPO_ID_RETIRO + " ASC ";
+                queryTotalEITurno = "SELECT * FROM " + LocalDatabase.TABLA_RETIROS;
+                //+ " WHERE " +LocalDatabase.CAMPO_IDUSUARIO_RETIRO + " = " + ClsRegeditController.getIdUserInTurn();
+
                 retirosList = RetiroModel.getAllWithdrawals(queryEITurno);
                 totalEITurno = RetiroModel.getIntValue(queryTotalEITurno);
             });
@@ -1732,7 +1815,7 @@ namespace SyncTPV.Views.Reports
                     " AND d." + LocalDatabase.CAMPO_FORMACOBROID_DOC + " = " + 71;
                 double totalACredito = DocumentModel.getDoubleValue(query);
                 editTotalesCreditsAbonosTurno.Text = "Total a Crédito: " + totalACredito.ToString("C", CultureInfo.CurrentCulture) + " MXN \r\n\r\n" +
-                    "Abonos a Créditos \r\n" + formatototales+ "\r\n\r\n";
+                    "Abonos a Créditos \r\n" + formatototales + "\r\n\r\n";
             }
             totalVendidoYCobrado += totalDeApertura;
             Cursor.Current = Cursors.Default;
@@ -1798,9 +1881,15 @@ namespace SyncTPV.Views.Reports
                     }
                 }
             });
-            editTotalesCreditsAbonosTurno.Text += "Total De Pagos: "+total.ToString("C", CultureInfo.CurrentCulture)+ " MXN\r\n " +formatoPagos;
+            editTotalesCreditsAbonosTurno.Text += "Total De Pagos: " + total.ToString("C", CultureInfo.CurrentCulture) + " MXN\r\n " + formatoPagos;
             totalVendidoYCobrado += total;
             return total;
+        }
+
+        public String obtenerDevolucionesTotal(){
+            String query = "SELECT sum(total) FROM " + LocalDatabase.TABLA_DOCUMENTOVENTA + " WHERE " +
+                    LocalDatabase.CAMPO_TIPODOCUMENTO_DOC + " = 5";
+            return query;
         }
 
         private async Task fillTotaltesRetiros()
@@ -1812,6 +1901,7 @@ namespace SyncTPV.Views.Reports
             double totalRetirado = 0;
             double totalIngresado = 0;
             List<FormasDeCobroModel> fcList = null;
+            double totalDevuelto = DocumentModel.getTotalForDocumentQuery(obtenerDevolucionesTotal());
             await Task.Run(() => {
                 fcList = FormasDeCobroModel.getAllFormasDeCobro();
                 String textFaltanteDesc = "";
@@ -1851,6 +1941,8 @@ namespace SyncTPV.Views.Reports
                 }
             });
             sobrante = totalVendidoYCobrado + totalIngresado;
+            sobrante = sobrante - totalDevuelto;
+            
             editTotalEnCaja.Text = "Total en Caja: " + sobrante.ToString("C", CultureInfo.CurrentCulture) + " MXN";
             sobrante = sobrante - totalRetirado;
             double faltante = sobrante;

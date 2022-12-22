@@ -91,8 +91,9 @@ namespace SyncTPV
             await loadInitialData();
             await validateIfWebIsActive();
             validateInitialData();
+            PASA = Convert.ToBoolean(await validateVentarapida());
         }
-
+        bool PASA = true;
         private async Task loadInitialData()
         {
             int value = 0;
@@ -1500,55 +1501,69 @@ namespace SyncTPV
             return itemModel;
         }
 
-        private void cobrarCarritoTpv(int idDocumento)
+        private async void cobrarCarritoTpv(int idDocumento)
         {
+            await changeDocumentType();
             FormasDeCobroDocumentoModel.removePendingBalanceToTheLastFormOfCollectionOfTheDocument(idDocumento);
             if (completarDocumentoConTotales(idDocumento))
             {
-                if (MovimientosModel.checkIfThereAreStillMovementsForTheDocumentInShift(idDocumento))
+                if (validarMovsDocumento(idDocumento))
                 {
-                    documentType = DocumentModel.getDocumentType(idDocumento);
-                    FormPayCart fpc = new FormPayCart(this, idDocument, documentType, activateOpcionFacturar,
-                        webActive, cotmosActive);
-                    fpc.StartPosition = FormStartPosition.CenterScreen;
-                    fpc.ShowDialog();
-                    if (idDocument != 0)
+                    if (MovimientosModel.checkIfThereAreStillMovementsForTheDocumentInShift(idDocumento))
                     {
-                        btnRecuperar.Visible = false;
-                        btnSurtirPedidos.Visible = false;
-                        idCustomer = DocumentModel.getCustomerIdOfADocument(idDocument);
-                        getAndFillCustomerInformation(idCustomer);
-                    } else
-                    {
-                        btnRecuperar.Visible = true;
-                        btnSurtirPedidos.Visible = true;
-                        if (editMove)
+                        documentType = DocumentModel.getDocumentType(idDocumento);
+                        FormPayCart fpc = new FormPayCart(this, idDocument, documentType, activateOpcionFacturar,
+                            webActive, cotmosActive);
+                        fpc.StartPosition = FormStartPosition.CenterScreen;
+                        fpc.ShowDialog();
+                        if (idDocument != 0)
                         {
-                            clearMovementsAddedData();
-                            clearMovementValues();
-                            editMove = false;
+                            btnRecuperar.Visible = false;
+                            btnSurtirPedidos.Visible = false;
+                            idCustomer = DocumentModel.getCustomerIdOfADocument(idDocument);
+                            getAndFillCustomerInformation(idCustomer);
                         }
-                        getAndFillCustomerInformation(0);
-                    }
-                    if (permissionPrepedido) {
-                        if (DocumentModel.isItDocumentFromAPrepedido(idDocumento))
+                        else
                         {
-                            textInfoDocumentTypeFrmVenta.Text = "Surtiendo PrePedido";
-                            comboBoxDocumentTypeFrmVenta.Visible = false;
-                        } else
+                            btnRecuperar.Visible = true;
+                            btnSurtirPedidos.Visible = true;
+                            if (editMove)
+                            {
+                                clearMovementsAddedData();
+                                clearMovementValues();
+                                editMove = false;
+                            }
+                            getAndFillCustomerInformation(0);
+                        }
+                        if (permissionPrepedido)
+                        {
+                            if (DocumentModel.isItDocumentFromAPrepedido(idDocumento))
+                            {
+                                textInfoDocumentTypeFrmVenta.Text = "Surtiendo PrePedido";
+                                comboBoxDocumentTypeFrmVenta.Visible = false;
+                            }
+                            else
+                            {
+                                textInfoDocumentTypeFrmVenta.Text = "Tipo de Documento";
+                                comboBoxDocumentTypeFrmVenta.Visible = true;
+                            }
+                        }
+                        else
                         {
                             textInfoDocumentTypeFrmVenta.Text = "Tipo de Documento";
                             comboBoxDocumentTypeFrmVenta.Visible = true;
                         }
-                    } else {
-                        textInfoDocumentTypeFrmVenta.Text = "Tipo de Documento";
-                        comboBoxDocumentTypeFrmVenta.Visible = true;
+                        comboCodigoItemVenta.Select();
                     }
-                    comboCodigoItemVenta.Select();
+                    else
+                    {
+                        FormMessage fm = new FormMessage("Documento No Encontrado", "No hay artículos que cobrar", 2);
+                        fm.ShowDialog();
+                    }
                 }
                 else
                 {
-                    FormMessage fm = new FormMessage("Documento No Encontrado", "No hay artículos que cobrar", 2);
+                    FormMessage fm = new FormMessage("Documento Erroneo", "No Contiene articulos", 3);
                     fm.ShowDialog();
                 }
             }
@@ -1563,6 +1578,11 @@ namespace SyncTPV
         {
             dynamic sumsMap = getCurrentSumsFromDocument(idDocumento);
             return DocumentModel.updateInformationToCobrarDocumentTpv(sumsMap.descuento, sumsMap.total, 0, idDocumento);
+        }
+
+        private Boolean validarMovsDocumento(int idDocumento)
+        {
+            return MovimientosModel.tieneMovimientosDocumento(idDocumento);
         }
 
         public async Task resetearTodosLosValores(bool resetCustomer)
@@ -3529,12 +3549,19 @@ namespace SyncTPV
             }
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                double capturedUnits = 1;
-                double value = 0;
-                bool result = double.TryParse(editCapturedUnits.Text.Trim(), out value); //i now = 108
-                if (result)
-                    capturedUnits = value;
-                await logicToAddItemLocal(capturedUnits);
+                if (PASA)
+                {
+                    double capturedUnits = 1;
+                    double value = 0;
+                    bool result = double.TryParse(editCapturedUnits.Text.Trim(), out value); //i now = 108
+                    if (result)
+                        capturedUnits = value;
+                    await logicToAddItemLocal(capturedUnits);
+                }
+                else
+                {
+                    MessageBox.Show("Venta rapida bloqueada por configuracion");
+                }
             }
         }
 
@@ -4389,23 +4416,50 @@ namespace SyncTPV
                     formWaiting.Close();
             }
         }
-
+        public async Task<int> validateVentarapida()
+        {
+            //checkBoxVentaRapida
+            int ventarapida = 1;
+            await Task.Run(async () =>
+            {
+                ventarapida = ConfiguracionModel.validateVentarapidaActivated();
+            });
+            return ventarapida;
+        }
         private async void FrmVentaNew_KeyUp(object sender, KeyEventArgs e)
         {
+            
+            
             if (e.KeyCode == Keys.F10)
             {
-                cobrarCarritoTpv(idDocument);
+                if (PASA)
+                {
+                    cobrarCarritoTpv(idDocument);
+                }
+                else
+                {
+                    MessageBox.Show("Venta rapida bloqueada por configuracion");
+                }
+                
             } else if (e.KeyCode == Keys.F3)
             {
-                FormArticulos fa = new FormArticulos("", 1, cotmosActive);
-                fa.ShowDialog();
-                if (itemModel != null)
+                if (PASA)
                 {
-                    editCapturedUnits.Select();
-                    seleccionoUnItem = false;
-                    await fillAllFieldsFromAMovement(itemModel, 0, false);
+                    FormArticulos fa = new FormArticulos("", 1, cotmosActive);
+                    fa.ShowDialog();
+                    if (itemModel != null)
+                    {
+                        editCapturedUnits.Select();
+                        seleccionoUnItem = false;
+                        await fillAllFieldsFromAMovement(itemModel, 0, false);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Venta rapida bloqueada por configuracion");
                 }
             }
+            
         }
 
         private async void BtnAgregar_Click(object sender, EventArgs e)

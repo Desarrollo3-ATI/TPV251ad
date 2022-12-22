@@ -2529,6 +2529,45 @@ namespace SyncTPV
             return mcm;
         }
 
+        public static Boolean tieneMovimientosDocumento(int idD)
+        {
+            String query = "SELECT COUNT(*) FROM Movimientos WHERE Movimientos.DOCTO_ID_PEDIDO ="+idD;
+            var db = new SQLiteConnection();
+            Boolean respuesta = false;
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                respuesta = true;
+                                break;
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+                respuesta = false;
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return respuesta;
+        }
+
         public static MovimientosModel getMovement(String query)
         {
             MovimientosModel mcm = null;

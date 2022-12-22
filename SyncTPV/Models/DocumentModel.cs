@@ -541,6 +541,41 @@ namespace SyncTPV
             return value;
         }
 
+        public static double getTotalForDocumentQuery(String query)
+        {
+            double value = 0;
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                                if (reader.GetValue(0) != DBNull.Value)
+                                    value = Convert.ToDouble(reader.GetValue(0).ToString().Trim());
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return value;
+        }
+
         public static int getIntValueWithParametersDates(String query, String parameterName1, String parameterValue1, String parameterName2,
             String parameterValue2)
         {
@@ -969,6 +1004,89 @@ namespace SyncTPV
                     db.Close();
             }
             return fechaHora;
+        }
+
+        public static List<dynamic> CalculateAllTotalANDChanfge(String query)
+        {
+            List<dynamic> listaD = new List<dynamic>();
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                dynamic fcd = new ExpandoObject();
+                                fcd.total = Convert.ToDouble(reader[LocalDatabase.CAMPO_IMPORTE_FORMACOBRODOC].ToString().Trim());
+                                fcd.change = Convert.ToDouble(reader[LocalDatabase.CAMPO_CAMBIO_FORMACOBRODOC].ToString().Trim());
+                                fcd.idC = Convert.ToInt32(reader[LocalDatabase.CAMPO_FORMACOBROIDABONO_FORMACOBRODOC].ToString().Trim());
+                                fcd.nombre = reader[LocalDatabase.CAMPO_NOMBRE_FORMASCOBRO].ToString().Trim();
+                                listaD.Add(fcd);
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return listaD;
+        }
+
+        public static List<dynamic> OptenerReporteItemsVenta(String query)
+        {
+            List<dynamic> listaD = new List<dynamic>();
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                dynamic fcd = new ExpandoObject();
+                                fcd.ARTICULO_ID = reader["ARTICULO_ID"].ToString().Trim();
+                                fcd.CLAVE_ART = reader["CLAVE_ART"].ToString().Trim();
+                                fcd.name = reader["name"].ToString().Trim();
+                                fcd.unidades = reader["unidades"].ToString().Trim();
+                                fcd.totalM = reader["totalM"].ToString().Trim();
+                                listaD.Add(fcd);
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return listaD;
         }
 
         public static List<DocumentModel> getAllDocuments(String query)

@@ -1,0 +1,49 @@
+      ATI Pruebas sucursal tuxtla
+                 Venta
+                 tuxtla
+           RFC:XAXX010101000
+                    
+Folio: A6C1221212160830
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-12 16:09:55
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 (Ninguno) coca-cola
+COD1    $628.14  0% $0.00  $628.14MXN
+                    
+                    
+Neto :                       $541.50 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                   $541.50 MXN
+I.V.A. :                      $86.64 MXN
+                    
+Total :                      $628.14 MXN
+Monedero electróni           $628.14 MXN
+Cambio :                       $0.00 MXN
+SEISCIENTOS VEINTIOCHO PESOS 14/100 M.N.
+                    
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 1
+Usted Ahorro: $0.00
+                    
+Gracias por compar, vuelva pronto y comp
+                re mas!
+                    
+          * * * Original * * *
+12/12/2022 04:11:08 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

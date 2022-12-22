@@ -3,14 +3,17 @@ using SyncTPV.Controllers.Downloads;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
+using System.Dynamic;
 using System.Threading.Tasks;
 using wsROMClase;
 using wsROMClases.Models.Commercial;
 using wsROMClases.Models.Panel;
+using static iTextSharp.awt.geom.Point2D;
 
 namespace SyncTPV
 {
@@ -1695,11 +1698,54 @@ namespace SyncTPV
             return noConvertibleUnitId;
         }
 
+        
+        public static async Task UpdateImpuestosForAnItemLocal(int id, double imp1, double imp2, double imp3,
+                        double imp1Excento, double imp2CuotaFija, double imp3CuotaFija, double cantidadFiscal,
+                        double reten1, double reten2)
+        {
+            var db = new SQLiteConnection();
+            try
+            {
+                db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                db.Open();
+                String query = "UPDATE " + LocalDatabase.TABLA_ITEM + " SET " +
+                    LocalDatabase.CAMPO_IMP1_ITEM + " = " + imp1 + ", " +
+                    LocalDatabase.CAMPO_IMP2_ITEM + " = " + imp2 + ", " +
+                    LocalDatabase.CAMPO_IMP3_ITEM + " = " + imp3 + ", " +
+                    LocalDatabase.CAMPO_IMP1EXCENTO_ITEM + " = " + imp1Excento + ", " +
+                    LocalDatabase.CAMPO_IMP2CUOTA_ITEM + " = " + imp2CuotaFija + ", " +
+                    LocalDatabase.CAMPO_IMP3CUOTA_ITEM + " = " + imp3CuotaFija + ", " +
+                    LocalDatabase.CAMPO_CANTIDADFISCAL_ITEM + " = " + cantidadFiscal + ", " +
+                    LocalDatabase.CAMPO_RETEN1_ITEM + " = " + reten1 + ", " +
+                    LocalDatabase.CAMPO_RETEN2_ITEM + " = " + reten2 + " WHERE " +
+                    LocalDatabase.CAMPO_ID_ITEM + " = " + id;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    int funciono = command.ExecuteNonQuery();
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+
+        }
+
         public static async Task<List<ClsPreciosEmpresaModel>> getAllPricesForAnItemAPILAN(ClsItemModel im, bool serverModeLAN, String codigoCaja)
         {
             List<ClsPreciosEmpresaModel> priceList = null;
             await Task.Run(async () =>
             {
+                //aqui ieps
+
+                UpdateImpuestosForAnItemLocal(im.id, im.imp1, im.imp2, im.imp3,
+                        im.imp1Excento, im.imp2CuotaFija, im.imp3CuotaFija, im.cantidadFiscal, im.reten1, im.reten2);
+
                 if (serverModeLAN)
                 {
                     dynamic responsePrices = await ItemsController.getAllPricesForAnItemLAN(im.id, im.imp1, im.imp2, im.imp3,
@@ -2223,6 +2269,223 @@ namespace SyncTPV
                     db.Close();
             }
             return updated;
+        }
+
+        public static ExpandoObject precioSinImpuestos(double precio,
+            double imp1, double imp2, double imp3, int imp1Excento, int imp2Cuota, int imp3Cuota,
+            ClsImpuestoModel imp1Model, ClsImpuestoModel imp2Model, ClsImpuestoModel imp3Model, int decimales)
+        {
+            dynamic response = new ExpandoObject();
+            int value = 0;
+            String description = "";
+            double precioFinal = 0;
+            try
+            {
+                bool i1 = false, i2 = false, i3 = false;
+                if (Convert.ToInt32(imp1Model.CUSAIMPUESTO) >= 2 && Convert.ToInt32(imp1Model.CUSAPORCENTAJEIMPUESTO) >= 2)
+                    i1 = true;
+                else i1 = false;
+                if (Convert.ToInt32(imp2Model.CUSAIMPUESTO) >= 2 && Convert.ToInt32(imp2Model.CUSAPORCENTAJEIMPUESTO) >= 2)
+                    i2 = true;
+                else i2 = false;
+                if (Convert.ToInt32(imp3Model.CUSAIMPUESTO) >= 2 && Convert.ToInt32(imp3Model.CUSAPORCENTAJEIMPUESTO) >= 2)
+                    i3 = true;
+                else i3 = false;
+                //Calcular impuestos
+                double divisor = 1;
+                if (i3)
+                {
+                    double importeImp3 = 0;
+                    switch (imp3Model.CIDFORMULAIMPUESTO)
+                    {
+                        case "73":
+                            //calcular en cascada
+                            importeImp3 = precio / (1 + (imp3 / 100));
+                            importeImp3 = precio - importeImp3;
+                            break;
+
+                        case "71":
+                            //neto - descuento
+                            divisor += (imp3 / 100);
+                            if (i2)
+                            {
+                                switch (imp2Model.CIDFORMULAIMPUESTO)
+                                {
+                                    case "63":
+                                        //calculo en cascada
+                                        //error
+                                        break;
+                                    case "64":
+                                        //calculo de IEPS
+                                        if (imp2Cuota == 1)
+                                        {
+                                            precio -= imp2;
+                                        }
+                                        else
+                                        {
+                                            description = "Calculo de IEPS: No se ha configurado el producto como cuota " +
+                                                "fija.";
+                                        }
+                                        break;
+                                    case "61":
+                                        //neto - descuento
+                                        divisor += (imp2 / 100);
+                                        if (i1)
+                                        {
+                                            switch (imp1Model.CIDFORMULAIMPUESTO)
+                                            {
+                                                case "51":
+                                                    //neto - descuento
+                                                    divisor += (imp1 / 100);
+                                                    break;
+                                                case "52":
+                                                    //calculo de IEPS?
+                                                    break;
+                                            }
+                                        }
+                                        precio = precio / divisor;
+                                        precioFinal = Math.Round(precio, decimales);
+                                        break;
+                                    case "263":
+                                        //retencion (neto - descuento)
+                                        break;
+                                    case "114":
+                                        //Impuesto por millar
+                                        break;
+                                }
+                                //if (imp2.CIDFORMULAIMPUESTO == "61")
+                                //{
+                                //    //neto - descuento
+                                //    divisor += (producto.Impuesto2 / 100);
+                                //}
+                                //else if (imp2.CIDFORMULAIMPUESTO == "63")
+                                //{
+                                //    //calcular en cascada
+                                //    //error
+                                //    return -1;
+                                //}
+                            }
+                            if (i1)
+                            {
+                                if (imp1Model.CIDFORMULAIMPUESTO == "51")
+                                {
+                                    //neto - descuento
+                                    divisor += (imp1 / 100);
+                                }
+                            }
+                            precio = precio / divisor;
+                            precioFinal = Math.Round(precio, decimales);
+                            break;
+                        case "273":
+                            //retencion (neto - descuento)
+                            break;
+                        case "115":
+                            //impuesto por millar
+                            break;
+                    }
+                    importeImp3 = Math.Round(importeImp3, decimales);
+                    precio -= importeImp3;
+                    precioFinal = Math.Round(precio, decimales);
+                    value = 1;
+                }
+                else
+                {
+                    value = 1;
+                }
+                //Quitar impuesto 2
+                if (i2)
+                {
+                    double importeImp2 = 0;
+                    switch (imp2Model.CIDFORMULAIMPUESTO)
+                    {
+                        case "63":
+                            //calculo en cascada
+                            importeImp2 = precio / (1 + (imp2 / 100));
+                            importeImp2 = precio - importeImp2;
+                            break;
+                        case "64":
+                            //calculo de IEPS
+                            if (imp2Cuota == 1)
+                                importeImp2 = imp2;
+                            break;
+
+                        case "61":
+                            //neto - descuento
+                            divisor += (imp2 / 100);
+                            if (i1)
+                            {
+                                switch (imp1Model.CIDFORMULAIMPUESTO)
+                                {
+                                    case "51":
+                                        //neto - descuento
+                                        divisor += (imp1 / 100);
+                                        break;
+                                    case "52":
+                                        //calculo de IEPS?
+                                        break;
+                                }
+                            }
+                            precio = precio / divisor;
+                            precioFinal = Math.Round(precio, decimales);
+                            break;
+                        case "263":
+                            //retencion (neto - descuento)
+                            break;
+                        case "114":
+                            //Impuesto por millar
+                            break;
+                    }
+                    //precio = Math.Round(importeImp2, decimales);
+                    //precio -= importeImp2;
+                    //precioFinal = Math.Round(precio, decimales);
+                    importeImp2 = Math.Round(importeImp2, decimales);
+                    precio -= importeImp2;
+                    precioFinal = Math.Round(precio, decimales);
+                    value = 1;
+                }
+                else
+                {
+                    value = 1;
+                }
+                //Quitar impuesto 1
+                if (i1)
+                {
+                    double importeImp1 = 0;
+                    switch (imp1Model.CIDFORMULAIMPUESTO)
+                    {
+                        case "51":
+                            //neto - descuento
+                            divisor += (imp1 / 100);
+                            precio = precio / divisor;
+                            precioFinal = Math.Round(precio, decimales);
+                            break;
+                        case "52":
+                            //calculo de IEPS
+                            break;
+                    }
+                    importeImp1 = Math.Round(importeImp1, decimales);
+                    precio -= importeImp1;
+                    precioFinal = Math.Round(precio, decimales);
+                    value = 1;
+                }
+                else
+                {
+                    value = 1;
+                }
+            }
+            catch (Exception e)
+            {
+                SECUDOC.writeLog(e.ToString());
+                value = -1;
+                description = e.Message;
+            }
+            finally
+            {
+                response.value = value;
+                response.description = description;
+                response.precioFinal = precioFinal;
+            }
+            return response;
         }
 
         public static async Task<bool> getFiscalItemFieldValue(ClsItemModel im, int positionFiscalItemField)

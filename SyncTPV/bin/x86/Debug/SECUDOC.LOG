@@ -5951,3 +5951,1487 @@ Nombre del parámetro: length
 Log: 10:47:08 a. m. lunes, 12 de diciembre de 2022
 2023-05-16 11:41:50 - 2022-12-12 16:47:08
 -------------------------------
+Log: 03:25:08 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 21:25:07
+-------------------------------
+Log: 03:25:25 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 21:25:24
+-------------------------------
+Log: 03:25:27 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 21:25:26
+-------------------------------
+Log: 04:29:59 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:29:58
+-------------------------------
+Log: 04:30:07 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:30:06
+-------------------------------
+Log: 04:30:08 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:30:07
+-------------------------------
+Log: 04:34:21 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:34:20
+-------------------------------
+Log: 04:35:00 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:34:59
+-------------------------------
+Log: 04:35:01 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:35:00
+-------------------------------
+Log: 04:48:53 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:48:52
+-------------------------------
+Log: 04:49:01 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:49:01
+-------------------------------
+Log: 04:49:03 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:49:02
+-------------------------------
+Log: 04:50:51 p. m. lunes, 12 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-12 22:50:50
+-------------------------------
+Log: 04:50:56 p. m. lunes, 12 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 08:12:29 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 14:12:29
+-------------------------------
+Log: 08:12:57 a. m. martes, 13 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 08:14:39 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 08:14:41 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 14:14:41
+-------------------------------
+Log: 08:15:16 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 14:15:16
+-------------------------------
+Log: 08:15:17 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 14:15:17
+-------------------------------
+Log: 09:26:14 a. m. martes, 13 de diciembre de 2022
+Apertura de caja Realizada: 13/12/2022 09:26:14 a. m. Respaldos detectados:2
+-------------------------------
+Log: 09:28:48 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 15:28:48
+-------------------------------
+Log: 09:29:00 a. m. martes, 13 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 09:52:05 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 15:52:05
+-------------------------------
+Log: 09:52:13 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 15:52:13
+-------------------------------
+Log: 09:52:15 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 15:52:15
+-------------------------------
+Log: 09:58:24 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 15:58:24
+-------------------------------
+Log: 09:59:04 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 15:59:04
+-------------------------------
+Log: 09:59:05 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 15:59:05
+-------------------------------
+Log: 11:29:39 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 17:29:38
+-------------------------------
+Log: 11:29:50 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 17:29:49
+-------------------------------
+Log: 11:29:52 a. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 17:29:51
+-------------------------------
+Log: 11:30:46 a. m. martes, 13 de diciembre de 2022
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+near "FROM": syntax error
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   en SyncTPV.ItemModel.<UpdateImpuestosForAnItemLocal>d__208.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\ItemModel.cs:línea 1724
+-------------------------------
+Log: 11:37:18 a. m. martes, 13 de diciembre de 2022
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x800007BF): SQL logic error
+near "FROM": syntax error
+   en System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   en System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   en System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   en SyncTPV.ItemModel.<UpdateImpuestosForAnItemLocal>d__208#1.MoveNext()
+-------------------------------
+Log: 12:28:07 p. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 18:28:07
+-------------------------------
+Log: 12:28:29 p. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 18:28:29
+-------------------------------
+Log: 12:28:31 p. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 18:28:31
+-------------------------------
+Log: 01:24:11 p. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 19:24:10
+-------------------------------
+Log: 01:26:46 p. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 19:26:46
+-------------------------------
+Log: 01:26:48 p. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 19:26:48
+-------------------------------
+Log: 01:29:00 p. m. martes, 13 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-13 19:29:00
+-------------------------------
+Log: 08:10:13 a. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 14:10:13
+-------------------------------
+Log: 08:11:31 a. m. miércoles, 14 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 08:12:18 a. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 14:12:18
+-------------------------------
+Log: 08:13:43 a. m. miércoles, 14 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main()
+-------------------------------
+Log: 08:14:02 a. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 14:14:03
+-------------------------------
+Log: 08:14:09 a. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 14:14:10
+-------------------------------
+Log: 08:14:11 a. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 14:14:11
+-------------------------------
+Log: 08:14:15 a. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 14:14:15
+-------------------------------
+Log: 08:20:32 a. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 14:20:32
+-------------------------------
+Log: 12:47:02 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 18:47:02
+-------------------------------
+Log: 12:47:30 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 18:47:30
+-------------------------------
+Log: 12:47:32 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 18:47:32
+-------------------------------
+Log: 12:47:51 p. m. miércoles, 14 de diciembre de 2022
+Apertura de caja Realizada: 14/12/2022 12:47:51 p. m. Respaldos detectados:3
+-------------------------------
+Log: 12:48:51 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 18:48:51
+-------------------------------
+Log: 12:49:04 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 18:49:05
+-------------------------------
+Log: 12:49:06 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 18:49:06
+-------------------------------
+Log: 12:50:57 p. m. miércoles, 14 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2101
+   en SyncTPV.clsTicket.<TraerFormasPago>d__40.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1840
+-------------------------------
+Log: 01:03:17 p. m. miércoles, 14 de diciembre de 2022
+code = Constraint (19), message = System.Data.SQLite.SQLiteException (0x800027AF): constraint failed
+UNIQUE constraint failed: FormaCobroDocumento.id
+   en System.Data.SQLite.SQLite3.Reset(SQLiteStatement stmt)
+   en System.Data.SQLite.SQLite3.Step(SQLiteStatement stmt)
+   en System.Data.SQLite.SQLiteDataReader.NextResult()
+   en System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   en System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery(CommandBehavior behavior)
+   en System.Data.SQLite.SQLiteCommand.ExecuteNonQuery()
+   en SyncTPV.Models.FormasDeCobroDocumentoModel.addNewFcDocument(Int32 idDocument, Int32 fcId, Double totalDocument, Double amount, Double change, Double balance) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\FormasDeCobroDocumentoModel.cs:línea 977
+-------------------------------
+Log: 01:17:07 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:17:07
+-------------------------------
+Log: 01:17:18 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:17:18
+-------------------------------
+Log: 01:17:21 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:17:21
+-------------------------------
+Log: 01:28:08 p. m. miércoles, 14 de diciembre de 2022
+System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en SyncTPV.Views.FormPayCart.<btnAceptarFrmPayCart_Click>d__37.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPayCart.cs:línea 1034
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormVenta.cobrarCarritoTpv(Int32 idDocumento) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1514
+   en SyncTPV.FormVenta.BtnCobrar_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1672
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.<validateCotmosActivatedToVentaProcess>d__79.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 1065
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Views.FormWaiting.<FrmWaiting_Load>d__64.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormWaiting.cs:línea 392
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.btnVenta_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 764
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormIniciarSesion.FrmIniciarSesion_FormClosed(Object sender, FormClosedEventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormIniciarSesion.cs:línea 688
+-------------------------------
+Log: 01:28:12 p. m. miércoles, 14 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 01:28:54 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:28:54
+-------------------------------
+Log: 01:29:00 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:29:01
+-------------------------------
+Log: 01:29:02 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:29:02
+-------------------------------
+Log: 01:37:07 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:37:07
+-------------------------------
+Log: 01:38:43 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:38:43
+-------------------------------
+Log: 01:38:45 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:38:45
+-------------------------------
+Log: 01:39:01 p. m. miércoles, 14 de diciembre de 2022
+System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en System.Data.SQLite.SQLiteDataReader.Read()
+   en SyncTPV.MovimientosModel.tieneMovimientosDocumento(Int32 idD) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\MovimientosModel.cs:línea 2547
+   en SyncTPV.FormVenta.validarMovsDocumento(Int32 idDocumento) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1583
+   en SyncTPV.FormVenta.cobrarCarritoTpv(Int32 idDocumento) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1508
+   en SyncTPV.FormVenta.BtnCobrar_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1690
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.<validateCotmosActivatedToVentaProcess>d__79.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 1065
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Views.FormWaiting.<FrmWaiting_Load>d__64.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormWaiting.cs:línea 392
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.btnVenta_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 764
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormIniciarSesion.FrmIniciarSesion_FormClosed(Object sender, FormClosedEventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormIniciarSesion.cs:línea 688
+-------------------------------
+Log: 01:39:01 p. m. miércoles, 14 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 01:39:10 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:39:10
+-------------------------------
+Log: 01:39:30 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:39:31
+-------------------------------
+Log: 01:39:32 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:39:32
+-------------------------------
+Log: 01:39:46 p. m. miércoles, 14 de diciembre de 2022
+System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en System.Data.SQLite.SQLiteDataReader.Read()
+   en SyncTPV.MovimientosModel.tieneMovimientosDocumento(Int32 idD) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Models\MovimientosModel.cs:línea 2547
+   en SyncTPV.FormVenta.validarMovsDocumento(Int32 idDocumento) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1583
+   en SyncTPV.FormVenta.cobrarCarritoTpv(Int32 idDocumento) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1508
+   en SyncTPV.FormVenta.BtnCobrar_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1690
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.<validateCotmosActivatedToVentaProcess>d__79.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 1065
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Views.FormWaiting.<FrmWaiting_Load>d__64.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormWaiting.cs:línea 392
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.btnVenta_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 764
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormIniciarSesion.FrmIniciarSesion_FormClosed(Object sender, FormClosedEventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormIniciarSesion.cs:línea 688
+-------------------------------
+Log: 01:39:46 p. m. miércoles, 14 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 01:40:43 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:40:43
+-------------------------------
+Log: 01:45:18 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:45:18
+-------------------------------
+Log: 01:45:19 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 19:45:19
+-------------------------------
+Log: 02:15:07 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:15:07
+-------------------------------
+Log: 02:20:25 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:20:25
+-------------------------------
+Log: 02:21:10 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:21:11
+-------------------------------
+Log: 02:21:13 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:21:13
+-------------------------------
+Log: 02:25:11 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:25:11
+-------------------------------
+Log: 02:25:23 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:25:23
+-------------------------------
+Log: 02:25:24 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:25:25
+-------------------------------
+Log: 02:32:52 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:32:52
+-------------------------------
+Log: 02:32:59 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:32:59
+-------------------------------
+Log: 02:33:01 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:33:01
+-------------------------------
+Log: 02:38:52 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:38:53
+-------------------------------
+Log: 02:39:22 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:39:22
+-------------------------------
+Log: 02:39:24 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:39:24
+-------------------------------
+Log: 02:43:01 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:43:01
+-------------------------------
+Log: 02:43:09 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:43:10
+-------------------------------
+Log: 02:43:11 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:43:11
+-------------------------------
+Log: 02:45:30 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:45:30
+-------------------------------
+Log: 02:45:42 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:45:42
+-------------------------------
+Log: 02:45:44 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:45:44
+-------------------------------
+Log: 02:53:18 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:53:18
+-------------------------------
+Log: 02:53:36 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:53:37
+-------------------------------
+Log: 02:53:38 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 20:53:38
+-------------------------------
+Log: 03:00:01 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 21:00:01
+-------------------------------
+Log: 03:00:19 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 21:00:19
+-------------------------------
+Log: 03:00:21 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 21:00:21
+-------------------------------
+Log: 03:48:00 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 21:48:00
+-------------------------------
+Log: 03:50:29 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 21:50:29
+-------------------------------
+Log: 03:50:31 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 21:50:31
+-------------------------------
+Log: 05:55:43 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 23:55:43
+-------------------------------
+Log: 05:55:51 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 23:55:52
+-------------------------------
+Log: 05:55:53 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 23:55:54
+-------------------------------
+Log: 05:59:59 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-14 23:59:59
+-------------------------------
+Log: 06:00:04 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 00:00:05
+-------------------------------
+Log: 06:00:06 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 00:00:06
+-------------------------------
+Log: 06:02:53 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 00:02:53
+-------------------------------
+Log: 06:03:01 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 00:03:01
+-------------------------------
+Log: 06:03:02 p. m. miércoles, 14 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 00:03:03
+-------------------------------
+Log: 08:16:08 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:16:08
+-------------------------------
+Log: 08:16:36 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:16:37
+-------------------------------
+Log: 08:16:38 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:16:39
+-------------------------------
+Log: 08:18:50 a. m. jueves, 15 de diciembre de 2022
+Apertura de caja Realizada: 15/12/2022 08:18:50 a. m. Respaldos detectados:4
+-------------------------------
+Log: 08:24:18 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:24:19
+-------------------------------
+Log: 08:24:38 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:24:39
+-------------------------------
+Log: 08:24:40 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:24:41
+-------------------------------
+Log: 08:29:34 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:29:35
+-------------------------------
+Log: 08:32:09 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:32:10
+-------------------------------
+Log: 08:32:11 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:32:11
+-------------------------------
+Log: 08:38:01 a. m. jueves, 15 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2101
+   en SyncTPV.clsTicket.<TraerFormasPago>d__40.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1840
+-------------------------------
+Log: 08:51:30 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:51:31
+-------------------------------
+Log: 08:51:37 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:51:38
+-------------------------------
+Log: 08:51:38 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:51:39
+-------------------------------
+Log: 08:54:13 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:54:14
+-------------------------------
+Log: 08:54:20 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:54:21
+-------------------------------
+Log: 08:54:22 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 14:54:23
+-------------------------------
+Log: 09:03:20 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 15:03:21
+-------------------------------
+Log: 09:03:22 a. m. jueves, 15 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 09:43:07 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 15:43:08
+-------------------------------
+Log: 09:43:19 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 15:43:20
+-------------------------------
+Log: 09:43:21 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 15:43:22
+-------------------------------
+Log: 10:02:39 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 16:02:40
+-------------------------------
+Log: 10:02:56 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 16:02:57
+-------------------------------
+Log: 10:02:58 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 16:02:59
+-------------------------------
+Log: 10:07:49 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 16:07:50
+-------------------------------
+Log: 10:07:56 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 16:07:57
+-------------------------------
+Log: 10:07:58 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 16:07:59
+-------------------------------
+Log: 11:51:04 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 17:51:04
+-------------------------------
+Log: 11:51:11 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 17:51:12
+-------------------------------
+Log: 11:51:13 a. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 17:51:14
+-------------------------------
+Log: 01:49:49 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 19:49:49
+-------------------------------
+Log: 01:50:01 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 19:50:02
+-------------------------------
+Log: 01:50:03 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 19:50:04
+-------------------------------
+Log: 01:59:49 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 19:59:50
+-------------------------------
+Log: 01:59:58 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 19:59:58
+-------------------------------
+Log: 01:59:59 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 20:00:00
+-------------------------------
+Log: 02:11:15 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 20:11:16
+-------------------------------
+Log: 02:11:23 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 20:11:24
+-------------------------------
+Log: 02:11:25 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 20:11:26
+-------------------------------
+Log: 02:16:00 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 20:16:01
+-------------------------------
+Log: 02:16:12 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 20:16:13
+-------------------------------
+Log: 02:16:14 p. m. jueves, 15 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-15 20:16:15
+-------------------------------
+Log: 01:47:05 p. m. viernes, 16 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-16 19:47:06
+-------------------------------
+Log: 01:47:16 p. m. viernes, 16 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-16 19:47:18
+-------------------------------
+Log: 01:47:18 p. m. viernes, 16 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-16 19:47:19
+-------------------------------
+Log: 05:08:23 p. m. viernes, 16 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-16 23:08:25
+-------------------------------
+Log: 05:08:31 p. m. viernes, 16 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-16 23:08:32
+-------------------------------
+Log: 05:08:33 p. m. viernes, 16 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-16 23:08:34
+-------------------------------
+Log: 05:09:41 p. m. viernes, 16 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2131
+   en SyncTPV.clsTicket.<TraerFormasPago>d__41.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1870
+-------------------------------
+Log: 05:09:53 p. m. viernes, 16 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2131
+   en SyncTPV.clsTicket.<TraerFormasPago>d__41.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1870
+-------------------------------
+Log: 08:51:37 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 14:51:37
+-------------------------------
+Log: 08:54:33 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 14:54:34
+-------------------------------
+Log: 08:54:35 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 14:54:36
+-------------------------------
+Log: 08:54:49 a. m. lunes, 19 de diciembre de 2022
+Apertura de caja Realizada: 19/12/2022 08:54:49 a. m. Respaldos detectados:5
+-------------------------------
+Log: 08:55:44 a. m. lunes, 19 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2174
+   en SyncTPV.clsTicket.<TraerFormasPago>d__42.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1913
+-------------------------------
+Log: 09:44:44 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:44:45
+-------------------------------
+Log: 09:44:49 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:44:50
+-------------------------------
+Log: 09:44:51 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:44:51
+-------------------------------
+Log: 09:45:35 a. m. lunes, 19 de diciembre de 2022
+Error calculo devoluciones
+-------------------------------
+Log: 09:47:05 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:47:05
+-------------------------------
+Log: 09:47:12 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:47:13
+-------------------------------
+Log: 09:47:13 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:47:14
+-------------------------------
+Log: 09:48:44 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:48:44
+-------------------------------
+Log: 09:48:50 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:48:51
+-------------------------------
+Log: 09:48:52 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 15:48:53
+-------------------------------
+Log: 09:51:24 a. m. lunes, 19 de diciembre de 2022
+Error calculo devoluciones
+-------------------------------
+Log: 09:55:13 a. m. lunes, 19 de diciembre de 2022
+Error calculo devoluciones
+-------------------------------
+Log: 10:00:35 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:00:36
+-------------------------------
+Log: 10:00:42 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:00:43
+-------------------------------
+Log: 10:00:44 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:00:44
+-------------------------------
+Log: 10:00:56 a. m. lunes, 19 de diciembre de 2022
+Error calculo devoluciones
+-------------------------------
+Log: 10:01:15 a. m. lunes, 19 de diciembre de 2022
+Error calculo devoluciones
+-------------------------------
+Log: 10:02:15 a. m. lunes, 19 de diciembre de 2022
+Error calculo devoluciones
+-------------------------------
+Log: 10:05:11 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:05:11
+-------------------------------
+Log: 10:05:20 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:05:20
+-------------------------------
+Log: 10:05:21 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:05:22
+-------------------------------
+Log: 10:08:55 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:08:55
+-------------------------------
+Log: 10:09:03 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:09:03
+-------------------------------
+Log: 10:09:04 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:09:05
+-------------------------------
+Log: 10:37:52 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:37:53
+-------------------------------
+Log: 10:38:12 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:38:13
+-------------------------------
+Log: 10:38:14 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:38:14
+-------------------------------
+Log: 10:39:48 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:39:49
+-------------------------------
+Log: 10:40:11 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:40:12
+-------------------------------
+Log: 10:40:12 a. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 16:40:13
+-------------------------------
+Log: 12:05:48 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:05:49
+-------------------------------
+Log: 12:05:55 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:05:56
+-------------------------------
+Log: 12:05:57 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:05:58
+-------------------------------
+Log: 12:12:21 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:12:22
+-------------------------------
+Log: 12:12:34 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:12:34
+-------------------------------
+Log: 12:12:35 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:12:36
+-------------------------------
+Log: 12:15:12 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:15:13
+-------------------------------
+Log: 12:15:18 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:15:19
+-------------------------------
+Log: 12:15:20 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 18:15:21
+-------------------------------
+Log: 05:51:39 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 23:51:39
+-------------------------------
+Log: 05:51:59 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 23:52:00
+-------------------------------
+Log: 05:52:01 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 23:52:02
+-------------------------------
+Log: 05:58:55 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 23:58:56
+-------------------------------
+Log: 05:59:02 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 23:59:03
+-------------------------------
+Log: 05:59:04 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-19 23:59:05
+-------------------------------
+Log: 06:04:40 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-20 00:04:41
+-------------------------------
+Log: 06:04:50 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-20 00:04:50
+-------------------------------
+Log: 06:04:51 p. m. lunes, 19 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-20 00:04:52
+-------------------------------
+Log: 08:10:30 a. m. martes, 20 de diciembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 08:18:38 a. m. martes, 20 de diciembre de 2022
+Apertura de caja Realizada: 20/12/2022 08:18:38 a. m. Respaldos detectados:6
+-------------------------------
+Log: 08:22:49 a. m. martes, 20 de diciembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 08:26:58 a. m. martes, 20 de diciembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 08:28:33 a. m. martes, 20 de diciembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 08:34:03 a. m. martes, 20 de diciembre de 2022
+2023-05-16 11:41:50 - 
+-------------------------------
+Log: 12:37:19 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:37:16
+-------------------------------
+Log: 12:37:27 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:37:25
+-------------------------------
+Log: 12:37:28 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:37:26
+-------------------------------
+Log: 12:40:04 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:40:01
+-------------------------------
+Log: 12:40:10 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:40:07
+-------------------------------
+Log: 12:40:11 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:40:09
+-------------------------------
+Log: 12:42:28 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:42:25
+-------------------------------
+Log: 12:42:35 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:42:32
+-------------------------------
+Log: 12:42:36 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:42:34
+-------------------------------
+Log: 12:43:30 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:43:28
+-------------------------------
+Log: 12:43:38 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:43:35
+-------------------------------
+Log: 12:43:39 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:43:37
+-------------------------------
+Log: 12:47:43 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:47:41
+-------------------------------
+Log: 12:47:51 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:47:48
+-------------------------------
+Log: 12:47:52 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 18:47:50
+-------------------------------
+Log: 01:46:57 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 19:46:54
+-------------------------------
+Log: 01:51:47 p. m. miércoles, 21 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 02:35:01 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:34:58
+-------------------------------
+Log: 02:35:11 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:35:08
+-------------------------------
+Log: 02:35:12 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:35:10
+-------------------------------
+Log: 02:36:55 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:36:53
+-------------------------------
+Log: 02:37:02 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:37:00
+-------------------------------
+Log: 02:37:04 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:37:02
+-------------------------------
+Log: 02:37:50 p. m. miércoles, 21 de diciembre de 2022
+Apertura de caja Realizada: 21/12/2022 02:37:50 p. m. Respaldos detectados:7
+-------------------------------
+Log: 02:52:27 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:52:25
+-------------------------------
+Log: 02:52:34 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:52:31
+-------------------------------
+Log: 02:52:35 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:52:33
+-------------------------------
+Log: 02:53:41 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:53:38
+-------------------------------
+Log: 02:53:47 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:53:44
+-------------------------------
+Log: 02:53:48 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:53:46
+-------------------------------
+Log: 02:55:37 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:55:34
+-------------------------------
+Log: 02:55:43 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:55:41
+-------------------------------
+Log: 02:55:45 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 20:55:42
+-------------------------------
+Log: 03:20:20 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:20:17
+-------------------------------
+Log: 03:20:32 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:20:29
+-------------------------------
+Log: 03:20:34 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:20:31
+-------------------------------
+Log: 03:27:04 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:27:01
+-------------------------------
+Log: 03:27:09 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:27:07
+-------------------------------
+Log: 03:27:11 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:27:08
+-------------------------------
+Log: 03:48:10 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:48:08
+-------------------------------
+Log: 03:48:18 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:48:15
+-------------------------------
+Log: 03:48:20 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:48:17
+-------------------------------
+Log: 03:49:18 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:49:15
+-------------------------------
+Log: 03:49:23 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:49:21
+-------------------------------
+Log: 03:49:25 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:49:22
+-------------------------------
+Log: 03:52:27 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:52:25
+-------------------------------
+Log: 03:52:33 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:52:30
+-------------------------------
+Log: 03:52:35 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:52:32
+-------------------------------
+Log: 03:58:21 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:58:18
+-------------------------------
+Log: 03:58:27 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:58:24
+-------------------------------
+Log: 03:58:29 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 21:58:26
+-------------------------------
+Log: 03:59:01 p. m. miércoles, 21 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2190
+   en SyncTPV.clsTicket.<TraerFormasPago>d__42.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1929
+-------------------------------
+Log: 04:02:40 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:02:37
+-------------------------------
+Log: 04:02:50 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:02:47
+-------------------------------
+Log: 04:02:52 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:02:49
+-------------------------------
+Log: 04:09:02 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:09:00
+-------------------------------
+Log: 04:09:18 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:09:15
+-------------------------------
+Log: 04:09:19 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:09:17
+-------------------------------
+Log: 04:18:09 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:18:06
+-------------------------------
+Log: 04:23:52 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:23:49
+-------------------------------
+Log: 04:23:53 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:23:51
+-------------------------------
+Log: 04:29:50 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:29:47
+-------------------------------
+Log: 04:35:00 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:34:57
+-------------------------------
+Log: 04:35:01 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:34:58
+-------------------------------
+Log: 04:44:06 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:44:03
+-------------------------------
+Log: 04:44:13 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:44:10
+-------------------------------
+Log: 04:44:14 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:44:11
+-------------------------------
+Log: 04:46:06 p. m. miércoles, 21 de diciembre de 2022
+System.ArgumentOutOfRangeException: El índice y la longitud deben hacer referencia a una ubicación en la cadena.
+Nombre del parámetro: length
+   en System.String.Substring(Int32 startIndex, Int32 length)
+   en SyncTPV.clsTicket.Convertidor(String LetrasNumero) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 2190
+   en SyncTPV.clsTicket.<TraerFormasPago>d__42.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\clsTicket.cs:línea 1929
+-------------------------------
+Log: 04:50:38 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:50:35
+-------------------------------
+Log: 04:50:43 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:50:40
+-------------------------------
+Log: 04:50:45 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:50:42
+-------------------------------
+Log: 04:53:45 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:53:42
+-------------------------------
+Log: 04:53:54 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:53:51
+-------------------------------
+Log: 04:53:56 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 22:53:53
+-------------------------------
+Log: 05:54:54 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 23:54:51
+-------------------------------
+Log: 05:55:03 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 23:55:01
+-------------------------------
+Log: 05:55:05 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-21 23:55:02
+-------------------------------
+Log: 06:06:45 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 00:06:42
+-------------------------------
+Log: 06:06:49 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 00:06:46
+-------------------------------
+Log: 06:06:50 p. m. miércoles, 21 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 00:06:47
+-------------------------------
+Log: 08:42:52 a. m. jueves, 22 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 08:43:13 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 14:43:14
+-------------------------------
+Log: 08:43:31 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 14:43:31
+-------------------------------
+Log: 08:43:32 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 14:43:33
+-------------------------------
+Log: 08:43:41 a. m. jueves, 22 de diciembre de 2022
+Apertura de caja Realizada: 22/12/2022 08:43:41 a. m. Respaldos detectados:8
+-------------------------------
+Log: 08:47:24 a. m. jueves, 22 de diciembre de 2022
+System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.Reflection.TargetInvocationException: Se produjo una excepción en el destino de la invocación. ---> System.InvalidCastException: No se puede convertir un objeto de tipo 'System.Dynamic.ExpandoObject' al tipo 'System.IConvertible'.
+   en System.Convert.ToBoolean(Object value)
+   en SyncTPV.Views.FormPayCart.<btnAceptarFrmPayCart_Click>d__37.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPayCart.cs:línea 1051
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormVenta.<cobrarCarritoTpv>d__72.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormVenta.cs:línea 1518
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.<validateCotmosActivatedToVentaProcess>d__79.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 1065
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   en System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   en SyncTPV.Views.FormWaiting.<FrmWaiting_Load>d__64.MoveNext() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormWaiting.cs:línea 392
+--- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
+   en System.Runtime.CompilerServices.AsyncMethodBuilderCore.<>c.<ThrowAsync>b__6_0(Object state)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   en System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   en System.Delegate.DynamicInvokeImpl(Object[] args)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackDo(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbackHelper(Object obj)
+   en System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   en System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   en System.Windows.Forms.Control.InvokeMarshaledCallback(ThreadMethodEntry tme)
+   en System.Windows.Forms.Control.InvokeMarshaledCallbacks()
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormPrincipal.btnVenta_Click(Object sender, EventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormPrincipal.cs:línea 764
+   en System.Windows.Forms.Control.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnClick(EventArgs e)
+   en System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   en System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   en System.Windows.Forms.Control.WndProc(Message& m)
+   en System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   en System.Windows.Forms.Button.WndProc(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   en System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   en System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   en System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   en System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.RunDialog(Form form)
+   en System.Windows.Forms.Form.ShowDialog(IWin32Window owner)
+   en System.Windows.Forms.Form.ShowDialog()
+   en SyncTPV.FormIniciarSesion.FrmIniciarSesion_FormClosed(Object sender, FormClosedEventArgs e) en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Views\FormIniciarSesion.cs:línea 688
+-------------------------------
+Log: 08:47:24 a. m. jueves, 22 de diciembre de 2022
+Exception in ProgramClass: System.ObjectDisposedException: No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'FormIniciarSesion'.
+   en System.Windows.Forms.Control.CreateHandle()
+   en System.Windows.Forms.Form.CreateHandle()
+   en System.Windows.Forms.Control.get_Handle()
+   en System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   en System.Windows.Forms.Control.set_Visible(Boolean value)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   en System.Windows.Forms.Application.Run(Form mainForm)
+   en SyncTPV.Program.Main() en C:\Users\Administrador\Documents\Visual Studio 2010\Projects\SyncTPV\SyncTPV\Program.cs:línea 25
+-------------------------------
+Log: 08:51:08 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 14:51:08
+-------------------------------
+Log: 08:51:31 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 14:51:31
+-------------------------------
+Log: 08:51:33 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 14:51:33
+-------------------------------
+Log: 09:02:36 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 15:02:37
+-------------------------------
+Log: 09:02:42 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 15:02:42
+-------------------------------
+Log: 09:02:44 a. m. jueves, 22 de diciembre de 2022
+2023-05-16 11:41:50 - 2022-12-22 15:02:44
+-------------------------------

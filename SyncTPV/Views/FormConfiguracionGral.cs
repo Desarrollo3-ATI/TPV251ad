@@ -1,4 +1,5 @@
-﻿using SyncTPV.Controllers;
+﻿using Newtonsoft.Json.Linq;
+using SyncTPV.Controllers;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using SyncTPV.Views;
@@ -132,6 +133,20 @@ namespace SyncTPV
             else btnConfigTicket.Enabled = false;
             fillNameForFiscalItemField();
             await getWebActiveValue();
+
+            checkBoxVentaRapida.Checked = !Convert.ToBoolean(await validateVentarapida());
+            pordefecto = true;
+        }
+        bool pordefecto = false;
+        public async Task<int> validateVentarapida()
+        {
+            //checkBoxVentaRapida
+            int ventarapida = 1;
+            await Task.Run(async () =>
+            {
+                ventarapida = ConfiguracionModel.validateVentarapidaActivated();   
+            });
+            return ventarapida;
         }
 
         private async Task getWebActiveValue()
@@ -875,6 +890,40 @@ namespace SyncTPV
             }
         }
 
+        private void checkBoxVentaRapida_CheckedChanged(object sender, EventArgs e)
+        {
+            //bool cambio = checkBoxVentaRapida.Checked;
+            if (pordefecto)
+            {
+                FormPasswordConfirmation fpc = new FormPasswordConfirmation("Autorización del Supervisor", "Ingresar Contraseña");
+                fpc.StartPosition = FormStartPosition.CenterScreen;
+                fpc.ShowDialog();
+                if (FormPasswordConfirmation.permissionGranted)
+                {
+                    if (checkBoxVentaRapida.Checked)
+                    {
+                        String query = "UPDATE " + LocalDatabase.TABLA_CONFIGURACION + " SET " + LocalDatabase.CAMPO_VENTARAPIDA_CONFIG
+                        + " = " + 0 + " WHERE id = 1";
+                        ConfiguracionModel.updateServerMode(query);
+                    }
+                    else
+                    {
+                        String query = "UPDATE " + LocalDatabase.TABLA_CONFIGURACION + " SET " + LocalDatabase.CAMPO_VENTARAPIDA_CONFIG
+                        + " = " + 1 + " WHERE id = 1";
+                        ConfiguracionModel.updateServerMode(query);
+
+                    }
+                }
+                else
+                {
+                    pordefecto= false;
+                    checkBoxVentaRapida.Checked = !checkBoxVentaRapida.Checked;
+                    pordefecto = true;
+                }
+            }
+            
+        }
+        
         public async Task updateWebActiveProcess()
         {
             int value = 0;

@@ -150,6 +150,9 @@ namespace SyncTPV.Views.Extras
                                     FormMessage fm = new FormMessage("Cajas", responseCajas.description, 2);
                                     fm.ShowDialog();
                                 }
+                             
+             
+                                
                             }
                             else
                             {
@@ -222,7 +225,11 @@ namespace SyncTPV.Views.Extras
                             fm.ShowDialog();
                         }                        
                     }
-                }                
+                }
+
+                String panelInstance = InstanceSQLSEModel.getStringPanelInstance();
+                String ComInstance = InstanceSQLSEModel.getStringComInstance();
+                dynamic responseConceptos = ConceptoModel.ActualizarConceptosEImpuestos(panelInstance, ComInstance);
             }
         }
 

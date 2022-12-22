@@ -26,7 +26,8 @@ namespace SyncTPV.Views.Reports
         private int call = 0;
         private FormGeneralsReports formGeneralsReports;
         private bool serverModeLAN = false;
-        private bool showDocs = false, showCredits = false, showPagos = false, showIngresos = false, showRetiros = false;
+        private bool showDocs = false, showCredits = false, showPagos = false, showIngresos = false, showRetiros = false, showDevuelto = false,
+            showDetallesDevuelto = false, showFormaCobroDevuelto = false;
 
         public FormParametersReports()
         {
@@ -55,11 +56,55 @@ namespace SyncTPV.Views.Reports
             else showCredits = false;
         }
 
+        private void checkBoxDetallesDevoluciones_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxDetallesDevoluciones.Checked)
+            {
+                showDetallesDevuelto = true;
+            }
+            else
+            {
+                showDetallesDevuelto = false;
+            }
+        }
+
+        private void checkBoxFormasCobroDevoluciones_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxFormasCobroDevoluciones.Checked)
+            {
+                showFormaCobroDevuelto = true;
+            }
+            else
+            {
+                showFormaCobroDevuelto = false;
+            }
+        }
+
         private void checkBoxIngresos_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxIngresos.Checked)
                 showIngresos = true;
             else showIngresos = false;
+        }
+
+        private void checkBoxDevoluciones_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxDevoluciones.Checked) { 
+                showDevuelto= true;
+                checkBoxDetallesDevoluciones.Visible = true;
+                checkBoxFormasCobroDevoluciones.Visible = true;
+            }
+            else
+            {
+                 showDevuelto = false;
+                 showDetallesDevuelto= false;
+                 showFormaCobroDevuelto = false;
+                 checkBoxDetallesDevoluciones.Checked = false;
+                 checkBoxFormasCobroDevoluciones.Checked = false;
+                checkBoxDetallesDevoluciones.Visible = false;
+                checkBoxFormasCobroDevoluciones.Visible = false;
+
+            }
         }
 
         private void checkBoxRetiros_CheckedChanged(object sender, EventArgs e)
@@ -171,7 +216,8 @@ namespace SyncTPV.Views.Reports
         private async Task processtoPrintTicketReport()
         {
             clsTicket Ticket = new clsTicket();
-            await Ticket.createAndPrintReporteCajaTicket(serverModeLAN, showDocs, showCredits, showPagos, showIngresos, showRetiros);
+            await Ticket.createAndPrintReporteCajaTicket(serverModeLAN, showDocs, showCredits, showPagos, showIngresos, showRetiros, showDevuelto,
+                showDetallesDevuelto,showFormaCobroDevuelto);
             PopupNotifier popup = new PopupNotifier();
             popup.Image = MetodosGenerales.redimencionarImagenes(Properties.Resources.success_green, 100, 100);
             popup.TitleColor = Color.Blue;

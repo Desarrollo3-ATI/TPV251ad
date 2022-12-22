@@ -1,0 +1,49 @@
+      ATI Pruebas sucursal tuxtla
+                 Venta
+                 tuxtla
+           RFC:XAXX010101000
+                    
+Folio: A6C1221214150159
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-14 15:02:07
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+                    
+                    
+Neto :                        $26.33 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                    $26.33 MXN
+I.V.A. :                       $4.21 MXN
+                    
+Total :                       $30.54 MXN
+Monedero electróni           $100.00 MXN
+Cambio :                      $69.46 MXN
+       TREINTA PESOS 54/100 M.N.
+                    
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 1
+Usted Ahorro: $0.00
+                    
+Gracias por compar, vuelva pronto y comp
+                re mas!
+                    
+          * * * Original * * *
+14/12/2022 03:02:07 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

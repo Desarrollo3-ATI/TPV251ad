@@ -37,6 +37,9 @@
             this.checkBoxIncluirPendientes = new System.Windows.Forms.CheckBox();
             this.checkBoxTodasLasRutas = new System.Windows.Forms.CheckBox();
             this.panelTable2 = new System.Windows.Forms.Panel();
+            this.checkBoxDetallesDevoluciones = new System.Windows.Forms.CheckBox();
+            this.checkBoxFormasCobroDevoluciones = new System.Windows.Forms.CheckBox();
+            this.checkBoxDevoluciones = new System.Windows.Forms.CheckBox();
             this.checkBoxPagos = new System.Windows.Forms.CheckBox();
             this.checkBoxRetiros = new System.Windows.Forms.CheckBox();
             this.checkBoxIngresos = new System.Windows.Forms.CheckBox();
@@ -66,7 +69,7 @@
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnClose.Location = new System.Drawing.Point(3, 3);
@@ -123,10 +126,10 @@
             // checkBoxIncluirPendientes
             // 
             this.checkBoxIncluirPendientes.AutoSize = true;
-            this.checkBoxIncluirPendientes.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxIncluirPendientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxIncluirPendientes.Location = new System.Drawing.Point(3, 16);
             this.checkBoxIncluirPendientes.Name = "checkBoxIncluirPendientes";
-            this.checkBoxIncluirPendientes.Size = new System.Drawing.Size(247, 23);
+            this.checkBoxIncluirPendientes.Size = new System.Drawing.Size(271, 24);
             this.checkBoxIncluirPendientes.TabIndex = 6;
             this.checkBoxIncluirPendientes.Text = "Incluir Pendientes o Pausados";
             this.checkBoxIncluirPendientes.UseVisualStyleBackColor = true;
@@ -135,10 +138,10 @@
             // checkBoxTodasLasRutas
             // 
             this.checkBoxTodasLasRutas.AutoSize = true;
-            this.checkBoxTodasLasRutas.Font = new System.Drawing.Font("Roboto Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxTodasLasRutas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxTodasLasRutas.Location = new System.Drawing.Point(3, 45);
             this.checkBoxTodasLasRutas.Name = "checkBoxTodasLasRutas";
-            this.checkBoxTodasLasRutas.Size = new System.Drawing.Size(142, 23);
+            this.checkBoxTodasLasRutas.Size = new System.Drawing.Size(158, 24);
             this.checkBoxTodasLasRutas.TabIndex = 5;
             this.checkBoxTodasLasRutas.Text = "Todas las Rutas";
             this.checkBoxTodasLasRutas.UseVisualStyleBackColor = true;
@@ -149,6 +152,9 @@
             this.panelTable2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTable2.Controls.Add(this.checkBoxDetallesDevoluciones);
+            this.panelTable2.Controls.Add(this.checkBoxFormasCobroDevoluciones);
+            this.panelTable2.Controls.Add(this.checkBoxDevoluciones);
             this.panelTable2.Controls.Add(this.checkBoxPagos);
             this.panelTable2.Controls.Add(this.checkBoxRetiros);
             this.panelTable2.Controls.Add(this.checkBoxIngresos);
@@ -158,6 +164,41 @@
             this.panelTable2.Name = "panelTable2";
             this.panelTable2.Size = new System.Drawing.Size(340, 112);
             this.panelTable2.TabIndex = 1;
+            // 
+            // checkBoxDetallesDevoluciones
+            // 
+            this.checkBoxDetallesDevoluciones.AutoSize = true;
+            this.checkBoxDetallesDevoluciones.Location = new System.Drawing.Point(182, 67);
+            this.checkBoxDetallesDevoluciones.Name = "checkBoxDetallesDevoluciones";
+            this.checkBoxDetallesDevoluciones.Size = new System.Drawing.Size(130, 17);
+            this.checkBoxDetallesDevoluciones.TabIndex = 7;
+            this.checkBoxDetallesDevoluciones.Text = "Detalles devoluciones";
+            this.checkBoxDetallesDevoluciones.UseVisualStyleBackColor = true;
+            this.checkBoxDetallesDevoluciones.Visible = false;
+            this.checkBoxDetallesDevoluciones.CheckedChanged += new System.EventHandler(this.checkBoxDetallesDevoluciones_CheckedChanged);
+            // 
+            // checkBoxFormasCobroDevoluciones
+            // 
+            this.checkBoxFormasCobroDevoluciones.AutoSize = true;
+            this.checkBoxFormasCobroDevoluciones.Location = new System.Drawing.Point(182, 90);
+            this.checkBoxFormasCobroDevoluciones.Name = "checkBoxFormasCobroDevoluciones";
+            this.checkBoxFormasCobroDevoluciones.Size = new System.Drawing.Size(156, 17);
+            this.checkBoxFormasCobroDevoluciones.TabIndex = 6;
+            this.checkBoxFormasCobroDevoluciones.Text = "Formas cobro devoluciones";
+            this.checkBoxFormasCobroDevoluciones.UseVisualStyleBackColor = true;
+            this.checkBoxFormasCobroDevoluciones.Visible = false;
+            this.checkBoxFormasCobroDevoluciones.CheckedChanged += new System.EventHandler(this.checkBoxFormasCobroDevoluciones_CheckedChanged);
+            // 
+            // checkBoxDevoluciones
+            // 
+            this.checkBoxDevoluciones.AutoSize = true;
+            this.checkBoxDevoluciones.Location = new System.Drawing.Point(182, 44);
+            this.checkBoxDevoluciones.Name = "checkBoxDevoluciones";
+            this.checkBoxDevoluciones.Size = new System.Drawing.Size(120, 17);
+            this.checkBoxDevoluciones.TabIndex = 5;
+            this.checkBoxDevoluciones.Text = "Incluir devoluciones";
+            this.checkBoxDevoluciones.UseVisualStyleBackColor = true;
+            this.checkBoxDevoluciones.CheckedChanged += new System.EventHandler(this.checkBoxDevoluciones_CheckedChanged);
             // 
             // checkBoxPagos
             // 
@@ -173,7 +214,7 @@
             // checkBoxRetiros
             // 
             this.checkBoxRetiros.AutoSize = true;
-            this.checkBoxRetiros.Location = new System.Drawing.Point(214, 61);
+            this.checkBoxRetiros.Location = new System.Drawing.Point(19, 90);
             this.checkBoxRetiros.Name = "checkBoxRetiros";
             this.checkBoxRetiros.Size = new System.Drawing.Size(100, 17);
             this.checkBoxRetiros.TabIndex = 3;
@@ -184,7 +225,7 @@
             // checkBoxIngresos
             // 
             this.checkBoxIngresos.AutoSize = true;
-            this.checkBoxIngresos.Location = new System.Drawing.Point(214, 21);
+            this.checkBoxIngresos.Location = new System.Drawing.Point(182, 21);
             this.checkBoxIngresos.Name = "checkBoxIngresos";
             this.checkBoxIngresos.Size = new System.Drawing.Size(107, 17);
             this.checkBoxIngresos.TabIndex = 2;
@@ -220,7 +261,7 @@
             this.btnGeneratePdf.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnGeneratePdf.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnGeneratePdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGeneratePdf.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGeneratePdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGeneratePdf.Location = new System.Drawing.Point(219, 245);
             this.btnGeneratePdf.Name = "btnGeneratePdf";
             this.btnGeneratePdf.Size = new System.Drawing.Size(149, 48);
@@ -269,5 +310,8 @@
         private System.Windows.Forms.CheckBox checkBoxCreditos;
         private System.Windows.Forms.CheckBox checkBoxDocs;
         private System.Windows.Forms.CheckBox checkBoxPagos;
+        private System.Windows.Forms.CheckBox checkBoxDevoluciones;
+        private System.Windows.Forms.CheckBox checkBoxDetallesDevoluciones;
+        private System.Windows.Forms.CheckBox checkBoxFormasCobroDevoluciones;
     }
 }
