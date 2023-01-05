@@ -18,6 +18,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using wsROMClases.Models;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace SyncTPV
@@ -502,6 +503,64 @@ namespace SyncTPV
                             ticketsrespaldos = "Cajon abierto por el agente "+ ClsRegeditController.getIdUserInTurn() + ticketsrespaldos.ToString(); 
                         }
                         int valores = DatosTicketModel.putticketrespaldo(tiponew, ticketsrespaldos, tipoTicketTPV);
+                        if (ConfiguracionModel.isLANPermissionActivated())
+                        {
+                            String Ref = claveTicketTPV;
+                            int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
+                            List<int> ticketslistid = new List<int>();
+                            ticketslistid.Add(idsTicket);
+                            if (ticketslistid != null)
+                            {
+                                String panelInstance = InstanceSQLSEModel.getStringPanelInstance();
+                                for (int x = 0; x < ticketslistid.Count; x++)
+                                {
+                                    TicketsModel tickets = TicketsModel.getTickets(ticketslistid[x]);
+                                    if (tickets != null)
+                                    {
+                                        List<ExpandoObject> responseTickets = ClsTicketsModel.savePanelDataTickets(panelInstance,
+                                        tickets.id,
+                                        tickets.referencia,
+                                        tickets.datos,
+                                        tickets.idAgente,
+                                        tickets.tipoDocumento,
+                                        tickets.fecha,
+                                        tickets.idPanel,
+                                        tickets.estatus);
+
+                                        if (responseTickets != null)
+                                        {
+                                            if (responseTickets.Count > 0)
+                                            {
+                                                dynamic resultT = responseTickets[0];
+                                                TicketsModel.actualizarIdServer(resultT.idIngresoApp, resultT.idIngresoServer);
+                                            }
+                                            else
+                                            {
+                                                break;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            try
+                            {
+                                String Ref = claveTicketTPV;
+                                int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
+                                TicketsModel enviarTicket = TicketsModel.getTickets(idsTicket);
+                                enviarT(enviarTicket);
+                            }
+                            catch (Exception e)
+                            {
+                                SECUDOC.writeLog(e.ToString());
+                            }
+                        }
                         if (valores == 0)
                         {
                             MessageBox.Show("no se guardo el ticket local");
@@ -536,6 +595,13 @@ namespace SyncTPV
                 response = -1;
             }
             return response;
+        }
+
+        public async Task enviarT(TicketsModel enviarTicket)
+        {
+            dynamic responseT = new ExpandoObject();
+            SendTicketsController aw = new SendTicketsController();
+            responseT = await aw.sendTicketsToWs(enviarTicket);
         }
 
         //Método para imprimir el reporte de corte caja del usuario
