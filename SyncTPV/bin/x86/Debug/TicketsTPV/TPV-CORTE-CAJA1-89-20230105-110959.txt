@@ -1,0 +1,52 @@
+      ATI Pruebas sucursal tuxtla
+                    
+                 tuxtla
+           RFC:XAXX010101000
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2023-01-05 11:09:59
+                    
+            Reporte de Caja
+                    
+    * * * Importe de Apertura * * *
+              Total Ingresado: $0.00 MXN
+* * * Totales por Formas de Cobro * * *
+                    
+> 1 Efectivo = $1044 MXN
+> 5 Monedero electronico = $30.54 MXN
+                     -------------------
+                    Total: $ 1074.54 MXN
+                    
+                                        
+                                        
+         * * Totales Netos * *
+                    
+                 Total a Crédito: $0 MXN
+                    
+          Importe de Apertura: $0.00 MXN
+  Total Vendido y Abonado: $1,074.54 MXN
+                Total Cobrado: $0.00 MXN
+            Total en Ingresos: $0.00 MXN
+                    
+            Total En Caja: $1,074.54 MXN
+                    
+               Total Retirado: $0.00 MXN
+                    
+      ----------------------------
+                 Faltante: $1,074.54 MXN
+                    
+       05/01/2023 11:09:59 a. m.
+            Firma Del Cajero
+                    
+                    
+       __________________________
+                    
+                    
+ Errores en syncronizador desactivados
+                    
+                    
+
+
+
+----------------------------------------

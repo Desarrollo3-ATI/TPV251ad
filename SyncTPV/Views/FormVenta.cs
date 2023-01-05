@@ -1,4 +1,5 @@
-﻿using SyncTPV.Controllers;
+﻿using AdminDll;
+using SyncTPV.Controllers;
 using SyncTPV.Controllers.Downloads;
 using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
@@ -370,10 +371,14 @@ namespace SyncTPV
             }
         }
 
-        public async Task fillDataGridMovements()
+        public async Task fillDataGridMovements(bool bandera = true)
         {
             hideScrollBars();
             lastLoading = DateTime.Now;
+            if (!bandera)
+            {
+                movesList = new List<MovimientosModel>();
+            }
             movesListTemp = await getAllMovements();
             if (movesListTemp != null)
             {
@@ -1503,6 +1508,7 @@ namespace SyncTPV
 
         private async void cobrarCarritoTpv(int idDocumento)
         {
+            await recalcularMovimientos();
             await changeDocumentType();
             FormasDeCobroDocumentoModel.removePendingBalanceToTheLastFormOfCollectionOfTheDocument(idDocumento);
             if (completarDocumentoConTotales(idDocumento))
@@ -3130,31 +3136,38 @@ namespace SyncTPV
 
         private async void BtnBuscarArticuloTeclado_Click(object sender, EventArgs e)
         {
-            double capturedUnits = 1;
-            String itemName = editNombreItemVenta.Text.ToString().Trim();
-            if (!itemName.Equals(""))
+            if (PASA)
             {
-                String[] parts = itemName.Split('*');
-                if (parts != null && parts.Length > 1)
+                double capturedUnits = 1;
+                String itemName = editNombreItemVenta.Text.ToString().Trim();
+                if (!itemName.Equals(""))
                 {
-                    itemName = parts[1].Trim();
-                    double value = 0;
-                    bool result = double.TryParse(parts[0].Trim(), out value);
-                    if (result)
-                        capturedUnits = value;
+                    String[] parts = itemName.Split('*');
+                    if (parts != null && parts.Length > 1)
+                    {
+                        itemName = parts[1].Trim();
+                        double value = 0;
+                        bool result = double.TryParse(parts[0].Trim(), out value);
+                        if (result)
+                            capturedUnits = value;
+                    }
+                }
+                if (editMove)
+                {
+                    clearMovementsAddedData();
+                    clearMovementValues();
+                }
+                FormArticulos fa = new FormArticulos("", 1, cotmosActive);
+                fa.ShowDialog();
+                if (itemModel != null)
+                {
+                    editCapturedUnits.Select();
+                    await fillAllFieldsFromAMovement(itemModel, capturedUnits, false);
                 }
             }
-            if (editMove)
+            else
             {
-                clearMovementsAddedData();
-                clearMovementValues();
-            }
-            FormArticulos fa = new FormArticulos("", 1, cotmosActive);
-            fa.ShowDialog();
-            if (itemModel != null)
-            {
-                editCapturedUnits.Select();
-                await fillAllFieldsFromAMovement(itemModel, capturedUnits, false);
+                MessageBox.Show("Venta rapida bloqueada por configuracion");
             }
         }
 
@@ -4432,14 +4445,9 @@ namespace SyncTPV
             
             if (e.KeyCode == Keys.F10)
             {
-                if (PASA)
-                {
+                
                     cobrarCarritoTpv(idDocument);
-                }
-                else
-                {
-                    MessageBox.Show("Venta rapida bloqueada por configuracion");
-                }
+                
                 
             } else if (e.KeyCode == Keys.F3)
             {
@@ -4459,7 +4467,14 @@ namespace SyncTPV
                     MessageBox.Show("Venta rapida bloqueada por configuracion");
                 }
             }
-            
+        }
+
+        private async Task recalcularMovimientos()
+        {
+            await MovimientosModel.sumarMovimientos(idDocument);
+            dataGridMovements.Rows.Clear();
+            dataGridMovements.Refresh();
+            fillDataGridMovements(false);
         }
 
         private async void BtnAgregar_Click(object sender, EventArgs e)
@@ -4557,7 +4572,6 @@ namespace SyncTPV
                 comboCodigoItemVenta.DroppedDown = false;
                 comboCodigoItemVenta.Focus();
                 editCapturedUnits.Text = Convert.ToString(1);
-
             }
             else
             {

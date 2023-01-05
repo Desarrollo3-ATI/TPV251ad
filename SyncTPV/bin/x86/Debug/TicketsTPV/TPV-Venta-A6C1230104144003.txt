@@ -1,0 +1,49 @@
+      ATI Pruebas sucursal tuxtla
+                 Venta
+                 tuxtla
+           RFC:XAXX010101000
+                    
+Folio: A6C1230104144003
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2023-01-04 14:43:31
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 ROLLO paleta
+PN514465SDSDASDSADSADSASDSDAD    $1,044.00  0% $0.00  $1,044.00MXN
+                    
+                    
+Neto :                       $900.00 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                   $900.00 MXN
+I.V.A. :                     $144.00 MXN
+                    
+Total :                    $1,044.00 MXN
+Efectivo                   $1,044.00 MXN
+Cambio :                       $0.00 MXN
+    MIL CUARENTA Y CUATRO PESOS M.N.
+                    
+                    
+                    
+Total de Movimientos: 1
+Total de Articulos: 1
+Usted Ahorro: $0.00
+                    
+Gracias por compar, vuelva pronto y comp
+                re mas!
+                    
+          * * * Original * * *
+04/01/2023 02:43:52 p. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

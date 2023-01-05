@@ -89,6 +89,7 @@ namespace SyncTPV.Views.Reports
 
         private void FormGeneralsReports_Load(object sender, EventArgs e)
         {
+            tabControlReportes.TabPages.Remove(tabPageReporteItems);
             toolTipLimite.SetToolTip(ComboBoxLimite, "Sin limite: 0");
             fillComboUsers();
             ComboBoxLimite.Text = LIMIT.ToString();

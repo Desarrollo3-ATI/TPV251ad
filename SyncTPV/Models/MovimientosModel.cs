@@ -1,12 +1,15 @@
 ﻿using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Dynamic;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using wsROMClase;
 using wsROMClases;
 
@@ -152,6 +155,147 @@ namespace SyncTPV
             return movesList;
         }
 
+        public static async Task<bool> sumarMovimientos(int idD)
+        {
+            int salvados = 0;
+            bool modicado = false;
+                List<dynamic> movesList = null;
+                dynamic movimientos = null;
+                var db = new SQLiteConnection();
+                String query = "SELECT DOCTO_ID_PEDIDO,CLAVE_ART,ARTICULO_ID, unidad_base,unidad_no_convertible, " +
+                "sum(unidades_capturadas) as unidades_capturadas, unidad_no_convertible_id,unidades_capturadas_id,captured_unit_type, precio, "+
+                "sum(TOTAL) as MONTO, sum(TOTAL) as TOTAl ,TIPO_DOCUMENTO, NOMBREU, FACTURA, DESCUENTOPOR, "+
+                "descuento, OBSERVACIONES, IDDEV, COMENTARIO, usuario_id,enviado_al_ws, rate_discount_promo, cancel "+
+                ",ROW_NUMBER() OVER( "+
+                " ORDER BY id) as POSICION "+
+                "from Movimientos where Movimientos.DOCTO_ID_PEDIDO = "+idD+" GROUP by  "+
+                "DOCTO_ID_PEDIDO,CLAVE_ART,ARTICULO_ID,unidad_no_convertible, "+
+                "unidad_no_convertible_id,unidades_capturadas_id, captured_unit_type, precio, "+
+                "TIPO_DOCUMENTO, NOMBREU, FACTURA, DESCUENTOPOR, "+
+                "descuento, OBSERVACIONES, IDDEV, COMENTARIO, usuario_id,enviado_al_ws, rate_discount_promo, cancel,unidad_base " +
+                ";";
+                try
+                {
+                    db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                    db.Open();
+                    using (SQLiteCommand command = new SQLiteCommand(query, db))
+                    {
+                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                movesList = new List<dynamic>();
+                                while (reader.Read())
+                                {
+                                    movimientos = new ExpandoObject();
+                                    movimientos.DOCTO_ID_PEDIDO = Convert.ToInt32(reader["DOCTO_ID_PEDIDO"].ToString().Trim());
+                                    movimientos.CLAVE_ART = reader["CLAVE_ART"].ToString();
+                                    movimientos.ARTICULO_ID = Convert.ToInt32(reader["ARTICULO_ID"].ToString().Trim());
+                                    movimientos.unidad_base = Convert.ToInt32(reader["unidad_base"].ToString().Trim());
+                                    movimientos.unidad_no_convertible = Convert.ToInt32(reader["unidad_no_convertible"].ToString().Trim());
+                                    movimientos.unidades_capturadas = Convert.ToInt32(reader["unidades_capturadas"].ToString().Trim());
+                                    movimientos.unidad_no_convertible_id = Convert.ToInt32(reader["unidad_no_convertible_id"].ToString().Trim());
+                                    movimientos.unidades_capturadas_id = Convert.ToInt32(reader["unidades_capturadas_id"].ToString().Trim());
+                                    movimientos.captured_unit_type = Convert.ToInt32(reader["captured_unit_type"].ToString().Trim());
+                                    movimientos.precio = Convert.ToDouble(reader["precio"].ToString().Trim());
+                                    movimientos.MONTO = Convert.ToDouble(reader["MONTO"].ToString().Trim());
+                                    movimientos.TOTAl = Convert.ToDouble(reader["TOTAl"].ToString().Trim());
+                                    movimientos.TIPO_DOCUMENTO = Convert.ToInt32(reader["TIPO_DOCUMENTO"].ToString().Trim());
+                                    movimientos.NOMBREU = reader["NOMBREU"].ToString().Trim();
+                                    movimientos.FACTURA = reader["FACTURA"].ToString().Trim();
+                                    movimientos.DESCUENTOPOR = Convert.ToInt32(reader["DESCUENTOPOR"].ToString().Trim());
+                                    movimientos.descuento = Convert.ToInt32(reader["descuento"].ToString().Trim());
+                                    movimientos.OBSERVACIONES = reader["OBSERVACIONES"].ToString().Trim();
+                                    movimientos.IDDEV = Convert.ToInt32(reader["IDDEV"].ToString().Trim());
+                                    movimientos.COMENTARIO =reader["COMENTARIO"].ToString().Trim();
+                                    movimientos.usuario_id = Convert.ToInt32(reader["usuario_id"].ToString().Trim());
+                                    movimientos.enviado_al_ws = Convert.ToInt32(reader["enviado_al_ws"].ToString().Trim());
+                                    movimientos.rate_discount_promo = Convert.ToInt32(reader["rate_discount_promo"].ToString().Trim());
+                                    movimientos.cancel = Convert.ToInt32(reader["cancel"].ToString().Trim());
+                                    movimientos.POSICION = Convert.ToInt32(reader["POSICION"].ToString().Trim());
+
+                                    movesList.Add(movimientos);
+                                }
+                            }
+                            if (reader != null && !reader.IsClosed)
+                                reader.Close();
+                        }
+                    }
+                }
+                catch (SQLiteException Ex)
+                {
+                    SECUDOC.writeLog(Ex.ToString());
+                }
+                finally
+                {
+                    if (db != null && db.State == ConnectionState.Open)
+                        db.Close();
+                }
+            if (deleteAllMovementFromADocument(idD)) { } else
+            {
+                deleteAllMovementFromADocument(idD);
+            }
+            if (movesList != null)
+            {
+                foreach (dynamic mdm in movesList)
+                {
+                    try
+                    {
+                        db.ConnectionString = ClsSQLiteDbHelper.instanceSQLite;
+                        db.Open();
+                        String query2 = "INSERT INTO " + LocalDatabase.TABLA_MOVIMIENTO + " VALUES (@id, @documentId, @itemCode, @itemId, @unidadesBase, @unidadesNoConvertibles, " +
+                                "@unidadesCapturadas, @unidadesNoConvertiblesId, @unidadesCapturadasId, @capturesUnitsType, @precio, @monto, @total, @posicion, @tipoDocumentoId, " +
+                                "@nombreUsuario, @factura, @descuentoPorcentaje, @descuentoImporte, @observaciones, @idDev, @comentario, @usuarioId, @enviadoAlWs, " +
+                                "@rateDiscountPromo, @cancel)";
+                        using (SQLiteCommand command = new SQLiteCommand(query2, db))
+                        {
+                            int lastId = getLastId() + 1;
+                            double newPrice = (double)decimal.Round((decimal)mdm.precio, 2);
+                            command.Parameters.AddWithValue("@id", lastId);
+                            command.Parameters.AddWithValue("@documentId", mdm.DOCTO_ID_PEDIDO);
+                            command.Parameters.AddWithValue("@itemCode", mdm.CLAVE_ART);
+                            command.Parameters.AddWithValue("@itemId", mdm.ARTICULO_ID);
+                            command.Parameters.AddWithValue("@unidadesBase", mdm.unidad_base);
+                            command.Parameters.AddWithValue("@unidadesNoConvertibles", mdm.unidad_no_convertible);
+                            command.Parameters.AddWithValue("@unidadesCapturadas", mdm.unidades_capturadas);
+                            command.Parameters.AddWithValue("@unidadesNoConvertiblesId", mdm.unidad_no_convertible_id);
+                            command.Parameters.AddWithValue("@unidadesCapturadasId", mdm.unidades_capturadas_id);
+                            command.Parameters.AddWithValue("@capturesUnitsType", mdm.captured_unit_type);
+                            command.Parameters.AddWithValue("@precio", newPrice);
+                            command.Parameters.AddWithValue("@monto", mdm.MONTO);
+                            command.Parameters.AddWithValue("@total", mdm.TOTAl);
+                            command.Parameters.AddWithValue("@posicion", mdm.POSICION);
+                            command.Parameters.AddWithValue("@tipoDocumentoId", mdm.TIPO_DOCUMENTO);
+                            command.Parameters.AddWithValue("@nombreUsuario", mdm.NOMBREU);
+                            command.Parameters.AddWithValue("@factura", mdm.FACTURA);
+                            command.Parameters.AddWithValue("@descuentoPorcentaje", mdm.DESCUENTOPOR);
+                            command.Parameters.AddWithValue("@descuentoImporte", mdm.descuento);
+                            command.Parameters.AddWithValue("@observaciones", mdm.OBSERVACIONES);
+                            command.Parameters.AddWithValue("@idDev", mdm.IDDEV);
+                            command.Parameters.AddWithValue("@comentario", mdm.COMENTARIO);
+                            command.Parameters.AddWithValue("@usuarioId", mdm.usuario_id);
+                            command.Parameters.AddWithValue("@enviadoAlWs", mdm.enviado_al_ws);
+                            command.Parameters.AddWithValue("@rateDiscountPromo", mdm.rate_discount_promo);
+                            command.Parameters.AddWithValue("@cancel", mdm.cancel);
+                            int recordSaved = command.ExecuteNonQuery();
+                            if (recordSaved > 0)
+                                salvados++;
+                        }
+                    }
+                    catch (SQLiteException e)
+                    {
+                        SECUDOC.writeLog(e.ToString());
+                    }
+                    finally
+                    {
+                        if (db != null && db.State == ConnectionState.Open)
+                            db.Close();
+                    }
+                }
+            }
+            return modicado;
+        }
+
         public static List<MovimientosModel> getAllMovements(String query)
         {
             List<MovimientosModel> movesList = null;
@@ -248,6 +392,7 @@ namespace SyncTPV
                         "@rateDiscountPromo, @cancel)";
                 using (SQLiteCommand command = new SQLiteCommand(query, db))
                 {
+                    double newPrice = (double)decimal.Round((decimal)mdm.price, 2);
                     int lastId = getLastId() + 1;
                     command.Parameters.AddWithValue("@id", lastId);
                     command.Parameters.AddWithValue("@documentId", mdm.documentId);
@@ -259,7 +404,7 @@ namespace SyncTPV
                     command.Parameters.AddWithValue("@unidadesNoConvertiblesId", mdm.nonConvertibleUnitId);
                     command.Parameters.AddWithValue("@unidadesCapturadasId", mdm.capturedUnitId);
                     command.Parameters.AddWithValue("@capturesUnitsType", mdm.capturesUnitsType);
-                    command.Parameters.AddWithValue("@precio", mdm.price);
+                    command.Parameters.AddWithValue("@precio", newPrice);
                     command.Parameters.AddWithValue("@monto", mdm.monto);
                     command.Parameters.AddWithValue("@total", mdm.total);
                     command.Parameters.AddWithValue("@posicion", mdm.position);
@@ -1954,10 +2099,12 @@ namespace SyncTPV
                     {
                         newCapturedUnits = capturedUnits;
                     }
+                    newPrice = (double)decimal.Round((decimal)newPrice, 2);
                     nuevoMonto = (newCapturedUnits * newPrice);
                     nuevoDescuento = (nuevoMonto * discountRate) / 100;
                     nuevoTotal = (nuevoMonto - nuevoDescuento);
                     nuevoTotal = (double)decimal.Round((decimal)nuevoTotal, 2);
+                    
                     try
                     {
                         double newdisconunt = MovimientosModel.getPorcentajePromotionMoviments(idMovement);

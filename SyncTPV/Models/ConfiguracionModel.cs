@@ -30,6 +30,7 @@ namespace SyncTPV.Models
         public int cotmos { get; set; }
         public String codigoCajaPadre { get; set; }
         public String ventaRapida { get; set; }
+        public String reporteError { get; set; }
 
         public static ExpandoObject saveLinkWs(String linkWs)
         {
@@ -62,7 +63,7 @@ namespace SyncTPV.Models
                     String query = "INSERT INTO " + LocalDatabase.TABLA_CONFIGURACION + " VALUES (1, @url, @modoDebug, " +
                         "@smsPermission, @printPermission, @serverMode, @numberOfCopies, @scalesPermission, " +
                         "@capturaPesoManual, @appType, @serverId, @enterpriseId, @useFicalField, @cerrarCOM, " +
-                        "@fiscalItemField, @webActive, @cotmos, @codigoCajaPadre);";
+                        "@fiscalItemField, @webActive, @cotmos, @codigoCajaPadre,@ventaRapida,@reporteError);";
                     using (SQLiteCommand command = new SQLiteCommand(query, db))
                     {
                         command.Parameters.AddWithValue("@url", linkWs);
@@ -82,6 +83,8 @@ namespace SyncTPV.Models
                         command.Parameters.AddWithValue("@webActive", 1);
                         command.Parameters.AddWithValue("@cotmos", 0);
                         command.Parameters.AddWithValue("@codigoCajaPadre", "");
+                        command.Parameters.AddWithValue("@ventaRapida", 1);
+                        command.Parameters.AddWithValue("@reporteError", 1);
                         int numberOfRecords = command.ExecuteNonQuery();
                         if (numberOfRecords > 0)
                         {
@@ -676,6 +679,44 @@ namespace SyncTPV.Models
             return activated;
         }
 
+        public static int validateREActivated()
+        {
+            int activated = 1;
+            var db = new SQLiteConnection(ClsSQLiteDbHelper.instanceSQLite);
+            db.Open();
+            try
+            {
+                String query = "SELECT " + LocalDatabase.CAMPO_REPORTEERROR_CONFIG + " FROM " + LocalDatabase.TABLA_CONFIGURACION +
+                        " WHERE " + LocalDatabase.CAMPO_ID_CONFIGURACION + " = " + 1;
+                using (SQLiteCommand command = new SQLiteCommand(query, db))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+
+                                activated = reader.GetInt32(0);
+                            }
+                        }
+                        if (reader != null && !reader.IsClosed)
+                            reader.Close();
+                    }
+                }
+            }
+            catch (SQLiteException e)
+            {
+                SECUDOC.writeLog(e.ToString());
+            }
+            finally
+            {
+                if (db != null && db.State == ConnectionState.Open)
+                    db.Close();
+            }
+            return activated;
+        }
+
         public static Boolean isTheConceptByRouteActive(string panelInstance)
         {
             bool isActive = false;
@@ -1174,7 +1215,7 @@ namespace SyncTPV.Models
                                     }
                                     else value = 1;
                             }
-                        } else description = "No pudimos obtener el valor de Cotización de mostrador en la Configuración!\r\n" +
+                        } else description = "No se detecto la Configuración!\r\n" +
                             "Validar si la conexión ya fue realizada!";
                         if (reader != null && !reader.IsClosed)
                             reader.Close();

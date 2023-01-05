@@ -186,15 +186,61 @@ namespace SyncTPV.Controllers
                     {
                         if (serverModeLAN)
                         {
+                            bool ticketerrror = false;
                             //para lan
                             List<int> ticketslistid = TicketsModel.getAllIdsTicketsNotSends();
-                            for (int x = 0; x<ticketslistid.Count;x++)
+                            if (ticketslistid != null)
                             {
-                                TicketsModel.actualizarIdServer(ticketslistid[x], -1);
+                                String panelInstance = InstanceSQLSEModel.getStringPanelInstance();
+                                for (int x = 0; x < ticketslistid.Count; x++)
+                                {
+                                    TicketsModel tickets = TicketsModel.getTickets(ticketslistid[x]);
+                                    if(tickets != null)
+                                    {
+                                        description = ""+ tickets.referencia;
+                                        List<ExpandoObject> responseTickets = ClsTicketsModel.savePanelDataTickets(panelInstance,
+                                        tickets.id,
+                                        tickets.referencia,
+                                        tickets.datos,
+                                        tickets.idAgente,
+                                        tickets.tipoDocumento,
+                                        tickets.fecha,
+                                        tickets.idPanel,
+                                        tickets.estatus);
+                                       
+                                        if (responseTickets != null)
+                                        {
+                                            if(responseTickets.Count > 0)
+                                            {
+                                                dynamic resultT = responseTickets[0];
+                                                TicketsModel.actualizarIdServer(resultT.idIngresoApp, resultT.idIngresoServer);
+                                            }
+                                            else
+                                            {
+                                                ticketerrror = true;
+                                                break;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ticketerrror = true;
+                                            break;
+                                        }
+                                    }
+                                }
                             }
-                            value = 100;
-                            description = "Procesos Finalizados";
-                            method = 8;
+                            if (ticketerrror)
+                            {
+                                value = 100;
+                                description =  description+" Error al cargar el ticket";
+                                method = 8;
+                            }
+                            else
+                            {
+                                value = 100;
+                                description = "Procesos Finalizados";
+                                method = 8;
+                            }
                         }
                         else
                         {
@@ -418,6 +464,56 @@ namespace SyncTPV.Controllers
             return response;
         }
 
+        public async Task<ExpandoObject> obtenerErroresDelPANELWs()
+        {
+            dynamic response = new ExpandoObject();
+            await Task.Run(() => {
+                try
+                {
+                    String errorMessage = "";
+                    int itemsToEvaluate = 0;
+                    int correctResponse = 0;
+                    String url = ConfiguracionModel.getLinkWs();
+                    url = url.Replace(" ", "%20");
+                    var client = new RestClient(url);
+                    // client.Authenticator = new HttpBasicAuthenticator(username, password);
+                    var request = new RestRequest("/ObtenerErroresPanelWS", Method.Post);
+                    request.AddJsonBody(new
+                    {});
+                    var responseHeader = client.ExecuteAsync(request);
+                    if (responseHeader.Result.ResponseStatus == ResponseStatus.Completed)
+                    {
+                        var jsonResp = JsonConvert.DeserializeObject<dynamic>(responseHeader.Result.Content);
+                        dynamic routesResponse = (dynamic)jsonResp;
+                        response.respuesta = routesResponse.respuesta;
+                    }
+                    else if (responseHeader.Result.ResponseStatus == ResponseStatus.Error)
+                    {
+                        response.respuesta = null;
+                        if (responseHeader.Result.ErrorMessage.Equals("Unable to connect to the remote server"))
+                        {
+                            correctResponse = 404;
+                            errorMessage = "Tiempo Excedido! " + responseHeader.Result.ErrorMessage;
+                        }
+                        else
+                        {
+                            correctResponse = 500;
+                            errorMessage = "Tiempo Excedido! " + responseHeader.Result.ErrorMessage;
+                        }
+                    }
+                    response.value = correctResponse;
+                    response.description = errorMessage;
+                }
+                catch (Exception e)
+                {
+                    SECUDOC.writeLog(e.ToString());
+                    response.value = -1;
+                    response.description = "Exception: " + e.ToString();
+                    response.respuesta = null;
+                }
+            });
+            return response;
+        }
         private static async Task<ExpandoObject> enviarClienteAlWs(int idClienteLocal, String nombreUsuario, String nombreCliente,
             int clasificationId1, int ciudadId, int estadoId, String calle, String numero, String colonia, String poblacion,
             String referencia, String telefono, String codigoPostal, String email, String rfc, String observations,

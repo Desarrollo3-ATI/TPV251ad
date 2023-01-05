@@ -4,7 +4,9 @@ using SyncTPV.Helpers.SqliteDatabaseHelper;
 using SyncTPV.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Data.SQLite;
 using System.Dynamic;
 using System.Globalization;
@@ -16,6 +18,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SyncTPV
 {
@@ -1005,7 +1008,7 @@ namespace SyncTPV
                     cutTicket();
                     if (openCashDrawer)
                         abrirCajonDinero();
-                    printTicket(tipoTicketTPV: "VENTA", claveTicketTPV: folio);
+                    printTicket(tipoTicketTPV: nameDocumentType, claveTicketTPV: folio);
                 }
             });
             return response;
@@ -1503,12 +1506,143 @@ namespace SyncTPV
             TextoCentro("__________________________");
             TextoCentro("");
             TextoCentro("");
+            int permisoE = ConfiguracionModel.validateREActivated();
+            if (permisoE == 1)
+            {
+                List<dynamic> errores = null;
+                if (serverModeLAN)
+                {
+                    String panelInstance = InstanceSQLSEModel.getStringPanelInstance();
+                    errores = await savePanelDataTickets(panelInstance);
+                    if (errores != null)
+                    {
+                        TextoCentro("* * Errores en syncronizador " + errores.Count + " * *");
+                        try
+                        {
+                            int contadormax = 0;
+                            foreach (var errors in errores)
+                            {
+                                String errorReferencia = errors.CREFERENCIA;
+                                String errorsTotal = errors.CTOTAL;
+                                TextoIzquierda("Error en " + errorReferencia + ": " + errorsTotal + " MXN");
+                                contadormax++;
+                                if (contadormax > 20)
+                                {
+                                    break;
+                                }
+
+                            }
+                            if (contadormax > 0)
+                            {
+                                TextoCentro("Revise su SyncPANEL");
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            SECUDOC.writeLog("Reporte de error :" + e.ToString());
+                        }
+                    }
+                    else
+                    {
+                        TextoCentro("*Conexion con el syncronizador perdida*");
+                    }
+                }
+                else
+                {
+                    SendDataService sds = new SendDataService();
+                    dynamic erroresPANELws = await sds.obtenerErroresDelPANELWs();
+                    dynamic erroresaux = erroresPANELws.respuesta;
+                    if (erroresaux != null)
+                    {
+                        TextoCentro("* * Errores en syncronizador " + erroresaux.Count + " * *");
+                        try
+                        {
+                            int contadormax = 0;
+                            for (int i = 0; i < erroresaux.Count; i++)
+                            {
+                                String errorReferencia = erroresaux[i].CREFERENCIA;
+                                String errorsTotal = erroresaux[i].CTOTAL;
+                                TextoIzquierda("Error en " + errorReferencia + ": " + errorsTotal + " MXN");
+                                contadormax++;
+                                if (contadormax > 20)
+                                {
+                                    break;
+                                }
+
+                            }
+                            if (contadormax > 0)
+                            {
+                                TextoCentro("* * Revise su SyncPANEL * *");
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            SECUDOC.writeLog("Reporte de error :" + e.ToString());
+                        }
+                    }
+                    else
+                    {
+                        TextoCentro("*Conexion con el syncronizador perdida*");
+                    }
+                }
+            }
+            else
+            {
+                TextoCentro("Errores en syncronizador desactivados");
+            }
             TextoCentro("");
             TextoCentro("");
             cutTicket();
             string codigoCaja = UserModel.getCodeBox(ClsRegeditController.getIdUserInTurn());
             string codigoCajero = UserModel.getCode(ClsRegeditController.getIdUserInTurn());
             printTicket(tipoTicketTPV: "CORTE", claveTicketTPV: codigoCaja + "-" + codigoCajero + "-" + TicketCorteFechaHora.ToString("yyyyMMdd-HHmmss"));
+        }
+
+        public async Task<List<dynamic>> savePanelDataTickets(string panelInstance)
+        {
+            dynamic obj = null;
+            List<dynamic> list = new List<dynamic>();
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = panelInstance;
+            sqlConnection.Open();
+            try
+            {     
+                string cmdText = "select * from Documentos where CREADO = 'X'";
+                SqlCommand sqlCommand = new SqlCommand(cmdText, sqlConnection);
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                if (sqlDataReader.HasRows)
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        obj = new ExpandoObject();
+                        obj.CREFERENCIA = sqlDataReader["CREFERENCIA"].ToString().Trim();
+                        obj.CTOTAL = sqlDataReader["CTOTAL"].ToString().Trim();
+                        obj.CIDAGENTE = sqlDataReader["CIDAGENTE"].ToString().Trim();
+                        obj.CNOMBREAGENTE = sqlDataReader["CIDAGENTE"].ToString().Trim();
+                        obj.CFECHA = sqlDataReader["CFECHA"].ToString().Trim();
+                        obj.CCODIGOCLIENTE = sqlDataReader["CCODIGOCLIENTE"].ToString().Trim();
+                        obj.CIDDOCUMENTO = sqlDataReader["CIDDOCUMENTO"].ToString().Trim();
+                        list.Add(obj);
+                    }
+                }
+                if (sqlDataReader != null && !sqlDataReader.IsClosed)
+                {
+                    sqlDataReader.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                SECUDOC.writeLog(ex.ToString());
+            }
+            finally
+            {
+                if (sqlConnection != null && sqlConnection.State == ConnectionState.Open)
+                {
+                    sqlConnection.Close();
+                }
+            }
+
+            return list;
         }
 
         private async Task<double> getAllAbonos(bool showPagos)

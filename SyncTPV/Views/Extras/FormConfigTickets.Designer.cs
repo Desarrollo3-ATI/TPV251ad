@@ -63,10 +63,13 @@
             this.checkBoxCodigoCaja = new System.Windows.Forms.CheckBox();
             this.checkBoxCodigoUsuario = new System.Windows.Forms.CheckBox();
             this.checkBoxFolio = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkVistaErrores = new System.Windows.Forms.CheckBox();
             this.panelTollbar.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.groupBoxDatosEmpresa.SuspendLayout();
             this.groupBoxEncabezadoTicket.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTollbar
@@ -105,6 +108,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelContent.BackColor = System.Drawing.Color.FloralWhite;
+            this.panelContent.Controls.Add(this.groupBox1);
             this.panelContent.Controls.Add(this.groupBoxDatosEmpresa);
             this.panelContent.Controls.Add(this.groupBoxEncabezadoTicket);
             this.panelContent.Location = new System.Drawing.Point(-2, 69);
@@ -138,9 +142,9 @@
             this.groupBoxDatosEmpresa.Controls.Add(this.editDireccion);
             this.groupBoxDatosEmpresa.Controls.Add(this.textInfoIpServer);
             this.groupBoxDatosEmpresa.Controls.Add(this.editEmpresa);
-            this.groupBoxDatosEmpresa.Location = new System.Drawing.Point(14, 129);
+            this.groupBoxDatosEmpresa.Location = new System.Drawing.Point(14, 251);
             this.groupBoxDatosEmpresa.Name = "groupBoxDatosEmpresa";
-            this.groupBoxDatosEmpresa.Size = new System.Drawing.Size(776, 240);
+            this.groupBoxDatosEmpresa.Size = new System.Drawing.Size(776, 118);
             this.groupBoxDatosEmpresa.TabIndex = 6;
             this.groupBoxDatosEmpresa.TabStop = false;
             this.groupBoxDatosEmpresa.Text = "Datos de la empresa en ticket";
@@ -318,7 +322,7 @@
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(624, 180);
+            this.btnGuardar.Location = new System.Drawing.Point(624, 58);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(146, 54);
             this.btnGuardar.TabIndex = 7;
@@ -525,6 +529,32 @@
             this.checkBoxFolio.CheckedChanged += new System.EventHandler(this.checkBoxFolio_CheckedChanged);
             this.checkBoxFolio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.checkBoxFolio_KeyUp);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.checkVistaErrores);
+            this.groupBox1.Location = new System.Drawing.Point(14, 129);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(776, 116);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Configuración adicional";
+            // 
+            // checkVistaErrores
+            // 
+            this.checkVistaErrores.AutoSize = true;
+            this.checkVistaErrores.Checked = true;
+            this.checkVistaErrores.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkVistaErrores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkVistaErrores.Location = new System.Drawing.Point(6, 19);
+            this.checkVistaErrores.Name = "checkVistaErrores";
+            this.checkVistaErrores.Size = new System.Drawing.Size(147, 20);
+            this.checkVistaErrores.TabIndex = 0;
+            this.checkVistaErrores.Text = "Reportes de errores";
+            this.checkVistaErrores.UseVisualStyleBackColor = true;
+            this.checkVistaErrores.CheckedChanged += new System.EventHandler(this.checkVistaErrores_CheckedChanged);
+            // 
             // FormConfigTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -545,6 +575,8 @@
             this.groupBoxDatosEmpresa.PerformLayout();
             this.groupBoxEncabezadoTicket.ResumeLayout(false);
             this.groupBoxEncabezadoTicket.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -585,5 +617,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox editVentaEfectivo;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkVistaErrores;
     }
 }

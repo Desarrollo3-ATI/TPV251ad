@@ -63,6 +63,7 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
         public const String CAMPO_COTMOS_CONFIG = "cotmos";
         public const String CAMPO_CAJAPADRE_CONFIG = "codigoCajaPadre";
         public const String CAMPO_VENTARAPIDA_CONFIG = "ventaRapida";
+        public const String CAMPO_REPORTEERROR_CONFIG = "reporteError";
 
         public static String CREAR_TABLA_CONFIGURACION = "CREATE TABLE IF NOT EXISTS " + TABLA_CONFIGURACION + " (" + CAMPO_ID_CONFIGURACION + " INTEGER PRIMARY KEY, " +
             CAMPO_VALOR_CONFIGURACION + " VARCHAR(200), " + CAMPO_MODODEBUG_CONFIGURACION + " INTEGER DEFAULT 1, " + CAMPO_SMS_CONFIG + " INTEGER DEFAULT 1, " +
@@ -73,7 +74,8 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
             CAMPO_USEFICALFIELD_CONFIG + " INT NOT NULL DEFAULT 0, " + CAMPO_CERRARCOM_CONFIG + " INT NOT NULL DEFAULT 0, " +
             CAMPO_FISCALITEMFIELD_CONFIG+" INT NOT NULL DEFAULT 6, "+CAMPO_WEBACTIVE_CONFIG+" INT NOT NULL DEFAULT 1, " +
             CAMPO_COTMOS_CONFIG+" INT NOT NULL DEFAULT 0, "+CAMPO_CAJAPADRE_CONFIG+" TEXT NOT NULL DEFAULT ''," +
-            CAMPO_VENTARAPIDA_CONFIG + " INT NOT NULL DEFAULT 1)";
+            CAMPO_VENTARAPIDA_CONFIG + " INT NOT NULL DEFAULT 1,"+
+            CAMPO_REPORTEERROR_CONFIG + " INT NOT NULL DEFAULT 1)";
 
         public static void validateAndCreateNewFieldsInConfiguration(SQLiteConnection db)
         {
@@ -164,6 +166,13 @@ namespace SyncTPV.Helpers.SqliteDatabaseHelper
                     {
                         SQLiteCommand cmd = new SQLiteCommand(db);
                         cmd.CommandText = "ALTER TABLE " + TABLA_CONFIGURACION + " ADD " + CAMPO_VENTARAPIDA_CONFIG
+                            + " INT NOT NULL DEFAULT 1";
+                        cmd.ExecuteNonQuery();
+                    }
+                    if (campos == 19)
+                    {
+                        SQLiteCommand cmd = new SQLiteCommand(db);
+                        cmd.CommandText = "ALTER TABLE " + TABLA_CONFIGURACION + " ADD " + CAMPO_REPORTEERROR_CONFIG
                             + " INT NOT NULL DEFAULT 1";
                         cmd.ExecuteNonQuery();
                     }

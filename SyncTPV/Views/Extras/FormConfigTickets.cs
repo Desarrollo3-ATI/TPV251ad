@@ -17,6 +17,7 @@ namespace SyncTPV.Views.Extras
     public partial class FormConfigTickets : Form
     {
         bool serverModeLAN = ConfiguracionModel.isLANPermissionActivated();
+        public bool reporteError = true;
         public FormConfigTickets()
         {
             InitializeComponent();
@@ -29,8 +30,17 @@ namespace SyncTPV.Views.Extras
         {
             validateParametersActivateds();
             validateDatosDeEmpresa();
+            checkVistaErrores.Checked = Convert.ToBoolean(validateRE());
+            reporteError = false;
         }
-        
+
+        public int validateRE()
+        {
+            //checkBoxVentaRapida
+            int ventarapida = 1;
+                ventarapida = ConfiguracionModel.validateREActivated();
+            return ventarapida;
+        }
         private async Task validateDatosDeEmpresa()
         {
             dynamic tk = null; 
@@ -308,6 +318,39 @@ namespace SyncTPV.Views.Extras
                 {
                     PrinterModel.updateShowEncabezadoField(1, 5, 0);
                     MetodosGenerales.showToastSuccess("Desactivado", "El porcentaje de los descuentos no se mostrará en el encabezado del ticket");
+                }
+            }
+        }
+
+        private void checkVistaErrores_CheckedChanged(object sender, EventArgs e)
+        {
+            //bool cambio = checkBoxVentaRapida.Checked;
+            if (!reporteError)
+            {
+                FormPasswordConfirmation fpc = new FormPasswordConfirmation("Autorización del Supervisor", "Ingresar Contraseña");
+                fpc.StartPosition = FormStartPosition.CenterScreen;
+                fpc.ShowDialog();
+                if (FormPasswordConfirmation.permissionGranted)
+                {
+                    if (checkVistaErrores.Checked)
+                    {
+                        String query = "UPDATE " + LocalDatabase.TABLA_CONFIGURACION + " SET " + LocalDatabase.CAMPO_REPORTEERROR_CONFIG
+                        + " = " + 1 + " WHERE id = 1";
+                        ConfiguracionModel.updateServerMode(query);
+                    }
+                    else
+                    {
+                        String query = "UPDATE " + LocalDatabase.TABLA_CONFIGURACION + " SET " + LocalDatabase.CAMPO_REPORTEERROR_CONFIG
+                        + " = " + 0 + " WHERE id = 1";
+                        ConfiguracionModel.updateServerMode(query);
+
+                    }
+                }
+                else
+                {
+                    reporteError = true;
+                    checkVistaErrores.Checked = !checkVistaErrores.Checked;
+                    reporteError = false;
                 }
             }
         }

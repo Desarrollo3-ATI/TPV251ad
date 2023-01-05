@@ -23,6 +23,7 @@ namespace SyncTPV.Views
         private static String tipoDocumento = "Todos";
         private static bool usarfecha = false;
         private static bool serverModeLAN = false;
+        String panelInstance = InstanceSQLSEModel.getStringPanelInstance();
         public FrmReimpresionTickets()
         {
             InitializeComponent();
@@ -233,22 +234,26 @@ namespace SyncTPV.Views
 
         private async void btnBuscarReportes_Click(object sender, EventArgs e)
         {
+            dynamic response = null;
+            fecha = (FechaTickets.Value).ToString("yyyy-MM-dd");
+            fechamax = (FechaMaxima.Value).ToString("yyyy-MM-dd");
+            referencia = comboReferencia.Text;
+            limite = int.Parse(comboLimite.Text.ToString());
             if (serverModeLAN)
             {
-                MessageBox.Show("Este módulo es requerido el uso de WebService");
+                response = TicketsModel.obtenerListaDeTickets(panelInstance,
+                    usarfecha, fecha, idAgente, referencia, tipoDocumento, fechamax, limite
+                );
             }
             else
             {
-                fecha = (FechaTickets.Value).ToString("yyyy-MM-dd");
-                fechamax = (FechaMaxima.Value).ToString("yyyy-MM-dd");
-                referencia = comboReferencia.Text;
-                limite = int.Parse(comboLimite.Text.ToString());
                 SendDataService sds = new SendDataService();
-                dynamic response = await sds.obtenerTicketsDelWs(
+                response = await sds.obtenerTicketsDelWs(
                     usarfecha, fecha, fechamax, idAgente, referencia, tipoDocumento, limite
                 );
                 //gridTickets.DataSource = response;
-                try
+            }
+            try
                 {
                     gridTickets.Rows.Clear();
                     if (response.respuesta != null)
@@ -287,7 +292,6 @@ namespace SyncTPV.Views
                 {
                     SECUDOC.writeLog(es.ToString());
                 }
-            }
             //MessageBox.Show("id "+idAgente+" fecha "+fecha+" tipo "+tipoDocumento+" referencia "+referencia+".");
         }
 

@@ -209,10 +209,7 @@ namespace SyncTPV
                 btnArticulos.FlatAppearance.BorderSize = 1;
                 btnCorteDeCaja.Visible = false;
                 btnIngresos.Visible = false;
-                if (serverModeLAN)
-                { 
-                    btnReimpresionTickets.Visible = false;
-                }
+               
                 btnReportsFrmPrincipal.Text = "Reporte de \nEntregas (F6)";
                 btnReportsFrmPrincipal.Location = new Point(3, btnArticulos.Location.Y + 105);
                 btnReportsFrmPrincipal.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.reportes_blanco, 35, 35);
@@ -279,10 +276,7 @@ namespace SyncTPV
                 btnReimpresionTickets.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.printer_white, 35, 35);
                 btnReimpresionTickets.Height = 60;
                 btnReimpresionTickets.Location = new Point(3, 465);
-                if (serverModeLAN)
-                {
-                    btnReimpresionTickets.Visible = false;
-                }
+                
                 btnReimpresionTickets.Text = "Resumen de \nTickets";
                 actualizarDatosToolStripMenuItem.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.update_data_black, 20, 20);
                 sendDataToolStripMenuItem.Image = MetodosGenerales.redimencionarBitmap(Properties.Resources.upload, 20, 20);
@@ -741,6 +735,7 @@ namespace SyncTPV
             btnVenta.Enabled = bandera;
             btnTaras.Enabled = bandera;
             btnIngresos.Enabled = bandera;
+            btnReimpresionTickets.Enabled = bandera;
         }
 
         private void btnArticulos_Click(object sender, EventArgs e)
@@ -1265,33 +1260,43 @@ namespace SyncTPV
                 if (cotmosActive)
                 {
                     value = 1;
-                } else
+                }
+                else
                 {
-                    dynamic responseDocuments = null;
-                    if (ConfiguracionModel.isLANPermissionActivated())
-                        responseDocuments = await DocumentController.agentDocumentSynchronizedToCommercialLAN();
-                    else responseDocuments = await DocumentController.agentDocumentSynchronizedToCommercialAPI();
-                    if (responseDocuments.value == 0)
-                    {
-                        value = 1;
-                    }
-                    else if (responseDocuments.value > 0)
-                    {
-                        if (responseDocuments.value == 1)
+                    String pendiente = await armarStringParaMostrarInformacionAEnviar();
+                    if (pendiente.Equals("")) { 
+                        dynamic responseDocuments = null;
+                        if (ConfiguracionModel.isLANPermissionActivated())
+                            responseDocuments = await DocumentController.agentDocumentSynchronizedToCommercialLAN();
+                        else responseDocuments = await DocumentController.agentDocumentSynchronizedToCommercialAPI();
+                        if (responseDocuments.value == 0)
                         {
-                            description = "Tienes que sincronizar los documentos al sistema de Comercial en el Servidor!\n" +
-                            " Se encontró " + responseDocuments.value + " Documento pendiente en el Panel";
+                            value = 1;
                         }
-                        else if (responseDocuments.value > 1)
+                        else if (responseDocuments.value > 0)
                         {
-                            description = "Tienes que sincronizar los documentos al sistema de Comercial en el Servidor!\n" +
-                            " Se encontraron " + responseDocuments.value + " Documentos pendientes en el Panel";
+                            if (responseDocuments.value == 1)
+                            {
+                                description = "Tienes que sincronizar los documentos al sistema de Comercial en el Servidor!\n" +
+                                " Se encontró " + responseDocuments.value + " Documento pendiente en el Panel";
+                            }
+                            else if (responseDocuments.value > 1)
+                            {
+                                description = "Tienes que sincronizar los documentos al sistema de Comercial en el Servidor!\n" +
+                                " Se encontraron " + responseDocuments.value + " Documentos pendientes en el Panel";
+                            }
+                        }
+                        else
+                        {
+                            value = responseDocuments.value;
+                            description = responseDocuments.description;
                         }
                     }
                     else
                     {
-                        value = responseDocuments.value;
-                        description = responseDocuments.description;
+                        value = 0;
+                        description = "Tienes documentos sin enviar al servidor!.\n" +
+                                ""+ pendiente;
                     }
                 }
             });

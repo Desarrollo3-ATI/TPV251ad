@@ -18,6 +18,7 @@ using Windows.Networking.NetworkOperators;
 using wsROMClase;
 using wsROMClases;
 using wsROMClases.Helpers;
+using wsROMClases.Models;
 
 namespace SyncTPV.Views
 {
@@ -1551,7 +1552,45 @@ namespace SyncTPV.Views
                             {
                                 String Ref = DocumentModel.getFolioVentaForADocument(idDocument);
                                 int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
-                                TicketsModel.actualizarIdServer(idsTicket, -1);
+                                List<int> ticketslistid = new List<int>();
+                                ticketslistid.Add(idsTicket);
+                                if (ticketslistid != null)
+                                {
+                                    String panelInstance = InstanceSQLSEModel.getStringPanelInstance();
+                                    for (int x = 0; x < ticketslistid.Count; x++)
+                                    {
+                                        TicketsModel tickets = TicketsModel.getTickets(ticketslistid[x]);
+                                        if (tickets != null)
+                                        {
+                                            List<ExpandoObject> responseTickets = ClsTicketsModel.savePanelDataTickets(panelInstance,
+                                            tickets.id,
+                                            tickets.referencia,
+                                            tickets.datos,
+                                            tickets.idAgente,
+                                            tickets.tipoDocumento,
+                                            tickets.fecha,
+                                            tickets.idPanel,
+                                            tickets.estatus);
+
+                                            if (responseTickets != null)
+                                            {
+                                                if (responseTickets.Count > 0)
+                                                {
+                                                    dynamic resultT = responseTickets[0];
+                                                    TicketsModel.actualizarIdServer(resultT.idIngresoApp, resultT.idIngresoServer);
+                                                }
+                                                else
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                             else
                             {
@@ -1622,7 +1661,45 @@ namespace SyncTPV.Views
                             {
                                 String Ref = DocumentModel.getFolioVentaForADocument(idDocument);
                                 int idsTicket = TicketsModel.getIdTicketsByReference(Ref);// 
-                                TicketsModel.actualizarIdServer(idsTicket, -1);
+                                List<int> ticketslistid = new List<int>();
+                                ticketslistid.Add(idsTicket);
+                                if (ticketslistid != null)
+                                {
+                                    String panelInstance = InstanceSQLSEModel.getStringPanelInstance();
+                                    for (int x = 0; x < ticketslistid.Count; x++)
+                                    {
+                                        TicketsModel tickets = TicketsModel.getTickets(ticketslistid[x]);
+                                        if (tickets != null)
+                                        {
+                                            List<ExpandoObject> responseTickets = ClsTicketsModel.savePanelDataTickets(panelInstance,
+                                            tickets.id,
+                                            tickets.referencia,
+                                            tickets.datos,
+                                            tickets.idAgente,
+                                            tickets.tipoDocumento,
+                                            tickets.fecha,
+                                            tickets.idPanel,
+                                            tickets.estatus);
+
+                                            if (responseTickets != null)
+                                            {
+                                                if (responseTickets.Count > 0)
+                                                {
+                                                    dynamic resultT = responseTickets[0];
+                                                    TicketsModel.actualizarIdServer(resultT.idIngresoApp, resultT.idIngresoServer);
+                                                }
+                                                else
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
                             }
                             else
                             {

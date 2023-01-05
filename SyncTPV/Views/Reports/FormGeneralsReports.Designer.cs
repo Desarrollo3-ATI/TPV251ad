@@ -35,8 +35,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGeneralsReports));
             this.panelToolbar = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
@@ -134,17 +134,7 @@
             this.comboBoxSelectEI = new System.Windows.Forms.ComboBox();
             this.editTotaltesEITurno = new System.Windows.Forms.TextBox();
             this.tabPageReporteItems = new System.Windows.Forms.TabPage();
-            this.panelItemBot = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridDevolucionesItems = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.dataGridVentasItems = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -152,8 +142,18 @@
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidades = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolTipLimite = new System.Windows.Forms.ToolTip(this.components);
             this.panelItemsTop = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panelItemBot = new System.Windows.Forms.Panel();
+            this.dataGridDevolucionesItems = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolTipLimite = new System.Windows.Forms.ToolTip(this.components);
             this.panelToolbar.SuspendLayout();
             this.panelContent.SuspendLayout();
             this.panelFilters.SuspendLayout();
@@ -180,11 +180,11 @@
             this.panelSobranteFaltante.SuspendLayout();
             this.panelTotalesEITurno.SuspendLayout();
             this.tabPageReporteItems.SuspendLayout();
-            this.panelItemBot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridDevolucionesItems)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVentasItems)).BeginInit();
             this.panelItemsTop.SuspendLayout();
+            this.panelItemBot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDevolucionesItems)).BeginInit();
             this.SuspendLayout();
             // 
             // panelToolbar
@@ -1571,96 +1571,6 @@
             this.tabPageReporteItems.Text = "Reporte de Items";
             this.tabPageReporteItems.UseVisualStyleBackColor = true;
             // 
-            // panelItemBot
-            // 
-            this.panelItemBot.Controls.Add(this.dataGridDevolucionesItems);
-            this.panelItemBot.Controls.Add(this.label1);
-            this.panelItemBot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelItemBot.Location = new System.Drawing.Point(0, 194);
-            this.panelItemBot.Name = "panelItemBot";
-            this.panelItemBot.Size = new System.Drawing.Size(898, 167);
-            this.panelItemBot.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Devoluciones";
-            // 
-            // dataGridDevolucionesItems
-            // 
-            this.dataGridDevolucionesItems.AllowUserToAddRows = false;
-            this.dataGridDevolucionesItems.BackgroundColor = System.Drawing.Color.Azure;
-            this.dataGridDevolucionesItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridDevolucionesItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.dataGridDevolucionesItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridDevolucionesItems.GridColor = System.Drawing.Color.Azure;
-            this.dataGridDevolucionesItems.Location = new System.Drawing.Point(0, 13);
-            this.dataGridDevolucionesItems.Name = "dataGridDevolucionesItems";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridDevolucionesItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridDevolucionesItems.RowHeadersVisible = false;
-            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Azure;
-            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(1);
-            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridDevolucionesItems.Size = new System.Drawing.Size(898, 154);
-            this.dataGridDevolucionesItems.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Identificador de articulo";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Clave de articulo";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre articulo";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Unidades";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Total";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 150;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.dataGridVentasItems);
@@ -1670,16 +1580,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(898, 194);
             this.panel5.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Ventas";
             // 
             // dataGridVentasItems
             // 
@@ -1751,10 +1651,6 @@
             this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             this.dataGridViewTextBoxColumn25.Width = 150;
             // 
-            // toolTipLimite
-            // 
-            this.toolTipLimite.Tag = "SIn limite: 0";
-            // 
             // panelItemsTop
             // 
             this.panelItemsTop.Controls.Add(this.label5);
@@ -1763,6 +1659,110 @@
             this.panelItemsTop.Name = "panelItemsTop";
             this.panelItemsTop.Size = new System.Drawing.Size(898, 20);
             this.panelItemsTop.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Ventas";
+            // 
+            // panelItemBot
+            // 
+            this.panelItemBot.Controls.Add(this.dataGridDevolucionesItems);
+            this.panelItemBot.Controls.Add(this.label1);
+            this.panelItemBot.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelItemBot.Location = new System.Drawing.Point(0, 194);
+            this.panelItemBot.Name = "panelItemBot";
+            this.panelItemBot.Size = new System.Drawing.Size(898, 167);
+            this.panelItemBot.TabIndex = 7;
+            // 
+            // dataGridDevolucionesItems
+            // 
+            this.dataGridDevolucionesItems.AllowUserToAddRows = false;
+            this.dataGridDevolucionesItems.BackgroundColor = System.Drawing.Color.Azure;
+            this.dataGridDevolucionesItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridDevolucionesItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.dataGridDevolucionesItems.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridDevolucionesItems.GridColor = System.Drawing.Color.Azure;
+            this.dataGridDevolucionesItems.Location = new System.Drawing.Point(0, 13);
+            this.dataGridDevolucionesItems.Name = "dataGridDevolucionesItems";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Azure;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridDevolucionesItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridDevolucionesItems.RowHeadersVisible = false;
+            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Azure;
+            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(1);
+            this.dataGridDevolucionesItems.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridDevolucionesItems.Size = new System.Drawing.Size(898, 154);
+            this.dataGridDevolucionesItems.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Identificador de articulo";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 140;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Clave de articulo";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre articulo";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Unidades";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Total";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 150;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Devoluciones";
+            // 
+            // toolTipLimite
+            // 
+            this.toolTipLimite.Tag = "SIn limite: 0";
             // 
             // FormGeneralsReports
             // 
@@ -1812,13 +1812,13 @@
             this.panelTotalesEITurno.ResumeLayout(false);
             this.panelTotalesEITurno.PerformLayout();
             this.tabPageReporteItems.ResumeLayout(false);
-            this.panelItemBot.ResumeLayout(false);
-            this.panelItemBot.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridDevolucionesItems)).EndInit();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVentasItems)).EndInit();
             this.panelItemsTop.ResumeLayout(false);
             this.panelItemsTop.PerformLayout();
+            this.panelItemBot.ResumeLayout(false);
+            this.panelItemBot.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridDevolucionesItems)).EndInit();
             this.ResumeLayout(false);
 
         }

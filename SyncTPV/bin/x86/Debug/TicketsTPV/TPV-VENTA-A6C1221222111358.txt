@@ -1,0 +1,75 @@
+      ATI Pruebas sucursal tuxtla
+                 Venta
+                 tuxtla
+           RFC:XAXX010101000
+                    
+Folio: A6C1221222111358
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2022-12-22 11:14:15
+                    
+Cliente: Publico en general
+                    
+         * * * Productos * * *
+#  U  Descripcion       Precio  Desc.   Total
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+1 Docena TUBO CPVC HIDRAULICO 1/2
+TPV2566    $30.54  0% $0.00  $30.54MXN
+                    
+                    
+Neto :                       $394.95 MXN
+Descuento :                    $0.00 MXN
+Subtotal :                   $394.95 MXN
+I.V.A. :                      $63.19 MXN
+                    
+Total :                      $458.10 MXN
+Tarjeta de crédito           $500.00 MXN
+Cambio :                      $41.90 MXN
+                    
+                    
+Total de Movimientos: 15
+Total de Articulos: 15
+Usted Ahorro: $0.00
+                    
+Gracias por compar, vuelva pronto y comp
+                re mas!
+                    
+          * * * Original * * *
+22/12/2022 11:14:16 a. m.
+                    
+                    
+                    
+                    
+
+
+
+
+----------------------------------------

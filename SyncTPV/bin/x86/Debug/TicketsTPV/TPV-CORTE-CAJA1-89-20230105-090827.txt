@@ -1,0 +1,74 @@
+      ATI Pruebas sucursal tuxtla
+                    
+                 tuxtla
+           RFC:XAXX010101000
+Caja: CAJA1
+Clave: 89
+Cajero: Pruebas beta
+Fecha y Hora: 2023-01-05 09:08:27
+                    
+            Reporte de Caja
+                    
+    * * * Importe de Apertura * * *
+              Total Ingresado: $0.00 MXN
+* * * Totales por Formas de Cobro * * *
+                    
+> 1 Efectivo = $1044 MXN
+> 5 Monedero electronico = $30.54 MXN
+                     -------------------
+                    Total: $ 1074.54 MXN
+                    
+                                        
+                                        
+         * * Totales Netos * *
+                    
+                 Total a Crédito: $0 MXN
+                    
+          Importe de Apertura: $0.00 MXN
+  Total Vendido y Abonado: $1,074.54 MXN
+                Total Cobrado: $0.00 MXN
+            Total en Ingresos: $0.00 MXN
+                    
+            Total En Caja: $1,074.54 MXN
+                    
+               Total Retirado: $0.00 MXN
+                    
+      ----------------------------
+                 Faltante: $1,074.54 MXN
+                    
+       05/01/2023 09:08:27 a. m.
+            Firma Del Cajero
+                    
+                    
+       __________________________
+                    
+                    
+  * * Errores en syncronizador 182 * *
+Error en 10707114330-1: 10 MXN
+Error en 10707114814: 8661 MXN
+Error en 10707114834-1: 876.1 MXN
+Error en 10707135544: 1.30911e+007 MXN
+Error en 10707140001: 10 MXN
+Error en 10707140048: 50 MXN
+Error en 10707141542: 10 MXN
+Error en 10707144344: 10 MXN
+Error en 10707145037: 10 MXN
+Error en 10707145547: 10 MXN
+Error en 10707153305: 10 MXN
+Error en 10707153518: 10 MXN
+Error en 10707153833: 5.67382e+006 MXN
+Error en 10707154911: 1 MXN
+Error en 10708134033: 44.8 MXN
+Error en 10708134435: 58 MXN
+Error en 10708134632: 2598.4 MXN
+Error en 10708134841: 58 MXN
+Error en 10708141521: 58 MXN
+Error en 10708142837: 44.8 MXN
+Error en 10708144904: 58 MXN
+          Revise su SyncPANEL
+                    
+                    
+
+
+
+----------------------------------------
